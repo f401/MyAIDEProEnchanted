@@ -1983,3 +1983,4 @@ abcd/Zr com/aide/engine/PlainInsn
 abcd/is com/aide/engine/SwitchInsn
 abcd/js com/aide/engine/InvokePolymorphicInsn
 abcd/ks com/aide/engine/ThrowingInsn
+abcd/gs com/aide/engine/Rops

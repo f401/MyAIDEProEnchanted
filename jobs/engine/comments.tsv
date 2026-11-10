@@ -1990,3 +1990,4 @@ m	abcd/bs	j6	(Labcd/Vr;)Labcd/bs;	body: 局部项相同返回自身，否则重�
 m	abcd/bs	VH	()I	body: 返回 寄存器号 + Hw()(宽度) ⇒ 下一个可用寄存器（dx 的 getNextReg）
 m	abcd/bs	FH	(Labcd/bs;)Z	body: 只比较 Hw(Rs 类型) 字段 ⇒ 类型是否相同
 m	abcd/bs	DW	(Labcd/bs;)Z	body: 先 sameType 再比较寄存器号 ⇒ 同号同型
+c	abcd/gs	-	-	body: com/aide/engine/Rops——207 个 Rop 常量 + 按类型/异常表/签名分重的工厂方法

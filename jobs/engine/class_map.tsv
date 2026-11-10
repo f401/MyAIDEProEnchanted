@@ -487,3 +487,4 @@ Zr	com/aide/engine/PlainInsn	body:extends Insn；两个构造 (Rop,结果,类型
 is	com/aide/engine/SwitchInsn	body:extends Insn；字段 au(IntSet=cases) + tp():au 取它 + FH():String 打印 ⇒ switch 指令（dx 的 SwitchInsn）
 js	com/aide/engine/InvokePolymorphicInsn	body:extends CstInsn；构造 (Rop,结果,源表,Ss 类型表,常量) 比普通常量指令多一张 Ss(prototype) ⇒ invoke-polymorphic 指令（dx 同名类）
 ks	com/aide/engine/ThrowingInsn	body:extends Insn；字段 Ss v5(异常类型表) + DW():Ss 取它 + static j6(Ss):String 渲染异常表 ⇒ 可抛异常指令（dx 的 ThrowingInsn）
+gs	com/aide/engine/Rops	body:207 个 public static final es(Rop) 常量 + 一大批静态工厂 (DW/FH/Hw/EQ/J0/J8/QX… 各按 Rs 类型 / Ss 异常表 / Os 签名 分重载) ⇒ 全部 rop 操作的常量与工厂（dx 的 Rops）

@@ -27085,6 +27085,7 @@ c	abcd/Zr	com/aide/engine/PlainInsn	body:extends Insn；两个构造 (Rop,结果
 c	abcd/is	com/aide/engine/SwitchInsn	body:extends Insn；字段 au(IntSet=cases) + tp():au 取它 + FH():String 打印 ⇒ switch 指令（dx 的 SwitchInsn）
 c	abcd/js	com/aide/engine/InvokePolymorphicInsn	body:extends CstInsn；构造 (Rop,结果,源表,Ss 类型表,常量) 比普通常量指令多一张 Ss(prototype) ⇒ invoke-polymorphic 指令（dx 同名类）
 c	abcd/ks	com/aide/engine/ThrowingInsn	body:extends Insn；字段 Ss v5(异常类型表) + DW():Ss 取它 + static j6(Ss):String 渲染异常表 ⇒ 可抛异常指令（dx 的 ThrowingInsn）
+c	abcd/gs	com/aide/engine/Rops	body: com/aide/engine/Rops——207 个 Rop 常量 + 按类型/异常表/签名分重的工厂方法
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
