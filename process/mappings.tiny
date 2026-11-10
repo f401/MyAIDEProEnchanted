@@ -27061,6 +27061,10 @@ c	abcd/_o	com/aide/engine/CatchHandlersWriter	body: com/aide/engine/CatchHandler
 	m	()I	j6	getHandlerCount	body: 先建表再返回 CatchTable.size()
 	m	(Labcd/jp;)V	j6	place	body: 在写出前算好偏移/大小
 	m	(Labcd/jp;Labcd/Lt;)V	j6	writeTo	body: 写出 catch_handler_item 列表
+c	abcd/Zr	com/aide/engine/PlainInsn	body: body:extends Insn；两个构造 (Rop,结果,类型,类型)/(Rop,结果,类型,源表)，没有常量也没有异常表；u7() 有覆盖 ⇒ 普通 rop 指令（dx 的 PlainInsn）
+c	abcd/is	com/aide/engine/SwitchInsn	body: body:extends Insn；字段 au(IntSet=cases) + tp():au 取它 + FH():String 打印 ⇒ switch 指令（dx 的 SwitchInsn）
+c	abcd/js	com/aide/engine/InvokePolymorphicInsn	body: body:extends CstInsn；构造 (Rop,结果,源表,Ss 类型表,常量) 比普通常量指令多一张 Ss(prototype) ⇒ invoke-polymorphic 指令（dx 同名类）
+c	abcd/ks	com/aide/engine/ThrowingInsn	body: body:extends Insn；字段 Ss v5(异常类型表) + DW():Ss 取它 + static j6(Ss):String 渲染异常表 ⇒ 可抛异常指令（dx 的 ThrowingInsn）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

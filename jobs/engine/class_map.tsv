@@ -483,3 +483,7 @@ Cn	com/aide/engine/SignedEncodedMember	body:extends Bn(EncodedMember) 并 implem
 dp	com/aide/engine/ConstantIndexResolver	body:implements Un$a（常量访问者，int j6(ms)）；持有 (ep=CodeItemWriter, jp=DexSectionPlacer)，j6(ms) 里用 jp.j6(ms) 取 up(常量项) 再返回其池下标、取不到返回 -1 ⇒ 给 code_item 写常量索引的访问者
 Un$a	com/aide/engine/Code$ConstantVisitor	iface:唯一方法 j6(ms)I——常量访问者；Code.visitConstants(Un$a) 用它遍历常量，ConstantIndexResolver(dp) 就是实现 ⇒ Code 的常量访问者
 _o	com/aide/engine/CatchHandlersWriter	body:持有 (Rn=CatchTable, byte[], int, Un=Code, TreeMap<Qn,Integer>)；j6():int 返回 handler 个数、DW():int = 个数*8+字节数、FH() 建字节、j6(jp,Lt) 写出 ⇒ code_item 里 catch_handler_item 的去重与写出（被 CodeItemWriter 持有）
+Zr	com/aide/engine/PlainInsn	body:extends Insn；两个构造 (Rop,结果,类型,类型)/(Rop,结果,类型,源表)，没有常量也没有异常表；u7() 有覆盖 ⇒ 普通 rop 指令（dx 的 PlainInsn）
+is	com/aide/engine/SwitchInsn	body:extends Insn；字段 au(IntSet=cases) + tp():au 取它 + FH():String 打印 ⇒ switch 指令（dx 的 SwitchInsn）
+js	com/aide/engine/InvokePolymorphicInsn	body:extends CstInsn；构造 (Rop,结果,源表,Ss 类型表,常量) 比普通常量指令多一张 Ss(prototype) ⇒ invoke-polymorphic 指令（dx 同名类）
+ks	com/aide/engine/ThrowingInsn	body:extends Insn；字段 Ss v5(异常类型表) + DW():Ss 取它 + static j6(Ss):String 渲染异常表 ⇒ 可抛异常指令（dx 的 ThrowingInsn）

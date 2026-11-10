@@ -28502,6 +28502,10 @@ abcd/_o com/aide/engine/CatchHandlersWriter
 	j6 ()I getHandlerCount
 	j6 (Labcd/jp;)V place
 	j6 (Labcd/jp;Labcd/Lt;)V writeTo
+abcd/Zr com/aide/engine/PlainInsn
+abcd/is com/aide/engine/SwitchInsn
+abcd/js com/aide/engine/InvokePolymorphicInsn
+abcd/ks com/aide/engine/ThrowingInsn
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

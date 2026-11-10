@@ -1966,3 +1966,7 @@ m	abcd/Nr	gn	()Labcd/au;	str: 返回 FH(successors)；空时抛 "successors == n
 m	abcd/Nr	Hw	()Labcd/Ur;	str: 返回 DW(insns)；校验串 "insns == null" / "insns.size() == 0"
 m	abcd/Or	v5	(I)Labcd/Nr;	str: 按 label 查表取块；查不到抛 "no such label:"
 m	abcd/cu	DW	()I	iface: getLabel——取标签
+c	abcd/Zr	-	-	body: body:extends Insn；两个构造 (Rop,结果,类型,类型)/(Rop,结果,类型,源表)，没有常量也没有异常表；u7() 有覆盖 ⇒ 普通 rop 指令（dx 的 PlainInsn）
+c	abcd/is	-	-	body: body:extends Insn；字段 au(IntSet=cases) + tp():au 取它 + FH():String 打印 ⇒ switch 指令（dx 的 SwitchInsn）
+c	abcd/js	-	-	body: body:extends CstInsn；构造 (Rop,结果,源表,Ss 类型表,常量) 比普通常量指令多一张 Ss(prototype) ⇒ invoke-polymorphic 指令（dx 同名类）
+c	abcd/ks	-	-	body: body:extends Insn；字段 Ss v5(异常类型表) + DW():Ss 取它 + static j6(Ss):String 渲染异常表 ⇒ 可抛异常指令（dx 的 ThrowingInsn）
