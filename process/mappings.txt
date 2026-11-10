@@ -27961,6 +27961,9 @@ abcd/Wn com/aide/engine/InstructionBlock
 	FH outsSize
 abcd/Le com/aide/ui/build/RunTargetImpl
 abcd/bs com/aide/engine/RegisterSpec
+	Hw ()I getReg
+	J8 ()Labcd/Rs; getType
+	Zo ()Labcd/Vr; getLocal
 abcd/bs$a com/aide/engine/RegisterSpec$Key
 abcd/Wm com/aide/engine/TypeInfoImpl
 abcd/Qt$a com/aide/engine/CodeWriterImpl$Label
@@ -28216,6 +28219,12 @@ abcd/Ap com/aide/engine/MethodAnnotations
 abcd/Hp com/aide/engine/MethodAnnotationsDirectory
 abcd/ln com/aide/engine/ClassFileReader
 abcd/es com/aide/engine/Rop
+	DW ()I getBranchingness
+	FH ()Ljava/lang/String; getNickname
+	Hw ()I getOpcode
+	VH ()Z isCallLike
+	Zo ()Labcd/Ss; getExceptions
+	v5 ()Labcd/Qs; getType
 abcd/yt com/aide/engine/SsaValue
 abcd/no com/aide/engine/MethodCatches
 	j6 (Labcd/fs;[ILabcd/On;)Labcd/Rn; buildCatchTable
@@ -28272,6 +28281,10 @@ abcd/in com/aide/engine/InstructionDisassembler
 abcd/Tr com/aide/engine/Insn
 	DW ()Labcd/Ss; getCatches
 	FH ()Ljava/lang/String; getConstantText
+	Zo ()Labcd/hs; getPosition
+	gn ()Labcd/cs; getSources
+	v5 ()Labcd/es; getRop
+	VH ()Labcd/bs; getResult
 abcd/ds com/aide/engine/TypeListBuilder
 abcd/Fs com/aide/engine/DexMemberReference
 	VH ()Labcd/Ks; getDefiningClass

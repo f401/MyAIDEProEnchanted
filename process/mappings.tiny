@@ -26528,6 +26528,9 @@ c	abcd/Wn	com/aide/engine/InstructionBlock	body: com/aide/engine/InstructionBloc
 	f	I	FH	outsSize	body: 本块对外调用所需的最大出参字数
 c	abcd/Le	com/aide/ui/build/RunTargetImpl	body: com/aide/ui/build/RunTargetImpl——运行目标实现（本工程唯一 RunTarget 实现）
 c	abcd/bs	com/aide/engine/RegisterSpec	body:implements Rs(TypeBearer)+lu+Comparable；static HashMap 驻留表 + 私有键 bs$a；字段 (int 寄存器号, Rs 类型, Vr 局部项)；DW(int
+	m	()I	Hw	getReg	body: 返回寄存器号
+	m	()Labcd/Rs;	J8	getType	body: 返回 Rs(TypeBearer) ⇒ 该寄存器的类型
+	m	()Labcd/Vr;	Zo	getLocal	body: 返回 Vr(局部项)
 c	abcd/bs$a	com/aide/engine/RegisterSpec$Key	body:字段 Rs + Vr + int，equals/hashCode，且 j6() 能反查回 bs ⇒ RegisterSpec 驻留表的键
 c	abcd/Wm	com/aide/engine/TypeInfoImpl	body: com/aide/engine/TypeInfoImpl——TypeInfo 的纯值实现（无池）
 c	abcd/Qt$a	com/aide/engine/CodeWriterImpl$Label	body: com/aide/engine/CodeWriterImpl$Label——写出器的标号/修补记录（可变偏移 + 标签名）
@@ -26783,6 +26786,12 @@ c	abcd/Ap	com/aide/engine/MethodAnnotations	str: com/aide/engine/MethodAnnotatio
 c	abcd/Hp	com/aide/engine/MethodAnnotationsDirectory	str: com/aide/engine/MethodAnnotationsDirectory——方法注解目录
 c	abcd/ln	com/aide/engine/ClassFileReader	str: com/aide/engine/ClassFileReader——class 文件读取
 c	abcd/es	com/aide/engine/Rop	body:字段 (int opcode, Qs type, Ss exceptions, Ss, int branchingness, boolean, String nickname)；字符串 "exceptions 
+	m	()I	DW	getBranchingness	body: 返回 v5(int) ⇒ rop 的分支性（dx 的 branchingness）
+	m	()Ljava/lang/String;	FH	getNickname	body: 返回 VH(字符串) ⇒ 操作别名
+	m	()I	Hw	getOpcode	body: 返回 j6(opcode 编号)
+	m	()Z	VH	isCallLike	body: 返回 Zo(boolean) ⇒ 是否调用类操作（dx Rop 的 isCallLike）
+	m	()Labcd/Ss;	Zo	getExceptions	body: 返回 FH(Ss=类型表) ⇒ 可抛的异常类型表
+	m	()Labcd/Qs;	v5	getType	body: 返回 DW(Qs=类型) ⇒ 结果类型
 c	abcd/yt	com/aide/engine/SsaValue	str: com/aide/engine/SsaValue——SSA 值的 use/def 表
 c	abcd/no	com/aide/engine/MethodCatches	body: com/aide/engine/MethodCatches——从 RopMethod 算 catch table（implements Catches）
 	m	(Labcd/fs;[ILabcd/On;)Labcd/Rn;	j6	buildCatchTable	body: 按 order 顺序扫块，收集异常边并合成 Rn(CatchTable)；ArrayList 预分配 order.length ⇒ 公开的建表入口（build() 就调它）
@@ -26837,6 +26846,10 @@ c	abcd/in	com/aide/engine/InstructionDisassembler	str: com/aide/engine/Instructi
 c	abcd/Tr	com/aide/engine/Insn	body:abstract；字段 es(Rop 操作) + hs(源位置 SourcePosition) + bs(结果寄存器 RegisterSpec) + cs(源寄存器表 RegisterSpecList)；DW():Ss 取异常类型表、j6(Qs) 加重捕获、j6(Tr$b) 是访问者、v5():e
 	m	()Labcd/Ss;	DW	getCatches	body: getCatches——返回异常类型表(Ss=TypeList)；ThrowingInsn 覆盖
 	m	()Ljava/lang/String;	FH	getConstantText	body: getConstantText——基类返回 null；CstInsn 覆盖为 constant.toHuman()
+	m	()Labcd/hs;	Zo	getPosition	body: 返回 DW(SourcePosition) ⇒ 源位置
+	m	()Labcd/cs;	gn	getSources	body: 返回 Hw(RegisterSpecList) ⇒ 源寄存器表
+	m	()Labcd/es;	v5	getRop	body: 返回 j6(Rop) ⇒ 所属操作
+	m	()Labcd/bs;	VH	getResult	body: 返回 FH(RegisterSpec) ⇒ 结果寄存器
 c	abcd/ds	com/aide/engine/TypeListBuilder	body: 可变的类型表（TypeList 的构建态），空实例 DW
 c	abcd/Fs	com/aide/engine/DexMemberReference	body: 成员引用基类——定义类 + 名字描述符对；构造做空检查（"definingClass == null"/"nat == null"），aM() 拼 定义类.成员
 	m	()Labcd/Ks;	VH	getDefiningClass	body: 返回 j6(定义类)；qs/vs 里用来取定义类

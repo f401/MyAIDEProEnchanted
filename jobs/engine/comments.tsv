@@ -1970,3 +1970,16 @@ c	abcd/Zr	-	-	body:extends Insn；两个构造 (Rop,结果,类型,类型)/(Rop,�
 c	abcd/is	-	-	body:extends Insn；字段 au(IntSet=cases) + tp():au 取它 + FH():String 打印 ⇒ switch 指令（dx 的 SwitchInsn）
 c	abcd/js	-	-	body:extends CstInsn；构造 (Rop,结果,源表,Ss 类型表,常量) 比普通常量指令多一张 Ss(prototype) ⇒ invoke-polymorphic 指令（dx 同名类）
 c	abcd/ks	-	-	body:extends Insn；字段 Ss v5(异常类型表) + DW():Ss 取它 + static j6(Ss):String 渲染异常表 ⇒ 可抛异常指令（dx 的 ThrowingInsn）
+m	abcd/es	DW	()I	body: 返回 v5(int) ⇒ rop 的分支性（dx 的 branchingness）
+m	abcd/es	FH	()Ljava/lang/String;	body: 返回 VH(字符串) ⇒ 操作别名
+m	abcd/es	Hw	()I	body: 返回 j6(opcode 编号)
+m	abcd/es	VH	()Z	body: 返回 Zo(boolean) ⇒ 是否调用类操作（dx Rop 的 isCallLike）
+m	abcd/es	Zo	()Labcd/Ss;	body: 返回 FH(Ss=类型表) ⇒ 可抛的异常类型表
+m	abcd/es	v5	()Labcd/Qs;	body: 返回 DW(Qs=类型) ⇒ 结果类型
+m	abcd/Tr	Zo	()Labcd/hs;	body: 返回 DW(SourcePosition) ⇒ 源位置
+m	abcd/Tr	gn	()Labcd/cs;	body: 返回 Hw(RegisterSpecList) ⇒ 源寄存器表
+m	abcd/Tr	v5	()Labcd/es;	body: 返回 j6(Rop) ⇒ 所属操作
+m	abcd/Tr	VH	()Labcd/bs;	body: 返回 FH(RegisterSpec) ⇒ 结果寄存器
+m	abcd/bs	Hw	()I	body: 返回寄存器号
+m	abcd/bs	J8	()Labcd/Rs;	body: 返回 Rs(TypeBearer) ⇒ 该寄存器的类型
+m	abcd/bs	Zo	()Labcd/Vr;	body: 返回 Vr(局部项)
