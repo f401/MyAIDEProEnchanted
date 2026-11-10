@@ -1812,6 +1812,9 @@ abcd/co com/aide/engine/LocalVariableTable
 	j6 (Labcd/Wn;)Labcd/co; build
 abcd/ip com/aide/engine/DebugInfoItemSection
 	DW (Labcd/jp;Labcd/Lt;)V writeTo0
+	j6 (Labcd/jp;)V place
+	j6 (Labcd/jp;Labcd/Lt;Ljava/lang/String;)V writeTo
+	DW (Labcd/jp;Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B encode
 abcd/vp com/aide/engine/Item
 	Hw ()Labcd/wp; getItemType
 	VH ()I writeSize
@@ -1942,3 +1945,8 @@ abcd/dp com/aide/engine/ConstantIndexResolver
 	j6 (Labcd/ms;)I getIndex
 abcd/Un$a com/aide/engine/Code$ConstantVisitor
 	j6 (Labcd/ms;)I getIndex
+abcd/_o com/aide/engine/CatchHandlersWriter
+	DW ()I getSize
+	j6 ()I getHandlerCount
+	j6 (Labcd/jp;)V place
+	j6 (Labcd/jp;Labcd/Lt;)V writeTo

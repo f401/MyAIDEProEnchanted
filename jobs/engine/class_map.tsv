@@ -482,3 +482,4 @@ Yn	com/aide/engine/OpcodeConstants	body:258 个 static Xn(Opcode) 常量 + stati
 Cn	com/aide/engine/SignedEncodedMember	body:extends Bn(EncodedMember) 并 implements un(MemberWithSignature)；唯一新增字段是 Os(MemberSignature) 与它的 getter ⇒ 带签名的编码成员
 dp	com/aide/engine/ConstantIndexResolver	body:implements Un$a（常量访问者，int j6(ms)）；持有 (ep=CodeItemWriter, jp=DexSectionPlacer)，j6(ms) 里用 jp.j6(ms) 取 up(常量项) 再返回其池下标、取不到返回 -1 ⇒ 给 code_item 写常量索引的访问者
 Un$a	com/aide/engine/Code$ConstantVisitor	iface:唯一方法 j6(ms)I——常量访问者；Code.visitConstants(Un$a) 用它遍历常量，ConstantIndexResolver(dp) 就是实现 ⇒ Code 的常量访问者
+_o	com/aide/engine/CatchHandlersWriter	body:持有 (Rn=CatchTable, byte[], int, Un=Code, TreeMap<Qn,Integer>)；j6():int 返回 handler 个数、DW():int = 个数*8+字节数、FH() 建字节、j6(jp,Lt) 写出 ⇒ code_item 里 catch_handler_item 的去重与写出（被 CodeItemWriter 持有）

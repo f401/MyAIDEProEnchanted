@@ -26914,6 +26914,9 @@ c	abcd/co	com/aide/engine/LocalVariableTable	str: com/aide/engine/LocalVariableT
 	m	(Labcd/Wn;)Labcd/co;	j6	build	body: 遍历指令块，遇到 do/eo 之类的变量起始/结束指令就往 co$c 里塞项，最后建表
 c	abcd/ip	com/aide/engine/DebugInfoItemSection	str: com/aide/engine/DebugInfoItemSection——写 debug_info_item
 	m	(Labcd/jp;Labcd/Lt;)V	DW	writeTo0	body: Gp.DW 的覆盖——写 debug_info_item（用 Un 的位置表/局部表/指令块）
+	m	(Labcd/jp;)V	j6	place	body: Item.place——定位 debug_info_item
+	m	(Labcd/jp;Labcd/Lt;Ljava/lang/String;)V	j6	writeTo	body: 带标签的写出（调试用）
+	m	(Labcd/jp;Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B	DW	encode	body: 用 DebugInfoEncoder 生成 debug_info_item 字节
 c	abcd/vp	com/aide/engine/Item	iface: com/aide/engine/Item——条目类型/写出大小/类型名/place/writeTo
 	m	()Labcd/wp;	Hw	getItemType	body: 返回 wp(MapItemType)——本条目在 map_list 里的类型号
 	m	()I	VH	writeSize	body: 写出字节数（Gp 里未算出时抛 "writeSize is unknown"）
@@ -27044,6 +27047,11 @@ c	abcd/dp	com/aide/engine/ConstantIndexResolver	body: com/aide/engine/ConstantIn
 	m	(Labcd/ms;)I	j6	getIndex	body: 用 jp.j6(常量) 取常量项，取不到返回 -1 ⇒ 常量池下标
 c	abcd/Un$a	com/aide/engine/Code$ConstantVisitor	iface: com/aide/engine/Code$ConstantVisitor——visitConstants 的访问者
 	m	(Labcd/ms;)I	j6	getIndex	iface: getIndex——把常量换成常量池下标（ConstantIndexResolver 实现）
+c	abcd/_o	com/aide/engine/CatchHandlersWriter	body: com/aide/engine/CatchHandlersWriter——catch_handler_item 去重与写出
+	m	()I	DW	getSize	body: handler 个数*8 + 编码字节数 ⇒ 本段的写出大小
+	m	()I	j6	getHandlerCount	body: 先建表再返回 CatchTable.size()
+	m	(Labcd/jp;)V	j6	place	body: 在写出前算好偏移/大小
+	m	(Labcd/jp;Labcd/Lt;)V	j6	writeTo	body: 写出 catch_handler_item 列表
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

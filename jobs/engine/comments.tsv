@@ -1949,3 +1949,11 @@ m	abcd/dp	j6	(Labcd/ms;)I	body: 用 jp.j6(常量) 取常量项，取不到返回
 m	abcd/Un$a	j6	(Labcd/ms;)I	iface: getIndex——把常量换成常量池下标（ConstantIndexResolver 实现）
 c	abcd/Un$a	-	-	iface: com/aide/engine/Code$ConstantVisitor——visitConstants 的访问者
 c	abcd/dp	-	-	body: com/aide/engine/ConstantIndexResolver——把常量换成常量池下标的访问者
+m	abcd/_o	DW	()I	body: handler 个数*8 + 编码字节数 ⇒ 本段的写出大小
+m	abcd/_o	j6	()I	body: 先建表再返回 CatchTable.size()
+m	abcd/_o	j6	(Labcd/jp;)V	body: 在写出前算好偏移/大小
+m	abcd/_o	j6	(Labcd/jp;Labcd/Lt;)V	body: 写出 catch_handler_item 列表
+m	abcd/ip	j6	(Labcd/jp;)V	body: Item.place——定位 debug_info_item
+m	abcd/ip	j6	(Labcd/jp;Labcd/Lt;Ljava/lang/String;)V	body: 带标签的写出（调试用）
+m	abcd/ip	DW	(Labcd/jp;Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B	body: 用 DebugInfoEncoder 生成 debug_info_item 字节
+c	abcd/_o	-	-	body: com/aide/engine/CatchHandlersWriter——catch_handler_item 去重与写出
