@@ -808,7 +808,7 @@ abcd/hs com/aide/engine/SourcePosition
 abcd/cs com/aide/engine/RegisterSpecList
 abcd/Lt com/aide/engine/CodeWriter
 abcd/Zn com/aide/engine/FixedInstruction
-abcd/Vr com/aide/engine/ReferencePair
+abcd/Vr com/aide/engine/LocalItem
 abcd/ku com/aide/engine/ByteOutput
 abcd/Os com/aide/engine/MemberSignature
 abcd/fb com/aide/codemodel/api/BomReaderFactory
@@ -1697,7 +1697,7 @@ abcd/es com/aide/engine/Rop
 	VH ()Z isCallLike
 	Zo ()Labcd/Ss; getExceptions
 	v5 ()Labcd/Qs; getType
-abcd/yt com/aide/engine/SsaValue
+abcd/yt com/aide/engine/SsaMethod
 abcd/no com/aide/engine/MethodCatches
 	j6 (Labcd/fs;[ILabcd/On;)Labcd/Rn; buildCatchTable
 	j6 (Labcd/Nr;Labcd/Nr;Labcd/Qn;Labcd/On;)Labcd/Rn$a; buildEntry
@@ -1987,7 +1987,7 @@ abcd/gs com/aide/engine/Rops
 abcd/Bc com/aide/engine/JavaBinaryLanguage
 abcd/Ie com/aide/ui/util/MavenDependency
 abcd/En com/aide/engine/DexFormat
-abcd/Dt com/aide/engine/SsaBasicBlock
+abcd/Dt com/aide/engine/FirstFitLocalCombiningAllocator
 abcd/Ee com/aide/engine/DomWriter
 abcd/Pp com/aide/engine/TypeIdItem
 abcd/Mp com/aide/engine/StringDataItem
@@ -2029,3 +2029,16 @@ abcd/LB org/eclipse/jgit/api/errors/ConcurrentRefUpdateException
 abcd/XB org/eclipse/jgit/api/errors/NotMergedException
 abcd/_B org/eclipse/jgit/api/errors/UnmergedPathsException
 abcd/QB org/eclipse/jgit/api/errors/InvalidRefNameException
+abcd/tt com/aide/engine/SsaBasicBlock
+abcd/vt com/aide/engine/SsaInsn
+abcd/mt com/aide/engine/NormalSsaInsn
+abcd/ot com/aide/engine/PhiInsn
+abcd/qt com/aide/engine/RegisterMapper
+abcd/It com/aide/engine/RegisterAllocator
+abcd/Ft com/aide/engine/InterferenceGraph
+abcd/Ht com/aide/engine/LivenessAnalyzer
+abcd/Ht$a com/aide/engine/LivenessAnalyzer$NextFunction
+abcd/et com/aide/engine/InterferenceRegisterMapper
+abcd/bu com/aide/engine/IntList
+abcd/_t com/aide/engine/IntIterator
+abcd/Nt com/aide/engine/IntListImpl

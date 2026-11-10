@@ -159,7 +159,7 @@ c	abcd/hs	-	-	body:final (Js 源文件串, int 行号, int 地址) + 静态单�
 c	abcd/cs	-	-	body:extends Xt、implements Ss；get(int):bs(RegisterSpec)、getType(int):Qs、j6(int,bs)/DW(bs)/v5(int)/yS()/rN()、j6
 c	abcd/Lt	-	-	auto: 写出器：Code（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Zn	-	-	auto: 类：FixedInstruction（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Vr	-	-	auto: 类：ReferencePair（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Vr	-	-	body:两字段(DexString name, DexString signature) + static j6(Js,Js)=create + compareTo/equals/hashCode；被 Dt 的 Map 当 localVariables 键 ⇒ dx LocalItem（原 ReferencePair 判错）
 c	abcd/ku	-	-	auto: 类：ByteOutput（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Os	-	-	auto: 类：MemberSignature（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/fb	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/BomReaderFactory（1:1）——createBomReader(InputStream,String)Reader
@@ -1528,7 +1528,7 @@ c	abcd/Ap	-	-	str: com/aide/engine/MethodAnnotations——方法注解表
 c	abcd/Hp	-	-	str: com/aide/engine/MethodAnnotationsDirectory——方法注解目录
 c	abcd/ln	-	-	str: com/aide/engine/ClassFileReader——class 文件读取
 c	abcd/es	-	-	body:字段 (int opcode, Qs type, Ss exceptions, Ss, int branchingness, boolean, String nickname)；字符串 "exceptions 
-c	abcd/yt	-	-	str: com/aide/engine/SsaValue——SSA 值的 use/def 表
+c	abcd/yt	-	-	body:ArrayList<vt>[] + List<vt>[] 即 dx SsaMethod 的 definitionList/useList；static j6(fs,int,boolean)=newFromRopMethod、j6(Or,au)=bitSetFromLabelList；串 "No use list in back mode" 同源 ⇒ 原 SsaValue 判错
 c	abcd/no	-	-	body: com/aide/engine/MethodCatches——从 RopMethod 算 catch table（implements Catches）
 c	abcd/px	-	-	str: com/aide/engine/BinderWrapper——Binder 反射包装
 c	abcd/kk	-	-	str: com/aide/engine/RootInstaller——用 root 静默安装的助手
@@ -1994,7 +1994,7 @@ c	abcd/gs	-	-	body: com/aide/engine/Rops——207 个 Rop 常量 + 按类型/异
 c	abcd/Bc	-	-	hier:extends yd(JavaLanguage)；唯一渲染串是 "Java Binary" ⇒ 语言列表里的「Java 二进制」语言（与 JavaLanguage 同族）
 c	abcd/Ie	-	-	hier:extends Si；常量串 groupId / artifactId / dependency ⇒ Maven 依赖条目（与 MavenDependencyVersion/MavenMetadataXml 同
 c	abcd/En	-	-	body:两个静态 j6 (byte[]→int 判版本、int→String 取版本名)；串 "dex\n" / "035" / "036" ⇒ dex 文件头魔数与版本工具
-c	abcd/Dt	-	-	str:"attempt to add invalid register mapping"；字段 4 个 BitSet + 多个 ArrayList<mt>/<ot> + 寄存器映射表 ⇒ SSA 形式的基本块（前驱/后
+c	abcd/Dt	-	-	body:10 字段与 dx 1.16 FirstFitLocalCombiningAllocator 一一对应：localVariables(LocalItem→List<RegisterSpec>)、moveResultPseudoInsns、invokeRangeInsns、phiInsns、ssaRegsMapped、mapper、paramRangeEnd、…
 c	abcd/Ee	-	-	str:"\t" / "\n" / "UTF8" / "&gt;"；方法 j6(org.w3c.dom.Document, Writer/OutputStream) + 私有 j6(Node,Writer,int,Str
 c	abcd/Pp	-	-	body:extends tp(同族 id 项基类)；串 "descriptor_idx:"；Hw() 返回 wp(类型 id 项) ⇒ dex 的 type_id_item（与 FieldIdItem/MethodId
 c	abcd/Mp	-	-	body:extends Gp(DexSection)；构造吃 Js(DexString)、串 "utf16_size:" ⇒ dex 的 string_data_item（utf16 长度 + MUTF-8 数据）
@@ -2036,3 +2036,16 @@ c	abcd/LB	-	-	body:构造 (String, Labcd/ME=Ref, Labcd/RE$a=RefUpdate$Result) + 
 c	abcd/XB	-	-	body:唯一无参构造，构造体里读 JGitText.notMergedExceptionMessage ⇒ jgit 的 NotMergedException（消息键由 ctor 本体定死，不看 throw 点）
 c	abcd/_B	-	-	body:唯一无参构造，构造体里读 JGitText.unmergedPaths ⇒ jgit 的 UnmergedPathsException（消息键由 ctor 本体定死）
 c	abcd/QB	-	-	body:唯一构造 (String)；CreateBranchCommand/CheckoutCommand 传 JGitText.branchNameInvalid（name==null?"<null>":name）⇒ jgit 的 InvalidRefNameException
+c	abcd/tt	-	-	body:static j6(fs RopMethod,int,yt)=newFromRopBlock；ArrayList<vt> insns、ArrayList<tt> 前驱、bu 后继 IntList、IntSet liveIn/liveOut、Comparator LABEL_COMPARATOR ⇒ dx SsaBasicBlock
+c	abcd/vt	-	-	body:abstract implements ToHuman(lu)；字段 tt block + bs result；static j6(Tr,tt)=makeFromRop、DW(qt RegisterMapper)=mapSourceRegisters、gn() 取 rop insn ⇒ dx SsaInsn
+c	abcd/mt	-	-	body:extends vt，唯一字段 Tr(Insn)，FH() 返回自身 result、j6(cs) 改 sources、j6(int,bs) 改 result ⇒ dx NormalSsaInsn
+c	abcd/ot	-	-	body:extends vt，字段 int ropResultReg + ArrayList<ot$a> operands + cs sources；j6(int,yt) 取前驱、j6(yt) 重算 sources ⇒ dx PhiInsn
+c	abcd/qt	-	-	body:abstract；j6():int=getRegCount、abstract j6(bs)=map、final j6(cs)=map(RegisterSpecList) ⇒ dx RegisterMapper
+c	abcd/It	-	-	body:abstract，(SsaMethod, InterferenceGraph) 构造；protected j6(int)=getDefinitionSpecForSsaReg、j6(vt,bs)=insertMoveBefore ⇒ dx RegisterAllocator
+c	abcd/Ft	-	-	body:ArrayList<bu IntList> 每寄存器一条冲突表；(int) 容量构造、j6(int,int)=add、j6(int,bu)=mergeInterferenceSet、私有 j6(int) 扩容 ⇒ dx InterferenceGraph
+c	abcd/Ht	-	-	body:8 字段与 dx LivenessAnalyzer 一一对应(visitedBlocks/liveOutBlocks/regV/ssaMeth/interference/blockN/statementIndex/nextFunction)；static j6(yt)=constructInterferenceGraph、j6()=run
+c	abcd/Ht$a	-	-	body:Ht 的唯一内部枚举，4 个常量；对应 dx LivenessAnalyzer$NextFunction（liveOutAtBlock/liveInAtStatement 状态机）
+c	abcd/et	-	-	body:extends Ts(RegisterMapper)，ArrayList<IntList> 新寄存器冲突表 + Ft(InterferenceGraph) 旧图 +(Ft,int) 构造 ⇒ dx InterferenceRegisterMapper
+c	abcd/bu	-	-	body:interface add(int) + iterator():_t(hasNext/next:int)；实现只有 Nt(int[]) ⇒ dx IntList 的接口面
+c	abcd/_t	-	-	body:interface hasNext()/next():int，只从 bu.iterator() 返回 ⇒ dx IntIterator
+c	abcd/Nt	-	-	role:bu(IntList) 的唯一实现：int[] 数组 + add/iterator/contains(j6(int):boolean)/合并(j6(bu))；dx 的 IntList 是具体类，AIDE 拆成接口+实现，实现按作用取名

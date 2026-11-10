@@ -133,7 +133,7 @@ hs	com/aide/engine/SourcePosition	body:final (Js 源文件串, int 行号, int �
 cs	com/aide/engine/RegisterSpecList	body:extends Xt、implements Ss；get(int):bs(RegisterSpec)、getType(int):Qs、j6(int,bs)/DW(bs)/v5(int)/yS()/rN()、j6(int,boolean,BitSet) 与 j6(BitSet) 做寄存器重编号 ⇒ 寄存器表（dx 的 RegisterSpecList）；Insn.gn() 返回它
 Lt	com/aide/engine/CodeWriter	iface(extends ku):DW()Z / FH() / Hw()Z / j6()I / j6(int,String) / j6(String) ⇒ 字节码输出接口
 Zn	com/aide/engine/FixedInstruction	abstract:extends Vn；DW()I 与 DW(int)Vn 都是 final（定长操作数数组）、j6(Z)String 渲染、j6(Lt) 写回 ⇒ 定长操作数的指令（mo 是它的具体子类）
-Vr	com/aide/engine/ReferencePair	body:两个 Js 字段 + 私有 ctor + 静态 j6(Js,Js) 做 intern（内部表）+ compareTo/equals/hashCode + 两个 getter ⇒ 引用对
+Vr	com/aide/engine/LocalItem	body:两字段(DexString name, DexString signature) + static j6(Js,Js)=create + compareTo/equals/hashCode；被 Dt 的 Map 当 localVariables 键 ⇒ dx LocalItem（原 ReferencePair 判错）
 ku	com/aide/engine/ByteOutput	iface(extends Tt):write(byte[]) / writeByte(int) / DW(int) / FH(int) / Hw(int) / j6(int) / j6(Pt) / v5() ⇒ 字节输出流
 Os	com/aide/engine/MemberSignature	body:static HashMap 做 **intern 表**；私有 ctor(String 名字, Qs 类型, Ps 方法类型) + 静态 DW(String)Qs[] 解析 + compareTo ⇒ 成员签名（名字+类型/方法类型）
 fb	com/aide/codemodel/api/BomReaderFactory	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/BomReaderFactory——1:1 方法、形状全等（命中 1）：createBomReader(InputStream,String)Reader ↔ 本类 j6(InputStream,String)Reader；实现者 c$b$g ⇒ 按 BOM/编码把字节流开成 Reader 的工厂（此前叫 ReaderProvider）
@@ -349,7 +349,7 @@ Ap	com/aide/engine/MethodAnnotations	str:"      method_idx:      " / "      anno
 Hp	com/aide/engine/MethodAnnotationsDirectory	str:"      method_idx:      " / "      annotations_off: " / "annotationsList == null" ⇒ 方法注解目录
 ln	com/aide/engine/ClassFileReader	str:"s_count: " / "access_flags: " / "attributeFactory == null" / "cf == null" ⇒ class 文件读取
 es	com/aide/engine/Rop	body:字段 (int opcode, Qs type, Ss exceptions, Ss, int branchingness, boolean, String nickname)；字符串 "exceptions / branchingness mismatch" / "bogus branchingness" 正是 dx Rop 的构造校验 ⇒ rop 指令的「操作」元信息（dx 的 Rop）
-yt	com/aide/engine/SsaValue	str:"No use list in back mode" / "No def list in back mode" / "use not found" / "must be called at most once" ⇒ SSA 值的 use/def 表
+yt	com/aide/engine/SsaMethod	body:ArrayList<vt>[] + List<vt>[] 即 dx SsaMethod 的 definitionList/useList；static j6(fs,int,boolean)=newFromRopMethod、j6(Or,au)=bitSetFromLabelList；串 "No use list in back mode" 同源 ⇒ 原 SsaValue 判错
 no	com/aide/engine/MethodCatches	body:implements Pn(Catches)；字段 (fs=RopMethod, int[] order, On=块地址表)；静态 j6(fs,order,addresses) 遍历块的后继/异常边产出 Rn(CatchTable)，另有 j6(Nr,On):Qn 造 handler 表、j6(Nr,Nr,Qn,On):Rn$a 造区间项 ⇒ 从一个 RopMethod 算出捕获表（旧名 BlockAddresses 是错的：块地址表是 On）
 px	com/aide/engine/BinderWrapper	str:"Could not access the field in remoteBinder." / "Binder object is null." / "IObjectWrapper declared field not private!" ⇒ Binder 反射包装
 kk	com/aide/engine/RootInstaller	str:"pm install -r data/data/aidepro.top/cache/rootinstall.apk" / "signatures do not match previously" / "pm: exited with " ⇒ 用 root 静默安装的助手
@@ -491,7 +491,7 @@ gs	com/aide/engine/Rops	body:207 个 public static final es(Rop) 常量 + 一大
 Bc	com/aide/engine/JavaBinaryLanguage	hier:extends yd(JavaLanguage)；唯一渲染串是 "Java Binary" ⇒ 语言列表里的「Java 二进制」语言（与 JavaLanguage 同族）
 Ie	com/aide/ui/util/MavenDependency	hier:extends Si；常量串 groupId / artifactId / dependency ⇒ Maven 依赖条目（与 MavenDependencyVersion/MavenMetadataXml 同族）
 En	com/aide/engine/DexFormat	body:两个静态 j6 (byte[]→int 判版本、int→String 取版本名)；串 "dex\n" / "035" / "036" ⇒ dex 文件头魔数与版本工具
-Dt	com/aide/engine/SsaBasicBlock	str:"attempt to add invalid register mapping"；字段 4 个 BitSet + 多个 ArrayList<mt>/<ot> + 寄存器映射表 ⇒ SSA 形式的基本块（前驱/后继/phi/insn 集合）
+Dt	com/aide/engine/FirstFitLocalCombiningAllocator	body:10 字段与 dx 1.16 FirstFitLocalCombiningAllocator 一一对应：localVariables(LocalItem→List<RegisterSpec>)、moveResultPseudoInsns、invokeRangeInsns、phiInsns、ssaRegsMapped、mapper、paramRangeEnd、…
 Ee	com/aide/engine/DomWriter	str:"\t" / "\n" / "UTF8" / "&gt;"；方法 j6(org.w3c.dom.Document, Writer/OutputStream) + 私有 j6(Node,Writer,int,String) 递归 ⇒ 把 DOM 文档序列化成 XML（带实体转义）
 Pp	com/aide/engine/TypeIdItem	body:extends tp(同族 id 项基类)；串 "descriptor_idx:"；Hw() 返回 wp(类型 id 项) ⇒ dex 的 type_id_item（与 FieldIdItem/MethodIdItem/ProtoIdItem/StringIdItem 同一族）
 Mp	com/aide/engine/StringDataItem	body:extends Gp(DexSection)；构造吃 Js(DexString)、串 "utf16_size:" ⇒ dex 的 string_data_item（utf16 长度 + MUTF-8 数据）
@@ -533,3 +533,16 @@ LB	org/eclipse/jgit/api/errors/ConcurrentRefUpdateException	body:构造 (String,
 XB	org/eclipse/jgit/api/errors/NotMergedException	body:唯一无参构造，构造体里读 JGitText.notMergedExceptionMessage ⇒ jgit 的 NotMergedException（消息键由 ctor 本体定死，不看 throw 点）
 _B	org/eclipse/jgit/api/errors/UnmergedPathsException	body:唯一无参构造，构造体里读 JGitText.unmergedPaths ⇒ jgit 的 UnmergedPathsException（消息键由 ctor 本体定死）
 QB	org/eclipse/jgit/api/errors/InvalidRefNameException	body:唯一构造 (String)；CreateBranchCommand/CheckoutCommand 传 JGitText.branchNameInvalid（name==null?"<null>":name）⇒ jgit 的 InvalidRefNameException
+tt	com/aide/engine/SsaBasicBlock	body:static j6(fs RopMethod,int,yt)=newFromRopBlock；ArrayList<vt> insns、ArrayList<tt> 前驱、bu 后继 IntList、IntSet liveIn/liveOut、Comparator LABEL_COMPARATOR ⇒ dx SsaBasicBlock
+vt	com/aide/engine/SsaInsn	body:abstract implements ToHuman(lu)；字段 tt block + bs result；static j6(Tr,tt)=makeFromRop、DW(qt RegisterMapper)=mapSourceRegisters、gn() 取 rop insn ⇒ dx SsaInsn
+mt	com/aide/engine/NormalSsaInsn	body:extends vt，唯一字段 Tr(Insn)，FH() 返回自身 result、j6(cs) 改 sources、j6(int,bs) 改 result ⇒ dx NormalSsaInsn
+ot	com/aide/engine/PhiInsn	body:extends vt，字段 int ropResultReg + ArrayList<ot$a> operands + cs sources；j6(int,yt) 取前驱、j6(yt) 重算 sources ⇒ dx PhiInsn
+qt	com/aide/engine/RegisterMapper	body:abstract；j6():int=getRegCount、abstract j6(bs)=map、final j6(cs)=map(RegisterSpecList) ⇒ dx RegisterMapper
+It	com/aide/engine/RegisterAllocator	body:abstract，(SsaMethod, InterferenceGraph) 构造；protected j6(int)=getDefinitionSpecForSsaReg、j6(vt,bs)=insertMoveBefore ⇒ dx RegisterAllocator
+Ft	com/aide/engine/InterferenceGraph	body:ArrayList<bu IntList> 每寄存器一条冲突表；(int) 容量构造、j6(int,int)=add、j6(int,bu)=mergeInterferenceSet、私有 j6(int) 扩容 ⇒ dx InterferenceGraph
+Ht	com/aide/engine/LivenessAnalyzer	body:8 字段与 dx LivenessAnalyzer 一一对应(visitedBlocks/liveOutBlocks/regV/ssaMeth/interference/blockN/statementIndex/nextFunction)；static j6(yt)=constructInterferenceGraph、j6()=run
+Ht$a	com/aide/engine/LivenessAnalyzer$NextFunction	body:Ht 的唯一内部枚举，4 个常量；对应 dx LivenessAnalyzer$NextFunction（liveOutAtBlock/liveInAtStatement 状态机）
+et	com/aide/engine/InterferenceRegisterMapper	body:extends Ts(RegisterMapper)，ArrayList<IntList> 新寄存器冲突表 + Ft(InterferenceGraph) 旧图 +(Ft,int) 构造 ⇒ dx InterferenceRegisterMapper
+bu	com/aide/engine/IntList	body:interface add(int) + iterator():_t(hasNext/next:int)；实现只有 Nt(int[]) ⇒ dx IntList 的接口面
+_t	com/aide/engine/IntIterator	body:interface hasNext()/next():int，只从 bu.iterator() 返回 ⇒ dx IntIterator
+Nt	com/aide/engine/IntListImpl	role:bu(IntList) 的唯一实现：int[] 数组 + add/iterator/contains(j6(int):boolean)/合并(j6(bu))；dx 的 IntList 是具体类，AIDE 拆成接口+实现，实现按作用取名
