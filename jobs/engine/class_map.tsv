@@ -480,3 +480,5 @@ _n	com/aide/engine/InstructionSequence	str:"registers.size() == 0"；字段 mo[]
 Po	com/aide/engine/CodecJumbo	body:FormatCodec 子类；4 code unit、1~2 个寄存器、write (Lt,gn(Vn),Tn.J0(),reg)；由 OpcodeConstants 里 255/511/1023/5375 四个常量引用，查 Opcodes 名字表分别是 const-class/jumbo、check-cast/jumbo、new-instance/jumbo、sget/jumbo ⇒ 32 位索引的 jumbo 变体编解码器
 Yn	com/aide/engine/OpcodeConstants	body:258 个 static Xn(Opcode) 常量 + static Xn[] j6 注册表；j6(int) 按操作码编号取、j6(Xn,Fn) 造/取变体 ⇒ 全部操作码实例的常量表（oq=Opcodes 存的是名字/格式/引用种类元信息）
 Cn	com/aide/engine/SignedEncodedMember	body:extends Bn(EncodedMember) 并 implements un(MemberWithSignature)；唯一新增字段是 Os(MemberSignature) 与它的 getter ⇒ 带签名的编码成员
+dp	com/aide/engine/ConstantIndexResolver	body:implements Un$a（常量访问者，int j6(ms)）；持有 (ep=CodeItemWriter, jp=DexSectionPlacer)，j6(ms) 里用 jp.j6(ms) 取 up(常量项) 再返回其池下标、取不到返回 -1 ⇒ 给 code_item 写常量索引的访问者
+Un$a	com/aide/engine/Code$ConstantVisitor	iface:唯一方法 j6(ms)I——常量访问者；Code.visitConstants(Un$a) 用它遍历常量，ConstantIndexResolver(dp) 就是实现 ⇒ Code 的常量访问者

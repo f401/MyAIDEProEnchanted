@@ -1945,3 +1945,7 @@ m	abcd/hp	j6	(Ljava/util/ArrayList;Ljava/util/ArrayList;)V	str: 打 "line_start:
 m	abcd/hp	Hw	(I)V	str: 负数时抛 "Signed value where unsigned required:" ⇒ 写无符号 LEB128
 m	abcd/Cn	v5	()Labcd/Os;	body: 返回 MemberSignature 字段
 c	abcd/Cn	-	-	body: com/aide/engine/SignedEncodedMember——EncodedMember + MemberSignature
+m	abcd/dp	j6	(Labcd/ms;)I	body: 用 jp.j6(常量) 取常量项，取不到返回 -1 ⇒ 常量池下标
+m	abcd/Un$a	j6	(Labcd/ms;)I	iface: getIndex——把常量换成常量池下标（ConstantIndexResolver 实现）
+c	abcd/Un$a	-	-	iface: com/aide/engine/Code$ConstantVisitor——visitConstants 的访问者
+c	abcd/dp	-	-	body: com/aide/engine/ConstantIndexResolver——把常量换成常量池下标的访问者

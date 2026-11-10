@@ -27040,6 +27040,10 @@ c	abcd/Yn	com/aide/engine/OpcodeConstants	body: com/aide/engine/OpcodeConstants�
 	m	(I)Labcd/Xn;	j6	getByOpcode	body: 从 static Xn[] 按操作码编号取实例
 c	abcd/Cn	com/aide/engine/SignedEncodedMember	body: com/aide/engine/SignedEncodedMember——EncodedMember + MemberSignature
 	m	()Labcd/Os;	v5	getSignature	body: 返回 MemberSignature 字段
+c	abcd/dp	com/aide/engine/ConstantIndexResolver	body: com/aide/engine/ConstantIndexResolver——把常量换成常量池下标的访问者
+	m	(Labcd/ms;)I	j6	getIndex	body: 用 jp.j6(常量) 取常量项，取不到返回 -1 ⇒ 常量池下标
+c	abcd/Un$a	com/aide/engine/Code$ConstantVisitor	iface: com/aide/engine/Code$ConstantVisitor——visitConstants 的访问者
+	m	(Labcd/ms;)I	j6	getIndex	iface: getIndex——把常量换成常量池下标（ConstantIndexResolver 实现）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
