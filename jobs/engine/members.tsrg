@@ -804,8 +804,8 @@ abcd/ao com/aide/engine/FormatCodec
 	Zo (I)Z fitsInUnsigned16
 	v5 (I)Z fitsInUnsigned4
 	j6 (I)Z fitsInByte
-abcd/hs com/aide/engine/NamedSpan
-abcd/cs com/aide/engine/ParameterTypeList
+abcd/hs com/aide/engine/SourcePosition
+abcd/cs com/aide/engine/RegisterSpecList
 abcd/Lt com/aide/engine/CodeWriter
 abcd/Zn com/aide/engine/FixedInstruction
 abcd/Vr com/aide/engine/ReferencePair
@@ -1425,8 +1425,8 @@ abcd/Wn com/aide/engine/InstructionBlock
 	rN ()I getCodeSize
 	FH outsSize
 abcd/Le com/aide/ui/build/RunTargetImpl
-abcd/bs com/aide/engine/TypeInfoFactory
-abcd/bs$a com/aide/engine/TypeInfoFactory$Key
+abcd/bs com/aide/engine/RegisterSpec
+abcd/bs$a com/aide/engine/RegisterSpec$Key
 abcd/Wm com/aide/engine/TypeInfoImpl
 abcd/Qt$a com/aide/engine/CodeWriterImpl$Label
 abcd/Jm$a com/aide/engine/ExceptionTable$Entry

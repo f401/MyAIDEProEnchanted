@@ -129,8 +129,8 @@ Vn	com/aide/engine/Instruction	abstract:字段 (Xn, hs, cs)；抽象 DW()I(操�
 ro	com/aide/engine/ZeroSizeInsn	body:abstract extends Vn；DW()I 恒返回 0（写出大小 0）、j6(Lt) 空实现、DW(int) 用 cs.v5(i) 换寄存器 ⇒ dx 的 ZeroSizeInsn（零字节伪指令基类）；子类 CodeAddress / LocalStart / LocalEnd / LocalSnapshot
 Sn	com/aide/engine/CodeAddress	str:渲染串是 "code-address"；extends ZeroSizeInsn、构造只吃 hs、无写出 ⇒ dx 的 CodeAddress（块起始地址伪指令；BlockAddresses 就是拿它当块标签）
 ao	com/aide/engine/FormatCodec	body:abstract；27 个子类各实现一种 dex 格式的 (VH 适用性判定 / j6():int 大小 / j6(Lt,Vn) 写出 / Zo(Vn) 与 j6(Vn,Z) 打印 / FH(Vn):BitSet 读的寄存器)；自身带一批 protected static 的写操作码与格式化辅助 ⇒ 按指令格式的编解码器
-hs	com/aide/engine/NamedSpan	body:final (Js 名字, int, int) + DW(hs)Z 比较 + 静态单例 ⇒ 具名区间（名字+起止）
-cs	com/aide/engine/ParameterTypeList	extends Xt、implements Ss；get(int)bs / j6(bs) / DW(bs) / Hw(int) / er() / 静态 j6(bs[,bs]) ⇒ 参数类型表
+hs	com/aide/engine/SourcePosition	body:final (Js 源文件串, int 行号, int 地址) + 静态单例 j6 + DW(hs)/j6(hs) 比较 + equals/hashCode/toString ⇒ 指令的源位置（dx 的 SourcePosition）；Insn.Zo() 返回的就是它
+cs	com/aide/engine/RegisterSpecList	body:extends Xt、implements Ss；get(int):bs(RegisterSpec)、getType(int):Qs、j6(int,bs)/DW(bs)/v5(int)/yS()/rN()、j6(int,boolean,BitSet) 与 j6(BitSet) 做寄存器重编号 ⇒ 寄存器表（dx 的 RegisterSpecList）；Insn.gn() 返回它
 Lt	com/aide/engine/CodeWriter	iface(extends ku):DW()Z / FH() / Hw()Z / j6()I / j6(int,String) / j6(String) ⇒ 字节码输出接口
 Zn	com/aide/engine/FixedInstruction	abstract:extends Vn；DW()I 与 DW(int)Vn 都是 final（定长操作数数组）、j6(Z)String 渲染、j6(Lt) 写回 ⇒ 定长操作数的指令（mo 是它的具体子类）
 Vr	com/aide/engine/ReferencePair	body:两个 Js 字段 + 私有 ctor + 静态 j6(Js,Js) 做 intern（内部表）+ compareTo/equals/hashCode + 两个 getter ⇒ 引用对
@@ -231,8 +231,8 @@ Qt	com/aide/engine/CodeWriterImpl	body:implements com/aide/engine/CodeWriter(Lt)
 Jm	com/aide/engine/ExceptionTable	body:extends ArrayItem；元素 Jm$a=(start_pc,end_pc,handler_pc,DexType) 四元组，被 abcd/jm(Code 属性) 持有、随 Code 一起写盘 ⇒ class 文件异常表（更正：此前误判为 sparse-switch）
 Wn	com/aide/engine/InstructionBlock	body:extends ArrayItem；静态 j6(ArrayList<Vn>, int) 从指令列表造块，get(int)Vn 取指令、j6(Lt)V 把自己写进 CodeWriter，rN()I/yS()I 给出计数 ⇒ 一段可自写的指令块
 Le	com/aide/ui/build/RunTargetImpl	body:implements abcd/ze(=com/aide/ui/build/RunTarget) 且是**本工程唯一实现**；Zo() 返回 ze$a.FH（枚举第 3 个常量），j6()I 返回图标/编号、j6(String) 设名字、DW/FH/Hw/VH/gn/u7/v5 是各阶段动作 ⇒ 运行目标实现（具体是哪种运行目标需 ze$a 常量名，暂缺）
-bs	com/aide/engine/TypeInfoFactory	body:implements com/aide/engine/TypeInfo(Rs)+lu+Comparable；带 static HashMap<Object,bs> 驻留池与私有键类 bs$a，静态工厂 j6(int,Rs)/DW(int,Rs,Vr)/FH(int,Rs,Vr) 都返回 bs，实例 DW(int)/FH(int) 派生新值 ⇒ TypeInfo 的工厂 + 驻留实现
-bs$a	com/aide/engine/TypeInfoFactory$Key	body:字段 Rs + Vr(ReferencePair) + int，equals/hashCode，且 j6() 能反查出对应的 bs ⇒ 驻留池的键
+bs	com/aide/engine/RegisterSpec	body:implements Rs(TypeBearer)+lu+Comparable；static HashMap 驻留表 + 私有键 bs$a；字段 (int 寄存器号, Rs 类型, Vr 局部项)；DW(int)/FH(int) 换寄存器、j6(Rs) 换类型、j6(Vr) 换局部项、DW(bs)/FH(bs) 比较 ⇒ 单个寄存器的规格（dx 的 RegisterSpec）
+bs$a	com/aide/engine/RegisterSpec$Key	body:字段 Rs + Vr + int，equals/hashCode，且 j6() 能反查回 bs ⇒ RegisterSpec 驻留表的键
 Wm	com/aide/engine/TypeInfoImpl	body:implements com/aide/engine/TypeInfo(Rs) 的纯值实现：只有 int + 构造器，Mr()/U2()/a8()/getType() 取各字段，equals/hashCode；**没有** bs 那样的静态池 ⇒ TypeInfo 的值对象
 Qt$a	com/aide/engine/CodeWriterImpl$Label	body:字段 int id + 可变 int 偏移 + String 标签名；构造 (int,int,String)/(int,String)，setter j6(int)/DW(int) 改偏移 ⇒ 写出器里的标号/修补记录
 Jm$a	com/aide/engine/ExceptionTable$Entry	body:字段 int×3 + abcd/Ks(DexType)；构造 (int,int,int,Ks)，j6(int)Z 比较 + 四个 getter ⇒ 异常表的 try/catch 条目

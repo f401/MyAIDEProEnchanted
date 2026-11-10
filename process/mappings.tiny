@@ -25906,8 +25906,8 @@ c	abcd/ao	com/aide/engine/FormatCodec	body: com/aide/engine/FormatCodec——按
 	m	(I)Z	Zo	fitsInUnsigned16	body: (v & 65535) == v ⇒ 无符号 16 位
 	m	(I)Z	v5	fitsInUnsigned4	body: (v & 15) == v ⇒ 无符号 4 位（寄存器编号 < 16）
 	m	(I)Z	j6	fitsInByte	body: (byte)v == v ⇒ 有符号 8 位（lit8 类）
-c	abcd/hs	com/aide/engine/NamedSpan	auto: 类：NamedSpan（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/cs	com/aide/engine/ParameterTypeList	auto: 类：ParameterTypeList（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/hs	com/aide/engine/SourcePosition	body:final (Js 源文件串, int 行号, int 地址) + 静态单例 j6 + DW(hs)/j6(hs) 比较 + equals/hashCode/toString ⇒ 指令的源位置（dx 的 Sou
+c	abcd/cs	com/aide/engine/RegisterSpecList	body:extends Xt、implements Ss；get(int):bs(RegisterSpec)、getType(int):Qs、j6(int,bs)/DW(bs)/v5(int)/yS()/rN()、j6
 c	abcd/Lt	com/aide/engine/CodeWriter	auto: 写出器：Code（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Zn	com/aide/engine/FixedInstruction	auto: 类：FixedInstruction（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Vr	com/aide/engine/ReferencePair	auto: 类：ReferencePair（上游未收录，名字来自 jobs/engine 的判据）
@@ -26527,8 +26527,8 @@ c	abcd/Wn	com/aide/engine/InstructionBlock	body: com/aide/engine/InstructionBloc
 	m	()I	rN	getCodeSize	body: 取最后一条指令的 getNextAddress() ⇒ 代码总长
 	f	I	FH	outsSize	body: 本块对外调用所需的最大出参字数
 c	abcd/Le	com/aide/ui/build/RunTargetImpl	body: com/aide/ui/build/RunTargetImpl——运行目标实现（本工程唯一 RunTarget 实现）
-c	abcd/bs	com/aide/engine/TypeInfoFactory	body: com/aide/engine/TypeInfoFactory——TypeInfo 的工厂 + 驻留实现（静态工厂 + HashMap 池 + 键类）
-c	abcd/bs$a	com/aide/engine/TypeInfoFactory$Key	body: com/aide/engine/TypeInfoFactory$Key——驻留池的键（TypeInfo + ReferencePair + int）
+c	abcd/bs	com/aide/engine/RegisterSpec	body:implements Rs(TypeBearer)+lu+Comparable；static HashMap 驻留表 + 私有键 bs$a；字段 (int 寄存器号, Rs 类型, Vr 局部项)；DW(int
+c	abcd/bs$a	com/aide/engine/RegisterSpec$Key	body:字段 Rs + Vr + int，equals/hashCode，且 j6() 能反查回 bs ⇒ RegisterSpec 驻留表的键
 c	abcd/Wm	com/aide/engine/TypeInfoImpl	body: com/aide/engine/TypeInfoImpl——TypeInfo 的纯值实现（无池）
 c	abcd/Qt$a	com/aide/engine/CodeWriterImpl$Label	body: com/aide/engine/CodeWriterImpl$Label——写出器的标号/修补记录（可变偏移 + 标签名）
 c	abcd/Jm$a	com/aide/engine/ExceptionTable$Entry	body: 异常表条目——int×3 + DexType
@@ -26782,7 +26782,7 @@ c	abcd/mp	com/aide/engine/EncodedItem	body: 编码成员基类——访问标志
 c	abcd/Ap	com/aide/engine/MethodAnnotations	str: com/aide/engine/MethodAnnotations——方法注解表
 c	abcd/Hp	com/aide/engine/MethodAnnotationsDirectory	str: com/aide/engine/MethodAnnotationsDirectory——方法注解目录
 c	abcd/ln	com/aide/engine/ClassFileReader	str: com/aide/engine/ClassFileReader——class 文件读取
-c	abcd/es	com/aide/engine/Rop	body: body:字段 (int opcode, Qs type, Ss exceptions, Ss, int branchingness, boolean, String nickname)；字符串 "exceptions 
+c	abcd/es	com/aide/engine/Rop	body:字段 (int opcode, Qs type, Ss exceptions, Ss, int branchingness, boolean, String nickname)；字符串 "exceptions 
 c	abcd/yt	com/aide/engine/SsaValue	str: com/aide/engine/SsaValue——SSA 值的 use/def 表
 c	abcd/no	com/aide/engine/MethodCatches	body: com/aide/engine/MethodCatches——从 RopMethod 算 catch table（implements Catches）
 	m	(Labcd/fs;[ILabcd/On;)Labcd/Rn;	j6	buildCatchTable	body: 按 order 顺序扫块，收集异常边并合成 Rn(CatchTable)；ArrayList 预分配 order.length ⇒ 公开的建表入口（build() 就调它）
@@ -26834,7 +26834,7 @@ c	abcd/Bn	com/aide/engine/EncodedMember	str/body: com/aide/engine/EncodedMember�
 	f	Labcd/Hs;	FH	nameAndType	body: 名字+描述符对(Hs=DexReference)——FH() 返回它
 	f	Labcd/pn;	Hw	attributes	body: 属性表(pn=DexAttributes)——getAttributes() 返回它
 c	abcd/in	com/aide/engine/InstructionDisassembler	str: com/aide/engine/InstructionDisassembler——反汇编输出（" #"/" //"/" // padding:" 注释格式）
-c	abcd/Tr	com/aide/engine/Insn	body: body:abstract；字段 es(Rop 操作) + hs(结果寄存器) + bs(结果类型) + cs(源寄存器表)；DW():Ss 取异常类型表、j6(Qs) 加重捕获、j6(Tr$b) 是访问者、v5():e
+c	abcd/Tr	com/aide/engine/Insn	body:abstract；字段 es(Rop 操作) + hs(源位置 SourcePosition) + bs(结果寄存器 RegisterSpec) + cs(源寄存器表 RegisterSpecList)；DW():Ss 取异常类型表、j6(Qs) 加重捕获、j6(Tr$b) 是访问者、v5():e
 	m	()Labcd/Ss;	DW	getCatches	body: getCatches——返回异常类型表(Ss=TypeList)；ThrowingInsn 覆盖
 	m	()Ljava/lang/String;	FH	getConstantText	body: getConstantText——基类返回 null；CstInsn 覆盖为 constant.toHuman()
 c	abcd/ds	com/aide/engine/TypeListBuilder	body: 可变的类型表（TypeList 的构建态），空实例 DW
@@ -26933,9 +26933,9 @@ c	abcd/On	com/aide/engine/BlockAddresses	body: com/aide/engine/BlockAddresses—
 c	abcd/do	com/aide/engine/LocalSnapshot	str: com/aide/engine/LocalSnapshot——"local-snapshot"
 	m	()Labcd/ds;	we	getLocals	body: 返回局部变量集合(ds=TypeList 构建态)
 c	abcd/eo	com/aide/engine/LocalStart	str: com/aide/engine/LocalStart——"local-start"
-	m	()Labcd/bs;	we	getLocal	body: 返回该生效点对应的变量(TypeInfo)
+	m	()Labcd/bs;	we	getLocal	body: 返回该生效点对应的寄存器规格(RegisterSpec)
 c	abcd/bo	com/aide/engine/LocalEnd	str: com/aide/engine/LocalEnd——"local-end"
-	m	()Labcd/bs;	we	getLocal	body: 返回该失效点对应的变量(TypeInfo)
+	m	()Labcd/bs;	we	getLocal	body: 返回该失效点对应的寄存器规格(RegisterSpec)
 c	abcd/au	com/aide/engine/IntSet	body: com/aide/engine/IntSet——有序 int 集合（int[] + 计数）
 	m	(I)V	DW	add	body: 先 J8()(throwIfImmutable) + gW()(扩容) 再插入 ⇒ 追加元素
 	m	(I)V	VH	remove	body: 把后面的元素前移一格、计数减一 ⇒ 删除元素
@@ -27061,10 +27061,10 @@ c	abcd/_o	com/aide/engine/CatchHandlersWriter	body: com/aide/engine/CatchHandler
 	m	()I	j6	getHandlerCount	body: 先建表再返回 CatchTable.size()
 	m	(Labcd/jp;)V	j6	place	body: 在写出前算好偏移/大小
 	m	(Labcd/jp;Labcd/Lt;)V	j6	writeTo	body: 写出 catch_handler_item 列表
-c	abcd/Zr	com/aide/engine/PlainInsn	body: body:extends Insn；两个构造 (Rop,结果,类型,类型)/(Rop,结果,类型,源表)，没有常量也没有异常表；u7() 有覆盖 ⇒ 普通 rop 指令（dx 的 PlainInsn）
-c	abcd/is	com/aide/engine/SwitchInsn	body: body:extends Insn；字段 au(IntSet=cases) + tp():au 取它 + FH():String 打印 ⇒ switch 指令（dx 的 SwitchInsn）
-c	abcd/js	com/aide/engine/InvokePolymorphicInsn	body: body:extends CstInsn；构造 (Rop,结果,源表,Ss 类型表,常量) 比普通常量指令多一张 Ss(prototype) ⇒ invoke-polymorphic 指令（dx 同名类）
-c	abcd/ks	com/aide/engine/ThrowingInsn	body: body:extends Insn；字段 Ss v5(异常类型表) + DW():Ss 取它 + static j6(Ss):String 渲染异常表 ⇒ 可抛异常指令（dx 的 ThrowingInsn）
+c	abcd/Zr	com/aide/engine/PlainInsn	body:extends Insn；两个构造 (Rop,结果,类型,类型)/(Rop,结果,类型,源表)，没有常量也没有异常表；u7() 有覆盖 ⇒ 普通 rop 指令（dx 的 PlainInsn）
+c	abcd/is	com/aide/engine/SwitchInsn	body:extends Insn；字段 au(IntSet=cases) + tp():au 取它 + FH():String 打印 ⇒ switch 指令（dx 的 SwitchInsn）
+c	abcd/js	com/aide/engine/InvokePolymorphicInsn	body:extends CstInsn；构造 (Rop,结果,源表,Ss 类型表,常量) 比普通常量指令多一张 Ss(prototype) ⇒ invoke-polymorphic 指令（dx 同名类）
+c	abcd/ks	com/aide/engine/ThrowingInsn	body:extends Insn；字段 Ss v5(异常类型表) + DW():Ss 取它 + static j6(Ss):String 渲染异常表 ⇒ 可抛异常指令（dx 的 ThrowingInsn）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
