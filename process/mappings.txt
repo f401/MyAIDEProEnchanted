@@ -28541,6 +28541,10 @@ abcd/Ts com/aide/engine/SsaRegisterMapper
 abcd/Km com/aide/engine/DalvikOpcodeTable
 abcd/Ns com/aide/engine/ZeroConstants
 abcd/Uv com/aide/engine/ChecksumUtils
+abcd/Mr com/aide/engine/AccessFlags
+abcd/Lp com/aide/engine/SectionStatistics
+abcd/Mn com/aide/engine/ProGuardConfiguration
+abcd/Kn com/aide/engine/ClassFileToDexConverter
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

@@ -502,3 +502,7 @@ Ts	com/aide/engine/SsaRegisterMapper	str:"no mapping specified for register"；�
 Km	com/aide/engine/DalvikOpcodeTable	str:一整条 "00 - nop;01 - aconst_null;02 - iconst_m1;…" 的 dalvik 反汇编名表；static int[] + DW(int):String 取名、j6(int):int 取属性 ⇒ 反汇编用的操作码表
 Ns	com/aide/engine/ZeroConstants	role:唯一方法 public static ms j6(Qs) 按类型造零常量，串 "no zero for type:" ⇒ 各基本类型的零值常量工厂
 Uv	com/aide/engine/ChecksumUtils	role:两个 ThreadLocal<java.util.zip.CRC32/Adler32> + public static String j6(CharSequence) ⇒ 计算并格式化校验和
+Mr	com/aide/engine/AccessFlags	role:全静态 (int)→String/boolean：DW/FH 拼修饰符串（串 "public " / "private " / "protected "）、Hw/VH/Zo/gn 按位判定 ⇒ Java 访问标志解析
+Lp	com/aide/engine/SectionStatistics	role:HashMap<String,Lp$a> 按段名累加；j6(Kp=Item)/j6(vp)/j6(Lt) 三个重载登记，串 "\nstatistics:\n" 输出 ⇒ 各段大小/数量统计
+Mn	com/aide/engine/ProGuardConfiguration	str:"Error with optimize list: " / "optimize and don't optimize lists  are mutually exclusive."；两个 static HashSet<String> + j6(String,String) 加规则、j6(String) 判定 ⇒ ProGuard 的 keep/optimize 名单配置
+Kn	com/aide/engine/ClassFileToDexConverter	str:"can't coerce" / " to " / "...while processing"；静态 j6(String, byte[], Options, Fn): ClassDefItemBuilder，内部走 fs(BasicBlock 方法)/Xr/Jn(注解) ⇒ class 文件字节 → dex ClassDef 的转换入口
