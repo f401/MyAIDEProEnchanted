@@ -26725,6 +26725,13 @@ c	abcd/Gp	com/aide/engine/DexSection	str: com/aide/engine/DexSection——带 of
 c	abcd/Fp	com/aide/engine/DexFileWriter	str: com/aide/engine/DexFileWriter——dex 文件组装/写出
 c	abcd/Hx	com/aide/engine/TryWithResourcesDesugaring	str: com/aide/engine/TryWithResourcesDesugaring——try-with-resources 脱糖策略
 c	abcd/Nr	com/aide/engine/BasicBlock	str: com/aide/engine/BasicBlock——控制流基本块
+	m	()I	DW	getLabel	body: 返回 j6(label)；实现 LabeledItem.getLabel
+	m	()I	Zo	getPrimarySuccessor	str: 返回 Hw；构造时校验 "primarySuccessor < -1" / "not in successors"
+	m	()Labcd/Tr;	FH	getFirstInsn	body: insns.get(0) ⇒ 首指令
+	m	()Labcd/Tr;	v5	getLastInsn	body: insns.rN()（最后一条）⇒ 末指令；"insns does not end with a branch or throwing instruction" 就是在校验它
+	m	()I	VH	getSecondarySuccessor	str: 后继数为 2 时取 successors.get(1)，否则抛 "block doesn't have exactly two successors"
+	m	()Labcd/au;	gn	getSuccessors	str: 返回 FH(successors)；空时抛 "successors == null"
+	m	()Labcd/Ur;	Hw	getInsns	str: 返回 DW(insns)；校验串 "insns == null" / "insns.size() == 0"
 c	abcd/Om	com/aide/engine/Frame	str: com/aide/engine/Frame——栈帧
 c	abcd/bp	com/aide/engine/ClassDefItemBuilder	str: com/aide/engine/ClassDefItemBuilder——class_def 条目构造/打印
 c	abcd/Kp	com/aide/engine/DexItem	str: com/aide/engine/DexItem——带对齐与文件偏移的 dex 条目基类
@@ -26937,9 +26944,11 @@ c	abcd/au	com/aide/engine/IntSet	body: com/aide/engine/IntSet——有序 int �
 	m	()Labcd/au;	lg	copy	body: new au(size) 再逐个加入 ⇒ 复制一份
 c	abcd/Or	com/aide/engine/BasicBlockList	body: com/aide/engine/BasicBlockList——基本块表
 	m	()Labcd/Or;	gW	copy	body: 直接 new Or(this) ⇒ 复制基本块表
+	m	(I)Labcd/Nr;	v5	labelToBlock	str: 按 label 查表取块；查不到抛 "no such label:"
 c	abcd/du	com/aide/engine/LabeledList	body: com/aide/engine/LabeledList——按 label 索引的表（字段是标签集合）
 	m	()I	rN	getMaxLabel	body: 返回 label 上界+1（fs 用它开前驱数组长度）
 c	abcd/cu	com/aide/engine/LabeledItem	iface: com/aide/engine/LabeledItem——DW() 取标签
+	m	()I	DW	getLabel	iface: getLabel——取标签
 c	abcd/fs	com/aide/engine/RopMethod	body: com/aide/engine/RopMethod——块表 + 参数宽度 + 懒算前驱/出口前驱
 	m	()Labcd/Or;	j6	getBlocks	body: 返回 j6(块表 Or=BasicBlockList)
 	m	(I)Labcd/au;	j6	getPredecessors	body: 懒算前驱后按下标取；为 null 时抛异常（label 无块）

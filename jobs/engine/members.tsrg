@@ -1623,6 +1623,13 @@ abcd/Gp com/aide/engine/DexSection
 abcd/Fp com/aide/engine/DexFileWriter
 abcd/Hx com/aide/engine/TryWithResourcesDesugaring
 abcd/Nr com/aide/engine/BasicBlock
+	DW ()I getLabel
+	Zo ()I getPrimarySuccessor
+	FH ()Labcd/Tr; getFirstInsn
+	v5 ()Labcd/Tr; getLastInsn
+	VH ()I getSecondarySuccessor
+	gn ()Labcd/au; getSuccessors
+	Hw ()Labcd/Ur; getInsns
 abcd/Om com/aide/engine/Frame
 abcd/bp com/aide/engine/ClassDefItemBuilder
 abcd/Kp com/aide/engine/DexItem
@@ -1835,9 +1842,11 @@ abcd/au com/aide/engine/IntSet
 	lg ()Labcd/au; copy
 abcd/Or com/aide/engine/BasicBlockList
 	gW ()Labcd/Or; copy
+	v5 (I)Labcd/Nr; labelToBlock
 abcd/du com/aide/engine/LabeledList
 	rN ()I getMaxLabel
 abcd/cu com/aide/engine/LabeledItem
+	DW ()I getLabel
 abcd/fs com/aide/engine/RopMethod
 	j6 ()Labcd/Or; getBlocks
 	j6 (I)Labcd/au; getPredecessors
