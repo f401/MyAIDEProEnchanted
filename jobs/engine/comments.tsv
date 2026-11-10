@@ -1991,3 +1991,8 @@ m	abcd/bs	VH	()I	body: 返回 寄存器号 + Hw()(宽度) ⇒ 下一个可用寄
 m	abcd/bs	FH	(Labcd/bs;)Z	body: 只比较 Hw(Rs 类型) 字段 ⇒ 类型是否相同
 m	abcd/bs	DW	(Labcd/bs;)Z	body: 先 sameType 再比较寄存器号 ⇒ 同号同型
 c	abcd/gs	-	-	body: com/aide/engine/Rops——207 个 Rop 常量 + 按类型/异常表/签名分重的工厂方法
+c	abcd/Bc	-	-	hier:extends yd(JavaLanguage)；唯一渲染串是 "Java Binary" ⇒ 语言列表里的「Java 二进制」语言（与 JavaLanguage 同族）
+c	abcd/Ie	-	-	hier:extends Si；常量串 groupId / artifactId / dependency ⇒ Maven 依赖条目（与 MavenDependencyVersion/MavenMetadataXml 同
+c	abcd/En	-	-	body:两个静态 j6 (byte[]→int 判版本、int→String 取版本名)；串 "dex\n" / "035" / "036" ⇒ dex 文件头魔数与版本工具
+c	abcd/Dt	-	-	str:"attempt to add invalid register mapping"；字段 4 个 BitSet + 多个 ArrayList<mt>/<ot> + 寄存器映射表 ⇒ SSA 形式的基本块（前驱/后
+c	abcd/Ee	-	-	str:"\t" / "\n" / "UTF8" / "&gt;"；方法 j6(org.w3c.dom.Document, Writer/OutputStream) + 私有 j6(Node,Writer,int,Str

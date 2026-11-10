@@ -1984,3 +1984,8 @@ abcd/is com/aide/engine/SwitchInsn
 abcd/js com/aide/engine/InvokePolymorphicInsn
 abcd/ks com/aide/engine/ThrowingInsn
 abcd/gs com/aide/engine/Rops
+abcd/Bc com/aide/engine/JavaBinaryLanguage
+abcd/Ie com/aide/ui/util/MavenDependency
+abcd/En com/aide/engine/DexFormat
+abcd/Dt com/aide/engine/SsaBasicBlock
+abcd/Ee com/aide/engine/DomWriter
