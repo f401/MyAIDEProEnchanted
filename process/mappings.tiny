@@ -27135,15 +27135,23 @@ c	abcd/Sr	com/aide/engine/MultiCstInsn	body:extends Insn；字段 ArrayList<ms> 
 c	abcd/Tr$b	com/aide/engine/Insn$Visitor	iface:6 个 visit 方法分别收 Sr/Yr/Zr/is/js/ks 六种指令 ⇒ Insn 的访问者（dx 的 Insn$Visitor）
 c	abcd/NB	org/eclipse/jgit/api/errors/GitAPIException	hier:abstract class extends java.lang.Exception；18 个具体子类的公共基类（KB/MB/RB 的构造形状与 jgit api.errors 完全吻合） ⇒ jgit 的 GitAPI
 c	abcd/KB	org/eclipse/jgit/api/errors/CheckoutConflictException	body:唯一构造 (java.util.List<java.lang.String>, abcd.VC) ⇒ jgit 的 CheckoutConflictException(List<String> conflictingPa
-c	abcd/MB	org/eclipse/jgit/api/errors/NoMessageException	body:两个构造 () 与 (String) ⇒ jgit 的 NoMessageException
+c	abcd/MB	org/eclipse/jgit/api/errors/DetachedHeadException	body:无参构造体读 JGitText.detachedHeadDetected + (String) 构造 ⇒ jgit DetachedHeadException；纠正早前 NoMessageException（3.7.1 无无参构造）
 c	abcd/RB	org/eclipse/jgit/api/errors/JGitInternalException	body:两个构造 (String) 与 (String, Throwable)，被大量内部路径抛出 ⇒ jgit 的 JGitInternalException
-c	abcd/IB	org/eclipse/jgit/api/errors/OperationCanceledException	body:唯一构造 (String)；throw 点传入 JGitText.operationCanceled ⇒ jgit 的 OperationCanceledException
+c	abcd/IB	org/eclipse/jgit/api/errors/CanceledException	body:唯一构造 (String)；PullCommand 的 monitor.isCancelled() 分支传 JGitText.operationCanceled ⇒ jgit CanceledException（不是 errors.OperationCanceledException：那是 RuntimeException，继承不到 GitAPIException）
 c	abcd/OB	org/eclipse/jgit/api/errors/InvalidConfigurationException	body:唯一构造 (String)；throw 点传入 JGitText.missingConfigurationForKey ⇒ jgit 的 InvalidConfigurationException
 c	abcd/VB	org/eclipse/jgit/api/errors/NoHeadException	body:唯一构造 (String)；throw 点传 noHEADExistsAndNoExplicitStartingRevisionWasSpecified / cannotRebaseWithoutCurrentHead 
 c	abcd/YB	org/eclipse/jgit/api/errors/RefAlreadyExistsException	body:唯一构造 (String)；throw 点传 JGitText.refAlreadyExists ⇒ jgit 的 RefAlreadyExistsException
 c	abcd/ZB	org/eclipse/jgit/api/errors/RefNotFoundException	body:唯一构造 (String)；throw 点传 JGitText.refNotResolved ⇒ jgit 的 RefNotFoundException
 c	abcd/aC	org/eclipse/jgit/api/errors/WrongRepositoryStateException	body:唯一构造 (String)；throw 点传 JGitText.wrongRepositoryState / cannotCommitOnARepoWithState / cannotPullOnARepoWithSta
 c	abcd/JB	org/eclipse/jgit/api/errors/CannotDeleteCurrentBranchException	body:唯一构造 (String)；throw 点传 JGitText.cannotDeleteCheckedOutBranch ⇒ jgit 的 CannotDeleteCurrentBranchException
+c	abcd/PB	org/eclipse/jgit/api/errors/InvalidMergeHeadsException	body:唯一构造 (String)；MergeCommand 里传 JGitText.mergeStrategyDoesNotSupportHeads ⇒ jgit 的 InvalidMergeHeadsException
+c	abcd/TB	org/eclipse/jgit/api/errors/MultipleParentsNotAllowedException	body:唯一构造 (String)；CherryPickCommand 里传 JGitText.canOnlyCherryPickCommitsWithOneParent ⇒ jgit 的 MultipleParentsNotAllowedException
+c	abcd/UB	org/eclipse/jgit/api/errors/NoFilepatternException	body:唯一构造 (String)；AddCommand/RmCommand 里传 JGitText.atLeastOnePatternIsRequired ⇒ jgit 的 NoFilepatternException
+c	abcd/WB	org/eclipse/jgit/api/errors/NoMessageException	body:唯一构造 (String)；CommitCommand 里传 JGitText.commitMessageNotSpecified ⇒ jgit 的 NoMessageException（3.7.1 该构造只剩 (String)）
+c	abcd/LB	org/eclipse/jgit/api/errors/ConcurrentRefUpdateException	body:构造 (String, Labcd/ME=Ref, Labcd/RE$a=RefUpdate$Result) + 同名两字段；throw 点传 JGitText.couldNotLockHEAD ⇒ jgit 的 ConcurrentRefUpdateException
+c	abcd/XB	org/eclipse/jgit/api/errors/NotMergedException	body:唯一无参构造，构造体里读 JGitText.notMergedExceptionMessage ⇒ jgit 的 NotMergedException（消息键由 ctor 本体定死，不看 throw 点）
+c	abcd/_B	org/eclipse/jgit/api/errors/UnmergedPathsException	body:唯一无参构造，构造体里读 JGitText.unmergedPaths ⇒ jgit 的 UnmergedPathsException（消息键由 ctor 本体定死）
+c	abcd/QB	org/eclipse/jgit/api/errors/InvalidRefNameException	body:唯一构造 (String)；CreateBranchCommand/CheckoutCommand 传 JGitText.branchNameInvalid（name==null?"<null>":name）⇒ jgit 的 InvalidRefNameException
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
