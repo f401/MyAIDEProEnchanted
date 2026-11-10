@@ -2042,3 +2042,5 @@ abcd/et com/aide/engine/InterferenceRegisterMapper
 abcd/bu com/aide/engine/IntList
 abcd/_t com/aide/engine/IntIterator
 abcd/Nt com/aide/engine/IntListImpl
+abcd/Im com/aide/engine/ByteBlockList
+abcd/Hm com/aide/engine/ByteBlock

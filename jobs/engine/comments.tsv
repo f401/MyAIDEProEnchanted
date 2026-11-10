@@ -2049,3 +2049,5 @@ c	abcd/et	-	-	body:extends Ts(RegisterMapper)，ArrayList<IntList> 新寄存器�
 c	abcd/bu	-	-	body:interface add(int) + iterator():_t(hasNext/next:int)；实现只有 Nt(int[]) ⇒ dx IntList 的接口面
 c	abcd/_t	-	-	body:interface hasNext()/next():int，只从 bu.iterator() 返回 ⇒ dx IntIterator
 c	abcd/Nt	-	-	role:bu(IntList) 的唯一实现：int[] 数组 + add/iterator/contains(j6(int):boolean)/合并(j6(bu))；dx 的 IntList 是具体类，AIDE 拆成接口+实现，实现按作用取名
+c	abcd/Im	-	-	body:extends du(LabeledList)；(int) 构造 + get(int):Hm + j6(int,Hm)=set + v5(int)=labelToBlock 四件套与 dx 1.7 ByteBlockList 一一对应；串 "no such label:" 同源
+c	abcd/Hm	-	-	body:5 字段(label/start/end/successors:IntSet/catches:ExceptionTable) + 5 个 getter + toString；串 "label < 0"/"start < 0"/"end <= start"/"targets == null"/"successors["/"] =="/"catches == null" 与 dx 1.7 …

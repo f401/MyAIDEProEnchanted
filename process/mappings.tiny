@@ -27165,6 +27165,8 @@ c	abcd/et	com/aide/engine/InterferenceRegisterMapper	body:extends Ts(RegisterMap
 c	abcd/bu	com/aide/engine/IntList	body:interface add(int) + iterator():_t(hasNext/next:int)；实现只有 Nt(int[]) ⇒ dx IntList 的接口面
 c	abcd/_t	com/aide/engine/IntIterator	body:interface hasNext()/next():int，只从 bu.iterator() 返回 ⇒ dx IntIterator
 c	abcd/Nt	com/aide/engine/IntListImpl	role:bu(IntList) 的唯一实现：int[] 数组 + add/iterator/contains(j6(int):boolean)/合并(j6(bu))；dx 的 IntList 是具体类，AIDE 拆成接口+实现，实现按作用取名
+c	abcd/Im	com/aide/engine/ByteBlockList	body:extends du(LabeledList)；(int) 构造 + get(int):Hm + j6(int,Hm)=set + v5(int)=labelToBlock 四件套与 dx 1.7 ByteBlockList 一一对应；串 "no such label:" 同源
+c	abcd/Hm	com/aide/engine/ByteBlock	body:5 字段(label/start/end/successors:IntSet/catches:ExceptionTable) + 5 个 getter + toString；串 "label < 0"/"start < 0"/"end <= start"/"targets == null"/"successors["/"] =="/"catches == null" 与 dx 1.7 …
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
