@@ -28553,6 +28553,17 @@ abcd/Pr com/aide/engine/CstInsn
 abcd/Yr com/aide/engine/PlainCstInsn
 abcd/Sr com/aide/engine/MultiCstInsn
 abcd/Tr$b com/aide/engine/Insn$Visitor
+abcd/NB org/eclipse/jgit/api/errors/GitAPIException
+abcd/KB org/eclipse/jgit/api/errors/CheckoutConflictException
+abcd/MB org/eclipse/jgit/api/errors/NoMessageException
+abcd/RB org/eclipse/jgit/api/errors/JGitInternalException
+abcd/IB org/eclipse/jgit/api/errors/OperationCanceledException
+abcd/OB org/eclipse/jgit/api/errors/InvalidConfigurationException
+abcd/VB org/eclipse/jgit/api/errors/NoHeadException
+abcd/YB org/eclipse/jgit/api/errors/RefAlreadyExistsException
+abcd/ZB org/eclipse/jgit/api/errors/RefNotFoundException
+abcd/aC org/eclipse/jgit/api/errors/WrongRepositoryStateException
+abcd/JB org/eclipse/jgit/api/errors/CannotDeleteCurrentBranchException
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

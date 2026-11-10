@@ -27112,6 +27112,17 @@ c	abcd/Pr	com/aide/engine/CstInsn	body:abstract extends Insn；字段 ms v5(常�
 c	abcd/Yr	com/aide/engine/PlainCstInsn	body:extends CstInsn；构造 (Rop,结果,类型,源表,常量) ⇒ 只有单个常量的普通常量指令（dx 的 PlainCstInsn）
 c	abcd/Sr	com/aide/engine/MultiCstInsn	body:extends Insn；字段 ArrayList<ms> + ms、EQ():ArrayList 与 tp():ms ⇒ 带多个常量池项的指令（dx 的 MultiCstInsn）
 c	abcd/Tr$b	com/aide/engine/Insn$Visitor	iface:6 个 visit 方法分别收 Sr/Yr/Zr/is/js/ks 六种指令 ⇒ Insn 的访问者（dx 的 Insn$Visitor）
+c	abcd/NB	org/eclipse/jgit/api/errors/GitAPIException	hier:abstract class extends java.lang.Exception；18 个具体子类的公共基类（KB/MB/RB 的构造形状与 jgit api.errors 完全吻合） ⇒ jgit 的 GitAPI
+c	abcd/KB	org/eclipse/jgit/api/errors/CheckoutConflictException	body:唯一构造 (java.util.List<java.lang.String>, abcd.VC) ⇒ jgit 的 CheckoutConflictException(List<String> conflictingPa
+c	abcd/MB	org/eclipse/jgit/api/errors/NoMessageException	body:两个构造 () 与 (String) ⇒ jgit 的 NoMessageException
+c	abcd/RB	org/eclipse/jgit/api/errors/JGitInternalException	body:两个构造 (String) 与 (String, Throwable)，被大量内部路径抛出 ⇒ jgit 的 JGitInternalException
+c	abcd/IB	org/eclipse/jgit/api/errors/OperationCanceledException	body:唯一构造 (String)；throw 点传入 JGitText.operationCanceled ⇒ jgit 的 OperationCanceledException
+c	abcd/OB	org/eclipse/jgit/api/errors/InvalidConfigurationException	body:唯一构造 (String)；throw 点传入 JGitText.missingConfigurationForKey ⇒ jgit 的 InvalidConfigurationException
+c	abcd/VB	org/eclipse/jgit/api/errors/NoHeadException	body:唯一构造 (String)；throw 点传 noHEADExistsAndNoExplicitStartingRevisionWasSpecified / cannotRebaseWithoutCurrentHead 
+c	abcd/YB	org/eclipse/jgit/api/errors/RefAlreadyExistsException	body:唯一构造 (String)；throw 点传 JGitText.refAlreadyExists ⇒ jgit 的 RefAlreadyExistsException
+c	abcd/ZB	org/eclipse/jgit/api/errors/RefNotFoundException	body:唯一构造 (String)；throw 点传 JGitText.refNotResolved ⇒ jgit 的 RefNotFoundException
+c	abcd/aC	org/eclipse/jgit/api/errors/WrongRepositoryStateException	body:唯一构造 (String)；throw 点传 JGitText.wrongRepositoryState / cannotCommitOnARepoWithState / cannotPullOnARepoWithSta
+c	abcd/JB	org/eclipse/jgit/api/errors/CannotDeleteCurrentBranchException	body:唯一构造 (String)；throw 点传 JGitText.cannotDeleteCheckedOutBranch ⇒ jgit 的 CannotDeleteCurrentBranchException
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

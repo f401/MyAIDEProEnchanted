@@ -2017,3 +2017,14 @@ c	abcd/Pr	-	-	body:abstract extends Insn；字段 ms v5(常量) + tp():ms 取它
 c	abcd/Yr	-	-	body:extends CstInsn；构造 (Rop,结果,类型,源表,常量) ⇒ 只有单个常量的普通常量指令（dx 的 PlainCstInsn）
 c	abcd/Sr	-	-	body:extends Insn；字段 ArrayList<ms> + ms、EQ():ArrayList 与 tp():ms ⇒ 带多个常量池项的指令（dx 的 MultiCstInsn）
 c	abcd/Tr$b	-	-	iface:6 个 visit 方法分别收 Sr/Yr/Zr/is/js/ks 六种指令 ⇒ Insn 的访问者（dx 的 Insn$Visitor）
+c	abcd/NB	-	-	hier:abstract class extends java.lang.Exception；18 个具体子类的公共基类（KB/MB/RB 的构造形状与 jgit api.errors 完全吻合） ⇒ jgit 的 GitAPI
+c	abcd/KB	-	-	body:唯一构造 (java.util.List<java.lang.String>, abcd.VC) ⇒ jgit 的 CheckoutConflictException(List<String> conflictingPa
+c	abcd/MB	-	-	body:两个构造 () 与 (String) ⇒ jgit 的 NoMessageException
+c	abcd/RB	-	-	body:两个构造 (String) 与 (String, Throwable)，被大量内部路径抛出 ⇒ jgit 的 JGitInternalException
+c	abcd/IB	-	-	body:唯一构造 (String)；throw 点传入 JGitText.operationCanceled ⇒ jgit 的 OperationCanceledException
+c	abcd/OB	-	-	body:唯一构造 (String)；throw 点传入 JGitText.missingConfigurationForKey ⇒ jgit 的 InvalidConfigurationException
+c	abcd/VB	-	-	body:唯一构造 (String)；throw 点传 noHEADExistsAndNoExplicitStartingRevisionWasSpecified / cannotRebaseWithoutCurrentHead 
+c	abcd/YB	-	-	body:唯一构造 (String)；throw 点传 JGitText.refAlreadyExists ⇒ jgit 的 RefAlreadyExistsException
+c	abcd/ZB	-	-	body:唯一构造 (String)；throw 点传 JGitText.refNotResolved ⇒ jgit 的 RefNotFoundException
+c	abcd/aC	-	-	body:唯一构造 (String)；throw 点传 JGitText.wrongRepositoryState / cannotCommitOnARepoWithState / cannotPullOnARepoWithSta
+c	abcd/JB	-	-	body:唯一构造 (String)；throw 点传 JGitText.cannotDeleteCheckedOutBranch ⇒ jgit 的 CannotDeleteCurrentBranchException
