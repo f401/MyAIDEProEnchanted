@@ -26528,6 +26528,13 @@ c	abcd/Wn	com/aide/engine/InstructionBlock	body: com/aide/engine/InstructionBloc
 	f	I	FH	outsSize	body: 本块对外调用所需的最大出参字数
 c	abcd/Le	com/aide/ui/build/RunTargetImpl	body: com/aide/ui/build/RunTargetImpl——运行目标实现（本工程唯一 RunTarget 实现）
 c	abcd/bs	com/aide/engine/RegisterSpec	body:implements Rs(TypeBearer)+lu+Comparable；static HashMap 驻留表 + 私有键 bs$a；字段 (int 寄存器号, Rs 类型, Vr 局部项)；DW(int
+	m	(I)Labcd/bs;	DW	withRegOffset	body: 参数为 0 返回自身，否则 FH(寄存器号+delta) ⇒ 相对平移寄存器号
+	m	(I)Labcd/bs;	FH	withReg	body: 寄存器号相同返回自身，否则用 (新号, 类型, 局部项) 重新驻留 ⇒ 换寄存器号
+	m	(Labcd/Rs;)Labcd/bs;	j6	withType	body: 用 (原号, 新类型, 原局部项) 重新驻留 ⇒ 换类型
+	m	(Labcd/Vr;)Labcd/bs;	j6	withLocal	body: 局部项相同返回自身，否则重新驻留 ⇒ 换局部项
+	m	()I	VH	getNextReg	body: 返回 寄存器号 + Hw()(宽度) ⇒ 下一个可用寄存器（dx 的 getNextReg）
+	m	(Labcd/bs;)Z	FH	sameType	body: 只比较 Hw(Rs 类型) 字段 ⇒ 类型是否相同
+	m	(Labcd/bs;)Z	DW	sameRegAndType	body: 先 sameType 再比较寄存器号 ⇒ 同号同型
 	m	()I	Hw	getReg	body: 返回寄存器号
 	m	()Labcd/Rs;	J8	getType	body: 返回 Rs(TypeBearer) ⇒ 该寄存器的类型
 	m	()Labcd/Vr;	Zo	getLocal	body: 返回 Vr(局部项)

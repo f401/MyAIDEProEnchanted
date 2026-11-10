@@ -1983,3 +1983,10 @@ m	abcd/Tr	VH	()Labcd/bs;	body: 返回 FH(RegisterSpec) ⇒ 结果寄存器
 m	abcd/bs	Hw	()I	body: 返回寄存器号
 m	abcd/bs	J8	()Labcd/Rs;	body: 返回 Rs(TypeBearer) ⇒ 该寄存器的类型
 m	abcd/bs	Zo	()Labcd/Vr;	body: 返回 Vr(局部项)
+m	abcd/bs	DW	(I)Labcd/bs;	body: 参数为 0 返回自身，否则 FH(寄存器号+delta) ⇒ 相对平移寄存器号
+m	abcd/bs	FH	(I)Labcd/bs;	body: 寄存器号相同返回自身，否则用 (新号, 类型, 局部项) 重新驻留 ⇒ 换寄存器号
+m	abcd/bs	j6	(Labcd/Rs;)Labcd/bs;	body: 用 (原号, 新类型, 原局部项) 重新驻留 ⇒ 换类型
+m	abcd/bs	j6	(Labcd/Vr;)Labcd/bs;	body: 局部项相同返回自身，否则重新驻留 ⇒ 换局部项
+m	abcd/bs	VH	()I	body: 返回 寄存器号 + Hw()(宽度) ⇒ 下一个可用寄存器（dx 的 getNextReg）
+m	abcd/bs	FH	(Labcd/bs;)Z	body: 只比较 Hw(Rs 类型) 字段 ⇒ 类型是否相同
+m	abcd/bs	DW	(Labcd/bs;)Z	body: 先 sameType 再比较寄存器号 ⇒ 同号同型

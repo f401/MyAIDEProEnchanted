@@ -27961,6 +27961,13 @@ abcd/Wn com/aide/engine/InstructionBlock
 	FH outsSize
 abcd/Le com/aide/ui/build/RunTargetImpl
 abcd/bs com/aide/engine/RegisterSpec
+	DW (I)Labcd/bs; withRegOffset
+	FH (I)Labcd/bs; withReg
+	j6 (Labcd/Rs;)Labcd/bs; withType
+	j6 (Labcd/Vr;)Labcd/bs; withLocal
+	VH ()I getNextReg
+	FH (Labcd/bs;)Z sameType
+	DW (Labcd/bs;)Z sameRegAndType
 	Hw ()I getReg
 	J8 ()Labcd/Rs; getType
 	Zo ()Labcd/Vr; getLocal
