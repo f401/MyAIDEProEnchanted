@@ -2072,3 +2072,8 @@ abcd/wt com/aide/engine/SsaMethod$DefCollector
 abcd/xt com/aide/engine/SsaMethod$UseCollector
 abcd/kt com/aide/engine/LiteralOpUpgrader$UpgradeVisitor
 abcd/hn com/aide/engine/AttributeListParser
+abcd/td com/aide/codemodel/language/java/JavaCompiler
+abcd/hj com/aide/ui/util/AndroidProprieties
+abcd/ProjectFilesUtil com/aide/ui/project/internal/ProjectFilesUtil
+abcd/FileSystemUtils com/aide/ui/util/FileSystemUtils
+abcd/EclipseJavaProjectConfig com/aide/ui/util/EclipseJavaProjectConfig

@@ -576,3 +576,8 @@ wt	com/aide/engine/SsaMethod$DefCollector	role:SsaMethod 内部 SsaInsn 访问�
 xt	com/aide/engine/SsaMethod$UseCollector	role:SsaMethod 内部 SsaInsn 访问者：遍历 vt.tp()=sources 逐个 add 进列表，收集“使用表”；dx 侧同为匿名内部类，按作用取名
 kt	com/aide/engine/LiteralOpUpgrader$UpgradeVisitor	role:lt(LiteralOpUpgrader) 代码里唯一 new 出来的 SsaInsn 访问者（持 RegisterSpec[] + HashSet），用于升级字面量；dx 侧匿名，按作用取名
 hn	com/aide/engine/AttributeListParser	body:7 字段与 dx AttributeListParser 一一对应(DirectClassFile/context/offset/AttributeFactory/StdAttributeList/endOffset/ParseObserver)；方法 setObserver/getEndOffset/getList/parseIfNecessary/parse 五件套
+td	com/aide/codemodel/language/java/JavaCompiler	body:61 字段/180 方法与 AIDE+ 2.3.5 com.aide.codemodel.language.java.JavaCompiler(57/167) 同构；64 条 Java 编译相关特征串命中（AIDE+ 2.3.5 oracle 逐类字符串比对最高分）
+hj	com/aide/ui/util/AndroidProprieties	body:super=Si(=2.3.5 的 com.aide.ui.util.Configuration)，6 字段/5 方法与 2.3.5 AndroidProprieties(4/5) 一致；5 条属性名特征串命中
+ProjectFilesUtil	com/aide/ui/project/internal/ProjectFilesUtil	body:2 字段/38 方法与 AIDE+ 2.3.5 com.aide.ui.project.internal.GradleTools(2/38) 完全一致；27 条 Gradle 特征串命中；2.8 保留可读类名 ProjectFilesUtil ⇒ 按 2.8 名归到 project/internal
+FileSystemUtils	com/aide/ui/util/FileSystemUtils	body:4 字段/53 方法与 AIDE+ 2.3.5 com.aide.ui.util.FileSystem(4/53) 完全一致；6 条特征串命中；2.8 保留可读类名 ⇒ 归到 com/aide/ui/util
+EclipseJavaProjectConfig	com/aide/ui/util/EclipseJavaProjectConfig	body:3 字段/3 方法与 AIDE+ 2.3.5 com.aide.ui.util.ClassPath(3/3) 完全一致；4 条 classpath 特征串命中；2.8 保留可读类名 ⇒ 归到 com/aide/ui/util
