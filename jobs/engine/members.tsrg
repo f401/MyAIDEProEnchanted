@@ -2088,3 +2088,4 @@ abcd/Ed$a com/aide/codemodel/language/java/JavaSignatureAnalyzer$a
 abcd/ce com/aide/codemodel/language/js/JavaScriptTypeSystem
 abcd/Ia$b com/aide/codemodel/api/Member$InferAlgorithm
 abcd/Ed$a$a com/aide/codemodel/language/java/JavaSignatureAnalyzer$a$a
+abcd/Ld com/aide/codemodel/language/js/JavaScriptFormatter

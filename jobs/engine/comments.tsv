@@ -2095,3 +2095,4 @@ c	abcd/Ed$a	-	-	body:7 字段/61 方法与 JavaSignatureAnalyzer$a(6/61) 相等�
 c	abcd/ce	-	-	body:6 字段/15 方法与 language.js.JavaScriptTypeSystem(4/15) 相等；引用图 10/13 ⇒ JS 类型系统
 c	abcd/Ia$b	-	-	body:13 字段/17 方法与 api.Member$InferAlgorithm(13/17) 完全相等；引用图 14/19；外层 Ia 已映射 Member ⇒ 内部类
 c	abcd/Ed$a$a	-	-	body:16 字段/28 方法与 JavaSignatureAnalyzer$a$a(16/28) 完全相等；引用图 10/17；外层 Ed$a ⇒ 二级内部类
+c	abcd/Ld	-	-	body:22 字段/19 方法与 AIDE+ 2.3.5 language.js.b7(22/19) 完全相等；字段含 Map<JavaScriptFormatterOption,Integer> ×2 与 HashtableOfInt<Tools$a> ×2 ⇒ 格式化器；引用图 0.6
