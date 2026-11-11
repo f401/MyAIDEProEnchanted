@@ -217,7 +217,16 @@ def step_fart(P):
     if not os.path.exists(pub):
         raise SystemExit('缺少 %s，先跑 tryfix + widen' % pub)
     # 主 dex：合并包一次改名
-    _fart(pub, os.path.join(out, 'merged.jar'), P, [])
+    dst = os.path.join(out, 'merged.jar')
+    _fart(pub, dst, P, [])
+    # FART 只改类名/成员名，不改 InnerClasses 里的 outer/inner 名字；
+    # 输入包里本来就有"扁平化的内部类"（如 com/aide/ui/views/editor/P，元数据声明
+    # outer=OEditor 但名字里没有 $），D8 会为此刷一屏 Malformed inner-class attribute。
+    # 这里丢掉这类自相矛盾的条目（InnerClasses 是可选元数据，缺了只影响
+    # getDeclaringClass()/getSimpleName()）。
+    tmp = dst + '.inner.tmp'
+    sh([sys.executable, os.path.join(REPO, 'tools', 'build', 'fix_inner.py'), dst, tmp])
+    os.replace(tmp, dst)
 
 
 def step_assetdex(P):
