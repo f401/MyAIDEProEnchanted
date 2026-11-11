@@ -2107,3 +2107,10 @@ abcd/Zm$b com/aide/engine/BytecodeToRop$BlockRegisterBits
 abcd/Zm$c com/aide/engine/BytecodeToRop$LocalSlotTable
 abcd/sk com/aide/billing/InAppBillingServiceConnection
 abcd/dq com/aide/engine/DexFileReaderIntegerListView
+abcd/Fh com/aide/ui/ProgressDialogOnDismissListener
+abcd/Gh com/aide/ui/ProgressDialogOnShowListener
+abcd/sh com/aide/ui/NewUserExperienceDialogOnCancelListener
+abcd/th com/aide/ui/NewUserExperienceDialogOnChildClickListener
+abcd/nl abcd/aide/engine/ModifyFilesActionRunnable
+abcd/tl abcd/aide/engine/ProjectModelRunnable
+abcd/Ct com/aide/engine/FirstFitLocalCombiningAllocatorVisitor

@@ -611,3 +611,10 @@ Zm$b	com/aide/engine/BytecodeToRop$BlockRegisterBits	role:BytecodeToRop 内部�
 Zm$c	com/aide/engine/BytecodeToRop$LocalSlotTable	role:BytecodeToRop 内部持 BitSet + int×2 + ArrayList<IntSet> + HashMap<Int,Int> + Zm$a，做局部变量槽位映射；按作用取名
 sk	com/aide/billing/InAppBillingServiceConnection	role:InAppBilling 里唯一实现 android.content.ServiceConnection 的匿名类 ⇒ 绑定/解绑 Play 计费服务的连接回调；顶层探针，扁平名
 dq	com/aide/engine/DexFileReaderIntegerListView	role:DexFileReader(iq) 的 6 个只读列表视图之一，唯一 extends AbstractList<Integer> 的（其余为 List<String>/List<qq>/List<nq>/List<lq>）；扁平名
+Fh	com/aide/ui/ProgressDialogOnDismissListener	role:ProgressDialog 里唯一实现 DialogInterface$OnDismissListener 的匿名类 ⇒ 进度框消失回调；顶层探针用扁平名
+Gh	com/aide/ui/ProgressDialogOnShowListener	role:ProgressDialog 里唯一实现 DialogInterface$OnShowListener 的匿名类 ⇒ 进度框显示回调；扁平名
+sh	com/aide/ui/NewUserExperienceDialogOnCancelListener	role:NewUserExperienceDialog 里唯一实现 DialogInterface$OnCancelListener 的匿名类 ⇒ 取消回调；扁平名
+th	com/aide/ui/NewUserExperienceDialogOnChildClickListener	role:NewUserExperienceDialog 里唯一实现 ExpandableListView$OnChildClickListener 的匿名类 ⇒ 子项点击回调；扁平名
+nl	abcd/aide/engine/ModifyFilesActionRunnable	role:ModifyFilesAction 里唯一实现 Runnable 的匿名类 ⇒ 改文件动作的后台任务；扁平名
+tl	abcd/aide/engine/ProjectModelRunnable	role:ProjectModel 里唯一实现 Runnable 的匿名类 ⇒ 工程模型的后台任务；扁平名
+Ct	com/aide/engine/FirstFitLocalCombiningAllocatorVisitor	role:FirstFitLocalCombiningAllocator 里唯一实现 abcd/vt$a（SsaInsn$Visitor）的匿名类 ⇒ 寄存器分配器的指令访问者；扁平名
