@@ -575,3 +575,4 @@ ut	com/aide/engine/SsaConverter	body:public static j6(fs RopMethod,int,boolean):
 wt	com/aide/engine/SsaMethod$DefCollector	role:SsaMethod 内部 SsaInsn 访问者：只读 vt.u7()=result 再取 bs.we() 寄存器号，替 yt 收集“定义表”；dx 侧是匿名 SsaMethod$N，无可用上游名故按作用取名
 xt	com/aide/engine/SsaMethod$UseCollector	role:SsaMethod 内部 SsaInsn 访问者：遍历 vt.tp()=sources 逐个 add 进列表，收集“使用表”；dx 侧同为匿名内部类，按作用取名
 kt	com/aide/engine/LiteralOpUpgrader$UpgradeVisitor	role:lt(LiteralOpUpgrader) 代码里唯一 new 出来的 SsaInsn 访问者（持 RegisterSpec[] + HashSet），用于升级字面量；dx 侧匿名，按作用取名
+hn	com/aide/engine/AttributeListParser	body:7 字段与 dx AttributeListParser 一一对应(DirectClassFile/context/offset/AttributeFactory/StdAttributeList/endOffset/ParseObserver)；方法 setObserver/getEndOffset/getList/parseIfNecessary/parse 五件套
