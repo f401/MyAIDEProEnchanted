@@ -2128,3 +2128,11 @@ abcd/Or$a com/aide/engine/BasicBlockList$InsnVisitor
 abcd/Ql abcd/aide/build/CommandRunnerCommandResult
 abcd/jn$a com/aide/engine/DexEncodedValue$TypeList
 abcd/EclipseJavaProjectConfig$Node com/aide/ui/util/EclipseJavaProjectConfig$Node
+abcd/AbcdAccess com/aide/engine/AbcdAccess
+abcd/AbcdAccess$_CC com/aide/engine/AbcdAccess$_CC
+abcd/AccessProxy com/aide/engine/AccessProxy
+abcd/DoubleOutputStream com/aide/engine/DoubleOutputStream
+abcd/ProcessExecutorWrapper com/aide/engine/ProcessExecutorWrapper
+abcd/ProcessExecutorWrapper$a com/aide/engine/ProcessExecutorWrapper$a
+abcd/ProcessExecutorWrapper$a$a com/aide/engine/ProcessExecutorWrapper$a$a
+abcd/ProcessExitMonitor com/aide/engine/ProcessExitMonitor

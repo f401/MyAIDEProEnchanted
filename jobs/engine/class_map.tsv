@@ -632,3 +632,11 @@ Or$a	com/aide/engine/BasicBlockList$InsnVisitor	role:BasicBlockList(Or) 的内�
 Ql	abcd/aide/build/CommandRunnerCommandResult	role:CommandRunner 内唯一实现 CommandResult 的匿名类 ⇒ 命令执行结果回调；扁平名
 jn$a	com/aide/engine/DexEncodedValue$TypeList	role:DexEncodedValue(jn) 的内部类，唯一实现 TypeList ⇒ 编码值内部的类型列表；内部类保持 $ 形式
 EclipseJavaProjectConfig$Node	com/aide/ui/util/EclipseJavaProjectConfig$Node	body:以 class 元数据为准——该类的 InnerClasses 声明 outer=EclipseJavaProjectConfig、simple=Node；外层已映射为 com/aide/ui/util/EclipseJavaProjectConfig ⇒ 同名内部类
+AbcdAccess	com/aide/engine/AbcdAccess	body:类名本身未被混淆（AIDE keep 规则保留），仅自引用 ⇒ 恒等映射，归到 engine 包
+AbcdAccess$_CC	com/aide/engine/AbcdAccess$_CC	body:AbcdAccess 的内部类（探针名含 $），类名未混淆 ⇒ 恒等映射
+AccessProxy	com/aide/engine/AccessProxy	body:类名未混淆、仅自引用 ⇒ 恒等映射
+DoubleOutputStream	com/aide/engine/DoubleOutputStream	body:类名未混淆，被 Rl（已映射类）引用；双写 OutputStream ⇒ 恒等映射
+ProcessExecutorWrapper	com/aide/engine/ProcessExecutorWrapper	body:类名未混淆，被 Ml/Nl 引用，内部类 ProcessExitMonitor 一族 ⇒ 恒等映射
+ProcessExecutorWrapper$a	com/aide/engine/ProcessExecutorWrapper$a	body:ProcessExecutorWrapper 的内部类（元数据与 $ 形式一致），类名未混淆 ⇒ 恒等映射
+ProcessExecutorWrapper$a$a	com/aide/engine/ProcessExecutorWrapper$a$a	body:ProcessExecutorWrapper$a 的内部类，类名未混淆 ⇒ 恒等映射
+ProcessExitMonitor	com/aide/engine/ProcessExitMonitor	body:类名未混淆，由 ProcessExecutorWrapper$a$a 引用 ⇒ 恒等映射
