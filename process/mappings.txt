@@ -28686,6 +28686,11 @@ abcd/Ji$e abcd/aide/Settings$StringPair
 abcd/Dd$a com/aide/codemodel/language/java/JavaLexer$CharBuffer
 abcd/Va$a com/aide/codemodel/api/SyntaxTreeSpace$b
 abcd/Dc$a com/aide/codemodel/language/classfile/ClassFilePreProcessor$CharBuffer
+abcd/Jn com/aide/engine/ClassFileToDexConverterConstantVisitor
+abcd/Mt com/aide/engine/IntListIterator
+abcd/Or$a com/aide/engine/BasicBlockList$InsnVisitor
+abcd/Ql abcd/aide/build/CommandRunnerCommandResult
+abcd/jn$a com/aide/engine/DexEncodedValue$TypeList
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

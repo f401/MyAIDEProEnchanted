@@ -27245,6 +27245,11 @@ c	abcd/Ji$e	abcd/aide/Settings$StringPair	role:Settings 的内部类，两个 pu
 c	abcd/Dd$a	com/aide/codemodel/language/java/JavaLexer$CharBuffer	role:JavaLexer(Dd) 的内部类：持 java.io.Reader + char[] + 位置计数(int×3/boolean) ⇒ 词法分析器的字符缓冲；外层 Dd 已映射 JavaLexer
 c	abcd/Va$a	com/aide/codemodel/api/SyntaxTreeSpace$b	body:char[]×2 + 构造(SyntaxTreeSpace$a) + j6(Reader,String,int,int)，与 2.3.5 api.SyntaxTreeSpace$b 逐项一致（字符缓冲读取器）；外层 Va=SyntaxTreeSpace 已映射，Va$b 另占 $c
 c	abcd/Dc$a	com/aide/codemodel/language/classfile/ClassFilePreProcessor$CharBuffer	role:ClassFilePreProcessor(Dc) 的内部类：char[] 缓冲 + 偏移 int + j6(int)/DW(char[],int,int)/FH():Reader/DW(String) 等 ⇒ 带回落(ungot)的字符缓冲读取器；按作用取名
+c	abcd/Jn	com/aide/engine/ClassFileToDexConverterConstantVisitor	role:ClassFileToDexConverter 内唯一实现 Code$ConstantVisitor 的匿名类 ⇒ 常量池访问者；顶层探针用扁平名
+c	abcd/Mt	com/aide/engine/IntListIterator	role:IntListImpl 内唯一实现 IntIterator 的匿名类 ⇒ 整数表迭代器；扁平名
+c	abcd/Or$a	com/aide/engine/BasicBlockList$InsnVisitor	role:BasicBlockList(Or) 的内部类，唯一实现 Insn$Visitor ⇒ 基本块指令访问者；内部类保持 $ 形式
+c	abcd/Ql	abcd/aide/build/CommandRunnerCommandResult	role:CommandRunner 内唯一实现 CommandResult 的匿名类 ⇒ 命令执行结果回调；扁平名
+c	abcd/jn$a	com/aide/engine/DexEncodedValue$TypeList	role:DexEncodedValue(jn) 的内部类，唯一实现 TypeList ⇒ 编码值内部的类型列表；内部类保持 $ 形式
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

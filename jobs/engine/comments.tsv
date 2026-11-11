@@ -2129,3 +2129,8 @@ c	abcd/Ji$e	-	-	role:Settings 的内部类，两个 public String 字段 + 构�
 c	abcd/Dd$a	-	-	role:JavaLexer(Dd) 的内部类：持 java.io.Reader + char[] + 位置计数(int×3/boolean) ⇒ 词法分析器的字符缓冲；外层 Dd 已映射 JavaLexer
 c	abcd/Va$a	-	-	body:char[]×2 + 构造(SyntaxTreeSpace$a) + j6(Reader,String,int,int)，与 2.3.5 api.SyntaxTreeSpace$b 逐项一致（字符缓冲读取器）；外层 Va=SyntaxTreeSpace 已映射，Va$b 另占 $c
 c	abcd/Dc$a	-	-	role:ClassFilePreProcessor(Dc) 的内部类：char[] 缓冲 + 偏移 int + j6(int)/DW(char[],int,int)/FH():Reader/DW(String) 等 ⇒ 带回落(ungot)的字符缓冲读取器；按作用取名
+c	abcd/Jn	-	-	role:ClassFileToDexConverter 内唯一实现 Code$ConstantVisitor 的匿名类 ⇒ 常量池访问者；顶层探针用扁平名
+c	abcd/Mt	-	-	role:IntListImpl 内唯一实现 IntIterator 的匿名类 ⇒ 整数表迭代器；扁平名
+c	abcd/Or$a	-	-	role:BasicBlockList(Or) 的内部类，唯一实现 Insn$Visitor ⇒ 基本块指令访问者；内部类保持 $ 形式
+c	abcd/Ql	-	-	role:CommandRunner 内唯一实现 CommandResult 的匿名类 ⇒ 命令执行结果回调；扁平名
+c	abcd/jn$a	-	-	role:DexEncodedValue(jn) 的内部类，唯一实现 TypeList ⇒ 编码值内部的类型列表；内部类保持 $ 形式
