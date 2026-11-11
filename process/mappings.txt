@@ -28656,6 +28656,8 @@ abcd/Ld com/aide/codemodel/language/js/JavaScriptFormatter
 abcd/Dc$b com/aide/codemodel/language/classfile/ClassFilePreProcessor$c
 abcd/Ub$a com/aide/codemodel/api/collections/RelationOfIntInt$b
 abcd/cn com/aide/codemodel/api/collections/ListOfInt
+abcd/Ca$a com/aide/codemodel/api/ErrorTable$Error
+abcd/Ca$b com/aide/codemodel/api/ErrorTable$FileContent
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
