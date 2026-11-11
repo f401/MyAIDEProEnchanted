@@ -27217,6 +27217,7 @@ c	abcd/Ub$a	com/aide/codemodel/api/collections/RelationOfIntInt$b	body:方法签
 c	abcd/cn	com/aide/codemodel/api/collections/ListOfInt	body:两字段 IntSet + int，方法 DW(int)/FH(int)/er():IntSet/j6(int,int) 与 2.3.5 collections.ListOfInt 方法重合 7 条(F=0.67，唯一最佳) ⇒ 整数表
 c	abcd/Ca$a	com/aide/codemodel/api/ErrorTable$Error	body:10 字段/3 方法与 AIDE+ 2.3.5 api.ErrorTable$Error(11/3) 逐项对应（String 消息 + 位置四元组 + Fix 列表）；外层 Ca 已映射 ErrorTable ⇒ 错误条目
 c	abcd/Ca$b	com/aide/codemodel/api/ErrorTable$FileContent	body:3 字段/3 方法与 api.ErrorTable$FileContent(4/3) 对应（文件内容快照：byte[]/String + 3 方法）；外层 Ca 已映射 ErrorTable ⇒ 文件内容项
+c	abcd/hj$a	com/aide/ui/util/AndroidProprieties$a	body:4 字段/2 方法与 AIDE+ 2.3.5 ui.util.AndroidProprieties$a(4/2) 完全一致；外层 hj 已映射 AndroidProprieties ⇒ 其内部类（单个属性项）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
