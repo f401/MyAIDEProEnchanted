@@ -27188,6 +27188,9 @@ c	abcd/Ys	com/aide/engine/DomFront	body:4 字段(boolean DEBUG / SsaMethod / Arr
 c	abcd/Ys$a	com/aide/engine/DomFront$DomInfo	body:两个公开字段 int idom + IntList dominanceFrontiers + 无参构造，正是 dx DomFront$DomInfo
 c	abcd/_s	com/aide/engine/Dominators	body:6 字段(SsaMethod/ArrayList blocks/DFSInfo[] info/DomInfo[] domInfos/boolean postdom/ArrayList vertex) + 方法数 6 对 dx Dominators 7 ⇒ 支配树
 c	abcd/_s$a	com/aide/engine/Dominators$DFSInfo	body:5 个公开字段(int semidom + SsaBasicBlock parent/rep/ancestor + ArrayList<SsaBasicBlock> bucket) ⇒ dx Dominators$DFSInfo
+c	abcd/gt	com/aide/engine/ConstCollector	body:private ctor(SsaMethod) + public static j6(yt)=process + private j6()=run + static j6(gt,NormalSsaInsn,RegisterSpecList,int,Constant)=updateConstUses；字段仅 SsaMethod ⇒ dx ConstCollector
+c	abcd/lt	com/aide/engine/LiteralOpUpgrader	body:字段仅 SsaMethod + private ctor + public static j6(yt) 入口 + private 实例步 j6(NormalSsaInsn):int，形状同 dx LiteralOpUpgrader(upgradeLiterals/upgradeLiteral)
+c	abcd/ut	com/aide/engine/SsaConverter	body:public static j6(fs RopMethod,int,boolean):yt = dx convertToSsaMethod；三个 private static 步 j6(yt) = edgeSplit/edgeSplitPredecessors/edgeSplitSuccessors/placePhiFunctions 一类 ⇒ dx SsaConverter
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

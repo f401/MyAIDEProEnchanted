@@ -2065,3 +2065,6 @@ abcd/Ys com/aide/engine/DomFront
 abcd/Ys$a com/aide/engine/DomFront$DomInfo
 abcd/_s com/aide/engine/Dominators
 abcd/_s$a com/aide/engine/Dominators$DFSInfo
+abcd/gt com/aide/engine/ConstCollector
+abcd/lt com/aide/engine/LiteralOpUpgrader
+abcd/ut com/aide/engine/SsaConverter
