@@ -631,3 +631,4 @@ Mt	com/aide/engine/IntListIterator	role:IntListImpl 内唯一实现 IntIterator 
 Or$a	com/aide/engine/BasicBlockList$InsnVisitor	role:BasicBlockList(Or) 的内部类，唯一实现 Insn$Visitor ⇒ 基本块指令访问者；内部类保持 $ 形式
 Ql	abcd/aide/build/CommandRunnerCommandResult	role:CommandRunner 内唯一实现 CommandResult 的匿名类 ⇒ 命令执行结果回调；扁平名
 jn$a	com/aide/engine/DexEncodedValue$TypeList	role:DexEncodedValue(jn) 的内部类，唯一实现 TypeList ⇒ 编码值内部的类型列表；内部类保持 $ 形式
+EclipseJavaProjectConfig$Node	com/aide/ui/util/EclipseJavaProjectConfig$Node	body:以 class 元数据为准——该类的 InnerClasses 声明 outer=EclipseJavaProjectConfig、simple=Node；外层已映射为 com/aide/ui/util/EclipseJavaProjectConfig ⇒ 同名内部类

@@ -2134,3 +2134,4 @@ c	abcd/Mt	-	-	role:IntListImpl 内唯一实现 IntIterator 的匿名类 ⇒ 整�
 c	abcd/Or$a	-	-	role:BasicBlockList(Or) 的内部类，唯一实现 Insn$Visitor ⇒ 基本块指令访问者；内部类保持 $ 形式
 c	abcd/Ql	-	-	role:CommandRunner 内唯一实现 CommandResult 的匿名类 ⇒ 命令执行结果回调；扁平名
 c	abcd/jn$a	-	-	role:DexEncodedValue(jn) 的内部类，唯一实现 TypeList ⇒ 编码值内部的类型列表；内部类保持 $ 形式
+c	abcd/EclipseJavaProjectConfig$Node	-	-	body:以 class 元数据为准——该类的 InnerClasses 声明 outer=EclipseJavaProjectConfig、simple=Node；外层已映射为 com/aide/ui/util/EclipseJavaProjectConfig ⇒ 同名内部类
