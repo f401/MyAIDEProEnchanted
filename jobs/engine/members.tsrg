@@ -2082,3 +2082,9 @@ abcd/ra com/aide/codemodel/api/abstraction/TypeSystem
 abcd/ja com/aide/codemodel/api/abstraction/CodeCompiler
 abcd/qa$a com/aide/codemodel/api/abstraction/Tools$a
 abcd/Va$b com/aide/codemodel/api/SyntaxTreeSpace$c
+abcd/Ca$c com/aide/codemodel/api/ErrorTable$Fix
+abcd/ud com/aide/codemodel/language/java/JavaDebugger
+abcd/Ed$a com/aide/codemodel/language/java/JavaSignatureAnalyzer$a
+abcd/ce com/aide/codemodel/language/js/JavaScriptTypeSystem
+abcd/Ia$b com/aide/codemodel/api/Member$InferAlgorithm
+abcd/Ed$a$a com/aide/codemodel/language/java/JavaSignatureAnalyzer$a$a
