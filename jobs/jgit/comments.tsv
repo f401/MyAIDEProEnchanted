@@ -6241,3 +6241,13 @@ c	abcd/jI$b	-	-	body:唯一构造 (String) 且 super(String,true)，无额外字
 c	abcd/jI$c	-	-	body:构造体读 JGitText.credentialPassword 再调 super(String,boolean) ⇒ jgit CredentialItem.Password
 c	abcd/jI$e	-	-	body:构造体读 JGitText.credentialUsername 再 super(String,false) ⇒ jgit CredentialItem.Username
 c	abcd/jI$f	-	-	body:private boolean 字段 + (String) 构造 ⇒ jgit CredentialItem.YesNoType
+c	abcd/UC	-	-	body:extends IOException；读 JGitText.ambiguousObjectAbbreviation ⇒ jgit AmbiguousObjectException
+c	abcd/ZC	-	-	body:extends IOException；读 JGitText.objectIsNotA ⇒ jgit IncorrectObjectTypeException
+c	abcd/_C	-	-	body:extends IOException；读 JGitText.indexWriteException ⇒ jgit IndexWriteException
+c	abcd/dD	-	-	body:extends IOException；读 JGitText.cannotLock ⇒ jgit LockFailedException
+c	abcd/iD	-	-	body:extends IllegalStateException；读 JGitText.bareRepositoryNoWorkdirAndIndex ⇒ jgit NoWorkTreeException
+c	abcd/pD	-	-	body:extends abcd/yD（NoSuchFile 一族）；读 JGitText.repositoryNotFound ⇒ jgit RepositoryNotFoundException
+c	abcd/qD	-	-	body:extends RuntimeException；读 JGitText.walkFailure ⇒ jgit RevWalkException
+c	abcd/zD	-	-	body:extends IOException；读 JGitText.unmergedPath ⇒ jgit UnmergedPathException
+c	abcd/gH	-	-	body:abstract 基类，内部引用 JGitText.unsupportedPackIndexVersion，且被 hH 继承 ⇒ jgit PackIndexWriter
+c	abcd/hH	-	-	body:extends gH；读 JGitText.packTooLargeForIndexVersion1 ⇒ jgit PackIndexWriterV1

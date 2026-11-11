@@ -6241,3 +6241,13 @@ abcd/jI$b org/eclipse/jgit/transport/CredentialItem$InformationalMessage
 abcd/jI$c org/eclipse/jgit/transport/CredentialItem$Password
 abcd/jI$e org/eclipse/jgit/transport/CredentialItem$Username
 abcd/jI$f org/eclipse/jgit/transport/CredentialItem$YesNoType
+abcd/UC org/eclipse/jgit/errors/AmbiguousObjectException
+abcd/ZC org/eclipse/jgit/errors/IncorrectObjectTypeException
+abcd/_C org/eclipse/jgit/errors/IndexWriteException
+abcd/dD org/eclipse/jgit/errors/LockFailedException
+abcd/iD org/eclipse/jgit/errors/NoWorkTreeException
+abcd/pD org/eclipse/jgit/errors/RepositoryNotFoundException
+abcd/qD org/eclipse/jgit/errors/RevWalkException
+abcd/zD org/eclipse/jgit/errors/UnmergedPathException
+abcd/gH org/eclipse/jgit/internal/storage/file/PackIndexWriter
+abcd/hH org/eclipse/jgit/internal/storage/file/PackIndexWriterV1

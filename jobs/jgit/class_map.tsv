@@ -692,3 +692,13 @@ jI$b	org/eclipse/jgit/transport/CredentialItem$InformationalMessage	body:唯一�
 jI$c	org/eclipse/jgit/transport/CredentialItem$Password	body:构造体读 JGitText.credentialPassword 再调 super(String,boolean) ⇒ jgit CredentialItem.Password
 jI$e	org/eclipse/jgit/transport/CredentialItem$Username	body:构造体读 JGitText.credentialUsername 再 super(String,false) ⇒ jgit CredentialItem.Username
 jI$f	org/eclipse/jgit/transport/CredentialItem$YesNoType	body:private boolean 字段 + (String) 构造 ⇒ jgit CredentialItem.YesNoType
+UC	org/eclipse/jgit/errors/AmbiguousObjectException	body:extends IOException；读 JGitText.ambiguousObjectAbbreviation ⇒ jgit AmbiguousObjectException
+ZC	org/eclipse/jgit/errors/IncorrectObjectTypeException	body:extends IOException；读 JGitText.objectIsNotA ⇒ jgit IncorrectObjectTypeException
+_C	org/eclipse/jgit/errors/IndexWriteException	body:extends IOException；读 JGitText.indexWriteException ⇒ jgit IndexWriteException
+dD	org/eclipse/jgit/errors/LockFailedException	body:extends IOException；读 JGitText.cannotLock ⇒ jgit LockFailedException
+iD	org/eclipse/jgit/errors/NoWorkTreeException	body:extends IllegalStateException；读 JGitText.bareRepositoryNoWorkdirAndIndex ⇒ jgit NoWorkTreeException
+pD	org/eclipse/jgit/errors/RepositoryNotFoundException	body:extends abcd/yD（NoSuchFile 一族）；读 JGitText.repositoryNotFound ⇒ jgit RepositoryNotFoundException
+qD	org/eclipse/jgit/errors/RevWalkException	body:extends RuntimeException；读 JGitText.walkFailure ⇒ jgit RevWalkException
+zD	org/eclipse/jgit/errors/UnmergedPathException	body:extends IOException；读 JGitText.unmergedPath ⇒ jgit UnmergedPathException
+gH	org/eclipse/jgit/internal/storage/file/PackIndexWriter	body:abstract 基类，内部引用 JGitText.unsupportedPackIndexVersion，且被 hH 继承 ⇒ jgit PackIndexWriter
+hH	org/eclipse/jgit/internal/storage/file/PackIndexWriterV1	body:extends gH；读 JGitText.packTooLargeForIndexVersion1 ⇒ jgit PackIndexWriterV1

@@ -3,8 +3,6 @@ c	abcd/vj	abcd/aide/AssetProvider	auto: 提供者：Asset；src: head 历史补�
 c	abcd/AB$a	org/eclipse/jgit/api/RebaseResult$Status	auto: 类：Status（外层 RebaseResult）；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status
 	m	()Z	Hw	isSuccessful	auto: 是否 Successful；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status#isSuccessful
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status#<init>
-		p	0	status	status
-		p	1	commit	commit
 	f	Labcd/AB$a;	Zo	FAST_FORWARD	auto: 字段(Labcd/AB$a;)；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status.FAST_FORWARD
 	f	[Labcd/AB$a;	VH	$VALUES	auto: 字段([Labcd/AB$a;)；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status.$VALUES
 	f	Labcd/AB$a;	j6	OK	auto: 字段(Labcd/AB$a;)；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status.OK
@@ -110,13 +108,8 @@ c	abcd/AH	org/eclipse/jgit/internal/storage/pack/BinaryDelta	src: jgit-3.7.1 org
 	m	([B)J	j6	deltaSize	auto: 「deltaSize」（上游无同签名对应，按作用取名）
 c	abcd/AI	org/eclipse/jgit/transport/PackParser	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser；doc: Parses a pack stream and imports it for an ObjectInserter.
 	m	(Labcd/CI;)V	j6	onEndWholeObject	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onEndWholeObject；doc: Event notifying the the current object.
-		p	0	info	info
 	m	(Labcd/AI$f;Labcd/AI$d;)Labcd/AI$d;	j6	seekDatabase	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#seekDatabase；doc: Reposition the database to re-read a previously stored object.
-		p	0	delta	delta
-		p	1	info	info
 	m	(Labcd/CI;Labcd/AI$d;)Labcd/AI$d;	j6	seekDatabase	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#seekDatabase；doc: Reposition the database to re-read a previously stored object.
-		p	0	obj	obj
-		p	1	info	info
 	m	(Labcd/AI$e;J)[B	DW	inflateAndReturn	auto: 「inflateAndReturn」；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#inflateAndReturn
 		p	0	src	src
 		p	1	inflatedSize	inflatedSize
@@ -133,27 +126,13 @@ c	abcd/AI	org/eclipse/jgit/transport/PackParser	src: jgit-3.7.1 org/eclipse/jgit
 		p	0	typeCode	typeCode
 		p	1	size	size
 	m	([BII)I	DW	readDatabase	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#readDatabase；doc: Read from the database's current position into the buffer.
-		p	0	dst	dst
-		p	1	pos	pos
-		p	2	cnt	cnt
 	m	()[B	DW	buffer	auto: 「buffer」；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#buffer
 	m	()I	Zo	getObjectCount	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#getObjectCount；doc: Get the number of objects in the stream.
 	m	(JJJ)V	j6	onBeginOfsDelta	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onBeginOfsDelta；doc: Event notifying start of a delta referencing its base by offset.
-		p	0	deltaStreamPosition	deltaStreamPosition
-		p	1	baseStreamPosition	baseStreamPosition
-		p	2	inflatedSize	inflatedSize
 	m	(JLabcd/YD;J)V	j6	onBeginRefDelta	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onBeginRefDelta；doc: Event notifying start of a delta referencing its base by ObjectId.
-		p	0	deltaStreamPosition	deltaStreamPosition
-		p	1	baseId	baseId
-		p	2	inflatedSize	inflatedSize
 	m	([B)V	j6	onPackFooter	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onPackFooter；doc: Provide the implementation with the original stream's pack footer.
-		p	0	hash	hash
 	m	([BII)V	j6	onStoreStream	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onStoreStream；doc: Store bytes received from the raw stream.
-		p	0	raw	raw
-		p	1	pos	pos
-		p	2	len	len
 	m	(I)Z	j6	checkCRC	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#checkCRC；doc: Check the current CRC matches the expected value.
-		p	0	oldCRC	oldCRC
 	m	()V	QX	readPackFooter	auto: 读取 PackFooter；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#readPackFooter
 	m	(Labcd/LE;)V	FH	resolveDeltasWithExternalBases	auto: 解析 DeltasWithExternalBases；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#resolveDeltasWithExternalBases
 		p	0	progress	progress
@@ -178,10 +157,6 @@ c	abcd/AI	org/eclipse/jgit/transport/PackParser	src: jgit-3.7.1 org/eclipse/jgit
 	m	(J)V	DW	setMaxObjectSizeLimit	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#setMaxObjectSizeLimit；doc: Set the maximum allowed Git object size.
 		p	0	limit	limit
 	m	(Labcd/AI$e;[BII)V	DW	onObjectHeader	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onObjectHeader；doc: Store (and/or checksum) an object header.
-		p	0	src	src
-		p	1	raw	raw
-		p	2	pos	pos
-		p	3	len	len
 	m	(Z)V	DW	setAllowThin	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#setAllowThin；doc: Configure this index pack instance to allow a thin pack.
 		p	0	allow	allow
 	m	()V	EQ	onEndThinPack	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onEndThinPack；doc: Event indicating a thin pack has been completely processed.
@@ -196,16 +171,8 @@ c	abcd/AI	org/eclipse/jgit/transport/PackParser	src: jgit-3.7.1 org/eclipse/jgit
 	m	(Ljava/util/Comparator;)Ljava/util/List;	j6	getSortedObjectList	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#getSortedObjectList；doc: Get all of the objects, sorted by their name.
 		p	0	cmp	cmp
 	m	(J)V	j6	onPackHeader	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onPackHeader；doc: Provide the implementation with the original stream's pack header.
-		p	0	objCnt	objCnt
 	m	(JIJ)V	j6	onBeginWholeObject	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onBeginWholeObject；doc: Event notifying the start of an object stored whole (not as a delta).
-		p	0	streamPosition	streamPosition
-		p	1	type	type
-		p	2	inflatedSize	inflatedSize
 	m	(Labcd/AI$e;[BII)V	j6	onObjectData	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onObjectData；doc: Store (and/or checksum) a portion of an object's data.
-		p	0	src	src
-		p	1	raw	raw
-		p	2	pos	pos
-		p	3	len	len
 	m	(Labcd/wE;)V	j6	setObjectChecker	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#setObjectChecker；doc: Configure the checker used to validate received objects.
 		p	0	oc	oc
 	m	(Ljava/lang/String;)V	j6	setLockMessage	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#setLockMessage；doc: Set the lock message for the incoming pack data.
@@ -254,13 +221,7 @@ c	abcd/AI	org/eclipse/jgit/transport/PackParser	src: jgit-3.7.1 org/eclipse/jgit
 		p	0	oe	oe
 		p	1	progress	progress
 	m	(Labcd/CI;I[B)V	j6	onInflatedObjectData	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onInflatedObjectData；doc: Invoked for commits, trees, tags, and small blobs.
-		p	0	obj	obj
-		p	1	typeCode	typeCode
-		p	2	data	data
 	m	(I[BLabcd/CI;)Z	j6	onAppendBase	src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#onAppendBase；doc: Provide the implementation with a base that was outside of the pack.
-		p	0	typeCode	typeCode
-		p	1	data	data
-		p	2	info	info
 	f	Labcd/wI;	er	baseByPos	auto: 字段(Labcd/wI;)；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser.baseByPos
 	f	Labcd/lK;	yS	deferredCheckBlobs	auto: 字段(Labcd/lK;)；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser.deferredCheckBlobs
 	m	(Labcd/YD;)Labcd/AI$f;	j6	removeBaseById	auto: 移除 BaseById；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser#removeBaseById
@@ -334,8 +295,6 @@ c	abcd/AI$d	org/eclipse/jgit/transport/PackParser$ObjectTypeAndSize	auto: 类：
 c	abcd/AI$e	org/eclipse/jgit/transport/PackParser$Source	auto: 类：Source（外层 PackParser）；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser$Source
 	f	Labcd/AI$e;	j6	INPUT	auto: 字段(Labcd/AI$e;)；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser$Source.INPUT
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser$Source#<init>
-		p	0	odb	odb
-		p	1	src	src
 	f	[Labcd/AI$e;	FH	$VALUES	auto: 字段([Labcd/AI$e;)；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser$Source.$VALUES
 	f	Labcd/AI$e;	DW	DATABASE	auto: 字段(Labcd/AI$e;)；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser$Source.DATABASE
 c	abcd/AI$f	org/eclipse/jgit/transport/PackParser$UnresolvedDelta	auto: 类：UnresolvedDelta（外层 PackParser）；src: jgit-3.7.1 org/eclipse/jgit/transport/PackParser$UnresolvedDelta
@@ -442,7 +401,6 @@ c	abcd/BE	org/eclipse/jgit/lib/ObjectIdRef	src: jgit-3.7.1 org/eclipse/jgit/lib/
 	m	()Labcd/ME;	v5	getLeaf	auto: 取 Leaf；src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectIdRef#getLeaf
 c	abcd/BF	org/eclipse/jgit/merge/ThreeWayMergeStrategy	src: jgit-3.7.1 org/eclipse/jgit/merge/ThreeWayMergeStrategy；doc: A merge strategy to merge 2 trees, using a common base ancestor tree.
 	m	(Labcd/UE;)Labcd/CF;	j6	newMerger	auto: 「newMerger」；src: jgit-3.7.1 org/eclipse/jgit/merge/ThreeWayMergeStrategy#newMerger
-		p	0	db	db
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/merge/ThreeWayMergeStrategy#<init>
 	m	(Labcd/UE;)Labcd/wF;	j6	newMerger	auto: 「newMerger」；src: jgit-3.7.1 org/eclipse/jgit/merge/ThreeWayMergeStrategy#newMerger
 		p	0	x0	x0
@@ -465,8 +423,6 @@ c	abcd/BH	org/eclipse/jgit/internal/storage/pack/CachedPack	src: jgit-3.7.1 org/
 	m	()J	DW	getObjectCount	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/CachedPack#getObjectCount；doc: Get the number of objects in this pack.
 	m	()J	j6	getDeltaCount	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/CachedPack#getDeltaCount；doc: Get the number of delta objects stored in this pack.
 	m	(Labcd/MH;Labcd/UH;)Z	j6	hasObject	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/CachedPack#hasObject；doc: Determine if this pack contains the object representation given.
-		p	0	obj	obj
-		p	1	rep	rep
 	m	()Ljava/util/Set;	FH	getObjectSet	auto: 取 ObjectSet（上游无同签名对应，按作用取名）
 c	abcd/BI	org/eclipse/jgit/transport/PackTransport	src: jgit-3.7.1 org/eclipse/jgit/transport/PackTransport；doc: Marker interface an object transport using Git pack transfers.
 c	abcd/BJ	org/eclipse/jgit/transport/TransportLocal$InternalLocalFetchConnection$2	auto: 匿名内部类（外层 InternalLocalFetchConnection）（外层 TransportLocal）；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportLocal$InternalLocalFetchConnection$2
@@ -519,13 +475,7 @@ c	abcd/CF	org/eclipse/jgit/merge/ThreeWayMerger	src: jgit-3.7.1 org/eclipse/jgit
 c	abcd/CG	org/eclipse/jgit/internal/storage/file/ByteWindow	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/ByteWindow；doc: A window of data currently stored within a cache.
 	m	()I	j6	size	auto: 「size」；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/ByteWindow#size
 	m	(ILjava/util/zip/Inflater;)I	j6	setInput	auto: 设 Input；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/ByteWindow#setInput
-		p	0	pos	pos
-		p	1	inf	inf
 	m	(I[BII)I	j6	copy	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/ByteWindow#copy；doc: Copy bytes from the window to a caller supplied buffer.
-		p	0	pos	pos
-		p	1	dstbuf	dstbuf
-		p	2	dstoff	dstoff
-		p	3	cnt	cnt
 	m	(JLjava/util/zip/Inflater;)I	j6	setInput	auto: 设 Input；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/ByteWindow#setInput
 		p	0	pos	pos
 		p	1	inf	inf
@@ -545,10 +495,6 @@ c	abcd/CG	org/eclipse/jgit/internal/storage/file/ByteWindow	src: jgit-3.7.1 org/
 		p	1	s	s
 		p	2	n	n
 	m	(Labcd/OH;JILjava/security/MessageDigest;)V	j6	write	auto: 执行 write；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/ByteWindow#write
-		p	0	out	out
-		p	1	pos	pos
-		p	2	cnt	cnt
-		p	3	md	md
 c	abcd/CH	org/eclipse/jgit/internal/storage/pack/DeltaCache	auto: 缓存：Delta；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/DeltaCache
 	m	()V	j6	checkForGarbageCollectedObjects	auto: 检查 ForGarbageCollectedObjects；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/DeltaCache#checkForGarbageCollectedObjects
 	m	(I)V	j6	credit	auto: 执行 credit；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/DeltaCache#credit
@@ -607,17 +553,11 @@ c	abcd/DB	org/eclipse/jgit/api/SubmoduleInitCommand	src: jgit-3.7.1 org/eclipse/
 		p	0	repo	repo
 c	abcd/DC	org/eclipse/jgit/diff/SequenceComparator	src: jgit-3.7.1 org/eclipse/jgit/diff/SequenceComparator；doc: Equivalence function for a Sequence compared by difference algorithm.
 	m	(Labcd/CC;I)I	j6	hash	src: jgit-3.7.1 org/eclipse/jgit/diff/SequenceComparator#hash；doc: Get a hash value for an item in a sequence.
-		p	0	seq	seq
-		p	1	ptr	ptr
 	m	(Labcd/CC;Labcd/CC;Labcd/jC;)Labcd/jC;	j6	reduceCommonStartEnd	src: jgit-3.7.1 org/eclipse/jgit/diff/SequenceComparator#reduceCommonStartEnd；doc: Modify the edit to remove common leading and trailing items.
 		p	0	a	a
 		p	1	b	b
 		p	2	e	e
 	m	(Labcd/CC;ILabcd/CC;I)Z	j6	equals	src: jgit-3.7.1 org/eclipse/jgit/diff/SequenceComparator#equals；doc: Compare two items to determine if they are equivalent.
-		p	0	a	a
-		p	1	ai	ai
-		p	2	b	b
-		p	3	bi	bi
 c	abcd/DE	org/eclipse/jgit/lib/ObjectIdSubclassMap	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectIdSubclassMap；doc: Fast, efficient map specifically for ObjectId subclasses.
 	m	(I)V	Zo	initTable	auto: 初始化 Table；src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectIdSubclassMap#initTable
 		p	0	sz	sz
@@ -717,9 +657,6 @@ c	abcd/DJ	org/eclipse/jgit/transport/TransportProtocol	src: jgit-3.7.1 org/eclip
 	m	()Ljava/util/Set;	v5	getSchemes	auto: 取 Schemes；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportProtocol#getSchemes
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportProtocol#<init>
 	m	(Labcd/HJ;Labcd/UE;Ljava/lang/String;)Labcd/jJ;	DW	open	src: jgit-3.7.1 org/eclipse/jgit/transport/TransportProtocol#open；doc: Open a Transport instance to the other repository.
-		p	0	uri	uri
-		p	1	local	local
-		p	2	remoteName	remoteName
 	m	(Labcd/HJ;)Z	j6	canHandle	src: jgit-3.7.1 org/eclipse/jgit/transport/TransportProtocol#canHandle；doc: Determine if this protocol can handle a particular URI.
 		p	0	uri	uri
 	m	(Labcd/HJ;Labcd/UE;Ljava/lang/String;)Z	j6	canHandle	src: jgit-3.7.1 org/eclipse/jgit/transport/TransportProtocol#canHandle；doc: Determine if this protocol can handle a particular URI.
@@ -762,9 +699,6 @@ c	abcd/ED	org/eclipse/jgit/events/IndexChangedEvent	src: jgit-3.7.1 org/eclipse/
 		p	0	x0	x0
 c	abcd/EE	org/eclipse/jgit/lib/ObjectInserter	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectInserter；doc: Inserts objects into an existing ObjectDatabase.
 	m	(IJLjava/io/InputStream;)Labcd/yE;	j6	insert	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectInserter#insert；doc: Insert a single object into the store, returning its unique name.
-		p	0	objectType	objectType
-		p	1	length	length
-		p	2	in	in
 	m	(I[BII)Labcd/yE;	DW	insert	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectInserter#insert；doc: Insert a single object into the store, returning its unique name.
 		p	0	type	type
 		p	1	data	data
@@ -776,7 +710,6 @@ c	abcd/EE	org/eclipse/jgit/lib/ObjectInserter	src: jgit-3.7.1 org/eclipse/jgit/l
 	f	Ljava/security/MessageDigest;	j6	digest	auto: 字段(Ljava/security/MessageDigest;)；src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectInserter.digest
 	m	()Ljava/security/MessageDigest;	DW	digest	auto: 「digest」；src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectInserter#digest
 	m	(Ljava/io/InputStream;)Labcd/AI;	j6	newPackParser	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectInserter#newPackParser；doc: Initialize a parser to read from a pack formatted stream.
-		p	0	in	in
 	m	()[B	j6	buffer	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectInserter#buffer；doc: Obtain a temporary buffer for use by the ObjectInserter or its subclass.
 	m	(I[BII)Labcd/yE;	j6	idFor	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectInserter#idFor；doc: Compute the name of an object, without inserting it.
 		p	0	type	type
@@ -968,7 +901,6 @@ c	abcd/FC	org/eclipse/jgit/diff/SimilarityRenameDetector	auto: 类：SimilarityR
 		p	0	value	value
 c	abcd/FD	org/eclipse/jgit/events/IndexChangedListener	src: jgit-3.7.1 org/eclipse/jgit/events/IndexChangedListener；doc: Receives IndexChangedEvents.
 	m	(Labcd/ED;)V	j6	onIndexChanged	src: jgit-3.7.1 org/eclipse/jgit/events/IndexChangedListener#onIndexChanged；doc: Invoked when any change is made to the index.
-		p	0	event	event
 c	abcd/FE	org/eclipse/jgit/lib/ObjectLoader	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectLoader；doc: Base class for a set of loaders for different representations of Git objects.
 	m	()I	FH	getType	auto: 取 Type；src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectLoader#getType
 	m	()J	DW	getSize	auto: 取 Size；src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectLoader#getSize
@@ -1058,19 +990,10 @@ c	abcd/GG	org/eclipse/jgit/internal/storage/file/FileObjectDatabase	auto: 类：
 	m	()Ljava/util/Collection;	Zo	getCachedPacks	auto: 取 CachedPacks（上游无同签名对应，按作用取名）
 	m	()Ljava/io/File;	gn	getDirectory	auto: 取 Directory；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#getDirectory
 	m	(Ljava/io/File;Labcd/yE;Z)Labcd/GG$c;	j6	insertUnpackedObject	auto: 「insertUnpackedObject」；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#insertUnpackedObject
-		p	0	tmp	tmp
-		p	1	id	id
-		p	2	createDuplicate	createDuplicate
 	m	(Labcd/TH;Labcd/MH;Labcd/wH;)V	j6	selectObjectRepresentation	auto: 选择 ObjectRepresentation；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#selectObjectRepresentation
-		p	0	packer	packer
-		p	1	otp	otp
-		p	2	curs	curs
 	m	(Ljava/util/Set;Labcd/WD;)V	j6	resolve	auto: 执行 resolve；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#resolve
-		p	0	matches	matches
-		p	1	id	id
 	m	()Labcd/pK;	u7	getFS	auto: 取 FS；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#getFS
 	m	(Labcd/YD;)Ljava/io/File;	DW	fileFor	auto: 「fileFor」；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#fileFor
-		p	0	id	id
 	m	()Labcd/YG;	Hw	newInserter	auto: 「newInserter」；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#newInserter
 	m	()Labcd/IE;	v5	newReader	auto: 「newReader」；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#newReader
 	m	()Labcd/EE;	Hw	newInserter	auto: 「newInserter」；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#newInserter
@@ -1082,13 +1005,9 @@ c	abcd/GG	org/eclipse/jgit/internal/storage/file/FileObjectDatabase	auto: 类：
 	m	(Labcd/wH;Labcd/YD;)Labcd/FE;	v5	openPackedObject	auto: 打开 PackedObject（上游无同签名对应，按作用取名）
 	m	(Labcd/YD;)Z	j6	has	auto: 「has」（上游无同签名对应，按作用取名）
 	m	(Labcd/wH;Labcd/YD;)J	j6	getObjectSize	auto: 取 ObjectSize；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#getObjectSize
-		p	0	curs	curs
-		p	1	objectId	objectId
 	m	(Labcd/wH;Labcd/YD;)J	FH	getPackedSizeFromSelfOrAlternate	auto: 取 PackedSizeFromSelfOrAlternate（上游无同签名对应，按作用取名）
 	m	(Labcd/wH;Ljava/lang/String;Labcd/YD;)J	DW	getLooseSizeFromSelfOrAlternate	auto: 取 LooseSizeFromSelfOrAlternate（上游无同签名对应，按作用取名）
 	m	(Labcd/wH;Labcd/YD;)Labcd/FE;	Hw	openObject	auto: 打开 Object；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileObjectDatabase#openObject
-		p	0	curs	curs
-		p	1	objectId	objectId
 	m	(Labcd/wH;Labcd/YD;)Labcd/FE;	Zo	openPackedFromSelfOrAlternate	auto: 打开 PackedFromSelfOrAlternate（上游无同签名对应，按作用取名）
 	m	(Labcd/wH;Ljava/lang/String;Labcd/YD;)Labcd/FE;	Hw	openLooseFromSelfOrAlternate	auto: 打开 LooseFromSelfOrAlternate（上游无同签名对应，按作用取名）
 	m	(Labcd/YD;)Z	Hw	hasPackedInSelfOrAlternate	auto: 是否有 PackedInSelfOrAlternate（上游无同签名对应，按作用取名）
@@ -1169,7 +1088,6 @@ c	abcd/GK$c	org/eclipse/jgit/util/QuotedString$GitPathStyle	auto: 类：GitPathS
 		p	2	inEnd	inEnd
 c	abcd/HB	org/eclipse/jgit/api/TransportConfigCallback	src: jgit-3.7.1 org/eclipse/jgit/api/TransportConfigCallback；doc: Receives a callback allowing type-specific configuration to be set on the Transport instance after it's been…
 	m	(Labcd/jJ;)V	j6	configure	src: jgit-3.7.1 org/eclipse/jgit/api/TransportConfigCallback#configure；doc: Add any additional transport-specific configuration required.
-		p	0	transport	transport
 c	abcd/HC	org/eclipse/jgit/diff/SubsequenceComparator	src: jgit-3.7.1 org/eclipse/jgit/diff/SubsequenceComparator；doc: Wrap another comparator for use with Subsequence.
 	m	(Labcd/GC;I)I	j6	hash	auto: 「hash」；src: jgit-3.7.1 org/eclipse/jgit/diff/SubsequenceComparator#hash
 		p	0	seq	seq
@@ -1279,8 +1197,6 @@ c	abcd/HF	org/eclipse/jgit/patch/FileHeader	src: jgit-3.7.1 org/eclipse/jgit/pat
 	f	I	BT	endOffset	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/patch/FileHeader.endOffset
 c	abcd/HF$a	org/eclipse/jgit/patch/FileHeader$PatchType	auto: 类：PatchType（外层 FileHeader）；src: jgit-3.7.1 org/eclipse/jgit/patch/FileHeader$PatchType
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/patch/FileHeader$PatchType#<init>
-		p	0	b	b
-		p	1	offset	offset
 	f	[Labcd/HF$a;	Hw	$VALUES	auto: 字段([Labcd/HF$a;)；src: jgit-3.7.1 org/eclipse/jgit/patch/FileHeader$PatchType.$VALUES
 	f	Labcd/HF$a;	DW	BINARY	auto: 字段(Labcd/HF$a;)；src: jgit-3.7.1 org/eclipse/jgit/patch/FileHeader$PatchType.BINARY
 	f	Labcd/HF$a;	FH	GIT_BINARY	auto: 字段(Labcd/HF$a;)；src: jgit-3.7.1 org/eclipse/jgit/patch/FileHeader$PatchType.GIT_BINARY
@@ -1376,15 +1292,12 @@ c	abcd/IE	org/eclipse/jgit/lib/ObjectReader	src: jgit-3.7.1 org/eclipse/jgit/lib
 		p	0	objectId	objectId
 		p	1	typeHint	typeHint
 	m	(Labcd/YD;I)Labcd/FE;	Hw	open	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectReader#open；doc: Open an object from this database.
-		p	0	objectId	objectId
-		p	1	typeHint	typeHint
 	m	(Labcd/YD;)Labcd/WD;	j6	abbreviate	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectReader#abbreviate；doc: Obtain a unique abbreviation (prefix) of an object SHA-1.
 		p	0	objectId	objectId
 	m	(Labcd/YD;I)Labcd/WD;	j6	abbreviate	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectReader#abbreviate；doc: Obtain a unique abbreviation (prefix) of an object SHA-1.
 		p	0	objectId	objectId
 		p	1	len	len
 	m	(Labcd/WD;)Ljava/util/Collection;	j6	resolve	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectReader#resolve；doc: Resolve an abbreviated ObjectId to its full form.
-		p	0	id	id
 	m	(Labcd/_F;Labcd/dG;Labcd/dG;)V	j6	walkAdviceBeginTrees	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectReader#walkAdviceBeginTrees；doc: Advice from an ObjectWalk that trees will be traversed.
 		p	0	ow	ow
 		p	1	min	min
@@ -1734,7 +1647,6 @@ c	abcd/KD	org/eclipse/jgit/events/RepositoryEvent	src: jgit-3.7.1 org/eclipse/jg
 	m	(Labcd/UE;)V	j6	setRepository	src: jgit-3.7.1 org/eclipse/jgit/events/RepositoryEvent#setRepository；doc: Set the repository this event occurred on.
 		p	0	r	r
 	m	(Labcd/LD;)V	j6	dispatch	auto: 执行 dispatch（上游无同签名对应，按作用取名）
-		p	0	listener	listener
 c	abcd/KE	org/eclipse/jgit/lib/PersonIdent	src: jgit-3.7.1 org/eclipse/jgit/lib/PersonIdent；doc: A combination of a person identity and time in Git.
 	m	(Ljava/lang/StringBuilder;)V	j6	appendTimezone	auto: 执行 appendTimezone；src: jgit-3.7.1 org/eclipse/jgit/lib/PersonIdent#appendTimezone
 		p	0	r	r
@@ -1812,8 +1724,6 @@ c	abcd/KK$a	org/eclipse/jgit/util/RefList$Builder	auto: 类：Builder（外层 R
 c	abcd/LE	org/eclipse/jgit/lib/ProgressMonitor	src: jgit-3.7.1 org/eclipse/jgit/lib/ProgressMonitor；doc: A progress reporting interface.
 	m	()V	j6	endTask	src: jgit-3.7.1 org/eclipse/jgit/lib/ProgressMonitor#endTask；doc: Finish the current task, so the next can begin.
 	m	(Ljava/lang/String;I)V	j6	beginTask	src: jgit-3.7.1 org/eclipse/jgit/lib/ProgressMonitor#beginTask；doc: Begin processing a single task.
-		p	0	title	title
-		p	1	totalWork	totalWork
 c	abcd/LG	org/eclipse/jgit/internal/storage/file/FileSnapshot	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileSnapshot；doc: Caches when a file was last read, making it possible to detect future edits.
 	f	Z	v5	cannotBeRacilyClean	auto: 字段(Z)；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileSnapshot.cannotBeRacilyClean
 	m	(Ljava/io/File;)Labcd/LG;	DW	save	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileSnapshot#save；doc: Record a snapshot for a specific file path.
@@ -1835,26 +1745,13 @@ c	abcd/LG	org/eclipse/jgit/internal/storage/file/FileSnapshot	src: jgit-3.7.1 or
 	f	Labcd/LG;	DW	MISSING_FILE	auto: 字段(Labcd/LG;)；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/FileSnapshot.MISSING_FILE
 c	abcd/LH	org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs；doc: Extension of ObjectReader that supports reusing objects in packs.
 	m	(Labcd/OH;Labcd/BH;Z)V	j6	copyPackAsIs	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs#copyPackAsIs；doc: Append an entire pack's contents onto the output stream.
-		p	0	out	out
-		p	1	pack	pack
-		p	2	validate	validate
 	m	(Labcd/OH;Labcd/MH;Z)V	j6	copyObjectAsIs	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs#copyObjectAsIs；doc: Output a previously selected representation.
-		p	0	out	out
-		p	1	otp	otp
-		p	2	validate	validate
 	m	(Labcd/OH;Ljava/util/List;)V	j6	writeObjects	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs#writeObjects；doc: Write objects to the pack stream in roughly the order given.
-		p	0	out	out
-		p	1	list	list
 	m	(Labcd/TH;Labcd/LE;Ljava/lang/Iterable;)V	j6	selectObjectRepresentation	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs#selectObjectRepresentation；doc: Select the best object representation for a packer.
-		p	0	packer	packer
-		p	1	monitor	monitor
-		p	2	objects	objects
 	m	(Labcd/iG;)Labcd/MH;	j6	newObjectToPack	auto: 「newObjectToPack」（上游无同签名对应，按作用取名）
 	m	()Ljava/util/Collection;	j6	getCachedPacks	auto: 取 CachedPacks（上游无同签名对应，按作用取名）
 c	abcd/LI	org/eclipse/jgit/transport/PushConnection	src: jgit-3.7.1 org/eclipse/jgit/transport/PushConnection；doc: Lists known refs from the remote and sends objects to the remote.
 	m	(Labcd/LE;Ljava/util/Map;)V	j6	push	auto: 执行 push；src: jgit-3.7.1 org/eclipse/jgit/transport/PushConnection#push
-		p	0	monitor	monitor
-		p	1	refUpdates	refUpdates
 c	abcd/LK	org/eclipse/jgit/util/RefMap$1	auto: 匿名内部类（外层 RefMap）；src: jgit-3.7.1 org/eclipse/jgit/util/RefMap$1
 	f	Labcd/MK;	j6	this$0	auto: 字段(Labcd/MK;)；src: jgit-3.7.1 org/eclipse/jgit/util/RefMap$1.this$0
 c	abcd/MC	org/eclipse/jgit/dircache/DirCacheBuilder	src: jgit-3.7.1 org/eclipse/jgit/dircache/DirCacheBuilder；doc: Updates a DirCache by adding individual DirCacheEntrys.
@@ -1887,7 +1784,6 @@ c	abcd/MD	org/eclipse/jgit/fnmatch/AbstractHead	auto: 类：AbstractHead；src: 
 	f	Z	DW	star	auto: 字段(Z)；src: jgit-3.7.1 org/eclipse/jgit/fnmatch/AbstractHead.star
 	f	Ljava/util/List;	j6	newHeads	auto: 字段(Ljava/util/List;)；src: jgit-3.7.1 org/eclipse/jgit/fnmatch/AbstractHead.newHeads
 	m	(C)Z	DW	matches	auto: 「matches」；src: jgit-3.7.1 org/eclipse/jgit/fnmatch/AbstractHead#matches
-		p	0	c	c
 	m	(C)Ljava/util/List;	j6	getNextHeads	auto: 取 NextHeads；src: jgit-3.7.1 org/eclipse/jgit/fnmatch/AbstractHead#getNextHeads
 		p	0	c	c
 	m	(Ljava/util/List;)V	j6	setNewHeads	src: jgit-3.7.1 org/eclipse/jgit/fnmatch/AbstractHead#setNewHeads；doc: a list of Heads which will not be modified.
@@ -2141,17 +2037,11 @@ c	abcd/NJ	org/eclipse/jgit/transport/WalkEncryption	auto: 类：WalkEncryption�
 		p	2	version	version
 		p	3	name	name
 	m	(Ljava/net/HttpURLConnection;Ljava/lang/String;)V	DW	validate	auto: 执行 validate；src: jgit-3.7.1 org/eclipse/jgit/transport/WalkEncryption#validate
-		p	0	u	u
-		p	1	p	p
 	m	(Ljava/lang/Throwable;)Ljava/io/IOException;	j6	error	auto: 「error」；src: jgit-3.7.1 org/eclipse/jgit/transport/WalkEncryption#error
 		p	0	why	why
 	m	(Ljava/io/InputStream;)Ljava/io/InputStream;	j6	decrypt	auto: 「decrypt」；src: jgit-3.7.1 org/eclipse/jgit/transport/WalkEncryption#decrypt
-		p	0	in	in
 	m	(Ljava/io/OutputStream;)Ljava/io/OutputStream;	j6	encrypt	auto: 「encrypt」；src: jgit-3.7.1 org/eclipse/jgit/transport/WalkEncryption#encrypt
-		p	0	os	os
 	m	(Ljava/net/HttpURLConnection;Ljava/lang/String;)V	j6	request	auto: 执行 request；src: jgit-3.7.1 org/eclipse/jgit/transport/WalkEncryption#request
-		p	0	u	u
-		p	1	prefix	prefix
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/WalkEncryption#<init>
 	f	Labcd/NJ;	j6	NONE	auto: 字段(Labcd/NJ;)；src: jgit-3.7.1 org/eclipse/jgit/transport/WalkEncryption.NONE
 c	abcd/NJ$a	org/eclipse/jgit/transport/WalkEncryption$NoEncryption	auto: 类：NoEncryption（外层 WalkEncryption）；src: jgit-3.7.1 org/eclipse/jgit/transport/WalkEncryption$NoEncryption
@@ -2249,20 +2139,14 @@ c	abcd/OD	org/eclipse/jgit/fnmatch/FileNameMatcher	src: jgit-3.7.1 org/eclipse/j
 	m	(C)V	j6	append	auto: 执行 append（上游无同签名对应，按作用取名）
 c	abcd/OE	org/eclipse/jgit/lib/RefDatabase	src: jgit-3.7.1 org/eclipse/jgit/lib/RefDatabase；doc: Abstraction of name to ObjectId mapping.
 	m	(Ljava/lang/String;)Z	FH	isNameConflicting	src: jgit-3.7.1 org/eclipse/jgit/lib/RefDatabase#isNameConflicting；doc: Determine if a proposed reference name overlaps with an existing one.
-		p	0	name	name
 	m	(Ljava/lang/String;Z)Labcd/RE;	j6	newUpdate	src: jgit-3.7.1 org/eclipse/jgit/lib/RefDatabase#newUpdate；doc: Create a new update command to create, modify or delete a reference.
-		p	0	name	name
-		p	1	detach	detach
 	m	(Ljava/lang/String;)Ljava/util/Map;	DW	getRefs	src: jgit-3.7.1 org/eclipse/jgit/lib/RefDatabase#getRefs；doc: Get a section of the reference namespace.
-		p	0	prefix	prefix
 	m	()V	DW	create	src: jgit-3.7.1 org/eclipse/jgit/lib/RefDatabase#create；doc: Initialize a new reference database at this location.
 	m	()V	j6	close	src: jgit-3.7.1 org/eclipse/jgit/lib/RefDatabase#close；doc: Close any resources held by this database.
 	m	(Ljava/lang/String;)Labcd/ME;	j6	getRef	src: jgit-3.7.1 org/eclipse/jgit/lib/RefDatabase#getRef；doc: Read a single reference.
-		p	0	name	name
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/lib/RefDatabase#<init>
 	f	[Ljava/lang/String;	j6	SEARCH_PATH	auto: 字段([Ljava/lang/String;)；src: jgit-3.7.1 org/eclipse/jgit/lib/RefDatabase.SEARCH_PATH
 	m	(Labcd/ME;)Labcd/ME;	j6	peel	src: jgit-3.7.1 org/eclipse/jgit/lib/RefDatabase#peel；doc: Peel a possibly unpeeled reference by traversing the annotated tags.
-		p	0	ref	ref
 c	abcd/OH	org/eclipse/jgit/internal/storage/pack/PackOutputStream	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/PackOutputStream；doc: Custom output stream to support PackWriter.
 	f	Ljava/io/OutputStream;	DW	out	auto: 字段(Ljava/io/OutputStream;)；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/PackOutputStream.out
 	f	Labcd/TH;	FH	packWriter	auto: 字段(Labcd/TH;)；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/PackOutputStream.packWriter
@@ -2612,7 +2496,6 @@ c	abcd/QC	org/eclipse/jgit/dircache/DirCacheEntry	src: jgit-3.7.1 org/eclipse/jg
 	m	([B)Z	j6	isEmptyPath	auto: 是否 EmptyPath（上游无同签名对应，按作用取名）
 c	abcd/QD	org/eclipse/jgit/fnmatch/Head	auto: 类：Head；src: jgit-3.7.1 org/eclipse/jgit/fnmatch/Head
 	m	(C)Ljava/util/List;	j6	getNextHeads	src: jgit-3.7.1 org/eclipse/jgit/fnmatch/Head#getNextHeads；doc: the character which decides which heads are returned.
-		p	0	c	c
 c	abcd/QE	org/eclipse/jgit/lib/RefUpdate$2	auto: 匿名内部类（外层 RefUpdate）；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate$2
 	f	Labcd/RE;	DW	this$0	auto: 字段(Labcd/RE;)；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate$2.this$0
 	m	(Labcd/RE$a;)Labcd/RE$a;	j6	execute	auto: 「execute」；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate$2#execute
@@ -2667,20 +2550,13 @@ c	abcd/QJ	org/eclipse/jgit/transport/WalkPushConnection	src: jgit-3.7.1 org/ecli
 		p	0	x0	x0
 c	abcd/QK	org/eclipse/jgit/util/SystemReader	src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader；doc: Interface to read values from the system.
 	m	(Labcd/gE;Labcd/pK;)Labcd/FG;	DW	openUserConfig	src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#openUserConfig；doc: a config with values not found directly in the returned config the file system abstraction which will be nec…
-		p	0	parent	parent
-		p	1	fs	fs
 	m	(Labcd/gE;Labcd/pK;)Labcd/FG;	j6	openSystemConfig	src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#openSystemConfig；doc: a config with values not found directly in the returned config. Null is a reasonable value here.
-		p	0	parent	parent
-		p	1	fs	fs
 	m	(J)I	j6	getTimezone	auto: 取 Timezone；src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#getTimezone
-		p	0	when	when
 	m	()J	j6	getCurrentTime	auto: 取 CurrentTime；src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#getCurrentTime
 	m	()Ljava/lang/String;	DW	getHostname	src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#getHostname；doc: Gets the hostname of the local host. If no hostname can be found, the hostname is set to the default value "…
 	m	(Ljava/lang/String;)Ljava/lang/String;	DW	getenv	auto: 「getenv」；src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#getenv
-		p	0	variable	variable
 	m	()Ljava/util/TimeZone;	Hw	getTimeZone	auto: 取 TimeZone；src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#getTimeZone
 	m	(Ljava/lang/String;)Ljava/lang/String;	j6	getProperty	auto: 取 Property；src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#getProperty
-		p	0	key	key
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#<init>
 	m	()Labcd/QK;	FH	getInstance	auto: 取 Instance；src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#getInstance
 	m	(Labcd/QK;)V	j6	setInstance	src: jgit-3.7.1 org/eclipse/jgit/util/SystemReader#setInstance；doc: the new instance to use when accessing properties, or null for the default instance.
@@ -2737,7 +2613,6 @@ c	abcd/RD	org/eclipse/jgit/fnmatch/LastHead	auto: 类：LastHead；src: jgit-3.7
 		p	0	c	c
 c	abcd/RE	org/eclipse/jgit/lib/RefUpdate	src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate；doc: Creates, updates or deletes any reference.
 	m	(Z)Z	DW	tryLock	src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#tryLock；doc: Try to acquire the lock on the reference.
-		p	0	deref	deref
 	m	(Ljava/lang/String;Z)V	j6	setRefLogMessage	src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#setRefLogMessage；doc: Set the message to include in the reflog.
 		p	0	msg	msg
 		p	1	appendStatus	appendStatus
@@ -2747,7 +2622,6 @@ c	abcd/RE	org/eclipse/jgit/lib/RefUpdate	src: jgit-3.7.1 org/eclipse/jgit/lib/Re
 		p	0	walk	walk
 	m	()V	aM	requireCanDoUpdate	auto: 执行 requireCanDoUpdate；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#requireCanDoUpdate
 	m	(Labcd/RE$a;)Labcd/RE$a;	DW	doUpdate	auto: 「doUpdate」；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#doUpdate
-		p	0	desiredResult	desiredResult
 	m	(Labcd/qG;)Labcd/RE$a;	DW	update	src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#update；doc: Gracefully update the ref to the new value.
 		p	0	walk	walk
 	m	()V	DW	disableRefLog	src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#disableRefLog；doc: Don't record this update in the ref's associated reflog.
@@ -2764,9 +2638,7 @@ c	abcd/RE	org/eclipse/jgit/lib/RefUpdate	src: jgit-3.7.1 org/eclipse/jgit/lib/Re
 	m	()Labcd/OE;	gn	getRefDatabase	auto: 取 RefDatabase；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#getRefDatabase
 	m	()Labcd/RE$a;	j6	update	src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#update；doc: Gracefully update the ref to the new value.
 	m	(Labcd/RE$a;)Labcd/RE$a;	j6	doDelete	auto: 「doDelete」；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#doDelete
-		p	0	desiredResult	desiredResult
 	m	(Ljava/lang/String;)Labcd/RE$a;	j6	doLink	auto: 「doLink」；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#doLink
-		p	0	target	target
 	m	(Labcd/KE;)V	j6	setRefLogIdent	src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#setRefLogIdent；doc: Set the identity of the user appearing in the reflog.
 		p	0	pi	pi
 	m	(Labcd/YD;)V	j6	setExpectedOldObjectId	src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate#setExpectedOldObjectId；doc: the expected value of the ref after the lock is taken, but before update occurs. Null to avoid the compare a…
@@ -2851,9 +2723,7 @@ c	abcd/RJ	org/eclipse/jgit/transport/WalkRemoteObjectDatabase	src: jgit-3.7.1 or
 	m	(Ljava/lang/String;)V	j6	deleteFile	src: jgit-3.7.1 org/eclipse/jgit/transport/WalkRemoteObjectDatabase#deleteFile；doc: Delete a file from the object database.
 		p	0	path	path
 	m	(Ljava/lang/String;)Labcd/RJ;	v5	openAlternate	src: jgit-3.7.1 org/eclipse/jgit/transport/WalkRemoteObjectDatabase#openAlternate；doc: Create a new connection for a discovered alternate object database This method is typically called by #readA…
-		p	0	location	location
 	m	(Ljava/lang/String;)Labcd/RJ$a;	Hw	open	src: jgit-3.7.1 org/eclipse/jgit/transport/WalkRemoteObjectDatabase#open；doc: Open a single file for reading.
-		p	0	path	path
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/WalkRemoteObjectDatabase#<init>
 	m	()Labcd/HJ;	Hw	getURI	auto: 取 URI；src: jgit-3.7.1 org/eclipse/jgit/transport/WalkRemoteObjectDatabase#getURI
 	m	(Ljava/lang/String;Labcd/LE;Ljava/lang/String;)Ljava/io/OutputStream;	j6	writeFile	src: jgit-3.7.1 org/eclipse/jgit/transport/WalkRemoteObjectDatabase#writeFile；doc: Open a remote file for writing.
@@ -2920,8 +2790,6 @@ c	abcd/SD	org/eclipse/jgit/fnmatch/FileNameMatcher$3	auto: 匿名内部类（外
 	m	(C)Z	DW	matches	auto: 「matches」（上游无同签名对应，按作用取名）
 c	abcd/SE	org/eclipse/jgit/lib/RefWriter	src: jgit-3.7.1 org/eclipse/jgit/lib/RefWriter；doc: Writes out refs to the Constants#INFO_REFS and Constants#PACKED_REFS files.
 	m	(Ljava/lang/String;[B)V	j6	writeFile	src: jgit-3.7.1 org/eclipse/jgit/lib/RefWriter#writeFile；doc: Handles actual writing of ref files to the git repository, which may differ slightly depending on the destin…
-		p	0	file	file
-		p	1	content	content
 	m	()V	DW	writePackedRefs	src: jgit-3.7.1 org/eclipse/jgit/lib/RefWriter#writePackedRefs；doc: Rebuild the Constants#PACKED_REFS file.
 	m	()V	j6	writeInfoRefs	src: jgit-3.7.1 org/eclipse/jgit/lib/RefWriter#writeInfoRefs；doc: Rebuild the Constants#INFO_REFS.
 	f	Ljava/util/Collection;	j6	refs	auto: 字段(Ljava/util/Collection;)；src: jgit-3.7.1 org/eclipse/jgit/lib/RefWriter.refs
@@ -3115,7 +2983,6 @@ c	abcd/TD	org/eclipse/jgit/fnmatch/WildCardHead	auto: 类：WildCardHead；src: 
 c	abcd/TE	org/eclipse/jgit/lib/Repository$1	auto: 匿名内部类（外层 Repository）；src: jgit-3.7.1 org/eclipse/jgit/lib/Repository$1
 	f	Labcd/UE;	j6	this$0	auto: 字段(Labcd/UE;)；src: jgit-3.7.1 org/eclipse/jgit/lib/Repository$1.this$0
 	m	(Labcd/UE;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/lib/Repository$1#<init>
-		p	0	options	options
 	m	(Labcd/ED;)V	j6	onIndexChanged	auto: 执行 onIndexChanged；src: jgit-3.7.1 org/eclipse/jgit/lib/Repository$1#onIndexChanged
 		p	0	event	event
 c	abcd/TF	org/eclipse/jgit/revwalk/DepthWalk	src: jgit-3.7.1 org/eclipse/jgit/revwalk/DepthWalk；doc: Interface for revision walkers that perform depth filtering.
@@ -3336,7 +3203,6 @@ c	abcd/TI	org/eclipse/jgit/transport/RefAdvertiser	src: jgit-3.7.1 org/eclipse/j
 		p	0	id	id
 		p	1	refName	refName
 	m	(Ljava/lang/CharSequence;)V	j6	writeOne	src: jgit-3.7.1 org/eclipse/jgit/transport/RefAdvertiser#writeOne；doc: Write a single advertisement line.
-		p	0	line	line
 	m	(Ljava/lang/String;)V	j6	advertiseCapability	src: jgit-3.7.1 org/eclipse/jgit/transport/RefAdvertiser#advertiseCapability；doc: Add one protocol capability to the initial advertisement.
 		p	0	name	name
 	f	[C	DW	tmpId	auto: 字段([C)；src: jgit-3.7.1 org/eclipse/jgit/transport/RefAdvertiser.tmpId
@@ -3354,10 +3220,8 @@ c	abcd/TJ	org/eclipse/jgit/treewalk/AbstractTreeIterator	src: jgit-3.7.1 org/ecl
 	m	()I	tp	idOffset	src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator#idOffset；doc: Get the position within #idBuffer() of this entry's ObjectId.
 	m	()[B	u7	idBuffer	src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator#idBuffer；doc: Get the byte array buffer object IDs must be copied out of.
 	m	(I)V	FH	next	src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator#next；doc: Move to next entry, populating this iterator with the entry data.
-		p	0	delta	delta
 	m	()Z	FH	first	src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator#first；doc: Is this tree iterator positioned on its first entry? An iterator is positioned on the first entry if back(1)…
 	m	(I)V	j6	back	src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator#back；doc: Move to prior entry, populating this iterator with the entry data.
-		p	0	delta	delta
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator#<init>
 	f	[B	j6	zeroid	auto: 字段([B)；src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator.zeroid
 	f	[B	Zo	path	auto: 字段([B)；src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator.path
@@ -3392,7 +3256,6 @@ c	abcd/TJ	org/eclipse/jgit/treewalk/AbstractTreeIterator	src: jgit-3.7.1 org/ecl
 		p	0	capacity	capacity
 		p	1	len	len
 	m	(Labcd/IE;)Labcd/TJ;	j6	createSubtreeIterator	src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator#createSubtreeIterator；doc: Create a new iterator for the current entry's subtree.
-		p	0	reader	reader
 	m	(Labcd/IE;Labcd/uE;)Labcd/TJ;	j6	createSubtreeIterator	src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator#createSubtreeIterator；doc: Create a new iterator for the current entry's subtree.
 		p	0	reader	reader
 		p	1	idBuffer	idBuffer
@@ -3414,8 +3277,6 @@ c	abcd/TJ	org/eclipse/jgit/treewalk/AbstractTreeIterator	src: jgit-3.7.1 org/ecl
 	f	I	VH	pathOffset	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/treewalk/AbstractTreeIterator.pathOffset
 c	abcd/UA	org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$2	auto: 匿名内部类（外层 CherryPickStatus）（外层 CherryPickResult）；src: jgit-3.7.1 org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$2
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$2#<init>
-		p	0	newHead	newHead
-		p	1	cherryPickedRefs	cherryPickedRefs
 c	abcd/UD	org/eclipse/jgit/ignore/IgnoreNode	src: jgit-3.7.1 org/eclipse/jgit/ignore/IgnoreNode；doc: Represents a bundle of ignore rules inherited from a base directory.
 	f	Ljava/util/List;	j6	rules	auto: 字段(Ljava/util/List;)；src: jgit-3.7.1 org/eclipse/jgit/ignore/IgnoreNode.rules
 	m	(Ljava/io/InputStream;)Ljava/io/BufferedReader;	DW	asReader	auto: 「asReader」；src: jgit-3.7.1 org/eclipse/jgit/ignore/IgnoreNode#asReader
@@ -3437,7 +3298,6 @@ c	abcd/UE	org/eclipse/jgit/lib/Repository	src: jgit-3.7.1 org/eclipse/jgit/lib/R
 		p	0	filename	filename
 	m	()Z	QX	isBare	auto: 是否 Bare；src: jgit-3.7.1 org/eclipse/jgit/lib/Repository#isBare
 	m	(Z)V	j6	create	src: jgit-3.7.1 org/eclipse/jgit/lib/Repository#create；doc: Create a new Git repository initializing the necessary files and directories.
-		p	0	bare	bare
 	m	(Ljava/lang/String;)Labcd/yE;	u7	resolveSimple	auto: 解析 Simple；src: jgit-3.7.1 org/eclipse/jgit/lib/Repository#resolveSimple
 		p	0	revstr	revstr
 	m	()Labcd/iF;	J0	getRepositoryState	auto: 取 RepositoryState；src: jgit-3.7.1 org/eclipse/jgit/lib/Repository#getRepositoryState
@@ -3570,8 +3430,6 @@ c	abcd/UK	org/eclipse/jgit/util/io/AutoCRLFInputStream	src: jgit-3.7.1 org/eclip
 	f	I	Hw	cnt	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/util/io/AutoCRLFInputStream.cnt
 c	abcd/VA	org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$3	auto: 匿名内部类（外层 CherryPickStatus）（外层 CherryPickResult）；src: jgit-3.7.1 org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$3
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$3#<init>
-		p	0	newHead	newHead
-		p	1	cherryPickedRefs	cherryPickedRefs
 c	abcd/VC	org/eclipse/jgit/errors/CheckoutConflictException	src: jgit-3.7.1 org/eclipse/jgit/errors/CheckoutConflictException；doc: Exception thrown if a conflict occurs during a merge checkout.
 	m	([Ljava/lang/String;)Ljava/lang/String;	j6	buildList	auto: 构建 List；src: jgit-3.7.1 org/eclipse/jgit/errors/CheckoutConflictException#buildList
 		p	0	files	files
@@ -3628,8 +3486,6 @@ c	abcd/WA	org/eclipse/jgit/api/CherryPickResult	src: jgit-3.7.1 org/eclipse/jgit
 	m	()Labcd/dG;	DW	getNewHead	src: jgit-3.7.1 org/eclipse/jgit/api/CherryPickResult#getNewHead；doc: null if #getStatus is not CherryPickStatus#OK
 c	abcd/WA$a	org/eclipse/jgit/api/CherryPickResult$CherryPickStatus	auto: 类：CherryPickStatus（外层 CherryPickResult）；src: jgit-3.7.1 org/eclipse/jgit/api/CherryPickResult$CherryPickStatus
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/api/CherryPickResult$CherryPickStatus#<init>
-		p	0	newHead	newHead
-		p	1	cherryPickedRefs	cherryPickedRefs
 	m	(Ljava/lang/String;ILabcd/WA$a;)V	<init>	<init>	auto: 构造器（上游无同签名对应，按作用取名）
 	f	[Labcd/WA$a;	Hw	$VALUES	auto: 字段([Labcd/WA$a;)；src: jgit-3.7.1 org/eclipse/jgit/api/CherryPickResult$CherryPickStatus.$VALUES
 	f	Labcd/WA$a;	DW	FAILED	auto: 字段(Labcd/WA$a;)；src: jgit-3.7.1 org/eclipse/jgit/api/CherryPickResult$CherryPickStatus.FAILED
@@ -3708,7 +3564,6 @@ c	abcd/WE$a	org/eclipse/jgit/lib/RepositoryCache$FileKey	auto: 类：FileKey（�
 		p	1	fs	fs
 c	abcd/WE$b	org/eclipse/jgit/lib/RepositoryCache$Key	auto: 类：Key（外层 RepositoryCache）；src: jgit-3.7.1 org/eclipse/jgit/lib/RepositoryCache$Key
 	m	(Z)Labcd/UE;	j6	open	auto: 「open」；src: jgit-3.7.1 org/eclipse/jgit/lib/RepositoryCache$Key#open
-		p	0	mustExist	mustExist
 c	abcd/WF	org/eclipse/jgit/revwalk/FollowFilter	src: jgit-3.7.1 org/eclipse/jgit/revwalk/FollowFilter；doc: Updates the internal path filter to follow copy/renames.
 	m	()Z	j6	shouldBeRecursive	auto: 是否应 BeRecursive；src: jgit-3.7.1 org/eclipse/jgit/revwalk/FollowFilter#shouldBeRecursive
 	m	(Labcd/YJ;)Z	j6	include	auto: 「include」；src: jgit-3.7.1 org/eclipse/jgit/revwalk/FollowFilter#include
@@ -4205,8 +4060,6 @@ c	abcd/YI	org/eclipse/jgit/transport/RemoteRefUpdate	src: jgit-3.7.1 org/eclipse
 	f	Labcd/gJ;	Hw	trackingRefUpdate	auto: 字段(Labcd/gJ;)；src: jgit-3.7.1 org/eclipse/jgit/transport/RemoteRefUpdate.trackingRefUpdate
 c	abcd/YI$a	org/eclipse/jgit/transport/RemoteRefUpdate$Status	auto: 类：Status（外层 RemoteRefUpdate）；src: jgit-3.7.1 org/eclipse/jgit/transport/RemoteRefUpdate$Status
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/RemoteRefUpdate$Status#<init>
-		p	0	base	base
-		p	1	newExpectedOldObjectId	newExpectedOldObjectId
 	f	Labcd/YI$a;	Zo	REJECTED_OTHER_REASON	auto: 字段(Labcd/YI$a;)；src: jgit-3.7.1 org/eclipse/jgit/transport/RemoteRefUpdate$Status.REJECTED_OTHER_REASON
 	f	Labcd/YI$a;	VH	NON_EXISTING	auto: 字段(Labcd/YI$a;)；src: jgit-3.7.1 org/eclipse/jgit/transport/RemoteRefUpdate$Status.NON_EXISTING
 	f	Labcd/YI$a;	gn	AWAITING_REPORT	auto: 字段(Labcd/YI$a;)；src: jgit-3.7.1 org/eclipse/jgit/transport/RemoteRefUpdate$Status.AWAITING_REPORT
@@ -4444,8 +4297,6 @@ c	abcd/ZH	org/eclipse/jgit/transport/AmazonS3$1	auto: 匿名内部类（外层 A
 	f	Ljava/lang/String;	gn	key	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
 c	abcd/ZI	org/eclipse/jgit/transport/RemoteSession	src: jgit-3.7.1 org/eclipse/jgit/transport/RemoteSession；doc: Create a remote "session" for executing remote commands.
 	m	(Ljava/lang/String;I)Ljava/lang/Process;	j6	exec	src: jgit-3.7.1 org/eclipse/jgit/transport/RemoteSession#exec；doc: Generate a new remote process to execute the given command. This function should also start execution and ma…
-		p	0	commandName	commandName
-		p	1	timeout	timeout
 c	abcd/ZJ	org/eclipse/jgit/treewalk/WorkingTreeIterator$1	auto: 匿名内部类（外层 WorkingTreeIterator）；src: jgit-3.7.1 org/eclipse/jgit/treewalk/WorkingTreeIterator$1
 	m	(Labcd/_J$a;Labcd/_J$a;)I	j6	compare	auto: 「compare」；src: jgit-3.7.1 org/eclipse/jgit/treewalk/WorkingTreeIterator$1#compare
 		p	0	o1	o1
@@ -4760,8 +4611,6 @@ c	abcd/_J$b	org/eclipse/jgit/treewalk/WorkingTreeIterator$IteratorState	auto: �
 		p	0	options	options
 c	abcd/_J$c	org/eclipse/jgit/treewalk/WorkingTreeIterator$MetadataDiff	auto: 类：MetadataDiff（外层 WorkingTreeIterator）；src: jgit-3.7.1 org/eclipse/jgit/treewalk/WorkingTreeIterator$MetadataDiff
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/treewalk/WorkingTreeIterator$MetadataDiff#<init>
-		p	0	prefix	prefix
-		p	1	options	options
 	f	[Labcd/_J$c;	v5	$VALUES	auto: 字段([Labcd/_J$c;)；src: jgit-3.7.1 org/eclipse/jgit/treewalk/WorkingTreeIterator$MetadataDiff.$VALUES
 	f	Labcd/_J$c;	DW	DIFFER_BY_METADATA	auto: 字段(Labcd/_J$c;)；src: jgit-3.7.1 org/eclipse/jgit/treewalk/WorkingTreeIterator$MetadataDiff.DIFFER_BY_METADATA
 	f	Labcd/_J$c;	FH	SMUDGED	auto: 字段(Labcd/_J$c;)；src: jgit-3.7.1 org/eclipse/jgit/treewalk/WorkingTreeIterator$MetadataDiff.SMUDGED
@@ -5021,25 +4870,18 @@ c	abcd/bF	org/eclipse/jgit/lib/RepositoryState$6	auto: 匿名内部类（外层 
 	m	()Z	Hw	canCheckout	auto: 能否 Checkout；src: jgit-3.7.1 org/eclipse/jgit/lib/RepositoryState$6#canCheckout
 c	abcd/bG	org/eclipse/jgit/revwalk/RenameCallback	src: jgit-3.7.1 org/eclipse/jgit/revwalk/RenameCallback；doc: An instance of this class can be used in conjunction with a FollowFilter. Whenever a rename has been detecte…
 	m	(Labcd/hC;)V	j6	renamed	src: jgit-3.7.1 org/eclipse/jgit/revwalk/RenameCallback#renamed；doc: Called whenever a diff was found that is actually a rename or copy of a file.
-		p	0	entry	entry
 c	abcd/bH	org/eclipse/jgit/internal/storage/file/PackIndex	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex；doc: Access path to locate objects by ObjectId in a PackFile.
 	m	()Z	FH	hasCRC32Support	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#hasCRC32Support；doc: Check whether this index supports (has) CRC32 checksums for objects.
 	m	(Labcd/YD;)Z	FH	hasObject	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#hasObject；doc: Determine if an object is contained within the pack file.
 		p	0	id	id
 	m	(J)Labcd/yE;	j6	getObjectId	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#getObjectId；doc: Get ObjectId for the n-th object entry returned by #iterator().
-		p	0	nthPosition	nthPosition
 	m	(Ljava/util/Set;Labcd/WD;I)V	j6	resolve	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#resolve；doc: Find objects matching the prefix abbreviation.
-		p	0	matches	matches
-		p	1	id	id
-		p	2	matchLimit	matchLimit
 	m	(I)Labcd/yE;	v5	getObjectId	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#getObjectId；doc: Get ObjectId for the n-th object entry returned by #iterator().
 		p	0	nthPosition	nthPosition
 	m	()J	DW	getObjectCount	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#getObjectCount；doc: Obtain the total number of objects described by this index.
 	m	(Labcd/YD;)J	DW	findOffset	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#findOffset；doc: Locate the file offset position for the requested object.
-		p	0	objId	objId
 	m	()J	j6	getOffset64Count	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#getOffset64Count；doc: Obtain the total number of objects needing 64 bit offsets.
 	m	(Labcd/YD;)J	j6	findCRC32	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#findCRC32；doc: Retrieve stored CRC32 checksum of the requested object raw-data (including header).
-		p	0	objId	objId
 	f	[B	j6	packChecksum	auto: 字段([B)；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex.packChecksum
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#<init>
 	m	(Ljava/io/File;)Labcd/bH;	j6	open	src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex#open；doc: Open an existing pack .idx file for reading.
@@ -5061,9 +4903,6 @@ c	abcd/bH$b	org/eclipse/jgit/internal/storage/file/PackIndex$MutableEntry	auto: 
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndex$MutableEntry#<init>
 c	abcd/bI	org/eclipse/jgit/transport/BaseFetchConnection	src: jgit-3.7.1 org/eclipse/jgit/transport/BaseFetchConnection；doc: Base helper class for fetch connection implementations. Provides some common typical structures and methods…
 	m	(Labcd/LE;Ljava/util/Collection;Ljava/util/Set;)V	DW	doFetch	src: jgit-3.7.1 org/eclipse/jgit/transport/BaseFetchConnection#doFetch；doc: Implementation of #fetch(ProgressMonitor, Collection, Set) without checking for multiple fetch.
-		p	0	monitor	monitor
-		p	1	want	want
-		p	2	have	have
 	m	()Z	Zo	didFetchIncludeTags	src: jgit-3.7.1 org/eclipse/jgit/transport/BaseFetchConnection#didFetchIncludeTags；doc: Default implementation of FetchConnection#didFetchIncludeTags() - returning false.
 	m	(Labcd/LE;Ljava/util/Collection;Ljava/util/Set;)V	j6	fetch	auto: 执行 fetch；src: jgit-3.7.1 org/eclipse/jgit/transport/BaseFetchConnection#fetch
 		p	0	monitor	monitor
@@ -5141,11 +4980,7 @@ c	abcd/cC	org/eclipse/jgit/diff/ContentSource	src: jgit-3.7.1 org/eclipse/jgit/d
 	m	(Labcd/_J;)Labcd/cC;	j6	create	src: jgit-3.7.1 org/eclipse/jgit/diff/ContentSource#create；doc: Construct a content source for an ObjectReader.
 		p	0	iterator	iterator
 	m	(Ljava/lang/String;Labcd/yE;)J	DW	size	src: jgit-3.7.1 org/eclipse/jgit/diff/ContentSource#size；doc: Determine the size of the object.
-		p	0	path	path
-		p	1	id	id
 	m	(Ljava/lang/String;Labcd/yE;)Labcd/FE;	j6	open	src: jgit-3.7.1 org/eclipse/jgit/diff/ContentSource#open；doc: Open the object.
-		p	0	path	path
-		p	1	id	id
 	m	(Labcd/IE;)Labcd/cC;	j6	create	src: jgit-3.7.1 org/eclipse/jgit/diff/ContentSource#create；doc: Construct a content source for an ObjectReader.
 		p	0	reader	reader
 c	abcd/cC$b	org/eclipse/jgit/diff/ContentSource$ObjectReaderSource	auto: 类：ObjectReaderSource（外层 ContentSource）；src: jgit-3.7.1 org/eclipse/jgit/diff/ContentSource$ObjectReaderSource
@@ -5238,10 +5073,6 @@ c	abcd/cJ	org/eclipse/jgit/transport/SshSessionFactory	src: jgit-3.7.1 org/eclip
 	m	(Labcd/ZI;)V	j6	releaseSession	src: jgit-3.7.1 org/eclipse/jgit/transport/SshSessionFactory#releaseSession；doc: Close (or recycle) a session to a host.
 		p	0	session	session
 	m	(Labcd/HJ;Labcd/kI;Labcd/pK;I)Labcd/ZI;	j6	getSession	src: jgit-3.7.1 org/eclipse/jgit/transport/SshSessionFactory#getSession；doc: Open (or reuse) a session to a host.
-		p	0	uri	uri
-		p	1	credentialsProvider	credentialsProvider
-		p	2	fs	fs
-		p	3	tms	tms
 c	abcd/cK	org/eclipse/jgit/treewalk/filter/AndTreeFilter	src: jgit-3.7.1 org/eclipse/jgit/treewalk/filter/AndTreeFilter；doc: Includes a tree entry only if all subfilters include the same tree entry.
 	m	(Labcd/jK;Labcd/jK;)Labcd/jK;	j6	create	src: jgit-3.7.1 org/eclipse/jgit/treewalk/filter/AndTreeFilter#create；doc: Create a filter with two filters, both of which must match.
 		p	0	a	a
@@ -5336,7 +5167,6 @@ c	abcd/dI	org/eclipse/jgit/transport/BasePackFetchConnection$1	auto: 匿名内�
 	m	()Z	j6	requiresCommitBody	auto: 「requiresCommitBody」；src: jgit-3.7.1 org/eclipse/jgit/transport/BasePackFetchConnection$1#requiresCommitBody
 	f	Labcd/eI;	v5	this$0	auto: 字段(Labcd/eI;)；src: jgit-3.7.1 org/eclipse/jgit/transport/BasePackFetchConnection$1.this$0
 	m	(Labcd/eI;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/BasePackFetchConnection$1#<init>
-		p	0	packTransport	packTransport
 	m	(Labcd/qG;Labcd/dG;)Z	j6	include	auto: 「include」；src: jgit-3.7.1 org/eclipse/jgit/transport/BasePackFetchConnection$1#include
 		p	0	walker	walker
 		p	1	c	c
@@ -5376,9 +5206,6 @@ c	abcd/eB	org/eclipse/jgit/api/InitCommand	src: jgit-3.7.1 org/eclipse/jgit/api/
 c	abcd/eC	org/eclipse/jgit/diff/DiffAlgorithm	src: jgit-3.7.1 org/eclipse/jgit/diff/DiffAlgorithm；doc: Compares two Sequences to create an EditList of changes.
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/diff/DiffAlgorithm#<init>
 	m	(Labcd/DC;Labcd/CC;Labcd/CC;)Labcd/kC;	DW	diffNonCommon	src: jgit-3.7.1 org/eclipse/jgit/diff/DiffAlgorithm#diffNonCommon；doc: Compare two sequences and identify a list of edits between them.
-		p	0	cmp	cmp
-		p	1	a	a
-		p	2	b	b
 	m	(Labcd/eC$a;)Labcd/eC;	j6	getAlgorithm	src: jgit-3.7.1 org/eclipse/jgit/diff/DiffAlgorithm#getAlgorithm；doc: the diff algorithm for which an implementation should be returned
 		p	0	alg	alg
 	m	(Labcd/CC;Labcd/CC;)Labcd/jC;	j6	coverEdit	auto: 「coverEdit」；src: jgit-3.7.1 org/eclipse/jgit/diff/DiffAlgorithm#coverEdit
@@ -5402,21 +5229,9 @@ c	abcd/eD	org/eclipse/jgit/errors/MissingBundlePrerequisiteException	src: jgit-3
 		p	0	missingCommits	missingCommits
 c	abcd/eE	org/eclipse/jgit/lib/BatchingProgressMonitor	src: jgit-3.7.1 org/eclipse/jgit/lib/BatchingProgressMonitor；doc: ProgressMonitor that batches update events.
 	m	(Ljava/lang/String;I)V	DW	onEndTask	src: jgit-3.7.1 org/eclipse/jgit/lib/BatchingProgressMonitor#onEndTask；doc: Finish the progress monitor when the total wasn't known in advance.
-		p	0	taskName	taskName
-		p	1	workCurr	workCurr
 	m	(Ljava/lang/String;III)V	DW	onUpdate	src: jgit-3.7.1 org/eclipse/jgit/lib/BatchingProgressMonitor#onUpdate；doc: Update the progress monitor when the total is known in advance.
-		p	0	taskName	taskName
-		p	1	workCurr	workCurr
-		p	2	workTotal	workTotal
-		p	3	percentDone	percentDone
 	m	(Ljava/lang/String;I)V	FH	onUpdate	src: jgit-3.7.1 org/eclipse/jgit/lib/BatchingProgressMonitor#onUpdate；doc: Update the progress monitor if the total work isn't known, name of the task.
-		p	0	taskName	taskName
-		p	1	workCurr	workCurr
 	m	(Ljava/lang/String;III)V	j6	onEndTask	src: jgit-3.7.1 org/eclipse/jgit/lib/BatchingProgressMonitor#onEndTask；doc: Finish the progress monitor when the total is known in advance.
-		p	0	taskName	taskName
-		p	1	workCurr	workCurr
-		p	2	workTotal	workTotal
-		p	3	percentDone	percentDone
 	f	Ljava/lang/Object;	DW	alarmQueueKiller	auto: 字段(Ljava/lang/Object;)；src: jgit-3.7.1 org/eclipse/jgit/lib/BatchingProgressMonitor.alarmQueueKiller
 	f	Ljava/util/concurrent/ScheduledThreadPoolExecutor;	j6	alarmQueue	auto: 字段(Ljava/util/concurrent/ScheduledThreadPoolExecutor;)；src: jgit-3.7.1 org/eclipse/jgit/lib/BatchingProgressMonitor.alarmQueue
 	f	J	FH	delayStartTime	auto: 字段(J)；src: jgit-3.7.1 org/eclipse/jgit/lib/BatchingProgressMonitor.delayStartTime
@@ -5452,7 +5267,6 @@ c	abcd/eF	org/eclipse/jgit/lib/RepositoryState$9	auto: 匿名内部类（外层 
 c	abcd/eH	org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2$1	auto: 匿名内部类（外层 EntriesIteratorV2）（外层 PackIndexV2）；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2$1
 	f	Labcd/fH$a;	FH	this$1	auto: 字段(Labcd/fH$a;)；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2$1.this$1
 	m	(Labcd/fH$a;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2$1#<init>
-		p	0	fd	fd
 c	abcd/eI	org/eclipse/jgit/transport/BasePackFetchConnection	src: jgit-3.7.1 org/eclipse/jgit/transport/BasePackFetchConnection；doc: Fetch implementation using the native Git pack transfer service.
 	m	(Ljava/util/Collection;)Z	DW	sendWants	auto: 「sendWants」；src: jgit-3.7.1 org/eclipse/jgit/transport/BasePackFetchConnection#sendWants
 		p	0	want	want
@@ -5536,7 +5350,6 @@ c	abcd/eK	org/eclipse/jgit/treewalk/filter/NotIgnoredFilter	src: jgit-3.7.1 org/
 c	abcd/fB	org/eclipse/jgit/api/ListBranchCommand$1	auto: 匿名内部类（外层 ListBranchCommand）；src: jgit-3.7.1 org/eclipse/jgit/api/ListBranchCommand$1
 	f	Labcd/gB;	j6	this$0	auto: 字段(Labcd/gB;)；src: jgit-3.7.1 org/eclipse/jgit/api/ListBranchCommand$1.this$0
 	m	(Labcd/gB;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/api/ListBranchCommand$1#<init>
-		p	0	repo	repo
 	m	(Labcd/ME;Labcd/ME;)I	j6	compare	auto: 「compare」；src: jgit-3.7.1 org/eclipse/jgit/api/ListBranchCommand$1#compare
 		p	0	o1	o1
 		p	1	o2	o2
@@ -5596,7 +5409,6 @@ c	abcd/fH$a	org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2
 	m	()Labcd/bH$b;	j6	initEntry	auto: 初始化 Entry；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2#initEntry
 	f	Labcd/fH;	Zo	this$0	auto: 字段(Labcd/fH;)；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2.this$0
 	m	(Labcd/fH;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2#<init>
-		p	0	fd	fd
 	f	I	Hw	levelOne	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2.levelOne
 	f	I	v5	levelTwo	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2.levelTwo
 c	abcd/fI	org/eclipse/jgit/transport/BasePackFetchConnection$FetchConfig$1	auto: 匿名内部类（外层 FetchConfig）（外层 BasePackFetchConnection）；src: jgit-3.7.1 org/eclipse/jgit/transport/BasePackFetchConnection$FetchConfig$1
@@ -5788,7 +5600,6 @@ c	abcd/gE$a	org/eclipse/jgit/lib/Config$ConfigLine	auto: 类：ConfigLine（外�
 	f	Ljava/lang/String;	v5	value	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
 c	abcd/gE$b	org/eclipse/jgit/lib/Config$SectionParser	auto: 解析器：Section（外层 Config）；src: jgit-3.7.1 org/eclipse/jgit/lib/Config$SectionParser
 	m	(Labcd/gE;)Ljava/lang/Object;	j6	parse	auto: 「parse」；src: jgit-3.7.1 org/eclipse/jgit/lib/Config$SectionParser#parse
-		p	0	cfg	cfg
 c	abcd/gE$c	org/eclipse/jgit/lib/Config$ConfigSnapshot	auto: 类：ConfigSnapshot（外层 Config）（上游未收录，名字来自 jobs/jgit 的判据）
 	f	Ljava/util/Map;	DW	cache	auto: 字段(Ljava/util/Map;)（上游无同类型对应，按作用取名）
 	f	Labcd/gE$c;	FH	baseState	auto: 字段(Labcd/gE$c;)（上游无同类型对应，按作用取名）
@@ -6159,7 +5970,6 @@ c	abcd/iF	org/eclipse/jgit/lib/RepositoryState	src: jgit-3.7.1 org/eclipse/jgit/
 	f	Labcd/iF;	u7	APPLY	auto: 字段(Labcd/iF;)；src: jgit-3.7.1 org/eclipse/jgit/lib/RepositoryState.APPLY
 c	abcd/iG	org/eclipse/jgit/revwalk/RevObject	src: jgit-3.7.1 org/eclipse/jgit/revwalk/RevObject；doc: Base object type accessed during revision walking.
 	m	(Labcd/qG;)V	j6	parseHeaders	auto: 解析 Headers；src: jgit-3.7.1 org/eclipse/jgit/revwalk/RevObject#parseHeaders
-		p	0	walk	walk
 	f	I	EQ	flags	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/revwalk/RevObject.flags
 	m	(Labcd/fG;)Z	DW	has	src: jgit-3.7.1 org/eclipse/jgit/revwalk/RevObject#has；doc: Test to see if the flag has been set on this object.
 		p	0	flag	flag
@@ -6207,8 +6017,6 @@ c	abcd/jC	org/eclipse/jgit/diff/Edit	src: jgit-3.7.1 org/eclipse/jgit/diff/Edit�
 	m	()V	j6	extendA	src: jgit-3.7.1 org/eclipse/jgit/diff/Edit#extendA；doc: Increase #getEndA() by 1.
 c	abcd/jC$a	org/eclipse/jgit/diff/Edit$Type	auto: 类：Type（外层 Edit）；src: jgit-3.7.1 org/eclipse/jgit/diff/Edit$Type
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/diff/Edit$Type#<init>
-		p	0	as	as
-		p	1	bs	bs
 	f	[Labcd/jC$a;	v5	$VALUES	auto: 字段([Labcd/jC$a;)；src: jgit-3.7.1 org/eclipse/jgit/diff/Edit$Type.$VALUES
 	f	Labcd/jC$a;	DW	DELETE	auto: 字段(Labcd/jC$a;)；src: jgit-3.7.1 org/eclipse/jgit/diff/Edit$Type.DELETE
 	f	Labcd/jC$a;	FH	REPLACE	auto: 字段(Labcd/jC$a;)；src: jgit-3.7.1 org/eclipse/jgit/diff/Edit$Type.REPLACE
@@ -6366,15 +6174,12 @@ c	abcd/jJ	org/eclipse/jgit/transport/Transport	src: jgit-3.7.1 org/eclipse/jgit/
 	f	Ljava/lang/String;	VH	optionUploadPack	auto: 字段(Ljava/lang/String;)；src: jgit-3.7.1 org/eclipse/jgit/transport/Transport.optionUploadPack
 c	abcd/jJ$a	org/eclipse/jgit/transport/Transport$Operation	auto: 类：Operation（外层 Transport）；src: jgit-3.7.1 org/eclipse/jgit/transport/Transport$Operation
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/Transport$Operation#<init>
-		p	0	local	local
-		p	1	uri	uri
 	f	[Labcd/jJ$a;	FH	$VALUES	auto: 字段([Labcd/jJ$a;)；src: jgit-3.7.1 org/eclipse/jgit/transport/Transport$Operation.$VALUES
 	f	Labcd/jJ$a;	DW	PUSH	auto: 字段(Labcd/jJ$a;)；src: jgit-3.7.1 org/eclipse/jgit/transport/Transport$Operation.PUSH
 	f	Labcd/jJ$a;	j6	FETCH	auto: 字段(Labcd/jJ$a;)；src: jgit-3.7.1 org/eclipse/jgit/transport/Transport$Operation.FETCH
 c	abcd/jK	org/eclipse/jgit/treewalk/filter/TreeFilter	src: jgit-3.7.1 org/eclipse/jgit/treewalk/filter/TreeFilter；doc: Selects interesting tree entries during walking.
 	m	()Z	j6	shouldBeRecursive	src: jgit-3.7.1 org/eclipse/jgit/treewalk/filter/TreeFilter#shouldBeRecursive；doc: Does this tree filter require a recursive walk to match everything? If this tree filter is matching on full…
 	m	(Labcd/YJ;)Z	j6	include	src: jgit-3.7.1 org/eclipse/jgit/treewalk/filter/TreeFilter#include；doc: Determine if the current entry is interesting to report.
-		p	0	walker	walker
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/treewalk/filter/TreeFilter#<init>
 	f	Labcd/jK;	j6	ALL	auto: 字段(Labcd/jK;)；src: jgit-3.7.1 org/eclipse/jgit/treewalk/filter/TreeFilter.ALL
 	f	Labcd/jK;	DW	ANY_DIFF	auto: 字段(Labcd/jK;)；src: jgit-3.7.1 org/eclipse/jgit/treewalk/filter/TreeFilter.ANY_DIFF
@@ -6434,10 +6239,7 @@ c	abcd/kI	org/eclipse/jgit/transport/CredentialsProvider	src: jgit-3.7.1 org/ecl
 		p	0	uri	uri
 		p	1	items	items
 	m	(Labcd/HJ;[Labcd/jI;)Z	j6	get	src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialsProvider#get；doc: Ask for the credential items to be populated.
-		p	0	uri	uri
-		p	1	items	items
 	m	([Labcd/jI;)Z	j6	supports	src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialsProvider#supports；doc: Check if the provider can supply the necessary CredentialItems.
-		p	0	items	items
 c	abcd/kJ	org/eclipse/jgit/transport/TransportAmazonS3$1	auto: 匿名内部类（外层 TransportAmazonS3）；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportAmazonS3$1
 	m	()Ljava/lang/String;	DW	getName	auto: 取 Name；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportAmazonS3$1#getName
 	m	()Ljava/util/Set;	v5	getSchemes	auto: 取 Schemes；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportAmazonS3$1#getSchemes
@@ -6853,7 +6655,6 @@ c	abcd/nH	org/eclipse/jgit/internal/storage/file/RefDirectory	src: jgit-3.7.1 or
 c	abcd/nH$c	org/eclipse/jgit/internal/storage/file/RefDirectory$LooseRef	auto: 类：LooseRef（外层 RefDirectory）；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/RefDirectory$LooseRef
 	m	()Labcd/LG;	VH	getSnapShot	auto: 取 SnapShot；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/RefDirectory$LooseRef#getSnapShot
 	m	(Labcd/BE;)Labcd/nH$c;	j6	peel	auto: 「peel」；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/RefDirectory$LooseRef#peel
-		p	0	newLeaf	newLeaf
 c	abcd/nH$e	org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef	auto: 类：LooseSymbolicRef（外层 RefDirectory）；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef
 	m	()Labcd/LG;	VH	getSnapShot	auto: 取 SnapShot；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef#getSnapShot
 	m	(Labcd/BE;)Labcd/nH$c;	j6	peel	auto: 「peel」；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef#peel
@@ -6867,13 +6668,9 @@ c	abcd/nH$f	org/eclipse/jgit/internal/storage/file/RefDirectory$LooseNonTag	auto
 c	abcd/nI	org/eclipse/jgit/transport/FetchConnection	src: jgit-3.7.1 org/eclipse/jgit/transport/FetchConnection；doc: Lists known refs from the remote and copies objects of selected refs.
 	m	()Ljava/util/Collection;	Hw	getPackLocks	src: jgit-3.7.1 org/eclipse/jgit/transport/FetchConnection#getPackLocks；doc: All locks created by the last #fetch(ProgressMonitor, Collection, Set) call.
 	m	(Ljava/lang/String;)V	j6	setPackLockMessage	src: jgit-3.7.1 org/eclipse/jgit/transport/FetchConnection#setPackLockMessage；doc: Set the lock message used when holding a pack out of garbage collection.
-		p	0	message	message
 	m	()Z	Zo	didFetchIncludeTags	src: jgit-3.7.1 org/eclipse/jgit/transport/FetchConnection#didFetchIncludeTags；doc: Did the last #fetch(ProgressMonitor, Collection, Set) get tags? Some Git aware transports are able to implic…
 	m	()Z	v5	didFetchTestConnectivity	src: jgit-3.7.1 org/eclipse/jgit/transport/FetchConnection#didFetchTestConnectivity；doc: Did the last #fetch(ProgressMonitor, Collection, Set) validate graph? Some transports walk the object graph…
 	m	(Labcd/LE;Ljava/util/Collection;Ljava/util/Set;)V	j6	fetch	src: jgit-3.7.1 org/eclipse/jgit/transport/FetchConnection#fetch；doc: Fetch objects we don't have but that are reachable from advertised refs.
-		p	0	monitor	monitor
-		p	1	want	want
-		p	2	have	have
 c	abcd/nJ	org/eclipse/jgit/transport/TransportBundleFile$1	auto: 匿名内部类（外层 TransportBundleFile）；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportBundleFile$1
 	m	(Labcd/HJ;Labcd/UE;Ljava/lang/String;)Labcd/jJ;	DW	open	auto: 「open」；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportBundleFile$1#open
 		p	0	uri	uri
@@ -7132,7 +6929,6 @@ c	abcd/pJ	org/eclipse/jgit/transport/TransportGitAnon$1	auto: 匿名内部类（
 c	abcd/pK	org/eclipse/jgit/util/FS	src: jgit-3.7.1 org/eclipse/jgit/util/FS；doc: Abstraction to support various file system operations not in Java.
 	m	()Ljava/io/File;	DW	discoverGitPrefix	auto: 「discoverGitPrefix」；src: jgit-3.7.1 org/eclipse/jgit/util/FS#discoverGitPrefix
 	m	(Ljava/io/File;)Z	j6	canExecute	src: jgit-3.7.1 org/eclipse/jgit/util/FS#canExecute；doc: Determine if the file is executable (or not).
-		p	0	f	f
 	m	()Z	v5	supportsExecute	src: jgit-3.7.1 org/eclipse/jgit/util/FS#supportsExecute；doc: Does this operating system and JRE support the execute flag on files? executable bit information; false othe…
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/util/FS#<init>
 	m	()Z	Hw	retryFailedLockFileCommit	src: jgit-3.7.1 org/eclipse/jgit/util/FS#retryFailedLockFileCommit；doc: Does this file system have problems with atomic renames?
@@ -7151,11 +6947,7 @@ c	abcd/pK	org/eclipse/jgit/util/FS	src: jgit-3.7.1 org/eclipse/jgit/util/FS；do
 		p	0	dir	dir
 		p	1	name	name
 	m	(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/ProcessBuilder;	j6	runInShell	src: jgit-3.7.1 org/eclipse/jgit/util/FS#runInShell；doc: Initialize a ProcesssBuilder to run a command using the system shell.
-		p	0	cmd	cmd
-		p	1	args	args
 	m	(Ljava/io/File;Z)Z	j6	setExecute	src: jgit-3.7.1 org/eclipse/jgit/util/FS#setExecute；doc: Set a file to be executable by the user.
-		p	0	f	f
-		p	1	canExec	canExec
 	m	()Ljava/io/File;	FH	gitPrefix	auto: 「gitPrefix」；src: jgit-3.7.1 org/eclipse/jgit/util/FS#gitPrefix
 	m	()Ljava/io/File;	VH	userHomeImpl	src: jgit-3.7.1 org/eclipse/jgit/util/FS#userHomeImpl；doc: Determine the user's home directory (location where preferences are).
 	m	()Ljava/io/File;	Zo	userHome	src: jgit-3.7.1 org/eclipse/jgit/util/FS#userHome；doc: Determine the user's home directory (location where preferences are).
@@ -7175,11 +6967,6 @@ c	abcd/qC	org/eclipse/jgit/diff/LowLevelDiffAlgorithm	src: jgit-3.7.1 org/eclips
 		p	1	a	a
 		p	2	b	b
 	m	(Labcd/kC;Labcd/mC;Labcd/lC;Labcd/lC;Labcd/jC;)V	j6	diffNonCommon	src: jgit-3.7.1 org/eclipse/jgit/diff/LowLevelDiffAlgorithm#diffNonCommon；doc: Compare two sequences and identify a list of edits between them.
-		p	0	edits	edits
-		p	1	cmp	cmp
-		p	2	a	a
-		p	3	b	b
-		p	4	region	region
 c	abcd/qE	org/eclipse/jgit/lib/FileMode$7	auto: 匿名内部类（外层 FileMode）；src: jgit-3.7.1 org/eclipse/jgit/lib/FileMode$7
 	f	I	tp	val$bits	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/lib/FileMode$7.val$bits
 	m	(I)Z	j6	equals	auto: 「equals」；src: jgit-3.7.1 org/eclipse/jgit/lib/FileMode$7#equals
@@ -7316,12 +7103,10 @@ c	abcd/qJ$a	org/eclipse/jgit/transport/TransportGitAnon$TcpFetchConnection	auto:
 	f	Labcd/qJ;	cn	this$0	auto: 字段(Labcd/qJ;)；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitAnon$TcpFetchConnection.this$0
 	f	Ljava/net/Socket;	ro	sock	auto: 字段(Ljava/net/Socket;)；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitAnon$TcpFetchConnection.sock
 	m	(Labcd/qJ;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitAnon$TcpFetchConnection#<init>
-		p	0	uri	uri
 c	abcd/qJ$b	org/eclipse/jgit/transport/TransportGitAnon$TcpPushConnection	auto: 类：TcpPushConnection（外层 TransportGitAnon）；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitAnon$TcpPushConnection
 	f	Labcd/qJ;	gW	this$0	auto: 字段(Labcd/qJ;)；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitAnon$TcpPushConnection.this$0
 	f	Ljava/net/Socket;	yS	sock	auto: 字段(Ljava/net/Socket;)；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitAnon$TcpPushConnection.sock
 	m	(Labcd/qJ;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitAnon$TcpPushConnection#<init>
-		p	0	uri	uri
 c	abcd/qK	org/eclipse/jgit/util/FS_POSIX$1	auto: 匿名内部类（外层 FS_POSIX）（上游未收录，名字来自 jobs/jgit 的判据）
 c	abcd/rB	org/eclipse/jgit/api/PullResult	src: jgit-3.7.1 org/eclipse/jgit/api/PullResult；doc: Encapsulates the result of a PullCommand
 	m	()Z	DW	isSuccessful	auto: 是否 Successful；src: jgit-3.7.1 org/eclipse/jgit/api/PullResult#isSuccessful
@@ -7348,7 +7133,6 @@ c	abcd/rE	org/eclipse/jgit/lib/FileMode	src: jgit-3.7.1 org/eclipse/jgit/lib/Fil
 		p	0	buf	buf
 		p	1	ptr	ptr
 	m	(I)Z	j6	equals	src: jgit-3.7.1 org/eclipse/jgit/lib/FileMode#equals；doc: Test a file mode for equality with this FileMode object.
-		p	0	modebits	modebits
 	f	I	gn	modeBits	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/lib/FileMode.modeBits
 	f	I	u7	objectType	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/lib/FileMode.objectType
 	f	Labcd/rE;	j6	TREE	auto: 字段(Labcd/rE;)；src: jgit-3.7.1 org/eclipse/jgit/lib/FileMode.TREE
@@ -7489,8 +7273,6 @@ c	abcd/sC$a$b	org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths	auto: 类：E
 	f	Labcd/CK;	j6	x	auto: 字段(Labcd/CK;)；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths.x
 	f	Labcd/sC$a;	tp	this$1	auto: 字段(Labcd/sC$a;)；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths.this$1
 	m	(II)V	j6	adjustMinMaxK	auto: 执行 adjustMinMaxK；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#adjustMinMaxK
-		p	0	k	k
-		p	1	x	x
 	m	(IIII)V	j6	initialize	auto: 执行 initialize；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#initialize
 		p	0	k	k
 		p	1	x	x
@@ -7499,16 +7281,10 @@ c	abcd/sC$a$b	org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths	auto: 类：E
 	m	(I)Z	j6	calculate	auto: 「calculate」；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#calculate
 		p	0	d	d
 	m	(IIIJ)Z	j6	meets	auto: 「meets」；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#meets
-		p	0	d	d
-		p	1	k	k
-		p	2	x	x
-		p	3	snake	snake
 	m	(JJ)Z	j6	makeEdit	auto: 生成 Edit；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#makeEdit
 		p	0	snake1	snake1
 		p	1	snake2	snake2
 	m	(II)Z	v5	isBetter	auto: 是否 Better；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#isBetter
-		p	0	left	left
-		p	1	right	right
 	m	(II)I	DW	getIndex	auto: 取 Index；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#getIndex
 		p	0	d	d
 		p	1	k	k
@@ -7526,8 +7302,6 @@ c	abcd/sC$a$b	org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths	auto: 类：E
 	m	(J)I	DW	snake2y	auto: 「snake2y」；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#snake2y
 		p	0	snake	snake
 	m	(II)I	VH	snake	auto: 「snake」；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#snake
-		p	0	k	k
-		p	1	x	x
 	f	I	FH	beginK	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths.beginK
 	f	I	Hw	endK	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths.endK
 	f	I	v5	middleK	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths.middleK
@@ -7536,9 +7310,7 @@ c	abcd/sC$a$b	org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths	auto: 类：E
 	f	I	gn	minK	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths.minK
 	f	I	u7	maxK	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths.maxK
 	m	(I)I	DW	getLeft	auto: 取 Left；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#getLeft
-		p	0	x	x
 	m	(I)I	FH	getRight	auto: 取 Right；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#getRight
-		p	0	x	x
 	m	(I)I	Hw	forceKIntoRange	auto: 「forceKIntoRange」；src: jgit-3.7.1 org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths#forceKIntoRange
 		p	0	k	k
 c	abcd/sE	org/eclipse/jgit/lib/IndexDiff	src: jgit-3.7.1 org/eclipse/jgit/lib/IndexDiff；doc: Compares the index, a tree, and the working directory Ignored files are not taken into account. The followin…
@@ -7769,7 +7541,6 @@ c	abcd/tF	org/eclipse/jgit/merge/MergeResult$1	auto: 匿名内部类（外层 Me
 	f	Labcd/uF;	DW	this$0	auto: 字段(Labcd/uF;)；src: jgit-3.7.1 org/eclipse/jgit/merge/MergeResult$1.this$0
 	f	I	j6	idx	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/merge/MergeResult$1.idx
 	m	(Labcd/uF;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/merge/MergeResult$1#<init>
-		p	0	sequences	sequences
 c	abcd/tG	org/eclipse/jgit/revwalk/StartGenerator	src: jgit-3.7.1 org/eclipse/jgit/revwalk/StartGenerator；doc: Initial RevWalk generator that bootstraps a new walk.
 	m	()I	DW	outputType	auto: 「outputType」；src: jgit-3.7.1 org/eclipse/jgit/revwalk/StartGenerator#outputType
 	f	Labcd/qG;	j6	walker	auto: 字段(Labcd/qG;)；src: jgit-3.7.1 org/eclipse/jgit/revwalk/StartGenerator.walker
@@ -7795,8 +7566,6 @@ c	abcd/tI	org/eclipse/jgit/transport/JschConfigSessionFactory	src: jgit-3.7.1 or
 		p	2	fs	fs
 		p	3	tms	tms
 	m	(Labcd/yI$a;Lcom/jcraft/jsch/Session;)V	j6	configure	src: jgit-3.7.1 org/eclipse/jgit/transport/JschConfigSessionFactory#configure；doc: Provide additional configuration for the session based on the host information. This method could be used to…
-		p	0	hc	hc
-		p	1	session	session
 	m	(Lcom/jcraft/jsch/JSch;Ljava/io/File;)V	j6	loadIdentity	auto: 加载 Identity；src: jgit-3.7.1 org/eclipse/jgit/transport/JschConfigSessionFactory#loadIdentity
 		p	0	sch	sch
 		p	1	priv	priv
@@ -7835,7 +7604,6 @@ c	abcd/tJ$a	org/eclipse/jgit/transport/TransportGitSsh$ExtSession	auto: 会话�
 		p	1	timeout	timeout
 	f	Labcd/tJ;	j6	this$0	auto: 字段(Labcd/tJ;)；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitSsh$ExtSession.this$0
 	m	(Labcd/tJ;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitSsh$ExtSession#<init>
-		p	0	uri	uri
 c	abcd/tJ$b	org/eclipse/jgit/transport/TransportGitSsh$SshFetchConnection	auto: 类：SshFetchConnection（外层 TransportGitSsh）；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitSsh$SshFetchConnection
 	f	Labcd/YK;	cn	errorThread	auto: 字段(Labcd/YK;)；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitSsh$SshFetchConnection.errorThread
 	f	Ljava/lang/Process;	ro	process	auto: 字段(Ljava/lang/Process;)；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitSsh$SshFetchConnection.process
@@ -8010,7 +7778,6 @@ c	abcd/vD	org/eclipse/jgit/errors/TranslationBundleException	src: jgit-3.7.1 org
 	f	Ljava/lang/Class;	j6	bundleClass	auto: 字段(Ljava/lang/Class;)；src: jgit-3.7.1 org/eclipse/jgit/errors/TranslationBundleException.bundleClass
 c	abcd/vF	org/eclipse/jgit/merge/MergeStrategy	src: jgit-3.7.1 org/eclipse/jgit/merge/MergeStrategy；doc: A method of combining two or more trees together to form an output tree.
 	m	(Labcd/UE;)Labcd/wF;	j6	newMerger	src: jgit-3.7.1 org/eclipse/jgit/merge/MergeStrategy#newMerger；doc: Create a new merge instance.
-		p	0	db	db
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name；src: jgit-3.7.1 org/eclipse/jgit/merge/MergeStrategy#getName
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/merge/MergeStrategy#<init>
 	m	(Ljava/lang/String;Labcd/vF;)V	j6	register	src: jgit-3.7.1 org/eclipse/jgit/merge/MergeStrategy#register；doc: Register a merge strategy so it can later be obtained by name.
@@ -8324,8 +8091,6 @@ c	abcd/xF	org/eclipse/jgit/merge/ResolveMerger	src: jgit-3.7.1 org/eclipse/jgit/
 	m	()Z	Hw	mergeImpl	auto: 合并 Impl；src: jgit-3.7.1 org/eclipse/jgit/merge/ResolveMerger#mergeImpl
 c	abcd/xF$a	org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason	auto: 类：MergeFailureReason（外层 ResolveMerger）；src: jgit-3.7.1 org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason#<init>
-		p	0	local	local
-		p	1	inCore	inCore
 	f	[Labcd/xF$a;	Hw	$VALUES	auto: 字段([Labcd/xF$a;)；src: jgit-3.7.1 org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason.$VALUES
 	f	Labcd/xF$a;	DW	DIRTY_WORKTREE	auto: 字段(Labcd/xF$a;)；src: jgit-3.7.1 org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason.DIRTY_WORKTREE
 	f	Labcd/xF$a;	FH	COULD_NOT_DELETE	auto: 字段(Labcd/xF$a;)；src: jgit-3.7.1 org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason.COULD_NOT_DELETE
@@ -8424,7 +8189,6 @@ c	abcd/xJ$d$b	org/eclipse/jgit/transport/TransportHttp$Service$HttpOutputStream	
 	m	()Ljava/io/OutputStream;	Hw	overflow	auto: 「overflow」；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportHttp$Service$HttpOutputStream#overflow
 	f	Labcd/xJ$d;	Hw	this$1	auto: 字段(Labcd/xJ$d;)；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportHttp$Service$HttpOutputStream.this$1
 	m	(Labcd/xJ$d;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportHttp$Service$HttpOutputStream#<init>
-		p	0	uri	uri
 c	abcd/xJ$e	org/eclipse/jgit/transport/TransportHttp$SmartHttpFetchConnection	auto: 类：SmartHttpFetchConnection（外层 TransportHttp）；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportHttp$SmartHttpFetchConnection
 	f	Labcd/xJ;	ro	this$0	auto: 字段(Labcd/xJ;)；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportHttp$SmartHttpFetchConnection.this$0
 	m	(Labcd/xJ;Ljava/io/InputStream;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportHttp$SmartHttpFetchConnection#<init>
@@ -8438,7 +8202,6 @@ c	abcd/xJ$f	org/eclipse/jgit/transport/TransportHttp$SmartHttpPushConnection	aut
 c	abcd/xK	org/eclipse/jgit/util/FS_Win32_Cygwin$2	auto: 匿名内部类（外层 FS_Win32_Cygwin）；src: jgit-3.7.1 org/eclipse/jgit/util/FS_Win32_Cygwin$2
 	f	Labcd/yK;	j6	this$0	auto: 字段(Labcd/yK;)；src: jgit-3.7.1 org/eclipse/jgit/util/FS_Win32_Cygwin$2.this$0
 	m	(Labcd/yK;)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/util/FS_Win32_Cygwin$2#<init>
-		p	0	src	src
 c	abcd/yB	org/eclipse/jgit/api/RebaseResult$Status$5	auto: 匿名内部类（外层 Status）（外层 RebaseResult）；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status$5
 	m	()Z	Hw	isSuccessful	auto: 是否 Successful；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status$5#isSuccessful
 c	abcd/yD	org/eclipse/jgit/errors/TransportException	src: jgit-3.7.1 org/eclipse/jgit/errors/TransportException；doc: Indicates a protocol error has occurred while fetching/pushing objects.
@@ -8503,8 +8266,6 @@ c	abcd/yG	org/eclipse/jgit/revwalk/filter/RevFilter	src: jgit-3.7.1 org/eclipse/
 	m	()Z	j6	requiresCommitBody	auto: 「requiresCommitBody」；src: jgit-3.7.1 org/eclipse/jgit/revwalk/filter/RevFilter#requiresCommitBody
 	m	()V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/revwalk/filter/RevFilter#<init>
 	m	(Labcd/qG;Labcd/dG;)Z	j6	include	src: jgit-3.7.1 org/eclipse/jgit/revwalk/filter/RevFilter#include；doc: Determine if the supplied commit should be included in results.
-		p	0	walker	walker
-		p	1	cmit	cmit
 	f	Labcd/yG;	j6	ALL	auto: 字段(Labcd/yG;)；src: jgit-3.7.1 org/eclipse/jgit/revwalk/filter/RevFilter.ALL
 	f	Labcd/yG;	DW	NONE	auto: 字段(Labcd/yG;)；src: jgit-3.7.1 org/eclipse/jgit/revwalk/filter/RevFilter.NONE
 	f	Labcd/yG;	FH	NO_MERGES	auto: 字段(Labcd/yG;)；src: jgit-3.7.1 org/eclipse/jgit/revwalk/filter/RevFilter.NO_MERGES
@@ -8877,7 +8638,6 @@ c	abcd/IH$a	org/eclipse/jgit/internal/storage/pack/DeltaWindow$ZipStream	auto: �
 	m	()I	j6	finish	auto: 「finish」；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/pack/DeltaWindow$ZipStream#finish
 c	abcd/PD$a	org/eclipse/jgit/fnmatch/GroupHead$CharacterPattern	auto: 类：CharacterPattern（外层 GroupHead）；src: jgit-3.7.1 org/eclipse/jgit/fnmatch/GroupHead$CharacterPattern
 	m	(C)Z	j6	matches	auto: 「matches」；src: jgit-3.7.1 org/eclipse/jgit/fnmatch/GroupHead$CharacterPattern#matches
-		p	0	c	c
 c	abcd/UI	org/eclipse/jgit/transport/RefFilter$1	auto: 匿名内部类（外层 RefFilter）；src: jgit-3.7.1 org/eclipse/jgit/transport/RefFilter$1
 	m	(Ljava/util/Map;)Ljava/util/Map;	j6	filter	auto: 「filter」；src: jgit-3.7.1 org/eclipse/jgit/transport/RefFilter$1#filter
 		p	0	refs	refs
@@ -8910,7 +8670,6 @@ c	abcd/Iz	org/eclipse/jgit/transport/http/JDKHttpConnectionFactory	src: jgit-3.7
 c	abcd/LJ	org/eclipse/jgit/transport/UploadPackLogger	src: jgit-3.7.1 org/eclipse/jgit/transport/UploadPackLogger；doc: Logs activity that occurred within UploadPack.
 	f	Labcd/LJ;	j6	NULL	auto: 字段(Labcd/LJ;)；src: jgit-3.7.1 org/eclipse/jgit/transport/UploadPackLogger.NULL
 	m	(Labcd/TH$c;)V	j6	onPackStatistics	src: jgit-3.7.1 org/eclipse/jgit/transport/UploadPackLogger#onPackStatistics；doc: Notice to the logger after a pack has been sent.
-		p	0	stats	stats
 c	abcd/NE	org/eclipse/jgit/lib/RefComparator	src: jgit-3.7.1 org/eclipse/jgit/lib/RefComparator；doc: Util for sorting (or comparing) Ref instances by name.
 	f	Labcd/NE;	j6	INSTANCE	auto: 字段(Labcd/NE;)；src: jgit-3.7.1 org/eclipse/jgit/lib/RefComparator.INSTANCE
 	m	(Labcd/ME;Labcd/ME;)I	DW	compareTo	src: jgit-3.7.1 org/eclipse/jgit/lib/RefComparator#compareTo；doc: Compare a reference to a name.
@@ -8934,13 +8693,11 @@ c	abcd/NF	org/eclipse/jgit/revwalk/BlockObjQueue	auto: 类：BlockObjQueue；src
 c	abcd/RE$b	org/eclipse/jgit/lib/RefUpdate$Store	auto: 类：Store（外层 RefUpdate）；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate$Store
 	f	Labcd/RE;	j6	this$0	auto: 字段(Labcd/RE;)；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate$Store.this$0
 	m	(Labcd/RE$a;)Labcd/RE$a;	j6	execute	auto: 「execute」；src: jgit-3.7.1 org/eclipse/jgit/lib/RefUpdate$Store#execute
-		p	0	status	status
 c	abcd/TK	org/eclipse/jgit/util/io/DisabledOutputStream	src: jgit-3.7.1 org/eclipse/jgit/util/io/DisabledOutputStream；doc: An OutputStream which always throws IllegalStateExeption during write.
 	f	Labcd/TK;	j6	INSTANCE	auto: 字段(Labcd/TK;)；src: jgit-3.7.1 org/eclipse/jgit/util/io/DisabledOutputStream.INSTANCE
 c	abcd/VI	org/eclipse/jgit/transport/RefFilter	src: jgit-3.7.1 org/eclipse/jgit/transport/RefFilter；doc: Filters the list of refs that are advertised to the client.
 	f	Labcd/VI;	j6	DEFAULT	auto: 字段(Labcd/VI;)；src: jgit-3.7.1 org/eclipse/jgit/transport/RefFilter.DEFAULT
 	m	(Ljava/util/Map;)Ljava/util/Map;	j6	filter	auto: 「filter」；src: jgit-3.7.1 org/eclipse/jgit/transport/RefFilter#filter
-		p	0	refs	refs
 c	abcd/VK$b	org/eclipse/jgit/util/io/InterruptTimer$AlarmThread	auto: 类：AlarmThread（外层 InterruptTimer）；src: jgit-3.7.1 org/eclipse/jgit/util/io/InterruptTimer$AlarmThread
 c	abcd/_D	org/eclipse/jgit/lib/AsyncObjectSizeQueue	src: jgit-3.7.1 org/eclipse/jgit/lib/AsyncObjectSizeQueue；doc: Queue to examine object sizes asynchronously.
 	m	()J	v5	getSize	auto: 取 Size；src: jgit-3.7.1 org/eclipse/jgit/lib/AsyncObjectSizeQueue#getSize
@@ -8965,7 +8722,6 @@ c	abcd/xJ$d$a	org/eclipse/jgit/transport/TransportHttp$Service$HttpExecuteStream
 	f	Labcd/xJ$d;	j6	this$1	auto: 字段(Labcd/xJ$d;)；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportHttp$Service$HttpExecuteStream.this$1
 c	abcd/SI$b	org/eclipse/jgit/transport/BaseReceivePack$Reporter	auto: 类：Reporter（外层 BaseReceivePack）；src: jgit-3.7.1 org/eclipse/jgit/transport/BaseReceivePack$Reporter
 	m	(Ljava/lang/String;)V	j6	sendString	auto: 执行 sendString；src: jgit-3.7.1 org/eclipse/jgit/transport/BaseReceivePack$Reporter#sendString
-		p	0	s	s
 c	abcd/NF$b	org/eclipse/jgit/revwalk/BlockObjQueue$BlockFreeList	auto: 类：BlockFreeList（外层 BlockObjQueue）；src: jgit-3.7.1 org/eclipse/jgit/revwalk/BlockObjQueue$BlockFreeList
 	m	()Labcd/NF$a;	j6	newBlock	auto: 「newBlock」；src: jgit-3.7.1 org/eclipse/jgit/revwalk/BlockObjQueue$BlockFreeList#newBlock
 	m	(Labcd/NF$a;)V	j6	freeBlock	auto: 执行 freeBlock；src: jgit-3.7.1 org/eclipse/jgit/revwalk/BlockObjQueue$BlockFreeList#freeBlock
@@ -8983,12 +8739,10 @@ c	abcd/VK$c	org/eclipse/jgit/util/io/InterruptTimer$AutoKiller	auto: 类：AutoK
 	f	Labcd/VK$a;	j6	state	auto: 字段(Labcd/VK$a;)；src: jgit-3.7.1 org/eclipse/jgit/util/io/InterruptTimer$AutoKiller.state
 c	abcd/LF	org/eclipse/jgit/revwalk/AbstractRevQueue	auto: 类：AbstractRevQueue；src: jgit-3.7.1 org/eclipse/jgit/revwalk/AbstractRevQueue
 	m	(I)Z	j6	anybodyHasFlag	auto: 「anybodyHasFlag」；src: jgit-3.7.1 org/eclipse/jgit/revwalk/AbstractRevQueue#anybodyHasFlag
-		p	0	f	f
 	m	(Ljava/lang/StringBuilder;Labcd/dG;)V	j6	describe	auto: 执行 describe；src: jgit-3.7.1 org/eclipse/jgit/revwalk/AbstractRevQueue#describe
 		p	0	s	s
 		p	1	c	c
 	m	(Labcd/dG;)V	j6	add	src: jgit-3.7.1 org/eclipse/jgit/revwalk/AbstractRevQueue#add；doc: Add a commit to the queue.
-		p	0	c	c
 	f	Labcd/LF;	j6	EMPTY_QUEUE	auto: 字段(Labcd/LF;)；src: jgit-3.7.1 org/eclipse/jgit/revwalk/AbstractRevQueue.EMPTY_QUEUE
 	f	I	DW	outputType	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/revwalk/AbstractRevQueue.outputType
 	m	()Labcd/dG;	j6	next	src: jgit-3.7.1 org/eclipse/jgit/revwalk/AbstractRevQueue#next；doc: Remove the first commit from the queue.
@@ -9150,8 +8904,6 @@ c	abcd/EC	org/eclipse/jgit/diff/SimilarityIndex	src: jgit-3.7.1 org/eclipse/jgit
 c	abcd/EC$a	org/eclipse/jgit/diff/SimilarityIndex$TableFullException	auto: 异常类型：TableFull（外层 SimilarityIndex）；src: jgit-3.7.1 org/eclipse/jgit/diff/SimilarityIndex$TableFullException
 c	abcd/rI	org/eclipse/jgit/transport/HttpAuthMethod	src: jgit-3.7.1 org/eclipse/jgit/transport/HttpAuthMethod；doc: Support class to populate user authentication data on a connection.
 	m	(Ljava/lang/String;Ljava/lang/String;)V	j6	authorize	src: jgit-3.7.1 org/eclipse/jgit/transport/HttpAuthMethod#authorize；doc: Update this method with the credentials from the URIish.
-		p	0	user	user
-		p	1	pass	pass
 	m	(Labcd/HJ;Labcd/kI;)Z	j6	authorize	src: jgit-3.7.1 org/eclipse/jgit/transport/HttpAuthMethod#authorize；doc: Update this method with the credentials from the URIish.
 		p	0	uri	uri
 		p	1	credentialsProvider	credentialsProvider
@@ -9268,9 +9020,6 @@ c	abcd/zC	org/eclipse/jgit/diff/RawTextComparator	src: jgit-3.7.1 org/eclipse/jg
 		p	0	seq	seq
 		p	1	lno	lno
 	m	([BII)I	j6	hashRegion	src: jgit-3.7.1 org/eclipse/jgit/diff/RawTextComparator#hashRegion；doc: Compute a hash code for a region.
-		p	0	raw	raw
-		p	1	ptr	ptr
-		p	2	end	end
 	m	(Labcd/CC;Labcd/CC;Labcd/jC;)Labcd/jC;	j6	reduceCommonStartEnd	auto: 「reduceCommonStartEnd」；src: jgit-3.7.1 org/eclipse/jgit/diff/RawTextComparator#reduceCommonStartEnd
 		p	0	x0	x0
 		p	1	x1	x1
@@ -9400,7 +9149,6 @@ c	abcd/WE	org/eclipse/jgit/lib/RepositoryCache	src: jgit-3.7.1 org/eclipse/jgit/
 	f	[Labcd/WE$c;	FH	openLocks	auto: 字段([Labcd/WE$c;)（上游无同类型对应，按作用取名）
 c	abcd/PC$b	org/eclipse/jgit/dircache/DirCacheEditor$PathEdit	auto: 类：PathEdit（外层 DirCacheEditor）；src: jgit-3.7.1 org/eclipse/jgit/dircache/DirCacheEditor$PathEdit
 	m	(Labcd/QC;)V	j6	apply	auto: 执行 apply；src: jgit-3.7.1 org/eclipse/jgit/dircache/DirCacheEditor$PathEdit#apply
-		p	0	ent	ent
 	f	[B	j6	path	auto: 字段([B)；src: jgit-3.7.1 org/eclipse/jgit/dircache/DirCacheEditor$PathEdit.path
 c	abcd/NF$a	org/eclipse/jgit/revwalk/BlockObjQueue$Block	auto: 类：Block（外层 BlockObjQueue）；src: jgit-3.7.1 org/eclipse/jgit/revwalk/BlockObjQueue$Block
 	m	()Labcd/iG;	Hw	pop	auto: 「pop」；src: jgit-3.7.1 org/eclipse/jgit/revwalk/BlockObjQueue$Block#pop
@@ -9424,7 +9172,6 @@ c	abcd/aE	org/eclipse/jgit/lib/AsyncOperation	src: jgit-3.7.1 org/eclipse/jgit/l
 	m	()V	j6	release	src: jgit-3.7.1 org/eclipse/jgit/lib/AsyncOperation#release；doc: Release resources used by the operation, including cancellation.
 c	abcd/DD	org/eclipse/jgit/events/ConfigChangedListener	src: jgit-3.7.1 org/eclipse/jgit/events/ConfigChangedListener；doc: Receives ConfigChangedEvents.
 	m	(Labcd/CD;)V	j6	onConfigChanged	auto: 执行 onConfigChanged（上游无同签名对应，按作用取名）
-		p	0	event	event
 c	abcd/GH	org/eclipse/jgit/internal/storage/file/AideObjectStream	auto: 流：AideObject（上游未收录，名字来自 jobs/jgit 的判据）
 	m	()J	DW	getObjectSize	auto: 取 ObjectSize（上游无同签名对应，按作用取名）
 	m	()Ljava/io/InputStream;	FH	openStream	auto: 打开 Stream（上游无同签名对应，按作用取名）
@@ -9473,7 +9220,6 @@ c	abcd/rI$c	org/eclipse/jgit/transport/HttpAuthMethod$None	auto: 类：None（�
 c	abcd/LD	org/eclipse/jgit/events/RepositoryListener	iface:空标记接口；DD(ConfigChangedListener)/FD/JD 都 extends 它，HD(ListenerList) 字段 ConcurrentMap<Class<? extends LD>,..> 且 addListener(Class<T extends LD>,T) ⇒ jgit RepositoryListener
 c	abcd/JD	org/eclipse/jgit/events/RefsChangedListener	iface:extends LD，唯一方法 j6(Labcd/ID;)V 即 onRefsChanged(RefsChangedEvent)（ID=RefsChangedEvent）；oracle 3.7.1 RefsChangedListener 同形
 	m	(Labcd/ID;)V	j6	onRefsChanged	src: jgit-3.7.1 org/eclipse/jgit/events/RefsChangedListener#onRefsChanged；iface 唯一方法，参数类型即 ID(RefsChangedEvent)
-		p	0	event	event
 c	abcd/CD	org/eclipse/jgit/events/ConfigChangedEvent	body:extends KD<DD>，三方法 getListenerType():Class<DD> / dispatch(DD) / 编译器桥 dispatch(LD)，与 3.7.1 ConfigChangedEvent 逐位一致
 	m	()Ljava/lang/Class;	j6	getListenerType	src: jgit-3.7.1 org/eclipse/jgit/events/ConfigChangedEvent#getListenerType；返回 DD.class
 	m	(Labcd/DD;)V	j6	dispatch	src: jgit-3.7.1 org/eclipse/jgit/events/ConfigChangedEvent#dispatch(ConfigChangedListener)
@@ -9491,6 +9237,16 @@ c	abcd/jI$b	org/eclipse/jgit/transport/CredentialItem$InformationalMessage	body:
 c	abcd/jI$c	org/eclipse/jgit/transport/CredentialItem$Password	body:构造体读 JGitText.credentialPassword 再调 super(String,boolean) ⇒ jgit CredentialItem.Password
 c	abcd/jI$e	org/eclipse/jgit/transport/CredentialItem$Username	body:构造体读 JGitText.credentialUsername 再 super(String,false) ⇒ jgit CredentialItem.Username
 c	abcd/jI$f	org/eclipse/jgit/transport/CredentialItem$YesNoType	body:private boolean 字段 + (String) 构造 ⇒ jgit CredentialItem.YesNoType
+c	abcd/UC	org/eclipse/jgit/errors/AmbiguousObjectException	body:extends IOException；读 JGitText.ambiguousObjectAbbreviation ⇒ jgit AmbiguousObjectException
+c	abcd/ZC	org/eclipse/jgit/errors/IncorrectObjectTypeException	body:extends IOException；读 JGitText.objectIsNotA ⇒ jgit IncorrectObjectTypeException
+c	abcd/_C	org/eclipse/jgit/errors/IndexWriteException	body:extends IOException；读 JGitText.indexWriteException ⇒ jgit IndexWriteException
+c	abcd/dD	org/eclipse/jgit/errors/LockFailedException	body:extends IOException；读 JGitText.cannotLock ⇒ jgit LockFailedException
+c	abcd/iD	org/eclipse/jgit/errors/NoWorkTreeException	body:extends IllegalStateException；读 JGitText.bareRepositoryNoWorkdirAndIndex ⇒ jgit NoWorkTreeException
+c	abcd/pD	org/eclipse/jgit/errors/RepositoryNotFoundException	body:extends abcd/yD（NoSuchFile 一族）；读 JGitText.repositoryNotFound ⇒ jgit RepositoryNotFoundException
+c	abcd/qD	org/eclipse/jgit/errors/RevWalkException	body:extends RuntimeException；读 JGitText.walkFailure ⇒ jgit RevWalkException
+c	abcd/zD	org/eclipse/jgit/errors/UnmergedPathException	body:extends IOException；读 JGitText.unmergedPath ⇒ jgit UnmergedPathException
+c	abcd/gH	org/eclipse/jgit/internal/storage/file/PackIndexWriter	body:abstract 基类，内部引用 JGitText.unsupportedPackIndexVersion，且被 hH 继承 ⇒ jgit PackIndexWriter
+c	abcd/hH	org/eclipse/jgit/internal/storage/file/PackIndexWriterV1	body:extends gH；读 JGitText.packTooLargeForIndexVersion1 ⇒ jgit PackIndexWriterV1
 c	com/jcraft/jsch/UserInfo	com/jcraft/jsch/UserInfo	auto: 类：UserInfo；src: jsch-0.1.51 com/jcraft/jsch/UserInfo
 	m	(Ljava/lang/String;)V	DW	showMessage	auto: 执行 showMessage；src: jsch-0.1.51 com/jcraft/jsch/UserInfo#showMessage
 		p	0	message	message
@@ -24401,10 +24157,6 @@ c	abcd/zP	org/spongycastle/operator/DigestCalculator	src: sc-pkix-1.50 org/spong
 c	abcd/AA	kellinwood/security/zipsigner/HexEncoder	auto: 类：HexEncoder；src: zs-1.11 kellinwood/security/zipsigner/HexEncoder
 	m	()V	j6	initialiseDecodingTable	auto: 执行 initialiseDecodingTable；src: zs-1.11 kellinwood/security/zipsigner/HexEncoder#initialiseDecodingTable
 	m	([BIILjava/io/OutputStream;)I	j6	encode	src: zs-1.11 kellinwood/security/zipsigner/HexEncoder#encode；doc: encode the input data producing a Hex output stream.
-		p	0	data	data
-		p	1	off	off
-		p	2	length	length
-		p	3	out	out
 	f	[B	DW	decodingTable	auto: 字段([B)；src: zs-1.11 kellinwood/security/zipsigner/HexEncoder.decodingTable
 	f	[B	j6	encodingTable	auto: 字段([B)；src: zs-1.11 kellinwood/security/zipsigner/HexEncoder.encodingTable
 c	abcd/BA	kellinwood/security/zipsigner/KeySet	auto: 类：KeySet；src: zs-1.11 kellinwood/security/zipsigner/KeySet
@@ -24412,49 +24164,35 @@ c	abcd/BA	kellinwood/security/zipsigner/KeySet	auto: 类：KeySet；src: zs-1.11
 	m	()Ljava/security/cert/X509Certificate;	FH	getPublicKey	auto: 取 PublicKey；src: zs-1.11 kellinwood/security/zipsigner/KeySet#getPublicKey
 	m	()[B	Hw	getSigBlockTemplate	auto: 取 SigBlockTemplate；src: zs-1.11 kellinwood/security/zipsigner/KeySet#getSigBlockTemplate
 	m	(Ljava/security/PrivateKey;)V	j6	setPrivateKey	auto: 设 PrivateKey；src: zs-1.11 kellinwood/security/zipsigner/KeySet#setPrivateKey
-		p	0	privateKey	privateKey
 	m	(Ljava/security/cert/X509Certificate;)V	j6	setPublicKey	auto: 设 PublicKey；src: zs-1.11 kellinwood/security/zipsigner/KeySet#setPublicKey
-		p	0	publicKey	publicKey
 	m	([B)V	j6	setSigBlockTemplate	auto: 设 SigBlockTemplate；src: zs-1.11 kellinwood/security/zipsigner/KeySet#setSigBlockTemplate
-		p	0	sigBlockTemplate	sigBlockTemplate
 	f	Ljava/security/cert/X509Certificate;	DW	publicKey	auto: 字段(Ljava/security/cert/X509Certificate;)；src: zs-1.11 kellinwood/security/zipsigner/KeySet.publicKey
 	f	Ljava/security/PrivateKey;	FH	privateKey	auto: 字段(Ljava/security/PrivateKey;)；src: zs-1.11 kellinwood/security/zipsigner/KeySet.privateKey
 	f	[B	Hw	sigBlockTemplate	auto: 字段([B)；src: zs-1.11 kellinwood/security/zipsigner/KeySet.sigBlockTemplate
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name；src: zs-1.11 kellinwood/security/zipsigner/KeySet#getName
 	m	(Ljava/lang/String;)V	j6	setName	auto: 设 Name；src: zs-1.11 kellinwood/security/zipsigner/KeySet#setName
-		p	0	name	name
 	f	Ljava/lang/String;	j6	name	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/security/zipsigner/KeySet.name
 c	abcd/CA	kellinwood/security/zipsigner/ProgressEvent	auto: 类：ProgressEvent；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent
 	m	(Ljava/lang/String;)V	j6	setMessage	auto: 设 Message；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent#setMessage
-		p	0	message	message
 	f	Ljava/lang/String;	j6	message	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent.message
 	m	(I)V	j6	setPercentDone	auto: 设 PercentDone；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent#setPercentDone
-		p	0	percentDone	percentDone
 	m	(I)V	DW	setPriority	auto: 设 Priority；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent#setPriority
-		p	0	priority	priority
 	f	I	FH	priority	auto: 字段(I)；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent.priority
 	f	I	DW	percentDone	auto: 字段(I)；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent.percentDone
 c	abcd/DA	kellinwood/security/zipsigner/ProgressHelper	auto: 辅助类：Progress；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper
 	m	()V	j6	initProgress	auto: 初始化 Progress；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper#initProgress
 	m	(ILjava/lang/String;)V	j6	progress	auto: 执行 progress；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper#progress
-		p	0	priority	priority
-		p	1	message	message
 	f	Labcd/CA;	FH	progressEvent	auto: 字段(Labcd/CA;)；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper.progressEvent
 	f	Ljava/util/ArrayList;	Hw	listeners	auto: 字段(Ljava/util/ArrayList;)；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper.listeners
 	m	(I)V	j6	setProgressCurrentItem	auto: 设 ProgressCurrentItem；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper#setProgressCurrentItem
-		p	0	progressCurrentItem	progressCurrentItem
 	m	(I)V	DW	setProgressTotalItems	auto: 设 ProgressTotalItems；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper#setProgressTotalItems
-		p	0	progressTotalItems	progressTotalItems
 	f	I	DW	progressCurrentItem	auto: 字段(I)；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper.progressCurrentItem
 	f	I	j6	progressTotalItems	auto: 字段(I)；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper.progressTotalItems
 c	abcd/EA	kellinwood/security/zipsigner/ProgressListener	auto: 回调接口：Progress；src: zs-1.11 kellinwood/security/zipsigner/ProgressListener
 	m	(Labcd/CA;)V	j6	onProgress	src: zs-1.11 kellinwood/security/zipsigner/ProgressListener#onProgress；doc: Called to notify the listener that progress has been made during the zip signing operation.
-		p	0	event	event
 c	abcd/FA	kellinwood/security/zipsigner/ZipSignature	auto: 类：ZipSignature；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature
 	m	(Ljava/security/PrivateKey;)V	j6	initSign	auto: 初始化 Sign；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature#initSign
-		p	0	privateKey	privateKey
 	m	([B)V	j6	update	auto: 执行 update；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature#update
-		p	0	data	data
 	m	()[B	j6	sign	auto: 「sign」；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature#sign
 	f	Ljavax/crypto/Cipher;	Hw	cipher	auto: 字段(Ljavax/crypto/Cipher;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature.cipher
 	f	Ljava/security/MessageDigest;	v5	md	auto: 字段(Ljava/security/MessageDigest;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature.md
@@ -24464,45 +24202,18 @@ c	abcd/FA	kellinwood/security/zipsigner/ZipSignature	auto: 类：ZipSignature；
 c	abcd/GA	kellinwood/security/zipsigner/ZipSigner	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner；doc: This is a modified copy of com.android.signapk.SignApk.java. It provides an API to sign JAR files (including…
 	m	([B[BLjava/security/cert/X509Certificate;Ljava/io/OutputStream;)V	j6	signZipData	auto: 执行 signZipData（上游无同签名对应，按作用取名）
 	m	([BLjava/lang/String;)Ljava/security/spec/KeySpec;	j6	decryptPrivateKey	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#decryptPrivateKey；doc: Decrypt an encrypted PKCS 8 format private key.
-		p	0	encryptedPrivateKey	encryptedPrivateKey
-		p	1	keyPassword	keyPassword
 	m	(Ljava/util/Map;)Ljava/util/jar/Manifest;	j6	addDigestsToManifest	auto: 加入 DigestsToManifest；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#addDigestsToManifest
-		p	0	entries	entries
 	m	(Ljava/util/Map;Labcd/NA;)V	j6	copyFiles	auto: 复制 Files；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#copyFiles
-		p	0	input	input
-		p	1	output	output
 	m	(Ljava/util/jar/Manifest;Ljava/io/OutputStream;)V	j6	generateSignatureFile	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#generateSignatureFile；doc: Write the signature file to the given output stream.
-		p	0	manifest	manifest
-		p	1	out	out
 	m	(Ljava/util/jar/Manifest;Ljava/util/Map;Labcd/NA;J)V	j6	copyFiles	auto: 复制 Files；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#copyFiles
-		p	0	manifest	manifest
-		p	1	input	input
-		p	2	output	output
-		p	3	timestamp	timestamp
 	m	(Ljava/net/URL;)Ljava/security/cert/X509Certificate;	DW	readPublicKey	auto: 读取 PublicKey；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#readPublicKey
-		p	0	publicKeyUrl	publicKeyUrl
 	m	(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;	j6	autoDetectKey	auto: 「autoDetectKey」；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#autoDetectKey
-		p	0	mode	mode
-		p	1	zioEntries	zioEntries
 	m	(Ljava/net/URL;Ljava/lang/String;)Ljava/security/PrivateKey;	j6	readPrivateKey	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#readPrivateKey；doc: Read a PKCS 8 format private key.
-		p	0	privateKeyUrl	privateKeyUrl
-		p	1	keyPassword	keyPassword
 	m	(Ljava/lang/String;Ljava/lang/String;)V	j6	signZip	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#signZip；doc: Sign the file using the given public key cert, private key, and signature block template. The signature bloc…
-		p	0	inputZipFilename	inputZipFilename
-		p	1	outputZipFilename	outputZipFilename
 	m	(Ljava/lang/String;Ljava/security/cert/X509Certificate;Ljava/security/PrivateKey;[B)V	j6	setKeys	auto: 设 Keys；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#setKeys
-		p	0	name	name
-		p	1	publicKey	publicKey
-		p	2	privateKey	privateKey
-		p	3	signatureBlockTemplate	signatureBlockTemplate
 	m	(Ljava/util/Map;Ljava/io/OutputStream;Ljava/lang/String;)V	j6	signZip	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#signZip；doc: Sign the input with the default test key and certificate.
-		p	0	zioEntries	zioEntries
-		p	1	outputStream	outputStream
-		p	2	outputZipFilename	outputZipFilename
 	m	(Ljava/io/InputStream;)[B	j6	readContentAsBytes	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#readContentAsBytes；doc: Fetch the content at the specified URL and return it as a byte array.
-		p	0	input	input
 	m	(Ljava/net/URL;)[B	j6	readContentAsBytes	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#readContentAsBytes；doc: Fetch the content at the specified URL and return it as a byte array.
-		p	0	contentUrl	contentUrl
 	f	Ljava/util/regex/Pattern;	DW	stripPattern	auto: 字段(Ljava/util/regex/Pattern;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.stripPattern
 	f	[Ljava/lang/String;	FH	SUPPORTED_KEY_MODES	auto: 字段([Ljava/lang/String;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.SUPPORTED_KEY_MODES
 	f	Labcd/tA;	j6	log	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.log
@@ -24512,20 +24223,15 @@ c	abcd/GA	kellinwood/security/zipsigner/ZipSigner	src: zs-1.11 kellinwood/securi
 	f	Labcd/GA$a;	tp	autoKeyObservable	auto: 字段(Labcd/GA$a;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.autoKeyObservable
 	f	Labcd/DA;	v5	progressHelper	auto: 字段(Labcd/DA;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.progressHelper
 	m	(Ljava/lang/String;)V	j6	loadKeys	auto: 加载 Keys；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#loadKeys
-		p	0	name	name
 	m	(Ljava/lang/String;)V	DW	setKeymode	auto: 设 Keymode；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#setKeymode
-		p	0	km	km
 	f	Ljava/util/Map;	u7	autoKeyDetect	auto: 字段(Ljava/util/Map;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.autoKeyDetect
 	f	Ljava/util/Map;	Zo	loadedKeys	auto: 字段(Ljava/util/Map;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.loadedKeys
 	m	()Labcd/tA;	j6	getLogger	auto: 取 Logger（上游无同签名对应，按作用取名）
 c	abcd/GA$a	kellinwood/security/zipsigner/ZipSigner$AutoKeyObservable	auto: 类：AutoKeyObservable（外层 ZipSigner）；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner$AutoKeyObservable
 c	abcd/HA	kellinwood/zipio/CentralEnd	auto: 类：CentralEnd；src: zs-1.11 kellinwood/zipio/CentralEnd
 	m	(Labcd/LA;)V	DW	doRead	auto: 执行 doRead；src: zs-1.11 kellinwood/zipio/CentralEnd#doRead
-		p	0	input	input
 	m	(Labcd/LA;)Labcd/HA;	j6	read	auto: 「read」；src: zs-1.11 kellinwood/zipio/CentralEnd#read
-		p	0	input	input
 	m	(Labcd/NA;)V	j6	write	auto: 执行 write；src: zs-1.11 kellinwood/zipio/CentralEnd#write
-		p	0	output	output
 	f	Labcd/tA;	j6	log	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/zipio/CentralEnd.log
 	f	Ljava/lang/String;	u7	fileComment	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/zipio/CentralEnd.fileComment
 	f	I	DW	signature	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/CentralEnd.signature
@@ -24541,16 +24247,12 @@ c	abcd/IA	kellinwood/zipio/ZioEntry	auto: 条目：Zio；src: zs-1.11 kellinwood
 	f	S	aM	internalAttributes	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/ZioEntry.internalAttributes
 	m	()V	Mr	readLocalHeader	auto: 读取 LocalHeader；src: zs-1.11 kellinwood/zipio/ZioEntry#readLocalHeader
 	m	(Labcd/LA;)V	DW	doRead	auto: 执行 doRead；src: zs-1.11 kellinwood/zipio/ZioEntry#doRead
-		p	0	input	input
 	m	(Labcd/LA;)Labcd/IA;	j6	read	auto: 「read」；src: zs-1.11 kellinwood/zipio/ZioEntry#read
-		p	0	input	input
 	m	()Ljava/io/OutputStream;	J0	getOutputStream	auto: 取 OutputStream；src: zs-1.11 kellinwood/zipio/ZioEntry#getOutputStream
 	m	()Labcd/LA;	aM	getZipInput	auto: 取 ZipInput；src: zs-1.11 kellinwood/zipio/ZioEntry#getZipInput
 	m	()Z	j3	isDirectory	auto: 是否 Directory；src: zs-1.11 kellinwood/zipio/ZioEntry#isDirectory
 	m	(Ljava/io/OutputStream;)Ljava/io/InputStream;	j6	getInputStream	auto: 取 InputStream；src: zs-1.11 kellinwood/zipio/ZioEntry#getInputStream
-		p	0	monitorStream	monitorStream
 	m	(J)V	j6	setTime	src: zs-1.11 kellinwood/zipio/ZioEntry#setTime；doc: Returns the entry's data.
-		p	0	time	time
 	m	()Ljava/io/InputStream;	u7	getInputStream	auto: 取 InputStream；src: zs-1.11 kellinwood/zipio/ZioEntry#getInputStream
 	f	Labcd/tA;	DW	log	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/zipio/ZioEntry.log
 	f	[B	j6	alignBytes	auto: 字段([B)；src: zs-1.11 kellinwood/zipio/ZioEntry.alignBytes
@@ -24559,9 +24261,7 @@ c	abcd/IA	kellinwood/zipio/ZioEntry	auto: 条目：Zio；src: zs-1.11 kellinwood
 	f	Labcd/KA;	lg	entryOut	auto: 字段(Labcd/KA;)；src: zs-1.11 kellinwood/zipio/ZioEntry.entryOut
 	m	()S	DW	getCompression	auto: 取 Compression；src: zs-1.11 kellinwood/zipio/ZioEntry#getCompression
 	m	(Labcd/NA;)V	DW	writeLocalEntry	auto: 写出 LocalEntry；src: zs-1.11 kellinwood/zipio/ZioEntry#writeLocalEntry
-		p	0	output	output
 	m	(Labcd/NA;)V	j6	write	auto: 执行 write；src: zs-1.11 kellinwood/zipio/ZioEntry#write
-		p	0	output	output
 	m	()Ljava/lang/String;	EQ	getName	auto: 取 Name；src: zs-1.11 kellinwood/zipio/ZioEntry#getName
 	m	()I	j6	getCompressedSize	auto: 取 CompressedSize；src: zs-1.11 kellinwood/zipio/ZioEntry#getCompressedSize
 	m	()I	QX	getSize	auto: 取 Size；src: zs-1.11 kellinwood/zipio/ZioEntry#getSize
@@ -24588,16 +24288,11 @@ c	abcd/IA	kellinwood/zipio/ZioEntry	auto: 条目：Zio；src: zs-1.11 kellinwood
 	m	()Labcd/tA;	tp	getLogger	auto: 取 Logger（上游无同签名对应，按作用取名）
 c	abcd/JA	kellinwood/zipio/ZioEntryInputStream	src: zs-1.11 kellinwood/zipio/ZioEntryInputStream；doc: Input stream used to read just the data from a zip file entry.
 	m	(Ljava/io/OutputStream;)V	j6	setMonitorStream	auto: 设 MonitorStream；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream#setMonitorStream
-		p	0	monitorStream	monitorStream
 	m	(Z)V	j6	setReturnDummyByte	auto: 设 ReturnDummyByte；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream#setReturnDummyByte
-		p	0	returnExtraByte	returnExtraByte
 	f	Labcd/tA;	Hw	log	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.log
 	f	Ljava/io/OutputStream;	VH	monitor	auto: 字段(Ljava/io/OutputStream;)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.monitor
 	f	Ljava/io/RandomAccessFile;	j6	raf	auto: 字段(Ljava/io/RandomAccessFile;)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.raf
 	m	([BII)I	j6	readBytes	auto: 读取 Bytes；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream#readBytes
-		p	0	b	b
-		p	1	off	off
-		p	2	len	len
 	f	I	DW	size	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.size
 	f	I	FH	offset	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.offset
 	f	Z	Zo	returnDummyByte	auto: 字段(Z)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.returnDummyByte
@@ -24613,18 +24308,13 @@ c	abcd/KA	kellinwood/zipio/ZioEntryOutputStream	auto: 流：ZioEntryOutput；src
 	f	Ljava/io/OutputStream;	v5	downstream	auto: 字段(Ljava/io/OutputStream;)；src: zs-1.11 kellinwood/zipio/ZioEntryOutputStream.downstream
 c	abcd/LA	kellinwood/zipio/ZipInput	auto: 类：ZipInput；src: zs-1.11 kellinwood/zipio/ZipInput
 	m	(Ljava/lang/String;)Labcd/LA;	j6	read	auto: 「read」；src: zs-1.11 kellinwood/zipio/ZipInput#read
-		p	0	filename	filename
 	m	(I)Ljava/lang/String;	DW	readString	auto: 读取 String；src: zs-1.11 kellinwood/zipio/ZipInput#readString
-		p	0	length	length
 	m	()I	FH	readInt	auto: 读取 Int；src: zs-1.11 kellinwood/zipio/ZipInput#readInt
 	m	(I)J	FH	scanForEOCDR	src: zs-1.11 kellinwood/zipio/ZipInput#scanForEOCDR；doc: Scan the end of the file for the end of central directory record (EOCDR).
-		p	0	size	size
 	m	()S	Hw	readShort	auto: 读取 Short；src: zs-1.11 kellinwood/zipio/ZipInput#readShort
 	m	()Ljava/util/Map;	j6	getEntries	auto: 取 Entries；src: zs-1.11 kellinwood/zipio/ZipInput#getEntries
 	m	(J)V	j6	seek	auto: 执行 seek；src: zs-1.11 kellinwood/zipio/ZipInput#seek
-		p	0	position	position
 	m	(I)[B	j6	readBytes	auto: 读取 Bytes；src: zs-1.11 kellinwood/zipio/ZipInput#readBytes
-		p	0	length	length
 	f	Labcd/tA;	j6	log	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/zipio/ZipInput.log
 	f	Ljava/lang/String;	DW	inputFilename	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/zipio/ZipInput.inputFilename
 	f	Ljava/io/RandomAccessFile;	FH	in	auto: 字段(Ljava/io/RandomAccessFile;)；src: zs-1.11 kellinwood/zipio/ZipInput.in
@@ -24637,25 +24327,15 @@ c	abcd/LA	kellinwood/zipio/ZipInput	auto: 类：ZipInput；src: zs-1.11 kellinwo
 	m	()Labcd/tA;	Zo	getLogger	auto: 取 Logger（上游无同签名对应，按作用取名）
 c	abcd/MA	kellinwood/zipio/ZipListingHelper	auto: 辅助类：ZipListing；src: zs-1.11 kellinwood/zipio/ZipListingHelper
 	m	(Labcd/tA;)V	j6	listHeader	auto: 执行 listHeader；src: zs-1.11 kellinwood/zipio/ZipListingHelper#listHeader
-		p	0	log	log
 	m	(Labcd/tA;Labcd/IA;)V	j6	listEntry	auto: 执行 listEntry；src: zs-1.11 kellinwood/zipio/ZipListingHelper#listEntry
-		p	0	log	log
-		p	1	entry	entry
 	f	Ljava/text/DateFormat;	j6	dateFormat	auto: 字段(Ljava/text/DateFormat;)；src: zs-1.11 kellinwood/zipio/ZipListingHelper.dateFormat
 c	abcd/NA	kellinwood/zipio/ZipOutput	auto: 类：ZipOutput；src: zs-1.11 kellinwood/zipio/ZipOutput
 	m	()I	DW	getFilePointer	auto: 取 FilePointer；src: zs-1.11 kellinwood/zipio/ZipOutput#getFilePointer
 	m	(I)V	j6	writeInt	auto: 写出 Int；src: zs-1.11 kellinwood/zipio/ZipOutput#writeInt
-		p	0	value	value
 	m	(Labcd/IA;)V	j6	write	auto: 执行 write；src: zs-1.11 kellinwood/zipio/ZipOutput#write
-		p	0	entry	entry
 	m	(S)V	j6	writeShort	auto: 写出 Short；src: zs-1.11 kellinwood/zipio/ZipOutput#writeShort
-		p	0	value	value
 	m	([B)V	j6	writeBytes	auto: 写出 Bytes；src: zs-1.11 kellinwood/zipio/ZipOutput#writeBytes
-		p	0	value	value
 	m	([BII)V	j6	writeBytes	auto: 写出 Bytes；src: zs-1.11 kellinwood/zipio/ZipOutput#writeBytes
-		p	0	value	value
-		p	1	offset	offset
-		p	2	length	length
 	f	Labcd/tA;	j6	log	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/zipio/ZipOutput.log
 	f	Ljava/io/OutputStream;	DW	out	auto: 字段(Ljava/io/OutputStream;)；src: zs-1.11 kellinwood/zipio/ZipOutput.out
 	f	I	FH	filePointer	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZipOutput.filePointer
@@ -24663,55 +24343,37 @@ c	abcd/NA	kellinwood/zipio/ZipOutput	auto: 类：ZipOutput；src: zs-1.11 kellin
 	f	Ljava/util/Set;	v5	namesWritten	auto: 字段(Ljava/util/Set;)；src: zs-1.11 kellinwood/zipio/ZipOutput.namesWritten
 	m	()V	j6	close	auto: 执行 close；src: zs-1.11 kellinwood/zipio/ZipOutput#close
 	m	(Ljava/lang/String;)V	j6	writeString	auto: 写出 String；src: zs-1.11 kellinwood/zipio/ZipOutput#writeString
-		p	0	value	value
 	m	()Labcd/tA;	FH	getLogger	auto: 取 Logger（上游无同签名对应，按作用取名）
 c	abcd/sA	kellinwood/logging/LoggerFactory	auto: 工厂：Logger；src: zs-1.11 kellinwood/logging/LoggerFactory
 	m	(Ljava/lang/String;)Labcd/tA;	j6	getLogger	auto: 取 Logger；src: zs-1.11 kellinwood/logging/LoggerFactory#getLogger
-		p	0	category	category
 c	abcd/tA	kellinwood/logging/Logger	auto: 类：Logger；src: zs-1.11 kellinwood/logging/Logger
 	m	(Ljava/lang/String;)V	Hw	info	auto: 执行 info；src: zs-1.11 kellinwood/logging/Logger#info
-		p	0	message	message
 	m	(Ljava/lang/String;Ljava/lang/Throwable;)V	j6	error	auto: 执行 error；src: zs-1.11 kellinwood/logging/Logger#error
-		p	0	message	message
-		p	1	t	t
 	m	(Ljava/lang/String;)V	DW	debug	auto: 执行 debug；src: zs-1.11 kellinwood/logging/Logger#debug
-		p	0	message	message
 	m	(Ljava/lang/String;)V	FH	warn	auto: 执行 warn；src: zs-1.11 kellinwood/logging/Logger#warn
-		p	0	message	message
 	m	(Ljava/lang/String;)V	j6	error	auto: 执行 error；src: zs-1.11 kellinwood/logging/Logger#error
-		p	0	message	message
 c	abcd/uA	kellinwood/logging/LogManager	auto: 管理器：Log；src: zs-1.11 kellinwood/logging/LogManager
 	m	(Ljava/lang/String;)Labcd/tA;	j6	getLogger	auto: 取 Logger；src: zs-1.11 kellinwood/logging/LogManager#getLogger
-		p	0	category	category
 	f	Labcd/sA;	j6	factory	auto: 字段(Labcd/sA;)；src: zs-1.11 kellinwood/logging/LogManager.factory
 	f	Ljava/util/Map;	DW	loggers	auto: 字段(Ljava/util/Map;)；src: zs-1.11 kellinwood/logging/LogManager.loggers
 c	abcd/vA	kellinwood/logging/NullLoggerFactory$1	auto: 匿名内部类（外层 NullLoggerFactory）；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1
 	m	(Ljava/lang/String;)V	Hw	info	auto: 执行 info；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1#info
-		p	0	message	message
 	m	(Ljava/lang/String;)V	DW	debug	auto: 执行 debug；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1#debug
-		p	0	message	message
 	m	(Ljava/lang/String;)V	FH	warn	auto: 执行 warn；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1#warn
-		p	0	message	message
 	m	(Ljava/lang/String;)V	j6	error	auto: 执行 error；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1#error
-		p	0	message	message
 	m	(Ljava/lang/String;Ljava/lang/Throwable;)V	j6	error	auto: 执行 error；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1#error
-		p	0	message	message
-		p	1	t	t
 c	abcd/wA	kellinwood/logging/NullLoggerFactory	auto: 工厂：NullLogger；src: zs-1.11 kellinwood/logging/NullLoggerFactory
 	m	(Ljava/lang/String;)Labcd/tA;	j6	getLogger	auto: 取 Logger；src: zs-1.11 kellinwood/logging/NullLoggerFactory#getLogger
-		p	0	category	category
 	f	Labcd/tA;	j6	logger	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/logging/NullLoggerFactory.logger
 c	abcd/xA	kellinwood/security/zipsigner/AutoKeyException	auto: 异常类型：AutoKey；src: zs-1.11 kellinwood/security/zipsigner/AutoKeyException
 c	abcd/yA	kellinwood/security/zipsigner/Base64	auto: 类：Base64；src: zs-1.11 kellinwood/security/zipsigner/Base64
 	f	Ljava/lang/reflect/Method;	j6	aEncodeMethod	auto: 字段(Ljava/lang/reflect/Method;)；src: zs-1.11 kellinwood/security/zipsigner/Base64.aEncodeMethod
 	m	([B)Ljava/lang/String;	j6	encode	auto: 「encode」；src: zs-1.11 kellinwood/security/zipsigner/Base64#encode
-		p	0	data	data
 	f	Labcd/tA;	Hw	logger	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/security/zipsigner/Base64.logger
 	f	Ljava/lang/Object;	DW	bEncoder	auto: 字段(Ljava/lang/Object;)；src: zs-1.11 kellinwood/security/zipsigner/Base64.bEncoder
 	f	Ljava/lang/reflect/Method;	FH	bEncodeMethod	auto: 字段(Ljava/lang/reflect/Method;)；src: zs-1.11 kellinwood/security/zipsigner/Base64.bEncodeMethod
 c	abcd/zA	kellinwood/security/zipsigner/HexDumpEncoder	src: zs-1.11 kellinwood/security/zipsigner/HexDumpEncoder；doc: Produces the classic hex dump with an address column, hex data section (16 bytes per row) and right-column p…
 	m	([B)Ljava/lang/String;	j6	encode	auto: 「encode」；src: zs-1.11 kellinwood/security/zipsigner/HexDumpEncoder#encode
-		p	0	data	data
 	f	Labcd/AA;	j6	encoder	auto: 字段(Labcd/AA;)；src: zs-1.11 kellinwood/security/zipsigner/HexDumpEncoder.encoder
 c	kellinwood/sigblock/a	kellinwood/sigblock/SignatureContentSigner	auto: 类：SignatureContentSigner（上游未收录，名字来自 jobs/zipsigner 的判据）
 	f	[B	j6	signature	auto: 字段([B)（上游无同类型对应，按作用取名）
@@ -24823,8 +24485,6 @@ c	abcd/Ew	com/dropbox/client2/DropboxAPI$Entry$1	auto: 匿名内部类（外层 
 c	abcd/Fw	com/dropbox/client2/ProgressListener	src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener；doc: Receives file transfer progress updates for some API calls, e.g. getFile and putFile.
 	m	()J	j6	progressInterval	src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener#progressInterval；doc: Should return how often transferred bytes should be reported to this listener, in milliseconds. It is not gu…
 	m	(JJ)V	j6	onProgress	src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener#onProgress；doc: Gets called when some bytes have been transferred since the last time it was called and the progress interva…
-		p	0	bytes	bytes
-		p	1	total	total
 c	abcd/Fw$a	com/dropbox/client2/ProgressListener$ProgressHttpEntity	auto: 类：ProgressHttpEntity（外层 ProgressListener）；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity
 	f	J	DW	length	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity.length
 	f	Labcd/Fw;	j6	listener	auto: 字段(Labcd/Fw;)；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity.listener
@@ -24974,9 +24634,7 @@ c	abcd/Zw	com/dropbox/client2/session/Session	src: dropbox-android-1.6.2 com/dro
 	m	()Labcd/Zw$a;	FH	getAccessType	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#getAccessType；doc: Returns what Dropbox access type to use (currently app folder or entire Dropbox).
 	m	()Labcd/Zw$b;	j6	getProxyInfo	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#getProxyInfo；doc: Will be called every time a request is made to Dropbox, in case the proxy changes between requests. Return n…
 	m	(Lorg/apache/http/HttpRequest;)V	j6	sign	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#sign；doc: OAuth signs the request with the currently-set tokens and secrets.
-		p	0	request	request
 	m	(Lorg/apache/http/client/methods/HttpUriRequest;)V	j6	setRequestTimeout	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#setRequestTimeout；doc: Will be called every time right before a request is sent to Dropbox. It should set the socket and connection…
-		p	0	request	request
 	m	()Lorg/apache/http/client/HttpClient;	v5	getHttpClient	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#getHttpClient；doc: Will be called every time a request is made to Dropbox, in case you want to use a new client every time. How…
 	m	()Ljava/lang/String;	Hw	getAPIServer	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#getAPIServer；doc: Returns the Dropbox API server. Changing this will break things.
 	m	()Ljava/lang/String;	Zo	getContentServer	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#getContentServer；doc: Returns the Dropbox content server. Changing this will break things.
