@@ -2099,3 +2099,6 @@ abcd/Sh com/aide/ui/ExportApkDialogExportAction
 abcd/Th com/aide/ui/ExportApkDialogExportAndDismissAction
 abcd/Rh com/aide/ui/ExportApkDialogRefreshAction
 abcd/Wh com/aide/ui/ExportApkDialogOnShowRefresh
+abcd/Nh com/aide/ui/DownloadErrorDialogItemClickListener
+abcd/Lh com/aide/ui/DownloadErrorDialogOnShowListener
+abcd/Mh com/aide/ui/DownloadErrorDialogCallback

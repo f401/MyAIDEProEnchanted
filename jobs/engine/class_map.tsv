@@ -603,3 +603,6 @@ Sh	com/aide/ui/ExportApkDialogExportAction	role:ExportApkDialog(Yh) 的匿名 On
 Th	com/aide/ui/ExportApkDialogExportAndDismissAction	role:同上匿名 OnClickListener，但先 Yh.j6(dialog) 再 dialog.dismiss() 再走导出(Yh.DW/FH + j6(activity,s,s))，即“导出并关闭”。扁平名
 Rh	com/aide/ui/ExportApkDialogRefreshAction	role:ExportApkDialog 的匿名 OnClickListener，onClick 只调 Yh.j6(Yh,AlertDialog)（刷新对话框内容），不取串也不 dismiss。扁平名
 Wh	com/aide/ui/ExportApkDialogOnShowRefresh	role:ExportApkDialog 的匿名 OnShowListener；onShow 里调 Yh.j6(AlertDialog) 做显示时刷新。扁平名
+Nh	com/aide/ui/DownloadErrorDialogItemClickListener	role:DownloadErrorDialog(Oh) 里唯一的 AdapterView.OnItemClickListener 匿名类 ⇒ 列表项点击回调；顶层探针用扁平名
+Lh	com/aide/ui/DownloadErrorDialogOnShowListener	role:DownloadErrorDialog(Oh) 里唯一的 DialogInterface.OnShowListener 匿名类 ⇒ 对话框显示时回调；扁平名
+Mh	com/aide/ui/DownloadErrorDialogCallback	role:DownloadErrorDialog(Oh) 里唯一实现 abcd.Ji$b 的匿名类 ⇒ 下载错误对话框的回调面；扁平名
