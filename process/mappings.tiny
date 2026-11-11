@@ -11587,7 +11587,7 @@ c	abcd/Pz	abcd/aide/FileStoreImpl	body: 串 "Cannot get directory before context
 c	abcd/Bw	abcd/aide/BetaKit	src: 父类 io.fabric.sdk.android.Kit + 串 "Beta kit initializing..."/"com.crashlytics.sdk.android:beta"/"1.2.10.27" ⇒ fabric Beta Kit
 c	abcd/Rz	abcd/aide/PreferenceStoreImpl	who: 实现 abcd/Qz，且与 abcd/Pz 同串 "Cannot get directory before context..." ⇒ fabric services.persistence.PreferenceStore 实现
 c	abcd/Ae	abcd/aide/AndroidManifestConfig	body: extends abcd/Si(BaseProjectConfig) + XPath "//manifest"、"//manifest//uses-sdk" ⇒ 解析 AndroidManifest 的工程配置
-c	abcd/Be	abcd/aide/MavenDependenciesConfig	body: extends abcd/Si(BaseProjectConfig) + 串 "https://repo1.maven.org/maven2"/"mavenCentral"/"flatDir.dirs" ⇒ Maven 依赖仓库配置
+c	abcd/Be	com/aide/ui/util/BuildGradle	str:"android.compileSdkVersion"/"implementation"/"signingConfigs";内部类族与 2.3.5 com.aide.ui.util.BuildGradle 的 Dependency/Files/FileTree/Maven/Project/SigningConfig 一一对应 ⇒ 更正 MavenDependenciesConfig
 c	abcd/Dj	abcd/aide/UninstallAppRunnable	body: 串 "Uninstallation failed" + implements Runnable（字段 Activity + abcd/Kj）⇒ 卸载应用任务
 c	abcd/G	abcd/aide/AnalyticsConfig	auto: 配置：Analytics（上游未收录，名字来自 jobs/aide 的判据）
 	m	()Z	j6	isEnabled	auto: 是否 Enabled（上游无同签名对应，按作用取名）
@@ -11813,6 +11813,17 @@ c	abcd/uh	com/aide/ui/NewUserExperienceDialog	auto: 类：NewUserExperienceDialo
 c	abcd/Rl	abcd/aide/build/CommandRunner	auto: 类：CommandRunner（上游未收录，名字来自 jobs/aide 的判据）
 c	abcd/Pl	abcd/aide/build/CommandResult	auto: 结果：Command（上游未收录，名字来自 jobs/aide 的判据）
 c	abcd/se	abcd/aide/engine/Base64Codec	auto: 类：Base64Codec（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/Be$a	com/aide/ui/util/BuildGradle$SigningConfig	body:多个 public String 字段（keyAlias/keyPassword/storeFile 形态）；Be 中以 "keyAlias"/"keyPassword" 字面量构造 ⇒ BuildGradle$SigningConfig
+c	abcd/Be$b	com/aide/ui/util/BuildGradle$Dependency	body:abstract，仅 (int) 构造，且是 Be$c/Be$d/Be$g/Be$h/Be$k/Be$l 的父类 ⇒ BuildGradle$Dependency
+c	abcd/Be$c	com/aide/ui/util/BuildGradle$FilesDependency	body:(int) 构造 + 1 个 String；Be 中由字面量 "files" 分支 new ⇒ BuildGradle$FilesDependency
+c	abcd/Be$d	com/aide/ui/util/BuildGradle$FileTreeDependency	body:(int) 构造 + 2 个 String；Be 中由字面量 "fileTree" 分支 new ⇒ BuildGradle$FileTreeDependency
+c	abcd/Be$e	com/aide/ui/util/BuildGradle$FlatLocalRepository	body:(int) 构造 + String 字段，父类为 Be$i(Repository) ⇒ BuildGradle$FlatLocalRepository
+c	abcd/Be$f	com/aide/ui/util/BuildGradle$LineNumber	body:final int 字段 + (int) 构造 ⇒ BuildGradle$LineNumber
+c	abcd/Be$g	com/aide/ui/util/BuildGradle$MavenDependency	body:两个 String 字段（artifactId/coords 形态）+ extends Be$b(Dependency) ⇒ BuildGradle$MavenDependency
+c	abcd/Be$h	com/aide/ui/util/BuildGradle$ProjectDependency	body:Be 中以 "project"/"path" 字面量分支 new，extends Dependency ⇒ BuildGradle$ProjectDependency
+c	abcd/Be$i	com/aide/ui/util/BuildGradle$Repository	body:(int) 构造、被 Be$e/Be$m 继承 ⇒ BuildGradle$Repository
+c	abcd/Be$j	com/aide/ui/util/BuildGradle$ProductFlavor	body:4 个 String 字段（applicationId/minSdkVersion/multiDexEnabled 形态）⇒ BuildGradle$ProductFlavor
+c	abcd/Be$m	com/aide/ui/util/BuildGradle$RemoteRepository	body:(int,String) 构造，Be 中以 maven 仓库 URL 字面量（repo1/jcenter/dl.google）构造 ⇒ BuildGradle$RemoteRepository
 c	com/a/b/a/a/a	com/android/dx/cf/attrib/AttAnnotationDefault	auto: 类：AttAnnotationDefault；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault
 	m	()I	a	byteLength	auto: 「byteLength」；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#byteLength
 	m	()Lcom/a/b/e/c/a;	b	getValue	auto: 取 Value；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#getValue

@@ -40,7 +40,7 @@ c	abcd/Pz	-	-	body: 串 "Cannot get directory before context has been set. Call 
 c	abcd/Bw	-	-	src: 父类 io.fabric.sdk.android.Kit + 串 "Beta kit initializing..."/"com.crashlytics.sdk.android:beta"/"1.2.10.27" ⇒ fabric Beta Kit
 c	abcd/Rz	-	-	who: 实现 abcd/Qz，且与 abcd/Pz 同串 "Cannot get directory before context..." ⇒ fabric services.persistence.PreferenceStore 实现
 c	abcd/Ae	-	-	body: extends abcd/Si(BaseProjectConfig) + XPath "//manifest"、"//manifest//uses-sdk" ⇒ 解析 AndroidManifest 的工程配置
-c	abcd/Be	-	-	body: extends abcd/Si(BaseProjectConfig) + 串 "https://repo1.maven.org/maven2"/"mavenCentral"/"flatDir.dirs" ⇒ Maven 依赖仓库配置
+c	abcd/Be	-	-	str:"android.compileSdkVersion"/"implementation"/"signingConfigs";内部类族与 2.3.5 com.aide.ui.util.BuildGradle 的 Dependency/Files/FileTree/Maven/Project/SigningConfig 一一对应 ⇒ 更正 MavenDependenciesConfig
 c	abcd/Dj	-	-	body: 串 "Uninstallation failed" + implements Runnable（字段 Activity + abcd/Kj）⇒ 卸载应用任务
 m	abcd/yc	DW	()J	role: 读全局时间源（锁保护静态 long）；静态初始化里 new abcd/xc("Time getter") 负责更新
 m	abcd/yc	j6	(J)J	role: 编译器生成的静态字段访问器（写 abcd/yc 的静态 long，返回旧值）
@@ -273,3 +273,14 @@ c	abcd/uh	-	-	auto: 类：NewUserExperienceDialog（上游未收录，名字来�
 c	abcd/Rl	-	-	auto: 类：CommandRunner（上游未收录，名字来自 jobs/aide 的判据）
 c	abcd/Pl	-	-	auto: 结果：Command（上游未收录，名字来自 jobs/aide 的判据）
 c	abcd/se	-	-	auto: 类：Base64Codec（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/Be$a	-	-	body:多个 public String 字段（keyAlias/keyPassword/storeFile 形态）；Be 中以 "keyAlias"/"keyPassword" 字面量构造 ⇒ BuildGradle$SigningConfig
+c	abcd/Be$b	-	-	body:abstract，仅 (int) 构造，且是 Be$c/Be$d/Be$g/Be$h/Be$k/Be$l 的父类 ⇒ BuildGradle$Dependency
+c	abcd/Be$c	-	-	body:(int) 构造 + 1 个 String；Be 中由字面量 "files" 分支 new ⇒ BuildGradle$FilesDependency
+c	abcd/Be$d	-	-	body:(int) 构造 + 2 个 String；Be 中由字面量 "fileTree" 分支 new ⇒ BuildGradle$FileTreeDependency
+c	abcd/Be$e	-	-	body:(int) 构造 + String 字段，父类为 Be$i(Repository) ⇒ BuildGradle$FlatLocalRepository
+c	abcd/Be$f	-	-	body:final int 字段 + (int) 构造 ⇒ BuildGradle$LineNumber
+c	abcd/Be$g	-	-	body:两个 String 字段（artifactId/coords 形态）+ extends Be$b(Dependency) ⇒ BuildGradle$MavenDependency
+c	abcd/Be$h	-	-	body:Be 中以 "project"/"path" 字面量分支 new，extends Dependency ⇒ BuildGradle$ProjectDependency
+c	abcd/Be$i	-	-	body:(int) 构造、被 Be$e/Be$m 继承 ⇒ BuildGradle$Repository
+c	abcd/Be$j	-	-	body:4 个 String 字段（applicationId/minSdkVersion/multiDexEnabled 形态）⇒ BuildGradle$ProductFlavor
+c	abcd/Be$m	-	-	body:(int,String) 构造，Be 中以 maven 仓库 URL 字面量（repo1/jcenter/dl.google）构造 ⇒ BuildGradle$RemoteRepository

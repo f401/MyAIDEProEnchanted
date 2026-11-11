@@ -48,7 +48,7 @@ Pz	abcd/aide/FileStoreImpl	串 "Cannot get directory before context has been set
 Bw	abcd/aide/BetaKit	sup=io.fabric.sdk.android.Kit；串 "Beta kit initializing..."、"com.crashlytics.sdk.android:beta"、版本 "1.2.10.27" ⇒ Fabric Beta Kit
 Rz	abcd/aide/PreferenceStoreImpl	实现 abcd/Qz；串与 abcd/Pz(FileStoreImpl) 同为 "Cannot get directory before context has been set. Call Fabric.with() first" ⇒ fabric services.persistence 的 PreferenceStore 实现
 Ae	abcd/aide/AndroidManifestConfig	extends BaseProjectConfig；XPath "//manifest"、"//manifest//uses-sdk"、"android:versionCode" ⇒ 解析 AndroidManifest
-Be	abcd/aide/MavenDependenciesConfig	extends BaseProjectConfig；串 "https://repo1.maven.org/maven2"、"mavenCentral"、"flatDir.dirs" ⇒ 依赖仓库配置
+Be	com/aide/ui/util/BuildGradle	str:"android.compileSdkVersion"/"implementation"/"signingConfigs";内部类族与 2.3.5 com.aide.ui.util.BuildGradle 的 Dependency/Files/FileTree/Maven/Project/SigningConfig 一一对应 ⇒ 更正 MavenDependenciesConfig
 Dj	abcd/aide/UninstallAppRunnable	body:"Uninstallation failed"，implements Runnable
 G	abcd/aide/AnalyticsConfig	iface:唯一抽象方法 j6()Z；被 Analytics.initialize(Context,G) 接收，Analytics.j6()/FH() 把它当 setAnalyticsCollectionEnabled 的入参 ⇒ 埋点开关抽象
 ue	abcd/aide/LicensingLog	str:唯一常量 "aidelicensing"（Log tag）；DW(String)->Log.e、FH(String)->Log.w、j6(String,Throwable)/j6(Throwable)->Log.e；引用者 8 处全在 com/aide/licensing
@@ -68,3 +68,14 @@ uh	com/aide/ui/NewUserExperienceDialog	str:"New user experience"/"cancelled"/"ex
 Rl	abcd/aide/build/CommandRunner	body:j6(List cmd,String,Map env,Z,OutputStream,[B stdin) 里 new ProcessExecutorWrapper + ByteArrayOutputStream，返回 abcd/Pl；引用者全是构建链（AaptService、com/aide/ui/build/android/a、nativeexecutable/l、zeroaicy 的 runCmakeBuild 与 ZeroAicyR8Task.zipalignApk）⇒ 跑外部命令（aapt2/zipalign/cmake）
 Pl	abcd/aide/build/CommandResult	body:只有 DW()I（退出码）与 j6()[B（输出字节）两个方法，由 abcd/Rl 返回、被构建链 39 处读取 ⇒ 命令执行结果
 se	abcd/aide/engine/Base64Codec	body+clinit:四个 static byte[] 编码表，<clinit> 里第一张是 64 字节的 "A","B","C","D"… 字母表；三个 public static byte[] 方法（String→bytes、(bytes,int,int)、(bytes,int,int,byte[])）加一个私有逐段转换；错误串 "padding byte '=' falsely signals end of encoded value at offset "、"encoded value has invalid trailing byte"、"invalid padding byte" ⇒ Base64 编解码
+Be$a	com/aide/ui/util/BuildGradle$SigningConfig	body:多个 public String 字段（keyAlias/keyPassword/storeFile 形态）；Be 中以 "keyAlias"/"keyPassword" 字面量构造 ⇒ BuildGradle$SigningConfig
+Be$b	com/aide/ui/util/BuildGradle$Dependency	body:abstract，仅 (int) 构造，且是 Be$c/Be$d/Be$g/Be$h/Be$k/Be$l 的父类 ⇒ BuildGradle$Dependency
+Be$c	com/aide/ui/util/BuildGradle$FilesDependency	body:(int) 构造 + 1 个 String；Be 中由字面量 "files" 分支 new ⇒ BuildGradle$FilesDependency
+Be$d	com/aide/ui/util/BuildGradle$FileTreeDependency	body:(int) 构造 + 2 个 String；Be 中由字面量 "fileTree" 分支 new ⇒ BuildGradle$FileTreeDependency
+Be$e	com/aide/ui/util/BuildGradle$FlatLocalRepository	body:(int) 构造 + String 字段，父类为 Be$i(Repository) ⇒ BuildGradle$FlatLocalRepository
+Be$f	com/aide/ui/util/BuildGradle$LineNumber	body:final int 字段 + (int) 构造 ⇒ BuildGradle$LineNumber
+Be$g	com/aide/ui/util/BuildGradle$MavenDependency	body:两个 String 字段（artifactId/coords 形态）+ extends Be$b(Dependency) ⇒ BuildGradle$MavenDependency
+Be$h	com/aide/ui/util/BuildGradle$ProjectDependency	body:Be 中以 "project"/"path" 字面量分支 new，extends Dependency ⇒ BuildGradle$ProjectDependency
+Be$i	com/aide/ui/util/BuildGradle$Repository	body:(int) 构造、被 Be$e/Be$m 继承 ⇒ BuildGradle$Repository
+Be$j	com/aide/ui/util/BuildGradle$ProductFlavor	body:4 个 String 字段（applicationId/minSdkVersion/multiDexEnabled 形态）⇒ BuildGradle$ProductFlavor
+Be$m	com/aide/ui/util/BuildGradle$RemoteRepository	body:(int,String) 构造，Be 中以 maven 仓库 URL 字面量（repo1/jcenter/dl.google）构造 ⇒ BuildGradle$RemoteRepository

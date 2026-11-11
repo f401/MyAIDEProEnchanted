@@ -113,7 +113,7 @@ abcd/Pz abcd/aide/FileStoreImpl
 abcd/Bw abcd/aide/BetaKit
 abcd/Rz abcd/aide/PreferenceStoreImpl
 abcd/Ae abcd/aide/AndroidManifestConfig
-abcd/Be abcd/aide/MavenDependenciesConfig
+abcd/Be com/aide/ui/util/BuildGradle
 abcd/Dj abcd/aide/UninstallAppRunnable
 abcd/G abcd/aide/AnalyticsConfig
 	j6 ()Z isEnabled
@@ -271,3 +271,14 @@ abcd/uh com/aide/ui/NewUserExperienceDialog
 abcd/Rl abcd/aide/build/CommandRunner
 abcd/Pl abcd/aide/build/CommandResult
 abcd/se abcd/aide/engine/Base64Codec
+abcd/Be$a com/aide/ui/util/BuildGradle$SigningConfig
+abcd/Be$b com/aide/ui/util/BuildGradle$Dependency
+abcd/Be$c com/aide/ui/util/BuildGradle$FilesDependency
+abcd/Be$d com/aide/ui/util/BuildGradle$FileTreeDependency
+abcd/Be$e com/aide/ui/util/BuildGradle$FlatLocalRepository
+abcd/Be$f com/aide/ui/util/BuildGradle$LineNumber
+abcd/Be$g com/aide/ui/util/BuildGradle$MavenDependency
+abcd/Be$h com/aide/ui/util/BuildGradle$ProjectDependency
+abcd/Be$i com/aide/ui/util/BuildGradle$Repository
+abcd/Be$j com/aide/ui/util/BuildGradle$ProductFlavor
+abcd/Be$m com/aide/ui/util/BuildGradle$RemoteRepository
