@@ -609,3 +609,5 @@ Mh	com/aide/ui/DownloadErrorDialogCallback	role:DownloadErrorDialog(Oh) 里唯�
 Zm$a	com/aide/engine/BytecodeToRop$IntBox	role:BytecodeToRop 内部只持一个 int + getter 的小包装；无 oracle 对应，按作用取名（内部类 ⇒ 保持 $ 形式）
 Zm$b	com/aide/engine/BytecodeToRop$BlockRegisterBits	role:BytecodeToRop 内部持有两个 BitSet + int + 外部 Zm，按块记录寄存器位图；无 oracle 对应，按作用取名
 Zm$c	com/aide/engine/BytecodeToRop$LocalSlotTable	role:BytecodeToRop 内部持 BitSet + int×2 + ArrayList<IntSet> + HashMap<Int,Int> + Zm$a，做局部变量槽位映射；按作用取名
+sk	com/aide/billing/InAppBillingServiceConnection	role:InAppBilling 里唯一实现 android.content.ServiceConnection 的匿名类 ⇒ 绑定/解绑 Play 计费服务的连接回调；顶层探针，扁平名
+dq	com/aide/engine/DexFileReaderIntegerListView	role:DexFileReader(iq) 的 6 个只读列表视图之一，唯一 extends AbstractList<Integer> 的（其余为 List<String>/List<qq>/List<nq>/List<lq>）；扁平名

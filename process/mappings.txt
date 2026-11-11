@@ -28669,6 +28669,8 @@ abcd/Mh com/aide/ui/DownloadErrorDialogCallback
 abcd/Zm$a com/aide/engine/BytecodeToRop$IntBox
 abcd/Zm$b com/aide/engine/BytecodeToRop$BlockRegisterBits
 abcd/Zm$c com/aide/engine/BytecodeToRop$LocalSlotTable
+abcd/sk com/aide/billing/InAppBillingServiceConnection
+abcd/dq com/aide/engine/DexFileReaderIntegerListView
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
