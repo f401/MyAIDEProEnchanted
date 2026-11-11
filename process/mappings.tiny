@@ -6242,7 +6242,7 @@ c	abcd/jI	org/eclipse/jgit/transport/CredentialItem	src: jgit-3.7.1 org/eclipse/
 	f	Z	DW	valueSecure	auto: 字段(Z)；src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialItem.valueSecure
 	f	Ljava/lang/String;	j6	promptText	auto: 字段(Ljava/lang/String;)；src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialItem.promptText
 	m	()Ljava/lang/String;	j6	getPromptText	auto: 取 PromptText；src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialItem#getPromptText
-c	abcd/jI$d	org/eclipse/jgit/transport/CredentialItem$StringType	auto: 类：StringType（外层 CredentialItem）；src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialItem$StringType
+c	abcd/jI$d	org/eclipse/jgit/transport/CredentialItem$StringType	body:private String 字段 + (String,boolean) 构造，且是 Username/Password 的父类 ⇒ jgit CredentialItem.StringType
 	f	Ljava/lang/String;	FH	value	auto: 字段(Ljava/lang/String;)；src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialItem$StringType.value
 	m	()Ljava/lang/String;	DW	getValue	auto: 取 Value；src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialItem$StringType#getValue
 	m	(Ljava/lang/String;)V	j6	setValue	auto: 设 Value；src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialItem$StringType#setValue
@@ -9486,6 +9486,11 @@ c	abcd/ID	org/eclipse/jgit/events/RefsChangedEvent	body:extends KD<JD>，三方�
 		p	0	listener	listener
 	m	(Labcd/LD;)V	j6	dispatch	auto: 编译器协变桥，与父类 KD.j6(Labcd/LD;)V 同义（dispatch），APK 保留两份
 		p	0	x0	x0
+c	abcd/jI$a	org/eclipse/jgit/transport/CredentialItem$CharArrayType	body:char[] 字段 + FH():char[]/j6(char[])/DW()(clear) 三方法，与 jgit CredentialItem.CharArrayType 一致；外层 jI 已映射 CredentialItem
+c	abcd/jI$b	org/eclipse/jgit/transport/CredentialItem$InformationalMessage	body:唯一构造 (String) 且 super(String,true)，无额外字段 ⇒ jgit CredentialItem.InformationalMessage
+c	abcd/jI$c	org/eclipse/jgit/transport/CredentialItem$Password	body:构造体读 JGitText.credentialPassword 再调 super(String,boolean) ⇒ jgit CredentialItem.Password
+c	abcd/jI$e	org/eclipse/jgit/transport/CredentialItem$Username	body:构造体读 JGitText.credentialUsername 再 super(String,false) ⇒ jgit CredentialItem.Username
+c	abcd/jI$f	org/eclipse/jgit/transport/CredentialItem$YesNoType	body:private boolean 字段 + (String) 构造 ⇒ jgit CredentialItem.YesNoType
 c	com/jcraft/jsch/UserInfo	com/jcraft/jsch/UserInfo	auto: 类：UserInfo；src: jsch-0.1.51 com/jcraft/jsch/UserInfo
 	m	(Ljava/lang/String;)V	DW	showMessage	auto: 执行 showMessage；src: jsch-0.1.51 com/jcraft/jsch/UserInfo#showMessage
 		p	0	message	message

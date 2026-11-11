@@ -384,7 +384,7 @@ jE$a	org/eclipse/jgit/lib/CoreConfig$AutoCRLF	prop:5.0
 jF	org/eclipse/jgit/lib/StoredConfig	typeprop:描述符逐位对齐投票 1/1
 jH	org/eclipse/jgit/internal/storage/file/PackInputStream	prop:4.83
 jI	org/eclipse/jgit/transport/CredentialItem	typeprop:描述符逐位对齐投票 1/1
-jI$d	org/eclipse/jgit/transport/CredentialItem$StringType	typeprop:描述符逐位对齐投票 1/1
+jI$d	org/eclipse/jgit/transport/CredentialItem$StringType	body:private String 字段 + (String,boolean) 构造，且是 Username/Password 的父类 ⇒ jgit CredentialItem.StringType
 jJ	org/eclipse/jgit/transport/Transport	seed:9.9
 jJ$a	org/eclipse/jgit/transport/Transport$Operation	prop:5.0
 jK	org/eclipse/jgit/treewalk/filter/TreeFilter	nbr:1.43
@@ -687,3 +687,8 @@ LD	org/eclipse/jgit/events/RepositoryListener	iface:空标记接口；DD(ConfigC
 JD	org/eclipse/jgit/events/RefsChangedListener	iface:extends LD，唯一方法 j6(Labcd/ID;)V 即 onRefsChanged(RefsChangedEvent)（ID=RefsChangedEvent）；oracle 3.7.1 RefsChangedListener 同形
 CD	org/eclipse/jgit/events/ConfigChangedEvent	body:extends KD<DD>，三方法 getListenerType():Class<DD> / dispatch(DD) / 编译器桥 dispatch(LD)，与 3.7.1 ConfigChangedEvent 逐位一致
 ID	org/eclipse/jgit/events/RefsChangedEvent	body:extends KD<JD>，三方法 getListenerType():Class<JD> / dispatch(JD) / 桥 dispatch(LD)，与 3.7.1 RefsChangedEvent 逐位一致
+jI$a	org/eclipse/jgit/transport/CredentialItem$CharArrayType	body:char[] 字段 + FH():char[]/j6(char[])/DW()(clear) 三方法，与 jgit CredentialItem.CharArrayType 一致；外层 jI 已映射 CredentialItem
+jI$b	org/eclipse/jgit/transport/CredentialItem$InformationalMessage	body:唯一构造 (String) 且 super(String,true)，无额外字段 ⇒ jgit CredentialItem.InformationalMessage
+jI$c	org/eclipse/jgit/transport/CredentialItem$Password	body:构造体读 JGitText.credentialPassword 再调 super(String,boolean) ⇒ jgit CredentialItem.Password
+jI$e	org/eclipse/jgit/transport/CredentialItem$Username	body:构造体读 JGitText.credentialUsername 再 super(String,false) ⇒ jgit CredentialItem.Username
+jI$f	org/eclipse/jgit/transport/CredentialItem$YesNoType	body:private boolean 字段 + (String) 构造 ⇒ jgit CredentialItem.YesNoType

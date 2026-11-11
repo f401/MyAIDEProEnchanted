@@ -384,7 +384,7 @@ c	abcd/jE$a	-	-	auto: 类：AutoCRLF（外层 CoreConfig）；src: jgit-3.7.1 or
 c	abcd/jF	-	-	src: jgit-3.7.1 org/eclipse/jgit/lib/StoredConfig；doc: Persistent configuration that can be stored and loaded from a location.
 c	abcd/jH	-	-	auto: 流：PackInput；src: jgit-3.7.1 org/eclipse/jgit/internal/storage/file/PackInputStream
 c	abcd/jI	-	-	src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialItem；doc: A credential requested from a CredentialsProvider.
-c	abcd/jI$d	-	-	auto: 类：StringType（外层 CredentialItem）；src: jgit-3.7.1 org/eclipse/jgit/transport/CredentialItem$StringType
+c	abcd/jI$d	-	-	body:private String 字段 + (String,boolean) 构造，且是 Username/Password 的父类 ⇒ jgit CredentialItem.StringType
 c	abcd/jJ	-	-	src: jgit-3.7.1 org/eclipse/jgit/transport/Transport；doc: Connects two Git repositories together and copies objects between them.
 c	abcd/jJ$a	-	-	auto: 类：Operation（外层 Transport）；src: jgit-3.7.1 org/eclipse/jgit/transport/Transport$Operation
 c	abcd/jK	-	-	src: jgit-3.7.1 org/eclipse/jgit/treewalk/filter/TreeFilter；doc: Selects interesting tree entries during walking.
@@ -6236,3 +6236,8 @@ m	abcd/CD	j6	(Labcd/LD;)V	auto: 编译器协变桥，与父类 KD.j6(Labcd/LD;)V
 m	abcd/ID	j6	()Ljava/lang/Class;	src: jgit-3.7.1 org/eclipse/jgit/events/RefsChangedEvent#getListenerType；返回 JD.class
 m	abcd/ID	j6	(Labcd/JD;)V	src: jgit-3.7.1 org/eclipse/jgit/events/RefsChangedEvent#dispatch(RefsChangedListener)
 m	abcd/ID	j6	(Labcd/LD;)V	auto: 编译器协变桥，与父类 KD.j6(Labcd/LD;)V 同义（dispatch），APK 保留两份
+c	abcd/jI$a	-	-	body:char[] 字段 + FH():char[]/j6(char[])/DW()(clear) 三方法，与 jgit CredentialItem.CharArrayType 一致；外层 jI 已映射 CredentialItem
+c	abcd/jI$b	-	-	body:唯一构造 (String) 且 super(String,true)，无额外字段 ⇒ jgit CredentialItem.InformationalMessage
+c	abcd/jI$c	-	-	body:构造体读 JGitText.credentialPassword 再调 super(String,boolean) ⇒ jgit CredentialItem.Password
+c	abcd/jI$e	-	-	body:构造体读 JGitText.credentialUsername 再 super(String,false) ⇒ jgit CredentialItem.Username
+c	abcd/jI$f	-	-	body:private boolean 字段 + (String) 构造 ⇒ jgit CredentialItem.YesNoType

@@ -6236,3 +6236,8 @@ abcd/ID org/eclipse/jgit/events/RefsChangedEvent
 	j6 ()Ljava/lang/Class; getListenerType
 	j6 (Labcd/JD;)V dispatch
 	j6 (Labcd/LD;)V dispatch
+abcd/jI$a org/eclipse/jgit/transport/CredentialItem$CharArrayType
+abcd/jI$b org/eclipse/jgit/transport/CredentialItem$InformationalMessage
+abcd/jI$c org/eclipse/jgit/transport/CredentialItem$Password
+abcd/jI$e org/eclipse/jgit/transport/CredentialItem$Username
+abcd/jI$f org/eclipse/jgit/transport/CredentialItem$YesNoType

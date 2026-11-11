@@ -10012,6 +10012,11 @@ abcd/ID org/eclipse/jgit/events/RefsChangedEvent
 		0 listener listener
 	j6 (Labcd/LD;)V dispatch
 		0 x0 x0
+abcd/jI$a org/eclipse/jgit/transport/CredentialItem$CharArrayType
+abcd/jI$b org/eclipse/jgit/transport/CredentialItem$InformationalMessage
+abcd/jI$c org/eclipse/jgit/transport/CredentialItem$Password
+abcd/jI$e org/eclipse/jgit/transport/CredentialItem$Username
+abcd/jI$f org/eclipse/jgit/transport/CredentialItem$YesNoType
 com/jcraft/jsch/UserInfo com/jcraft/jsch/UserInfo
 	DW (Ljava/lang/String;)V showMessage
 		0 message message
