@@ -2120,3 +2120,4 @@ abcd/Kh com/aide/ui/DownloadErrorDialogDismissAction
 abcd/Oi$a com/aide/licensing/LicenseChecker$LicenseBinder
 abcd/Ji$e abcd/aide/Settings$StringPair
 abcd/Dd$a com/aide/codemodel/language/java/JavaLexer$CharBuffer
+abcd/Va$a com/aide/codemodel/api/SyntaxTreeSpace$b

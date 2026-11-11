@@ -2127,3 +2127,4 @@ c	abcd/Kh	-	-	role:DownloadErrorDialog 的三个 OnClickListener 之一，onClic
 c	abcd/Oi$a	-	-	role:extends com.aide.licensing.g$a（AIDL Binder 桩），方法里调 getCallingUid()/myUid() 做调用方校验 ⇒ LicenseChecker 的远程校验 Binder；外层 Oi=LicenseChecker
 c	abcd/Ji$e	-	-	role:Settings 的内部类，两个 public String 字段 + 构造 + equals/hashCode/j6(Ji$e) 比较 ⇒ 不可变字符串对（用作 Set<Ji$e> 元素）
 c	abcd/Dd$a	-	-	role:JavaLexer(Dd) 的内部类：持 java.io.Reader + char[] + 位置计数(int×3/boolean) ⇒ 词法分析器的字符缓冲；外层 Dd 已映射 JavaLexer
+c	abcd/Va$a	-	-	body:char[]×2 + 构造(SyntaxTreeSpace$a) + j6(Reader,String,int,int)，与 2.3.5 api.SyntaxTreeSpace$b 逐项一致（字符缓冲读取器）；外层 Va=SyntaxTreeSpace 已映射，Va$b 另占 $c
