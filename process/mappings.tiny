@@ -26933,6 +26933,9 @@ c	abcd/ProcessExecutorWrapper	com/aide/engine/ProcessExecutorWrapper	body:类名
 c	abcd/ProcessExecutorWrapper$a	com/aide/engine/ProcessExecutorWrapper$a	body:ProcessExecutorWrapper 的内部类（元数据与 $ 形式一致），类名未混淆 ⇒ 恒等映射
 c	abcd/ProcessExecutorWrapper$a$a	com/aide/engine/ProcessExecutorWrapper$a$a	body:ProcessExecutorWrapper$a 的内部类，类名未混淆 ⇒ 恒等映射
 c	abcd/ProcessExitMonitor	com/aide/engine/ProcessExitMonitor	body:类名未混淆，由 ProcessExecutorWrapper$a$a 引用 ⇒ 恒等映射
+c	abcd/Gn$a	com/aide/engine/DexMapList$Section	body:toString 输出 "Section[type=%#x,off=%#x,size=%#x]" ⇒ dex map_list 的 section 项；外层 Gn 已映射 DexMapList
+c	abcd/Fp$a	com/aide/engine/DexFileWriter$Type	body:枚举常量 NONE/TYPE/INSTANCE ⇒ DexFileWriter 的写出类型枚举；外层 Fp 已映射 DexFileWriter
+c	abcd/Jv$b	com/aide/billing/InAppPurchaseBackend$Result	body:枚举常量含 RESULT_OK/RESULT_USER_CANCELED/RESULT_SERVICE_UNAVAILABLE ⇒ 计费结果码枚举；外层 Jv 已映射 InAppPurchaseBackend
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

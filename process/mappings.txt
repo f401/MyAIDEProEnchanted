@@ -28374,6 +28374,9 @@ abcd/ProcessExecutorWrapper com/aide/engine/ProcessExecutorWrapper
 abcd/ProcessExecutorWrapper$a com/aide/engine/ProcessExecutorWrapper$a
 abcd/ProcessExecutorWrapper$a$a com/aide/engine/ProcessExecutorWrapper$a$a
 abcd/ProcessExitMonitor com/aide/engine/ProcessExitMonitor
+abcd/Gn$a com/aide/engine/DexMapList$Section
+abcd/Fp$a com/aide/engine/DexFileWriter$Type
+abcd/Jv$b com/aide/billing/InAppPurchaseBackend$Result
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
