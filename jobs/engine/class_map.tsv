@@ -606,3 +606,6 @@ Wh	com/aide/ui/ExportApkDialogOnShowRefresh	role:ExportApkDialog 的匿名 OnSho
 Nh	com/aide/ui/DownloadErrorDialogItemClickListener	role:DownloadErrorDialog(Oh) 里唯一的 AdapterView.OnItemClickListener 匿名类 ⇒ 列表项点击回调；顶层探针用扁平名
 Lh	com/aide/ui/DownloadErrorDialogOnShowListener	role:DownloadErrorDialog(Oh) 里唯一的 DialogInterface.OnShowListener 匿名类 ⇒ 对话框显示时回调；扁平名
 Mh	com/aide/ui/DownloadErrorDialogCallback	role:DownloadErrorDialog(Oh) 里唯一实现 abcd.Ji$b 的匿名类 ⇒ 下载错误对话框的回调面；扁平名
+Zm$a	com/aide/engine/BytecodeToRop$IntBox	role:BytecodeToRop 内部只持一个 int + getter 的小包装；无 oracle 对应，按作用取名（内部类 ⇒ 保持 $ 形式）
+Zm$b	com/aide/engine/BytecodeToRop$BlockRegisterBits	role:BytecodeToRop 内部持有两个 BitSet + int + 外部 Zm，按块记录寄存器位图；无 oracle 对应，按作用取名
+Zm$c	com/aide/engine/BytecodeToRop$LocalSlotTable	role:BytecodeToRop 内部持 BitSet + int×2 + ArrayList<IntSet> + HashMap<Int,Int> + Zm$a，做局部变量槽位映射；按作用取名

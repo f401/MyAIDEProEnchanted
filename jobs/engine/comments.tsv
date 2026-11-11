@@ -2109,3 +2109,6 @@ c	abcd/Wh	-	-	role:ExportApkDialog 的匿名 OnShowListener；onShow 里调 Yh.j
 c	abcd/Nh	-	-	role:DownloadErrorDialog(Oh) 里唯一的 AdapterView.OnItemClickListener 匿名类 ⇒ 列表项点击回调；顶层探针用扁平名
 c	abcd/Lh	-	-	role:DownloadErrorDialog(Oh) 里唯一的 DialogInterface.OnShowListener 匿名类 ⇒ 对话框显示时回调；扁平名
 c	abcd/Mh	-	-	role:DownloadErrorDialog(Oh) 里唯一实现 abcd.Ji$b 的匿名类 ⇒ 下载错误对话框的回调面；扁平名
+c	abcd/Zm$a	-	-	role:BytecodeToRop 内部只持一个 int + getter 的小包装；无 oracle 对应，按作用取名（内部类 ⇒ 保持 $ 形式）
+c	abcd/Zm$b	-	-	role:BytecodeToRop 内部持有两个 BitSet + int + 外部 Zm，按块记录寄存器位图；无 oracle 对应，按作用取名
+c	abcd/Zm$c	-	-	role:BytecodeToRop 内部持 BitSet + int×2 + ArrayList<IntSet> + HashMap<Int,Int> + Zm$a，做局部变量槽位映射；按作用取名

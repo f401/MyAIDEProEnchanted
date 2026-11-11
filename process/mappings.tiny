@@ -27225,6 +27225,9 @@ c	abcd/Wh	com/aide/ui/ExportApkDialogOnShowRefresh	role:ExportApkDialog 的匿�
 c	abcd/Nh	com/aide/ui/DownloadErrorDialogItemClickListener	role:DownloadErrorDialog(Oh) 里唯一的 AdapterView.OnItemClickListener 匿名类 ⇒ 列表项点击回调；顶层探针用扁平名
 c	abcd/Lh	com/aide/ui/DownloadErrorDialogOnShowListener	role:DownloadErrorDialog(Oh) 里唯一的 DialogInterface.OnShowListener 匿名类 ⇒ 对话框显示时回调；扁平名
 c	abcd/Mh	com/aide/ui/DownloadErrorDialogCallback	role:DownloadErrorDialog(Oh) 里唯一实现 abcd.Ji$b 的匿名类 ⇒ 下载错误对话框的回调面；扁平名
+c	abcd/Zm$a	com/aide/engine/BytecodeToRop$IntBox	role:BytecodeToRop 内部只持一个 int + getter 的小包装；无 oracle 对应，按作用取名（内部类 ⇒ 保持 $ 形式）
+c	abcd/Zm$b	com/aide/engine/BytecodeToRop$BlockRegisterBits	role:BytecodeToRop 内部持有两个 BitSet + int + 外部 Zm，按块记录寄存器位图；无 oracle 对应，按作用取名
+c	abcd/Zm$c	com/aide/engine/BytecodeToRop$LocalSlotTable	role:BytecodeToRop 内部持 BitSet + int×2 + ArrayList<IntSet> + HashMap<Int,Int> + Zm$a，做局部变量槽位映射；按作用取名
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
