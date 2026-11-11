@@ -12436,6 +12436,8 @@ abcd/Be$h com/aide/ui/util/BuildGradle$ProjectDependency
 abcd/Be$i com/aide/ui/util/BuildGradle$Repository
 abcd/Be$j com/aide/ui/util/BuildGradle$ProductFlavor
 abcd/Be$m com/aide/ui/util/BuildGradle$RemoteRepository
+abcd/Ji$d abcd/aide/Settings$DropboxSyncInfo
+abcd/Ji$d$a abcd/aide/Settings$DropboxSyncInfo$FileInfo
 com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
 	a ()I byteLength
 	b ()Lcom/a/b/e/c/a; getValue

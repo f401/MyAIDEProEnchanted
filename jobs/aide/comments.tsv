@@ -284,3 +284,5 @@ c	abcd/Be$h	-	-	body:Be 中以 "project"/"path" 字面量分支 new，extends De
 c	abcd/Be$i	-	-	body:(int) 构造、被 Be$e/Be$m 继承 ⇒ BuildGradle$Repository
 c	abcd/Be$j	-	-	body:4 个 String 字段（applicationId/minSdkVersion/multiDexEnabled 形态）⇒ BuildGradle$ProductFlavor
 c	abcd/Be$m	-	-	body:(int,String) 构造，Be 中以 maven 仓库 URL 字面量（repo1/jcenter/dl.google）构造 ⇒ BuildGradle$RemoteRepository
+c	abcd/Ji$d	-	-	str:".aidedropbox"/"Broken AIDE dropbox sync info..."/"This directory was downloaded with an older version..."；字段为目录路径 String + 时间戳 long + Map<String,Ji$d$a> ⇒ Settings 的 Dropbox 同步信息
+c	abcd/Ji$d$a	-	-	body:仅 (String,long) 两个公开字段 + 构造，正是上面 Map<String,Ji$d$a> 的条目（文件名 + 时间戳）⇒ Dropbox 同步信息的文件项
