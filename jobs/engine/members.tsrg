@@ -2114,3 +2114,7 @@ abcd/th com/aide/ui/NewUserExperienceDialogOnChildClickListener
 abcd/nl abcd/aide/engine/ModifyFilesActionRunnable
 abcd/tl abcd/aide/engine/ProjectModelRunnable
 abcd/Ct com/aide/engine/FirstFitLocalCombiningAllocatorVisitor
+abcd/Dh com/aide/ui/ProgressDialogDismissAction
+abcd/Jh com/aide/ui/DownloadErrorDialogCancelAction
+abcd/Kh com/aide/ui/DownloadErrorDialogDismissAction
+abcd/Oi$a com/aide/licensing/LicenseChecker$LicenseBinder

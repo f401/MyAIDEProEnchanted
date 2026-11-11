@@ -618,3 +618,7 @@ th	com/aide/ui/NewUserExperienceDialogOnChildClickListener	role:NewUserExperienc
 nl	abcd/aide/engine/ModifyFilesActionRunnable	role:ModifyFilesAction 里唯一实现 Runnable 的匿名类 ⇒ 改文件动作的后台任务；扁平名
 tl	abcd/aide/engine/ProjectModelRunnable	role:ProjectModel 里唯一实现 Runnable 的匿名类 ⇒ 工程模型的后台任务；扁平名
 Ct	com/aide/engine/FirstFitLocalCombiningAllocatorVisitor	role:FirstFitLocalCombiningAllocator 里唯一实现 abcd/vt$a（SsaInsn$Visitor）的匿名类 ⇒ 寄存器分配器的指令访问者；扁平名
+Dh	com/aide/ui/ProgressDialogDismissAction	role:ProgressDialog 内唯一的 DialogInterface.OnClickListener 匿名类，onClick 只调 dismiss() ⇒ 关闭进度框；顶层探针用扁平名
+Jh	com/aide/ui/DownloadErrorDialogCancelAction	role:DownloadErrorDialog 的三个 OnClickListener 之一，onClick 只调 cancel() ⇒ 取消下载；与 Kh(dismiss) / Ih(cancel+tp) 按调用序列区分
+Kh	com/aide/ui/DownloadErrorDialogDismissAction	role:DownloadErrorDialog 的三个 OnClickListener 之一，onClick 调 dismiss()+tp() ⇒ 关闭对话框并刷新；按调用序列与 Jh/Ih 区分
+Oi$a	com/aide/licensing/LicenseChecker$LicenseBinder	role:extends com.aide.licensing.g$a（AIDL Binder 桩），方法里调 getCallingUid()/myUid() 做调用方校验 ⇒ LicenseChecker 的远程校验 Binder；外层 Oi=LicenseChecker
