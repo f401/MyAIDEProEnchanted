@@ -622,3 +622,5 @@ Dh	com/aide/ui/ProgressDialogDismissAction	role:ProgressDialog 内唯一的 Dial
 Jh	com/aide/ui/DownloadErrorDialogCancelAction	role:DownloadErrorDialog 的三个 OnClickListener 之一，onClick 只调 cancel() ⇒ 取消下载；与 Kh(dismiss) / Ih(cancel+tp) 按调用序列区分
 Kh	com/aide/ui/DownloadErrorDialogDismissAction	role:DownloadErrorDialog 的三个 OnClickListener 之一，onClick 调 dismiss()+tp() ⇒ 关闭对话框并刷新；按调用序列与 Jh/Ih 区分
 Oi$a	com/aide/licensing/LicenseChecker$LicenseBinder	role:extends com.aide.licensing.g$a（AIDL Binder 桩），方法里调 getCallingUid()/myUid() 做调用方校验 ⇒ LicenseChecker 的远程校验 Binder；外层 Oi=LicenseChecker
+Ji$e	abcd/aide/Settings$StringPair	role:Settings 的内部类，两个 public String 字段 + 构造 + equals/hashCode/j6(Ji$e) 比较 ⇒ 不可变字符串对（用作 Set<Ji$e> 元素）
+Dd$a	com/aide/codemodel/language/java/JavaLexer$CharBuffer	role:JavaLexer(Dd) 的内部类：持 java.io.Reader + char[] + 位置计数(int×3/boolean) ⇒ 词法分析器的字符缓冲；外层 Dd 已映射 JavaLexer

@@ -28682,6 +28682,8 @@ abcd/Dh com/aide/ui/ProgressDialogDismissAction
 abcd/Jh com/aide/ui/DownloadErrorDialogCancelAction
 abcd/Kh com/aide/ui/DownloadErrorDialogDismissAction
 abcd/Oi$a com/aide/licensing/LicenseChecker$LicenseBinder
+abcd/Ji$e abcd/aide/Settings$StringPair
+abcd/Dd$a com/aide/codemodel/language/java/JavaLexer$CharBuffer
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

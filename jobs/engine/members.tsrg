@@ -2118,3 +2118,5 @@ abcd/Dh com/aide/ui/ProgressDialogDismissAction
 abcd/Jh com/aide/ui/DownloadErrorDialogCancelAction
 abcd/Kh com/aide/ui/DownloadErrorDialogDismissAction
 abcd/Oi$a com/aide/licensing/LicenseChecker$LicenseBinder
+abcd/Ji$e abcd/aide/Settings$StringPair
+abcd/Dd$a com/aide/codemodel/language/java/JavaLexer$CharBuffer
