@@ -2050,3 +2050,6 @@ abcd/Vm com/aide/engine/OneLocalsArray
 abcd/Um com/aide/engine/Merger
 abcd/co$a com/aide/engine/LocalList$Disposition
 abcd/co$b com/aide/engine/LocalList$Entry
+abcd/it com/aide/engine/LocalVariableInfo
+abcd/nt com/aide/engine/Optimizer
+abcd/nt$a com/aide/engine/Optimizer$OptionalStep

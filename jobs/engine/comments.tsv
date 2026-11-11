@@ -2057,3 +2057,6 @@ c	abcd/Vm	-	-	body:extends Rm(LocalsArray)；TypeBearer[] + (int) 构造 + get/g
 c	abcd/Um	-	-	body:4 个 static 方法：(TypeBearer,TypeBearer)→TypeBearer=mergeType、(Nm, Nm)→Nm=mergeStack、(Vm,Vm)→Vm=mergeLocals + boolean 判定 ⇒ dx Merger
 c	abcd/co$a	-	-	body:6 常量枚举，正是 dx LocalList$Disposition(START/END_SIMPLY/END_REPLACED/END_MOVED/END_CLOBBERED_BY_PREV/END_CLOBBERED_BY_NEXT)
 c	abcd/co$b	-	-	body:4 字段(address, Disposition, RegisterSpec, CstType) + compareTo/equals/isStart/getName/getSignature/getType(Js=DexString/Ks) ⇒ dx LocalList$Entry
+c	abcd/it	-	-	body:4 字段(regCount / emptySet / blockStarts[] / insnAssignments) + ctor(SsaMethod) + setStarts/mergeStarts/getStarts×2/mutableCopyOfStarts/addAssignment/getAssignment ⇒ dx LocalVariableInfo
+c	abcd/nt	-	-	body:static preserveLocals/advice 两字段 + optimize(RopMethod,int,boolean,boolean,TranslationAdvice[,EnumSet<nt$a>]) 重载 + 私有 j6(yt,EnumSet)=runSsaFormSteps + getPreserveLocals/getAdvice ⇒ dx Optimizer
+c	abcd/nt$a	-	-	body:nt 的内部枚举，即 Optimizer 的可选优化步集合(MOVE_PARAM_COMBINER/SCCP/…)，被 j6(yt,EnumSet) 逐项跑 ⇒ dx Optimizer$OptionalStep

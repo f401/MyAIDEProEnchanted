@@ -27173,6 +27173,9 @@ c	abcd/Vm	com/aide/engine/OneLocalsArray	body:extends Rm(LocalsArray)；TypeBear
 c	abcd/Um	com/aide/engine/Merger	body:4 个 static 方法：(TypeBearer,TypeBearer)→TypeBearer=mergeType、(Nm, Nm)→Nm=mergeStack、(Vm,Vm)→Vm=mergeLocals + boolean 判定 ⇒ dx Merger
 c	abcd/co$a	com/aide/engine/LocalList$Disposition	body:6 常量枚举，正是 dx LocalList$Disposition(START/END_SIMPLY/END_REPLACED/END_MOVED/END_CLOBBERED_BY_PREV/END_CLOBBERED_BY_NEXT)
 c	abcd/co$b	com/aide/engine/LocalList$Entry	body:4 字段(address, Disposition, RegisterSpec, CstType) + compareTo/equals/isStart/getName/getSignature/getType(Js=DexString/Ks) ⇒ dx LocalList$Entry
+c	abcd/it	com/aide/engine/LocalVariableInfo	body:4 字段(regCount / emptySet / blockStarts[] / insnAssignments) + ctor(SsaMethod) + setStarts/mergeStarts/getStarts×2/mutableCopyOfStarts/addAssignment/getAssignment ⇒ dx LocalVariableInfo
+c	abcd/nt	com/aide/engine/Optimizer	body:static preserveLocals/advice 两字段 + optimize(RopMethod,int,boolean,boolean,TranslationAdvice[,EnumSet<nt$a>]) 重载 + 私有 j6(yt,EnumSet)=runSsaFormSteps + getPreserveLocals/getAdvice ⇒ dx Optimizer
+c	abcd/nt$a	com/aide/engine/Optimizer$OptionalStep	body:nt 的内部枚举，即 Optimizer 的可选优化步集合(MOVE_PARAM_COMBINER/SCCP/…)，被 j6(yt,EnumSet) 逐项跑 ⇒ dx Optimizer$OptionalStep
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
