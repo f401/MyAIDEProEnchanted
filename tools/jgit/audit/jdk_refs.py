@@ -28,9 +28,9 @@ def jdk_refs(jar):
     """→ Counter{(owner, 名, 描述符): 出现次数}（只统计 JDK/Android 侧的引用）"""
     out = collections.Counter()
     with zipfile.ZipFile(jar) as z:
-        for n in z.namelist():
-            if not n.endswith('.class'):
-                continue
+        names = [n for n in z.namelist() if n.endswith('.class')]
+        own = {n[:-6] for n in names}   # 本 jar 自己定义的类（含被我们改名成 org/json/... 的）
+        for n in names:
             try:
                 c = jvm.parse(z.read(n))
             except Exception:
@@ -38,7 +38,7 @@ def jdk_refs(jar):
             if not c:
                 continue
             for _i, (owner, name, desc, _tag) in (c.get('refmap') or {}).items():
-                if owner and owner.startswith(PREFIX):
+                if owner and owner.startswith(PREFIX) and owner not in own:
                     out[(owner, name, desc)] += 1
     return out
 
