@@ -27218,6 +27218,10 @@ c	abcd/cn	com/aide/codemodel/api/collections/ListOfInt	body:两字段 IntSet + i
 c	abcd/Ca$a	com/aide/codemodel/api/ErrorTable$Error	body:10 字段/3 方法与 AIDE+ 2.3.5 api.ErrorTable$Error(11/3) 逐项对应（String 消息 + 位置四元组 + Fix 列表）；外层 Ca 已映射 ErrorTable ⇒ 错误条目
 c	abcd/Ca$b	com/aide/codemodel/api/ErrorTable$FileContent	body:3 字段/3 方法与 api.ErrorTable$FileContent(4/3) 对应（文件内容快照：byte[]/String + 3 方法）；外层 Ca 已映射 ErrorTable ⇒ 文件内容项
 c	abcd/hj$a	com/aide/ui/util/AndroidProprieties$a	body:4 字段/2 方法与 AIDE+ 2.3.5 ui.util.AndroidProprieties$a(4/2) 完全一致；外层 hj 已映射 AndroidProprieties ⇒ 其内部类（单个属性项）
+c	abcd/Sh	com/aide/ui/ExportApkDialogExportAction	role:ExportApkDialog(Yh) 的匿名 OnClickListener；onClick 里取 Yh.DW(dialog)/Yh.FH(dialog) 两串再调 Yh.j6(activity,String,String) 执行导出。顶层探针故用扁平名
+c	abcd/Th	com/aide/ui/ExportApkDialogExportAndDismissAction	role:同上匿名 OnClickListener，但先 Yh.j6(dialog) 再 dialog.dismiss() 再走导出(Yh.DW/FH + j6(activity,s,s))，即“导出并关闭”。扁平名
+c	abcd/Rh	com/aide/ui/ExportApkDialogRefreshAction	role:ExportApkDialog 的匿名 OnClickListener，onClick 只调 Yh.j6(Yh,AlertDialog)（刷新对话框内容），不取串也不 dismiss。扁平名
+c	abcd/Wh	com/aide/ui/ExportApkDialogOnShowRefresh	role:ExportApkDialog 的匿名 OnShowListener；onShow 里调 Yh.j6(AlertDialog) 做显示时刷新。扁平名
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
