@@ -2068,3 +2068,6 @@ abcd/_s$a com/aide/engine/Dominators$DFSInfo
 abcd/gt com/aide/engine/ConstCollector
 abcd/lt com/aide/engine/LiteralOpUpgrader
 abcd/ut com/aide/engine/SsaConverter
+abcd/wt com/aide/engine/SsaMethod$DefCollector
+abcd/xt com/aide/engine/SsaMethod$UseCollector
+abcd/kt com/aide/engine/LiteralOpUpgrader$UpgradeVisitor

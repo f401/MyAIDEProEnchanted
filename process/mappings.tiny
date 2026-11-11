@@ -27191,6 +27191,9 @@ c	abcd/_s$a	com/aide/engine/Dominators$DFSInfo	body:5 个公开字段(int semido
 c	abcd/gt	com/aide/engine/ConstCollector	body:private ctor(SsaMethod) + public static j6(yt)=process + private j6()=run + static j6(gt,NormalSsaInsn,RegisterSpecList,int,Constant)=updateConstUses；字段仅 SsaMethod ⇒ dx ConstCollector
 c	abcd/lt	com/aide/engine/LiteralOpUpgrader	body:字段仅 SsaMethod + private ctor + public static j6(yt) 入口 + private 实例步 j6(NormalSsaInsn):int，形状同 dx LiteralOpUpgrader(upgradeLiterals/upgradeLiteral)
 c	abcd/ut	com/aide/engine/SsaConverter	body:public static j6(fs RopMethod,int,boolean):yt = dx convertToSsaMethod；三个 private static 步 j6(yt) = edgeSplit/edgeSplitPredecessors/edgeSplitSuccessors/placePhiFunctions 一类 ⇒ dx SsaConverter
+c	abcd/wt	com/aide/engine/SsaMethod$DefCollector	role:SsaMethod 内部 SsaInsn 访问者：只读 vt.u7()=result 再取 bs.we() 寄存器号，替 yt 收集“定义表”；dx 侧是匿名 SsaMethod$N，无可用上游名故按作用取名
+c	abcd/xt	com/aide/engine/SsaMethod$UseCollector	role:SsaMethod 内部 SsaInsn 访问者：遍历 vt.tp()=sources 逐个 add 进列表，收集“使用表”；dx 侧同为匿名内部类，按作用取名
+c	abcd/kt	com/aide/engine/LiteralOpUpgrader$UpgradeVisitor	role:lt(LiteralOpUpgrader) 代码里唯一 new 出来的 SsaInsn 访问者（持 RegisterSpec[] + HashSet），用于升级字面量；dx 侧匿名，按作用取名
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
