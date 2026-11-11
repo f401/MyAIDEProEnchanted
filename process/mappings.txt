@@ -28617,6 +28617,18 @@ abcd/co$b com/aide/engine/LocalList$Entry
 abcd/it com/aide/engine/LocalVariableInfo
 abcd/nt com/aide/engine/Optimizer
 abcd/nt$a com/aide/engine/Optimizer$OptionalStep
+abcd/ht com/aide/engine/LocalVariableExtractor
+abcd/Xs com/aide/engine/DeadCodeRemover
+abcd/pt com/aide/engine/PhiTypeResolver
+abcd/Bt com/aide/engine/SsaRenamer
+abcd/Bt$a com/aide/engine/SsaRenamer$Renaming
+abcd/dt com/aide/engine/EscapeAnalysis
+abcd/dt$a com/aide/engine/EscapeAnalysis$EscapeSet
+abcd/rt com/aide/engine/SCCP
+abcd/Ys com/aide/engine/DomFront
+abcd/Ys$a com/aide/engine/DomFront$DomInfo
+abcd/_s com/aide/engine/Dominators
+abcd/_s$a com/aide/engine/Dominators$DFSInfo
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

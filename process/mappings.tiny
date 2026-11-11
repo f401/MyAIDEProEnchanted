@@ -27176,6 +27176,18 @@ c	abcd/co$b	com/aide/engine/LocalList$Entry	body:4 字段(address, Disposition, 
 c	abcd/it	com/aide/engine/LocalVariableInfo	body:4 字段(regCount / emptySet / blockStarts[] / insnAssignments) + ctor(SsaMethod) + setStarts/mergeStarts/getStarts×2/mutableCopyOfStarts/addAssignment/getAssignment ⇒ dx LocalVariableInfo
 c	abcd/nt	com/aide/engine/Optimizer	body:static preserveLocals/advice 两字段 + optimize(RopMethod,int,boolean,boolean,TranslationAdvice[,EnumSet<nt$a>]) 重载 + 私有 j6(yt,EnumSet)=runSsaFormSteps + getPreserveLocals/getAdvice ⇒ dx Optimizer
 c	abcd/nt$a	com/aide/engine/Optimizer$OptionalStep	body:nt 的内部枚举，即 Optimizer 的可选优化步集合(MOVE_PARAM_COMBINER/SCCP/…)，被 j6(yt,EnumSet) 逐项跑 ⇒ dx Optimizer$OptionalStep
+c	abcd/ht	com/aide/engine/LocalVariableExtractor	body:4 字段与 dx LocalVariableExtractor 一一对应(SsaMethod method / ArrayList<SsaBasicBlock> blocks / LocalVariableInfo resultInfo / BitSet workSet)，方法数同为 4
+c	abcd/Xs	com/aide/engine/DeadCodeRemover	body:3 字段(SsaMethod / int regCount / BitSet worklist) + 方法数 6 与 dx DeadCodeRemover 完全一致
+c	abcd/pt	com/aide/engine/PhiTypeResolver	body:2 字段(SsaMethod / BitSet worklist) + 方法数 4 与 dx PhiTypeResolver 完全一致
+c	abcd/Bt	com/aide/engine/SsaRenamer	body:5 字段(int nextSsaReg/ropRegCount/threshold + ArrayList<LocalItem> + SsaMethod) + 方法数 9 与 dx SsaRenamer 一致；内部 Bt$a 是其重命名辅助类
+c	abcd/Bt$a	com/aide/engine/SsaRenamer$Renaming	body:Bt 的唯一实例内部类(RegisterSpec[]/HashSet<SsaInsn>/HashMap<SsaInsn,SsaInsn>/block)，做 SSA 寄存器重命名，按作用取名
+c	abcd/dt	com/aide/engine/EscapeAnalysis	body:3 字段(SsaMethod / int regCount / ArrayList<dt$a> latticeValues) + 方法数 20 与 dx EscapeAnalysis 完全一致
+c	abcd/dt$a	com/aide/engine/EscapeAnalysis$EscapeSet	body:dt 的 latticeValues 元素：ArrayList<dt$a> 互指 + BitSet + boolean + dt$b ⇒ dx EscapeAnalysis$EscapeSet
+c	abcd/rt	com/aide/engine/SCCP	body:int regCount + int[] latticeValues + ms[] latticeConstants + ArrayList<SsaBasicBlock>/<SsaInsn> 工作队列，方法数 14 对 dx SCCP 15 ⇒ 稀疏条件常量传播
+c	abcd/Ys	com/aide/engine/DomFront	body:4 字段(boolean DEBUG / SsaMethod / ArrayList<SsaBasicBlock> nodes / Ys$a[] domInfos) + 方法数 5 与 dx DomFront 一致
+c	abcd/Ys$a	com/aide/engine/DomFront$DomInfo	body:两个公开字段 int idom + IntList dominanceFrontiers + 无参构造，正是 dx DomFront$DomInfo
+c	abcd/_s	com/aide/engine/Dominators	body:6 字段(SsaMethod/ArrayList blocks/DFSInfo[] info/DomInfo[] domInfos/boolean postdom/ArrayList vertex) + 方法数 6 对 dx Dominators 7 ⇒ 支配树
+c	abcd/_s$a	com/aide/engine/Dominators$DFSInfo	body:5 个公开字段(int semidom + SsaBasicBlock parent/rep/ancestor + ArrayList<SsaBasicBlock> bucket) ⇒ dx Dominators$DFSInfo
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
