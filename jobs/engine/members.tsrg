@@ -2077,3 +2077,8 @@ abcd/hj com/aide/ui/util/AndroidProprieties
 abcd/ProjectFilesUtil com/aide/ui/project/internal/ProjectFilesUtil
 abcd/FileSystemUtils com/aide/ui/util/FileSystemUtils
 abcd/EclipseJavaProjectConfig com/aide/ui/util/EclipseJavaProjectConfig
+abcd/ka com/aide/codemodel/api/abstraction/Debugger
+abcd/ra com/aide/codemodel/api/abstraction/TypeSystem
+abcd/ja com/aide/codemodel/api/abstraction/CodeCompiler
+abcd/qa$a com/aide/codemodel/api/abstraction/Tools$a
+abcd/Va$b com/aide/codemodel/api/SyntaxTreeSpace$c

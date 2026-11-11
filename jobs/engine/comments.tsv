@@ -2084,3 +2084,8 @@ c	abcd/hj	-	-	body:super=Si(=2.3.5 的 com.aide.ui.util.Configuration)，6 字�
 c	abcd/ProjectFilesUtil	-	-	body:2 字段/38 方法与 AIDE+ 2.3.5 com.aide.ui.project.internal.GradleTools(2/38) 完全一致；27 条 Gradle 特征串命中；2.8 保留可读类名 ProjectFilesUtil ⇒ 按 2.8 名归到 project/internal
 c	abcd/FileSystemUtils	-	-	body:4 字段/53 方法与 AIDE+ 2.3.5 com.aide.ui.util.FileSystem(4/53) 完全一致；6 条特征串命中；2.8 保留可读类名 ⇒ 归到 com/aide/ui/util
 c	abcd/EclipseJavaProjectConfig	-	-	body:3 字段/3 方法与 AIDE+ 2.3.5 com.aide.ui.util.ClassPath(3/3) 完全一致；4 条 classpath 特征串命中；2.8 保留可读类名 ⇒ 归到 com/aide/ui/util
+c	abcd/ka	-	-	body:0 字段/9 方法与 AIDE+ 2.3.5 abstraction.Debugger(0/9) 完全相等；引用图命中 4/5(与 CodeCompiler/TypeSystem 同族回调面) ⇒ 调试器接口
+c	abcd/ra	-	-	body:0 字段/14 方法与 abstraction.TypeSystem(0/14) 完全相等；引用图 0.71(5 个共同被引用类) ⇒ 类型系统接口
+c	abcd/ja	-	-	body:0 字段/2 方法与 abstraction.CodeCompiler(0/2) 完全相等；引用图 0.67 ⇒ 编译器接口
+c	abcd/qa$a	-	-	body:7 字段/2 方法与 abstraction.Tools$a(7/2) 完全相等；外层 qa 已映射为 Tools ⇒ 其内部类
+c	abcd/Va$b	-	-	body:5 字段/4 方法与 api.SyntaxTreeSpace$c(5/4) 完全相等；外层 Va 已映射为 SyntaxTreeSpace ⇒ 其内部类 $c
