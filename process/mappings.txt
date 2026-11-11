@@ -28379,6 +28379,8 @@ abcd/ProcessExitMonitor com/aide/engine/ProcessExitMonitor
 abcd/Gn$a com/aide/engine/DexMapList$Section
 abcd/Fp$a com/aide/engine/DexFileWriter$Type
 abcd/Jv$b com/aide/billing/InAppPurchaseBackend$Result
+abcd/Dm$a com/aide/engine/AnnotationElementTable$Element
+abcd/Lp$a com/aide/engine/SectionStatistics$Entry
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

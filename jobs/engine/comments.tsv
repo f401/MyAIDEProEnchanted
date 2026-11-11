@@ -2146,3 +2146,5 @@ c	abcd/ProcessExitMonitor	-	-	body:类名未混淆，由 ProcessExecutorWrapper$
 c	abcd/Gn$a	-	-	body:toString 输出 "Section[type=%#x,off=%#x,size=%#x]" ⇒ dex map_list 的 section 项；外层 Gn 已映射 DexMapList
 c	abcd/Fp$a	-	-	body:枚举常量 NONE/TYPE/INSTANCE ⇒ DexFileWriter 的写出类型枚举；外层 Fp 已映射 DexFileWriter
 c	abcd/Jv$b	-	-	body:枚举常量含 RESULT_OK/RESULT_USER_CANCELED/RESULT_SERVICE_UNAVAILABLE ⇒ 计费结果码枚举；外层 Jv 已映射 InAppPurchaseBackend
+c	abcd/Dm$a	-	-	body:4 个 final 字段（两个 Cst 类型 + String + int）+ 构造 (Ks,Ks,Js,int) + 四个 getter ⇒ AnnotationElementTable 的注解元素项；外层 Dm 已映射
+c	abcd/Lp$a	-	-	body:4 个 int 计数 + String 名称，构造 (vp=Section,String) ⇒ SectionStatistics 的分区统计行；外层 Lp 已映射 SectionStatistics
