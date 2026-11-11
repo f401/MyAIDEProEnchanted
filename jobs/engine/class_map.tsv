@@ -593,3 +593,6 @@ ce	com/aide/codemodel/language/js/JavaScriptTypeSystem	body:6 字段/15 方法�
 Ia$b	com/aide/codemodel/api/Member$InferAlgorithm	body:13 字段/17 方法与 api.Member$InferAlgorithm(13/17) 完全相等；引用图 14/19；外层 Ia 已映射 Member ⇒ 内部类
 Ed$a$a	com/aide/codemodel/language/java/JavaSignatureAnalyzer$a$a	body:16 字段/28 方法与 JavaSignatureAnalyzer$a$a(16/28) 完全相等；引用图 10/17；外层 Ed$a ⇒ 二级内部类
 Ld	com/aide/codemodel/language/js/JavaScriptFormatter	body:22 字段/19 方法与 AIDE+ 2.3.5 language.js.b7(22/19) 完全相等；字段含 Map<JavaScriptFormatterOption,Integer> ×2 与 HashtableOfInt<Tools$a> ×2 ⇒ 格式化器；引用图 0.6
+Dc$b	com/aide/codemodel/language/classfile/ClassFilePreProcessor$c	body:方法签名集(含返回类型)与 2.3.5 classfile.ClassFilePreProcessor$c 完全一致(4 个方法，含 (InputStream) 构造)；外层 Dc 已映射 ClassFilePreProcessor ⇒ 内部类 $c
+Ub$a	com/aide/codemodel/api/collections/RelationOfIntInt$b	body:方法签名集与 2.3.5 api.collections.RelationOfIntInt$b 完全一致(4 个方法)；外层 Ub 已映射 RelationOfIntInt ⇒ 内部类 $b
+cn	com/aide/codemodel/api/collections/ListOfInt	body:两字段 IntSet + int，方法 DW(int)/FH(int)/er():IntSet/j6(int,int) 与 2.3.5 collections.ListOfInt 方法重合 7 条(F=0.67，唯一最佳) ⇒ 整数表
