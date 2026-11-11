@@ -78,11 +78,11 @@ c	abcd/na	-	-	shape: AIDE+ 2.3.5 的 abstraction/Language——getName/isParenCh
 c	abcd/pa	-	-	shape: AIDE+ 2.3.5 的 abstraction/Syntax（58:58，0.97）——语言侧语法查询（旧名 Indenter）
 c	abcd/qa	-	-	shape: AIDE+ 2.3.5 的 abstraction/Tools（48:48，0.65）——语言工具集；api/Parser 只有 24 方法（旧名 Parser）
 c	abcd/yd	-	-	auto: 类：JavaLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Vd	-	-	auto: 类：JavaScriptLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Vd	-	-	body:9 字段/11 方法与 js.JavaScriptLanguage(9/10) 对齐；持有 JavaScriptSyntax(abcd/ae)；且正是 Kd(JS 分析器) 构造第二个参数类型 ⇒ JavaScriptLanguage
 c	abcd/Qd	-	-	auto: 类：JavaScriptCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Oc	-	-	auto: 类：CssLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Oc	-	-	body:6 字段/13 方法与 AIDE+ 2.3.5 css.CssLanguage(6/12) 对齐；持有 CssSyntax(abcd/Tc) 字段 + Model 构造 ⇒ CSS 语言对象（oracle 未分配名之一）
 c	abcd/Gc	-	-	auto: 类：CppLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Xc	-	-	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Xc	-	-	body:4 字段/12 方法与 dtd.DtdLanguage(4/11) 对齐；持有 DtdSyntax(abcd/ad) 字段 ⇒ DTD 语言对象（oracle 未分配名之一）
 c	abcd/nd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsLanguage——J# 注释语言（常量串 "J# Comments"）
 c	abcd/ne	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlLanguage——XmlLanguage
 c	abcd/Ea	-	-	shape: AIDE+ 2.3.5 的 api/FileSpace（61:61，0.59）——文件空间，按名字/id 取 FileEntry（旧名 FileManager）

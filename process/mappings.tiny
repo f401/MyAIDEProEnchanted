@@ -25358,11 +25358,11 @@ c	abcd/pa	com/aide/codemodel/api/abstraction/Syntax	shape: AIDE+ 2.3.5 的 abstr
 	m	(I)I	J8	getTokenLength	auto: AIDE+ 2.3.5 Syntax.getTokenLength——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/qa	com/aide/codemodel/api/abstraction/Tools	shape: AIDE+ 2.3.5 的 abstraction/Tools（48:48，0.65）——语言工具集；api/Parser 只有 24 方法（旧名 Parser）
 c	abcd/yd	com/aide/engine/JavaLanguage	auto: 类：JavaLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Vd	com/aide/engine/JavaScriptLanguage	auto: 类：JavaScriptLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Vd	com/aide/codemodel/language/js/JavaScriptLanguage	body:9 字段/11 方法与 js.JavaScriptLanguage(9/10) 对齐；持有 JavaScriptSyntax(abcd/ae)；且正是 Kd(JS 分析器) 构造第二个参数类型 ⇒ JavaScriptLanguage
 c	abcd/Qd	com/aide/engine/JavaScriptCommentsLanguage	auto: 类：JavaScriptCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Oc	com/aide/engine/CssLanguage	auto: 类：CssLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Oc	com/aide/codemodel/language/css/CssLanguage	body:6 字段/13 方法与 AIDE+ 2.3.5 css.CssLanguage(6/12) 对齐；持有 CssSyntax(abcd/Tc) 字段 + Model 构造 ⇒ CSS 语言对象（oracle 未分配名之一）
 c	abcd/Gc	com/aide/engine/CppLanguage	auto: 类：CppLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Xc	com/aide/engine/DtdLanguage	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Xc	com/aide/codemodel/language/dtd/DtdLanguage	body:4 字段/12 方法与 dtd.DtdLanguage(4/11) 对齐；持有 DtdSyntax(abcd/ad) 字段 ⇒ DTD 语言对象（oracle 未分配名之一）
 c	abcd/nd	com/aide/codemodel/language/java/JSharpCommentsLanguage	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsLanguage——J# 注释语言（常量串 "J# Comments"）
 	m	()V	DW	shrink	auto: AIDE+ 2.3.5 JSharpCommentsLanguage.shrink——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Labcd/ra;	FH	getTypeSystem	auto: AIDE+ 2.3.5 JSharpCommentsLanguage.getTypeSystem——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）

@@ -26763,11 +26763,11 @@ abcd/pa com/aide/codemodel/api/abstraction/Syntax
 	J8 (I)I getTokenLength
 abcd/qa com/aide/codemodel/api/abstraction/Tools
 abcd/yd com/aide/engine/JavaLanguage
-abcd/Vd com/aide/engine/JavaScriptLanguage
+abcd/Vd com/aide/codemodel/language/js/JavaScriptLanguage
 abcd/Qd com/aide/engine/JavaScriptCommentsLanguage
-abcd/Oc com/aide/engine/CssLanguage
+abcd/Oc com/aide/codemodel/language/css/CssLanguage
 abcd/Gc com/aide/engine/CppLanguage
-abcd/Xc com/aide/engine/DtdLanguage
+abcd/Xc com/aide/codemodel/language/dtd/DtdLanguage
 abcd/nd com/aide/codemodel/language/java/JSharpCommentsLanguage
 	DW ()V shrink
 	FH ()Labcd/ra; getTypeSystem
