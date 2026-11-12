@@ -2671,3 +2671,28 @@ c	abcd/mf	-	-	role:_l 实现（无身份判据，序号按探针名排序）
 c	abcd/pf	-	-	role:_l 实现（无身份判据，序号按探针名排序）
 c	abcd/qg	-	-	role:Jl 实现（无身份判据，序号按探针名排序）
 c	abcd/sg	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Ry	-	-	role:interface (Context,Sy)→Object ⇒ 取值解析
+c	abcd/Sy	-	-	role:interface (Context)→Object ⇒ 键
+c	abcd/Py	-	-	role:持 ValueResolver + Context 存取 ⇒ 键值存储
+c	abcd/Qy	-	-	role:ValueStore 子类 + Object 字段 ⇒ 值存储实现
+c	abcd/Sx	-	-	role:interface (Yx)→Object ⇒ 任务结果提供者
+c	abcd/Ux	-	-	role:interface (Yx)→void ⇒ 任务结果消费者
+c	abcd/Ph	-	-	role:ProgressDialog + 下载任务接口 ⇒ 下载进度对话框
+c	abcd/Qh	-	-	role:ProgressDialog + Settings$c 接口 ⇒ 设置任务对话框
+c	abcd/ji	-	-	role:ProgressDialog + scm 任务接口 ⇒ SCM 任务对话框
+c	abcd/Fn	-	-	role:int 字段 + 转字符串/判真 ⇒ int 标志包装
+c	abcd/Gx	-	-	role:Handler 子类 + dispatchMessage ⇒ UI Handler
+c	abcd/Bx	-	-	role:Handler 子类（只有构造器）⇒ UI Handler
+c	abcd/Fx	-	-	role:Handler 子类（只有构造器）⇒ UI Handler
+c	abcd/Ix	-	-	role:Throwable 数组 + 合成两个异常 ⇒ 堆栈合成
+c	abcd/Vi1	-	-	role:唯一方法 (String)→boolean ⇒ 字符串判定
+c	abcd/Yv	-	-	role:持 Zv + 三个记录方法 ⇒ 事件记录
+c	abcd/Zv	-	-	role:三个记录方法无字段 ⇒ 事件记录实现
+c	abcd/Ln	-	-	role:7 个 int 字段 + 成对登记 ⇒ int 映射表
+c	abcd/Ta	-	-	role:Map 字段 + 按下标写入 ⇒ 映射构造器
+c	abcd/GI	-	-	role:interface，收 (SI,Collection) ⇒ 集合消费者
+c	abcd/FI	-	-	role:CollectionConsumer 的实现
+c	abcd/II	-	-	role:与 CollectionConsumer 同形 ⇒ 第二个消费者接口
+c	abcd/HI	-	-	role:CollectionConsumer2 的实现
+c	abcd/KI	-	-	role:四个重载的集合消费者接口
+c	abcd/JI	-	-	role:CollectionConsumer3 的实现

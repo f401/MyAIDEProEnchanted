@@ -27463,6 +27463,31 @@ c	abcd/mf	abcd/aide/restored/MenuCommandImpl13	role:_l 实现（无身份判据�
 c	abcd/pf	abcd/aide/restored/MenuCommandImpl14	role:_l 实现（无身份判据，序号按探针名排序）
 c	abcd/qg	abcd/aide/restored/FileBrowserCommandImpl5	role:Jl 实现（无身份判据，序号按探针名排序）
 c	abcd/sg	abcd/aide/restored/MenuItemCommandImpl13	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Ry	abcd/aide/restored/ValueResolver	role:interface (Context,Sy)→Object ⇒ 取值解析
+c	abcd/Sy	abcd/aide/restored/ValueKey	role:interface (Context)→Object ⇒ 键
+c	abcd/Py	abcd/aide/restored/ValueStore	role:持 ValueResolver + Context 存取 ⇒ 键值存储
+c	abcd/Qy	abcd/aide/restored/ValueStoreImpl	role:ValueStore 子类 + Object 字段 ⇒ 值存储实现
+c	abcd/Sx	abcd/aide/restored/TaskResultProvider	role:interface (Yx)→Object ⇒ 任务结果提供者
+c	abcd/Ux	abcd/aide/restored/TaskResultConsumer	role:interface (Yx)→void ⇒ 任务结果消费者
+c	abcd/Ph	abcd/aide/restored/DownloadTaskDialog	role:ProgressDialog + 下载任务接口 ⇒ 下载进度对话框
+c	abcd/Qh	abcd/aide/restored/SettingsTaskDialog	role:ProgressDialog + Settings$c 接口 ⇒ 设置任务对话框
+c	abcd/ji	abcd/aide/restored/ScmTaskDialog	role:ProgressDialog + scm 任务接口 ⇒ SCM 任务对话框
+c	abcd/Fn	abcd/aide/restored/IntFlagHolder	role:int 字段 + 转字符串/判真 ⇒ int 标志包装
+c	abcd/Gx	abcd/aide/restored/UiHandler1	role:Handler 子类 + dispatchMessage ⇒ UI Handler
+c	abcd/Bx	abcd/aide/restored/UiHandler2	role:Handler 子类（只有构造器）⇒ UI Handler
+c	abcd/Fx	abcd/aide/restored/UiHandler3	role:Handler 子类（只有构造器）⇒ UI Handler
+c	abcd/Ix	abcd/aide/restored/StackTraceCombiner	role:Throwable 数组 + 合成两个异常 ⇒ 堆栈合成
+c	abcd/Vi1	abcd/aide/restored/StringPredicate	role:唯一方法 (String)→boolean ⇒ 字符串判定
+c	abcd/Yv	abcd/aide/restored/EventRecorder	role:持 Zv + 三个记录方法 ⇒ 事件记录
+c	abcd/Zv	abcd/aide/restored/EventRecorderImpl	role:三个记录方法无字段 ⇒ 事件记录实现
+c	abcd/Ln	abcd/aide/restored/IntPairTable	role:7 个 int 字段 + 成对登记 ⇒ int 映射表
+c	abcd/Ta	abcd/aide/restored/IntMapBuilder	role:Map 字段 + 按下标写入 ⇒ 映射构造器
+c	abcd/GI	abcd/aide/restored/CollectionConsumer	role:interface，收 (SI,Collection) ⇒ 集合消费者
+c	abcd/FI	abcd/aide/restored/CollectionConsumerImpl	role:CollectionConsumer 的实现
+c	abcd/II	abcd/aide/restored/CollectionConsumer2	role:与 CollectionConsumer 同形 ⇒ 第二个消费者接口
+c	abcd/HI	abcd/aide/restored/CollectionConsumer2Impl	role:CollectionConsumer2 的实现
+c	abcd/KI	abcd/aide/restored/CollectionConsumer3	role:四个重载的集合消费者接口
+c	abcd/JI	abcd/aide/restored/CollectionConsumer3Impl	role:CollectionConsumer3 的实现
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

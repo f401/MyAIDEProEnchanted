@@ -1168,3 +1168,28 @@ mf	abcd/aide/restored/MenuCommandImpl13	role:implements _l(=com/aide/ui/command/
 pf	abcd/aide/restored/MenuCommandImpl14	role:implements _l(=com/aide/ui/command/MenuCommand)；无串可依，run() 调 ApplicationUtils.j6, CachedProjectAnon7.J8, FileBrowserPreferences.j6（被调方成员仍未定名）⇒ 按接口作用命名并编号 14
 qg	abcd/aide/restored/FileBrowserCommandImpl5	role:implements Jl(=com/aide/ui/command/FileBrowserCommand)；无串可依，run() 调 ApplicationUtils.j6, AppController.J0, CachedProjectAnon7.er（被调方成员仍未定名）⇒ 按接口作用命名并编号 5
 sg	abcd/aide/restored/MenuItemCommandImpl13	role:implements Yl(=com/aide/ui/command/MenuItemCommand)；无串可依，run() 调 ApplicationUtils.j6, CachedProjectAnon7.lg（被调方成员仍未定名）⇒ 按接口作用命名并编号 13
+Ry	abcd/aide/restored/ValueResolver	role:interface，唯一方法 j6(Context,Sy)Object ⇒ 按 Context + 键取值的解析接口
+Sy	abcd/aide/restored/ValueKey	role:interface，唯一方法 j6(Context)Object ⇒ 以 Context 为入参的键/取值接口
+Py	abcd/aide/restored/ValueStore	role:字段 Ry(=ValueResolver)，方法 j6(Context)Object / j6(Context,Sy)Object / DW(Context,Object)V / j6(Context,Object)V ⇒ Context 维度的键值存储
+Qy	abcd/aide/restored/ValueStoreImpl	role:extends Py(=ValueStore)，多一个 Object 字段，重写 get/put ⇒ 值存储实现
+Sx	abcd/aide/restored/TaskResultProvider	role:interface，唯一方法 j6(Yx)Object（Yx=Google Tasks 实现）⇒ 从任务取结果
+Ux	abcd/aide/restored/TaskResultConsumer	role:interface，唯一方法 j6(Yx)V ⇒ 消费任务结果
+Ph	abcd/aide/restored/DownloadTaskDialog	role:extends Hh(=ProgressDialog)，implements Kj$e（下载任务接口），方法 EQ()String/getTitle、Ws()Z、gn()I、j6(Activity)Dialg ⇒ 下载任务的进度对话框
+Qh	abcd/aide/restored/SettingsTaskDialog	role:extends Hh(=ProgressDialog)，implements Ji$c（Settings 的任务接口）⇒ 设置相关任务的进度对话框
+ji	abcd/aide/restored/ScmTaskDialog	role:extends Hh(=ProgressDialog)，implements ua$e（com/aide/ui/scm/ua 的任务接口）⇒ 版本管理任务的进度对话框
+Fn	abcd/aide/restored/IntFlagHolder	role:唯一字段 int，方法 DW()String / j6()Z ⇒ 一个 int 标志的包装
+Gx	abcd/aide/restored/UiHandler1	role:extends android/os/Handler，唯一自实现 dispatchMessage(Message)V ⇒ 拦截消息派发的 UI Handler
+Bx	abcd/aide/restored/UiHandler2	role:extends android/os/Handler，只有两个构造器（Looper / Looper+Callback）⇒ UI Handler（与 UiHandler1 同族，按探针名编号）
+Fx	abcd/aide/restored/UiHandler3	role:extends android/os/Handler，只有两个构造器；与 Bx 同形，按探针名顺序编号
+Ix	abcd/aide/restored/StackTraceCombiner	role:唯一字段 Throwable[]，唯一方法 j6(Throwable,Throwable)V ⇒ 把两个异常合成一条链
+Vi1	abcd/aide/restored/StringPredicate	role:唯一方法 BT(String)Z，无字段无串 ⇒ 字符串判定
+Yv	abcd/aide/restored/EventRecorder	role:字段 Zv + 方法 j6(_v)V / j6(String)V / j6(J)Z ⇒ 事件记录入口（转发给 Zv 实现）
+Zv	abcd/aide/restored/EventRecorderImpl	role:与 Yv 同名同描述符的三个方法（j6(_v)V / j6(String)V / j6(J)Z），无字段 ⇒ 事件记录实现
+Ln	abcd/aide/restored/IntPairTable	role:7 个 int 字段，方法 j6(I)V / j6(Un,Un)V / j6(fs,fs)V ⇒ 以 int 为键的双向映射表
+Ta	abcd/aide/restored/IntMapBuilder	role:字段两个 Map + 两个 Z，方法 DW(III)V / j6(IIII)V / j6(I)I / Zo(Sa,I)V ⇒ 按下标批量填 Map 的构造器
+GI	abcd/aide/restored/CollectionConsumer	role:interface（自身有静态自引用字段），方法 j6(SI,Collection)V ⇒ 接收 (SI, 集合) 的消费者
+FI	abcd/aide/restored/CollectionConsumerImpl	role:implements GI(=CollectionConsumer)，实现 j6(SI,Collection)V ⇒ 上述接口的实现
+II	abcd/aide/restored/CollectionConsumer2	role:interface（静态自引用字段），方法 j6(SI,Collection)V；与 GI 同形，按探针名编号
+HI	abcd/aide/restored/CollectionConsumer2Impl	role:implements II(=CollectionConsumer2) ⇒ 实现
+KI	abcd/aide/restored/CollectionConsumer3	role:interface（静态自引用字段），四个重载 j6(IJ)V / j6(IJ,Collection,I)V / j6(IJ,Collection,IIZ)V / j6(IJ,Collection,Collection)V ⇒ 带重载的集合消费者
+JI	abcd/aide/restored/CollectionConsumer3Impl	role:implements KI(=CollectionConsumer3)，实现四个重载 ⇒ 实现
