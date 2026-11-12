@@ -2478,3 +2478,12 @@ c	abcd/ub$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯
 c	abcd/yb$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
 c	abcd/yr$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 Anon1Anon6
 c	abcd/zn	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 EncodedMember
+c	abcd/Kx	-	-	role:被 TryWithResourcesDesugaringAnon1Anon1 唯一实例化；无接口/父类判据（结构性序号）
+c	abcd/cy	-	-	role:被 TaskUtilsAnon1Anon2 唯一实例化；无接口/父类判据（结构性序号）
+c	abcd/ey	-	-	role:被 TaskUtilsAnon1Anon3 唯一实例化；无接口/父类判据（结构性序号）
+c	abcd/gy	-	-	role:被 TaskUtilsAnon1Anon4 唯一实例化；无接口/父类判据（结构性序号）
+c	abcd/hl	-	-	role:被 ModifyFilesActionAnon1Anon3 唯一实例化；无接口/父类判据（结构性序号）
+c	abcd/iy	-	-	role:被 TaskUtilsAnon1Anon5 唯一实例化；无接口/父类判据（结构性序号）
+c	abcd/ky	-	-	role:被 TaskUtilsAnon1Anon6 唯一实例化；无接口/父类判据（结构性序号）
+c	abcd/my	-	-	role:被 TaskUtilsAnon1Anon7 唯一实例化；无接口/父类判据（结构性序号）
+c	abcd/ph	-	-	role:被 ExportApkDialogPreprocessorAnon5 唯一实例化；无接口/父类判据（结构性序号）

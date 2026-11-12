@@ -2471,3 +2471,12 @@ abcd/ub$a com/aide/codemodel/language/js/JavaScriptCodeAnalyzer$Anon1Anon1$Anon1
 abcd/yb$a com/aide/codemodel/language/java/JavaSignatureAnalyzer$a$aEntity$Anon1
 abcd/yr$a com/aide/engine/DexOverflowCheckerAnon18$Anon1Anon6
 abcd/zn com/aide/engine/DexEncodedValueClassFileReaderEncodedMember2
+abcd/Kx com/aide/engine/TryWithResourcesDesugaringAnon1Anon1Anon1
+abcd/cy com/aide/engine/TaskUtilsAnon1Anon2Anon1
+abcd/ey com/aide/engine/TaskUtilsAnon1Anon3Anon1
+abcd/gy com/aide/engine/TaskUtilsAnon1Anon4Anon1
+abcd/hl abcd/aide/engine/ModifyFilesActionAnon1Anon3Anon1
+abcd/iy com/aide/engine/TaskUtilsAnon1Anon5Anon1
+abcd/ky com/aide/engine/TaskUtilsAnon1Anon6Anon1
+abcd/my com/aide/engine/TaskUtilsAnon1Anon7Anon1
+abcd/ph com/aide/ui/ExportApkDialogPreprocessorAnon5Anon1

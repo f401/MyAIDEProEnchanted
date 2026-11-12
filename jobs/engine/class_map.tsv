@@ -975,3 +975,12 @@ ub$a	com/aide/codemodel/language/js/JavaScriptCodeAnalyzer$Anon1Anon1$Anon1	role
 yb$a	com/aide/codemodel/language/java/JavaSignatureAnalyzer$a$aEntity$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
 yr$a	com/aide/engine/DexOverflowCheckerAnon18$Anon1Anon6	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 Anon1Anon6
 zn	com/aide/engine/DexEncodedValueClassFileReaderEncodedMember2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 EncodedMember
+Kx	com/aide/engine/TryWithResourcesDesugaringAnon1Anon1Anon1	role:被 TryWithResourcesDesugaringAnon1Anon1 唯一实例化；无接口/父类判据（结构性序号）
+cy	com/aide/engine/TaskUtilsAnon1Anon2Anon1	role:被 TaskUtilsAnon1Anon2 唯一实例化；无接口/父类判据（结构性序号）
+ey	com/aide/engine/TaskUtilsAnon1Anon3Anon1	role:被 TaskUtilsAnon1Anon3 唯一实例化；无接口/父类判据（结构性序号）
+gy	com/aide/engine/TaskUtilsAnon1Anon4Anon1	role:被 TaskUtilsAnon1Anon4 唯一实例化；无接口/父类判据（结构性序号）
+hl	abcd/aide/engine/ModifyFilesActionAnon1Anon3Anon1	role:被 ModifyFilesActionAnon1Anon3 唯一实例化；无接口/父类判据（结构性序号）
+iy	com/aide/engine/TaskUtilsAnon1Anon5Anon1	role:被 TaskUtilsAnon1Anon5 唯一实例化；无接口/父类判据（结构性序号）
+ky	com/aide/engine/TaskUtilsAnon1Anon6Anon1	role:被 TaskUtilsAnon1Anon6 唯一实例化；无接口/父类判据（结构性序号）
+my	com/aide/engine/TaskUtilsAnon1Anon7Anon1	role:被 TaskUtilsAnon1Anon7 唯一实例化；无接口/父类判据（结构性序号）
+ph	com/aide/ui/ExportApkDialogPreprocessorAnon5Anon1	role:被 ExportApkDialogPreprocessorAnon5 唯一实例化；无接口/父类判据（结构性序号）
