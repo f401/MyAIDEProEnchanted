@@ -18,6 +18,7 @@
 | [NEW-JOB.md](NEW-JOB.md) | **新建一个 part/工程**：目录布局、`deob create`、自检 |
 | [RESTORE-OBFUSCATED-LIB.md](RESTORE-OBFUSCATED-LIB.md) | **整包混淆库的还原流程**：探针/oracle 准备、形状与串判据、闭包与覆写传播 |
 | [DEPENDENCIES.md](DEPENDENCIES.md) | **这个 APK 里到底有哪些依赖** + 每个"是哪个库/哪个版本"的判据链（含已还原/未还原状态） |
+| [RESTORED.md](RESTORED.md) | **按作用命名**（`abcd/aide/restored/`）：判据分级、编号规则、四类"不命名"清单 |
 | [NOTES.md](NOTES.md) | **坑**：覆写一致性、重复目标、FART 四类 access、dex 产物缺陷、AIDE 魔改先验 |
 
 ## 其它目录的 README
