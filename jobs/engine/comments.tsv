@@ -2212,3 +2212,5 @@ c	abcd/za$c	-	-	role:宿主 JarPackager 的第 3 个内部类，无接口/父类
 c	abcd/za$d	-	-	role:宿主 JarPackager 的第 4 个内部类，无接口/父类/字符串判据 ⇒ 按宿主内序号命名（结构性，不含语义）
 c	abcd/za$e	-	-	role:宿主 JarPackager 的第 5 个内部类，无接口/父类/字符串判据 ⇒ 按宿主内序号命名（结构性，不含语义）
 c	abcd/zd$a	-	-	role:宿主 ExtractMethodRefactoring 的第 1 个内部类，无接口/父类/字符串判据 ⇒ 按宿主内序号命名（结构性，不含语义）
+c	abcd/Gk	-	-	body:protected java.lang.Process 字段 + List<ActivityManager$RunningAppProcessInfo> + Runtime.getRuntime()/System.currentTimeMillis 调用 ⇒ 外部命令进程的封装（启动/跟踪）
+c	abcd/De	-	-	body:构造 (String) + compareTo/equals/hashCode + 静态工厂 j6(boolean,String)；内部类 De\$d 含 alpha/beta/milestone 通道常量 ⇒ 可比较的版本号模型

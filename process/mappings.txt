@@ -28445,6 +28445,8 @@ abcd/za$c abcd/aide/JarPackager$Anon3
 abcd/za$d abcd/aide/JarPackager$Anon4
 abcd/za$e abcd/aide/JarPackager$Anon5
 abcd/zd$a com/aide/engine/ExtractMethodRefactoring$Anon1
+abcd/Gk com/aide/engine/ExternalProcess
+abcd/De com/aide/ui/util/Version
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
