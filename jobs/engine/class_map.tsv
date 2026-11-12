@@ -715,3 +715,44 @@ Ch	com/aide/ui/InputMethodDialog	body:extends com.aide.common.ma（对话框基�
 El	com/aide/ui/editor/TypingAssist	body:两个静态方法 j6(AIDEEditor,char,int,int)/j6(AIDEEditor,int,int,int) 返回 boolean，内部调 AIDEEditor.EQ/FH/Hw/gn/u7 与 String.endsWith，字面量 "{ }" ⇒ 编辑器的输入辅助（括号/缩进）
 Dx	com/aide/engine/service/AidlStubBase	body:extends android.os.Binder implements IInterface；构造 (String descriptor) 调 attachInterface；protected j6(int,Parcel,Parcel,int) 默认返回 false；onTransact 特判 0xFFFFFF ⇒ AIDL Stub 基类（具体桩 ox$a 继承它）
 Cx	com/aide/engine/service/AidlProxyBase	body:字段 IBinder + String descriptor；构造 (IBinder,String)；iW():Parcel 与 j6(int,Parcel):Parcel 包装 transact ⇒ AIDL Proxy 基类（具体代理 ox$a$a 继承它）
+Al	com/aide/trainer/LessonRunnerRunnable	role:被 LessonRunner 唯一实例化、实现 Runnable 的匿名类 ⇒ LessonRunnerRunnable（按作用命名，扁平）
+Bh	com/aide/ui/InputMethodDialogRunnable	role:被 InputMethodDialog 唯一实例化、实现 Runnable 的匿名类 ⇒ InputMethodDialogRunnable（按作用命名，扁平）
+Fk	com/aide/engine/ExternalProcessRunnable	role:被 ExternalProcess 唯一实例化、实现 Runnable 的匿名类 ⇒ ExternalProcessRunnable（按作用命名，扁平）
+Hk	com/aide/maven/MavenDependencyResolverRunnable	role:被 MavenDependencyResolver 唯一实例化、实现 Runnable 的匿名类 ⇒ MavenDependencyResolverRunnable（按作用命名，扁平）
+Ik	com/aide/maven/MavenDependencyResolverRunnable2	role:被 MavenDependencyResolver 唯一实例化、实现 Runnable 的匿名类 ⇒ MavenDependencyResolverRunnable2（按作用命名，扁平）
+Mi	com/aide/licensing/LicenseChecker$LicenseBinderRunnable	role:被 LicenseChecker$LicenseBinder 唯一实例化、实现 Runnable 的匿名类 ⇒ LicenseChecker$LicenseBinderRunnable（按作用命名，扁平）
+Ni	com/aide/licensing/LicenseChecker$LicenseBinderRunnable2	role:被 LicenseChecker$LicenseBinder 唯一实例化、实现 Runnable 的匿名类 ⇒ LicenseChecker$LicenseBinderRunnable2（按作用命名，扁平）
+Uh	com/aide/ui/ExportApkDialogTextWatcher	role:被 ExportApkDialog 唯一实例化、实现 TextWatcher 的匿名类 ⇒ ExportApkDialogTextWatcher（按作用命名，扁平）
+Uk	abcd/aide/engine/AppControllerRunnable	role:被 AppController 唯一实例化、实现 Runnable 的匿名类 ⇒ AppControllerRunnable（按作用命名，扁平）
+Vh	com/aide/ui/ExportApkDialogTextWatcher2	role:被 ExportApkDialog 唯一实例化、实现 TextWatcher 的匿名类 ⇒ ExportApkDialogTextWatcher2（按作用命名，扁平）
+Vk	abcd/aide/engine/AppControllerRunnable2	role:被 AppController 唯一实例化、实现 Runnable 的匿名类 ⇒ AppControllerRunnable2（按作用命名，扁平）
+Wk	abcd/aide/engine/AppControllerRunnable3	role:被 AppController 唯一实例化、实现 Runnable 的匿名类 ⇒ AppControllerRunnable3（按作用命名，扁平）
+Xk	abcd/aide/engine/AppControllerRunnable4	role:被 AppController 唯一实例化、实现 Runnable 的匿名类 ⇒ AppControllerRunnable4（按作用命名，扁平）
+Yk	abcd/aide/engine/AppControllerRunnable5	role:被 AppController 唯一实例化、实现 Runnable 的匿名类 ⇒ AppControllerRunnable5（按作用命名，扁平）
+_k	abcd/aide/TrainerSampleInstallerRunnable	role:被 TrainerSampleInstaller 唯一实例化、实现 Runnable 的匿名类 ⇒ TrainerSampleInstallerRunnable（按作用命名，扁平）
+dk	abcd/aide/AppInstallerRunnable	role:被 AppInstaller 唯一实例化、实现 Runnable 的匿名类 ⇒ AppInstallerRunnable（按作用命名，扁平）
+dl	abcd/aide/TrainerSampleInstallerRunnable2	role:被 TrainerSampleInstaller 唯一实例化、实现 Runnable 的匿名类 ⇒ TrainerSampleInstallerRunnable2（按作用命名，扁平）
+ek	abcd/aide/AppInstallerRunnable2	role:被 AppInstaller 唯一实例化、实现 Runnable 的匿名类 ⇒ AppInstallerRunnable2（按作用命名，扁平）
+fg	com/aide/ui/actions/LearnCodeStyleActionRunnable	role:被 LearnCodeStyleAction 唯一实例化、实现 Runnable 的匿名类 ⇒ LearnCodeStyleActionRunnable（按作用命名，扁平）
+gk	abcd/aide/AppInstallerRunnable3	role:被 AppInstaller 唯一实例化、实现 Runnable 的匿名类 ⇒ AppInstallerRunnable3（按作用命名，扁平）
+hk	com/aide/engine/RootInstallerRunnable	role:被 RootInstaller 唯一实例化、实现 Runnable 的匿名类 ⇒ RootInstallerRunnable（按作用命名，扁平）
+ik	com/aide/engine/RootInstallerRunnable2	role:被 RootInstaller 唯一实例化、实现 Runnable 的匿名类 ⇒ RootInstallerRunnable2（按作用命名，扁平）
+jk	com/aide/engine/RootInstallerRunnable3	role:被 RootInstaller 唯一实例化、实现 Runnable 的匿名类 ⇒ RootInstallerRunnable3（按作用命名，扁平）
+nx	com/aide/engine/NamedThreadFactoryRunnable	role:被 NamedThreadFactory 唯一实例化、实现 Runnable 的匿名类 ⇒ NamedThreadFactoryRunnable（按作用命名，扁平）
+qk	com/aide/billing/BuyIntentTaskRunnable	role:被 BuyIntentTask 唯一实例化、实现 Runnable 的匿名类 ⇒ BuyIntentTaskRunnable（按作用命名，扁平）
+rl	abcd/aide/engine/ParseResultCallbackRunnable	role:被 ParseResultCallback 唯一实例化、实现 Runnable 的匿名类 ⇒ ParseResultCallbackRunnable（按作用命名，扁平）
+tk	com/aide/billing/InAppBillingRunnable	role:被 InAppBilling 唯一实例化、实现 Runnable 的匿名类 ⇒ InAppBillingRunnable（按作用命名，扁平）
+uk	com/aide/billing/InAppBillingRunnable2	role:被 InAppBilling 唯一实例化、实现 Runnable 的匿名类 ⇒ InAppBillingRunnable2（按作用命名，扁平）
+vf	com/aide/ui/actions/FilesDeleteActionRunnable	role:被 FilesDeleteAction 唯一实例化、实现 Runnable 的匿名类 ⇒ FilesDeleteActionRunnable（按作用命名，扁平）
+vk	com/aide/billing/InAppBillingRunnable3	role:被 InAppBilling 唯一实例化、实现 Runnable 的匿名类 ⇒ InAppBillingRunnable3（按作用命名，扁平）
+wk	com/aide/billing/InAppBillingRunnable4	role:被 InAppBilling 唯一实例化、实现 Runnable 的匿名类 ⇒ InAppBillingRunnable4（按作用命名，扁平）
+wl	com/aide/trainer/LessonRunnerRunnable2	role:被 LessonRunner 唯一实例化、实现 Runnable 的匿名类 ⇒ LessonRunnerRunnable2（按作用命名，扁平）
+xh	com/aide/ui/InputMethodDialogTextWatcher	role:被 InputMethodDialog 唯一实例化、实现 TextWatcher 的匿名类 ⇒ InputMethodDialogTextWatcher（按作用命名，扁平）
+xk	com/aide/billing/InAppBillingRunnable5	role:被 InAppBilling 唯一实例化、实现 Runnable 的匿名类 ⇒ InAppBillingRunnable5（按作用命名，扁平）
+xl	com/aide/trainer/LessonRunnerRunnable3	role:被 LessonRunner 唯一实例化、实现 Runnable 的匿名类 ⇒ LessonRunnerRunnable3（按作用命名，扁平）
+yh	com/aide/ui/InputMethodDialogTextWatcher2	role:被 InputMethodDialog 唯一实例化、实现 TextWatcher 的匿名类 ⇒ InputMethodDialogTextWatcher2（按作用命名，扁平）
+yl	com/aide/trainer/LessonRunnerRunnable4	role:被 LessonRunner 唯一实例化、实现 Runnable 的匿名类 ⇒ LessonRunnerRunnable4（按作用命名，扁平）
+zg	abcd/aide/ActionRefreshBuildRunnable	role:被 ActionRefreshBuild 唯一实例化、实现 Runnable 的匿名类 ⇒ ActionRefreshBuildRunnable（按作用命名，扁平）
+zh	com/aide/ui/scm/InitialCommitTaskRunnable	role:被 InitialCommitTask 唯一实例化、实现 Runnable 的匿名类 ⇒ InitialCommitTaskRunnable（按作用命名，扁平）
+zk	com/aide/billing/InAppBilling$SubscriptionWebServiceClientRunnable	role:被 InAppBilling$SubscriptionWebServiceClient 唯一实例化、实现 Runnable 的匿名类 ⇒ InAppBilling$SubscriptionWebServiceClientRunnable（按作用命名，扁平）
+zl	com/aide/trainer/LessonRunnerRunnable5	role:被 LessonRunner 唯一实例化、实现 Runnable 的匿名类 ⇒ LessonRunnerRunnable5（按作用命名，扁平）
