@@ -27051,6 +27051,170 @@ c	abcd/zg	abcd/aide/ActionRefreshBuildRunnable	role:被 ActionRefreshBuild 唯�
 c	abcd/zh	com/aide/ui/scm/InitialCommitTaskRunnable	role:被 InitialCommitTask 唯一实例化、实现 Runnable 的匿名类 ⇒ InitialCommitTaskRunnable（按作用命名，扁平）
 c	abcd/zk	com/aide/billing/InAppBilling$SubscriptionWebServiceClientRunnable	role:被 InAppBilling$SubscriptionWebServiceClient 唯一实例化、实现 Runnable 的匿名类 ⇒ InAppBilling$SubscriptionWebServiceClientRunnable（按作用命名，扁平）
 c	abcd/zl	com/aide/trainer/LessonRunnerRunnable5	role:被 LessonRunner 唯一实例化、实现 Runnable 的匿名类 ⇒ LessonRunnerRunnable5（按作用命名，扁平）
+c	abcd/At	com/aide/engine/SsaRenamer$RenamingAnon2	role:被 SsaRenamer$Renaming 唯一实例化；实现/继承 Anon2 ⇒ SsaRenamer$RenamingAnon2
+c	abcd/Bp	com/aide/engine/MethodIdSectionAnon1	role:被 MethodIdSection 唯一实例化；无接口/父类判据 ⇒ MethodIdSectionAnon1（结构性）
+c	abcd/Db	com/aide/codemodel/api/EntitySpaceAnon1	role:被 EntitySpace 唯一实例化；无接口/父类判据 ⇒ EntitySpaceAnon1（结构性）
+c	abcd/De$a	com/aide/ui/util/Version$Anon1	role:宿主 Version 的内部类（按探针名 $a 归属）；无判据 ⇒ 序号 Version$Anon1（结构性）
+c	abcd/De$b	com/aide/ui/util/Version$Anon2	role:宿主 Version 的内部类（按探针名 $b 归属）；无判据 ⇒ 序号 Version$Anon2（结构性）
+c	abcd/De$c	com/aide/ui/util/Version$Anon3	role:宿主 Version 的内部类（按探针名 $c 归属）；无判据 ⇒ 序号 Version$Anon3（结构性）
+c	abcd/De$d	com/aide/ui/util/Version$Anon4	role:宿主 Version 的内部类（按探针名 $d 归属）；无判据 ⇒ 序号 Version$Anon4（结构性）
+c	abcd/Dp	com/aide/engine/DexFileWriterAnon1	role:被 DexFileWriter 唯一实例化；无接口/父类判据 ⇒ DexFileWriterAnon1（结构性）
+c	abcd/Dr	com/aide/engine/DexOverflowCheckerAnon1	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon1（结构性）
+c	abcd/Eg	com/aide/ui/actions/FilesRenameActionAnon1	role:被 FilesRenameAction 唯一实例化；无接口/父类判据 ⇒ FilesRenameActionAnon1（结构性）
+c	abcd/Eh	com/aide/ui/ProgressDialogAnon1	role:被 ProgressDialog 唯一实例化；无接口/父类判据 ⇒ ProgressDialogAnon1（结构性）
+c	abcd/Et	com/aide/engine/SsaToRopAnon1	role:被 SsaToRop 唯一实例化；无接口/父类判据 ⇒ SsaToRopAnon1（结构性）
+c	abcd/Fa	com/aide/codemodel/api/ModelAnon1	role:被 Model 唯一实例化；无接口/父类判据 ⇒ ModelAnon1（结构性）
+c	abcd/Fr	com/aide/engine/DexOverflowCheckerAnon2	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon2（结构性）
+c	abcd/Ge	com/aide/ui/util/MavenMetadataXmlAnon1	role:被 MavenMetadataXml 唯一实例化；无接口/父类判据 ⇒ MavenMetadataXmlAnon1（结构性）
+c	abcd/Gk$a	com/aide/engine/ExternalProcess$Anon1	role:宿主 ExternalProcess 的内部类（按探针名 $a 归属）；无判据 ⇒ 序号 ExternalProcess$Anon1（结构性）
+c	abcd/Gk$b	com/aide/engine/ExternalProcess$Anon2	role:宿主 ExternalProcess 的内部类（按探针名 $b 归属）；无判据 ⇒ 序号 ExternalProcess$Anon2（结构性）
+c	abcd/Gr	com/aide/engine/DexOverflowCheckerAnon3	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon3（结构性）
+c	abcd/Ih	com/aide/ui/DownloadErrorDialogAnon1	role:被 DownloadErrorDialog 唯一实例化；无接口/父类判据 ⇒ DownloadErrorDialogAnon1（结构性）
+c	abcd/Jt	com/aide/engine/SsaToRopAnon22	role:被 SsaToRop 唯一实例化；实现/继承 Anon2 ⇒ SsaToRopAnon22
+c	abcd/Jv$a	com/aide/billing/InAppPurchaseBackend$Anon1	role:宿主 InAppPurchaseBackend 的内部类（按探针名 $a 归属）；无判据 ⇒ 序号 InAppPurchaseBackend$Anon1（结构性）
+c	abcd/Jv$c	com/aide/billing/InAppPurchaseBackend$Anon2	role:宿主 InAppPurchaseBackend 的内部类（按探针名 $c 归属）；无判据 ⇒ 序号 InAppPurchaseBackend$Anon2（结构性）
+c	abcd/K	com/aide/engine/CachedProjectAnon1	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon1（结构性）
+c	abcd/Kd	com/aide/codemodel/language/js/JavaScriptToolsAnon1	role:被 JavaScriptTools 唯一实例化；无接口/父类判据 ⇒ JavaScriptToolsAnon1（结构性）
+c	abcd/Lc	com/aide/codemodel/language/css/CssToolsAnon1	role:被 CssTools 唯一实例化；无接口/父类判据 ⇒ CssToolsAnon1（结构性）
+c	abcd/Lx	com/aide/engine/TryWithResourcesDesugaringAnon1	role:被 TryWithResourcesDesugaring 唯一实例化；无接口/父类判据 ⇒ TryWithResourcesDesugaringAnon1（结构性）
+c	abcd/M	com/aide/engine/CachedProjectAnon2	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon2（结构性）
+c	abcd/Ml	com/aide/engine/ProcessExecutorWrapperAnon1	role:被 ProcessExecutorWrapper 唯一实例化；无接口/父类判据 ⇒ ProcessExecutorWrapperAnon1（结构性）
+c	abcd/Mx	com/aide/engine/TryWithResourcesDesugaringAnon2	role:被 TryWithResourcesDesugaring 唯一实例化；无接口/父类判据 ⇒ TryWithResourcesDesugaringAnon2（结构性）
+c	abcd/N	com/aide/engine/CachedProjectAnon3	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon3（结构性）
+c	abcd/Ng	com/aide/ui/actions/SearchInProjectActionAnon1	role:被 SearchInProjectAction 唯一实例化；无接口/父类判据 ⇒ SearchInProjectActionAnon1（结构性）
+c	abcd/Nl	com/aide/engine/ProcessExecutorWrapperAnon2	role:被 ProcessExecutorWrapper 唯一实例化；无接口/父类判据 ⇒ ProcessExecutorWrapperAnon2（结构性）
+c	abcd/Np	com/aide/engine/StringIdSectionAnon1	role:被 StringIdSection 唯一实例化；无接口/父类判据 ⇒ StringIdSectionAnon1（结构性）
+c	abcd/O	com/aide/engine/CachedProjectAnon4	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon4（结构性）
+c	abcd/Od	com/aide/codemodel/language/js/JavaScriptToolsAnon2	role:被 JavaScriptTools 唯一实例化；无接口/父类判据 ⇒ JavaScriptToolsAnon2（结构性）
+c	abcd/Ok	com/aide/licensing/OuyaKeyProviderBSIObjectIdentifiers	role:被 OuyaKeyProvider 唯一实例化；实现/继承 BSIObjectIdentifiers ⇒ OuyaKeyProviderBSIObjectIdentifiers
+c	abcd/P	com/aide/engine/CachedProjectAnon5	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon5（结构性）
+c	abcd/Pd	com/aide/codemodel/language/js/JavaScriptCommentsToolsAnon1	role:被 JavaScriptCommentsTools 唯一实例化；无接口/父类判据 ⇒ JavaScriptCommentsToolsAnon1（结构性）
+c	abcd/Px	com/aide/ui/util/GoogleSignInApiAnon1	role:被 GoogleSignInApi 唯一实例化；无接口/父类判据 ⇒ GoogleSignInApiAnon1（结构性）
+c	abcd/Q	com/aide/engine/CachedProjectAnon6	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon6（结构性）
+c	abcd/Qk	abcd/aide/ProjectTemplatesAnon1	role:被 ProjectTemplates 唯一实例化；无接口/父类判据 ⇒ ProjectTemplatesAnon1（结构性）
+c	abcd/Qx	com/aide/ui/util/GoogleSignInApiAnon2	role:被 GoogleSignInApi 唯一实例化；无接口/父类判据 ⇒ GoogleSignInApiAnon2（结构性）
+c	abcd/Re	com/aide/ui/actions/ShowCharacterPickerActionAnon1	role:被 ShowCharacterPickerAction 唯一实例化；无接口/父类判据 ⇒ ShowCharacterPickerActionAnon1（结构性）
+c	abcd/Rk	abcd/aide/ProjectTemplatesAnon2	role:被 ProjectTemplates 唯一实例化；无接口/父类判据 ⇒ ProjectTemplatesAnon2（结构性）
+c	abcd/Sv	com/aide/engine/ChecksumUtilsAnon1	role:被 ChecksumUtils 唯一实例化；无接口/父类判据 ⇒ ChecksumUtilsAnon1（结构性）
+c	abcd/Tk	abcd/aide/engine/AppControllerAnon1	role:被 AppController 唯一实例化；无接口/父类判据 ⇒ AppControllerAnon1（结构性）
+c	abcd/Tv	com/aide/engine/ChecksumUtilsAnon2	role:被 ChecksumUtils 唯一实例化；无接口/父类判据 ⇒ ChecksumUtilsAnon2（结构性）
+c	abcd/Tz	abcd/aide/SettingsJsonTransformAnon1	role:被 SettingsJsonTransform 唯一实例化；无接口/父类判据 ⇒ SettingsJsonTransformAnon1（结构性）
+c	abcd/U	com/aide/engine/CachedProjectAnon7	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon7（结构性）
+c	abcd/Ul	com/aide/ui/util/FileSystemUtilsAnon1	role:被 FileSystemUtils 唯一实例化；无接口/父类判据 ⇒ FileSystemUtilsAnon1（结构性）
+c	abcd/Uz	abcd/aide/SettingsJsonTransformAnon2	role:被 SettingsJsonTransform 唯一实例化；无接口/父类判据 ⇒ SettingsJsonTransformAnon2（结构性）
+c	abcd/Vc	com/aide/codemodel/language/dtd/DtdCodeModelAnon1	role:被 DtdCodeModel 唯一实例化；无接口/父类判据 ⇒ DtdCodeModelAnon1（结构性）
+c	abcd/Wj	abcd/aide/engine/EngineServiceClientImplicitOutputStream	role:被 EngineServiceClient 唯一实例化；实现/继承 ImplicitOutputStream ⇒ EngineServiceClientImplicitOutputStream
+c	abcd/Wp	com/aide/engine/DexFileReader$Anon1Anon1	role:被 DexFileReader$Anon1 唯一实例化；无接口/父类判据 ⇒ DexFileReader$Anon1Anon1（结构性）
+c	abcd/Wz	abcd/aide/SettingsJsonTransformAnon3	role:被 SettingsJsonTransform 唯一实例化；无接口/父类判据 ⇒ SettingsJsonTransformAnon3（结构性）
+c	abcd/X	com/aide/engine/CachedProjectAnon8	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon8（结构性）
+c	abcd/XG$$ExternalSyntheticBackportWithForwarding0	org/eclipse/jgit/internal/storage/file/ObjectDirectory$Anon1	role:宿主 ObjectDirectory 的内部类（按探针名 $$ExternalSyntheticBackportWithForwarding0 归属）；无判据 ⇒ 序号 ObjectDirectory$Anon1（结构性）
+c	abcd/Xa	com/aide/codemodel/api/ModelAnon2	role:被 Model 唯一实例化；无接口/父类判据 ⇒ ModelAnon2（结构性）
+c	abcd/Xm	com/aide/engine/BytecodeToRopAnon1	role:被 BytecodeToRop 唯一实例化；实现/继承 Anon1 ⇒ BytecodeToRopAnon1
+c	abcd/Xo	com/aide/engine/MethodAnnotationsDirectoryDexSection	role:被 MethodAnnotationsDirectory 唯一实例化；实现/继承 DexSection ⇒ MethodAnnotationsDirectoryDexSection
+c	abcd/Xp	com/aide/engine/DexFileReader$Anon1Anon2	role:被 DexFileReader$Anon1 唯一实例化；无接口/父类判据 ⇒ DexFileReader$Anon1Anon2（结构性）
+c	abcd/Xw	abcd/aide/SettingsTokenPair	role:被 Settings 唯一实例化；实现/继承 TokenPair ⇒ SettingsTokenPair
+c	abcd/Y	com/aide/engine/CachedProjectAnon9	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon9（结构性）
+c	abcd/Ym	com/aide/engine/BytecodeToRopAnon12	role:被 BytecodeToRop 唯一实例化；实现/继承 Anon1 ⇒ BytecodeToRopAnon12
+c	abcd/Yp	com/aide/engine/DexFileReader$Anon1Anon3	role:被 DexFileReader$Anon1 唯一实例化；无接口/父类判据 ⇒ DexFileReader$Anon1Anon3（结构性）
+c	abcd/Yw	abcd/aide/SettingsTokenPair2	role:被 Settings 唯一实例化；实现/继承 TokenPair ⇒ SettingsTokenPair2
+c	abcd/Yz	abcd/aide/SettingsJsonTransformAnon4	role:被 SettingsJsonTransform 唯一实例化；无接口/父类判据 ⇒ SettingsJsonTransformAnon4（结构性）
+c	abcd/Z	com/aide/engine/CachedProjectAnon10	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon10（结构性）
+c	abcd/_c	com/aide/codemodel/language/dtd/DtdCodeModelAnon2	role:被 DtdCodeModel 唯一实例化；无接口/父类判据 ⇒ DtdCodeModelAnon2（结构性）
+c	abcd/_p	com/aide/engine/DexFileReader$Anon1Anon4	role:被 DexFileReader$Anon1 唯一实例化；无接口/父类判据 ⇒ DexFileReader$Anon1Anon4（结构性）
+c	abcd/bD	org/eclipse/jgit/fnmatch/GroupHeadAnon1	role:被 GroupHead 唯一实例化；无接口/父类判据 ⇒ GroupHeadAnon1（结构性）
+c	abcd/ca	com/aide/engine/CachedProjectAnon11	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon11（结构性）
+c	abcd/cd	com/aide/codemodel/language/java/JavaToolsAnon1	role:被 JavaTools 唯一实例化；无接口/父类判据 ⇒ JavaToolsAnon1（结构性）
+c	abcd/cl	abcd/aide/TrainerSampleInstallerRunnable2Anon1	role:被 TrainerSampleInstallerRunnable2 唯一实例化；无接口/父类判据 ⇒ TrainerSampleInstallerRunnable2Anon1（结构性）
+c	abcd/cm$a	com/aide/licensing/LicenseVerifier$Anon1	role:宿主 LicenseVerifier 的内部类（按探针名 $a 归属）；无判据 ⇒ 序号 LicenseVerifier$Anon1（结构性）
+c	abcd/cm$b	com/aide/licensing/LicenseVerifier$Anon2	role:宿主 LicenseVerifier 的内部类（按探针名 $b 归属）；无判据 ⇒ 序号 LicenseVerifier$Anon2（结构性）
+c	abcd/cm$c	com/aide/licensing/LicenseVerifier$Anon3	role:宿主 LicenseVerifier 的内部类（按探针名 $c 归属）；无判据 ⇒ 序号 LicenseVerifier$Anon3（结构性）
+c	abcd/cq	com/aide/engine/DexFileReaderAnon1	role:被 DexFileReader 唯一实例化；无接口/父类判据 ⇒ DexFileReaderAnon1（结构性）
+c	abcd/ct	com/aide/engine/EscapeAnalysisAnon2	role:被 EscapeAnalysis 唯一实例化；实现/继承 Anon2 ⇒ EscapeAnalysisAnon2
+c	abcd/da	com/aide/engine/CachedProjectAnon12	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon12（结构性）
+c	abcd/eA	abcd/aide/SettingsJsonTransformAnon5	role:被 SettingsJsonTransform 唯一实例化；无接口/父类判据 ⇒ SettingsJsonTransformAnon5（结构性）
+c	abcd/eG	org/eclipse/jgit/transport/BasePackFetchConnectionRevCommit	role:被 BasePackFetchConnection 唯一实例化；实现/继承 RevCommit ⇒ BasePackFetchConnectionRevCommit
+c	abcd/ed	com/aide/codemodel/language/java/JavaToolsAnon2	role:被 JavaTools 唯一实例化；无接口/父类判据 ⇒ JavaToolsAnon2（结构性）
+c	abcd/eq	com/aide/engine/DexFileReaderAnon2	role:被 DexFileReader 唯一实例化；无接口/父类判据 ⇒ DexFileReaderAnon2（结构性）
+c	abcd/fE	org/eclipse/jgit/api/CommitCommandAnon1	role:被 CommitCommand 唯一实例化；无接口/父类判据 ⇒ CommitCommandAnon1（结构性）
+c	abcd/fa	com/aide/engine/CachedProjectAnon13	role:被 CachedProject 唯一实例化；无接口/父类判据 ⇒ CachedProjectAnon13（结构性）
+c	abcd/fd	com/aide/engine/JavadocGeneratorAnon1	role:被 JavadocGenerator 唯一实例化；无接口/父类判据 ⇒ JavadocGeneratorAnon1（结构性）
+c	abcd/fe	com/aide/codemodel/language/html/HtmlCodeModelAnon1	role:被 HtmlCodeModel 唯一实例化；无接口/父类判据 ⇒ HtmlCodeModelAnon1（结构性）
+c	abcd/fk	abcd/aide/AppInstallerRunnable3Anon1	role:被 AppInstallerRunnable3 唯一实例化；无接口/父类判据 ⇒ AppInstallerRunnable3Anon1（结构性）
+c	abcd/fp	com/aide/engine/DebugInfoEncoderAnon1	role:被 DebugInfoEncoder 唯一实例化；无接口/父类判据 ⇒ DebugInfoEncoderAnon1（结构性）
+c	abcd/fq	com/aide/engine/DexFileReaderAnon3	role:被 DexFileReader 唯一实例化；无接口/父类判据 ⇒ DexFileReaderAnon3（结构性）
+c	abcd/ft	com/aide/engine/ConstCollectorAnon1	role:被 ConstCollector 唯一实例化；实现/继承 Anon1 ⇒ ConstCollectorAnon1
+c	abcd/gA	abcd/aide/SettingsJsonTransformAnon6	role:被 SettingsJsonTransform 唯一实例化；无接口/父类判据 ⇒ SettingsJsonTransformAnon6（结构性）
+c	abcd/gp	com/aide/engine/DebugInfoEncoderAnon2	role:被 DebugInfoEncoder 唯一实例化；无接口/父类判据 ⇒ DebugInfoEncoderAnon2（结构性）
+c	abcd/gq	com/aide/engine/DexFileReaderAnon4	role:被 DexFileReader 唯一实例化；无接口/父类判据 ⇒ DexFileReaderAnon4（结构性）
+c	abcd/hA	abcd/aide/SettingsJsonTransformAnon7	role:被 SettingsJsonTransform 唯一实例化；无接口/父类判据 ⇒ SettingsJsonTransformAnon7（结构性）
+c	abcd/hd	com/aide/codemodel/language/java/JavaToolsAnon3	role:被 JavaTools 唯一实例化；无接口/父类判据 ⇒ JavaToolsAnon3（结构性）
+c	abcd/he	com/aide/codemodel/language/xml/XmlToolsAnon1	role:被 XmlTools 唯一实例化；无接口/父类判据 ⇒ XmlToolsAnon1（结构性）
+c	abcd/hq	com/aide/engine/DexFileReaderAnon5	role:被 DexFileReader 唯一实例化；无接口/父类判据 ⇒ DexFileReaderAnon5（结构性）
+c	abcd/iH	org/eclipse/jgit/internal/storage/file/PackIndexWriterPackIndexWriter	role:被 PackIndexWriter 唯一实例化；实现/继承 PackIndexWriter ⇒ PackIndexWriterPackIndexWriter
+c	abcd/ir	com/aide/engine/TableOfContentsAnon1	role:被 TableOfContents 唯一实例化；无接口/父类判据 ⇒ TableOfContentsAnon1（结构性）
+c	abcd/iw$a	com/aide/backbone/EventRecorder$Anon1	role:宿主 EventRecorder 的内部类（按探针名 $a 归属）；无判据 ⇒ 序号 EventRecorder$Anon1（结构性）
+c	abcd/je	com/aide/codemodel/language/xml/XmlToolsAnon2	role:被 XmlTools 唯一实例化；无接口/父类判据 ⇒ XmlToolsAnon2（结构性）
+c	abcd/jq	com/aide/engine/DexFileReader$Anon1Anon5	role:被 DexFileReader$Anon1 唯一实例化；无接口/父类判据 ⇒ DexFileReader$Anon1Anon5（结构性）
+c	abcd/jr	com/aide/engine/DexOverflowCheckerAnon4	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon4（结构性）
+c	abcd/jt	com/aide/engine/LiteralOpUpgrader$UpgradeVisitorRegisterMapper	role:被 LiteralOpUpgrader$UpgradeVisitor 唯一实例化；实现/继承 RegisterMapper ⇒ LiteralOpUpgrader$UpgradeVisitorRegisterMapper
+c	abcd/jw$a	com/aide/backbone/AnalyticsDefinition$Anon1	role:宿主 AnalyticsDefinition 的内部类（按探针名 $a 归属）；无判据 ⇒ 序号 AnalyticsDefinition$Anon1（结构性）
+c	abcd/kd	com/aide/codemodel/language/java/JavaToolsAnon4	role:被 JavaTools 唯一实例化；无接口/父类判据 ⇒ JavaToolsAnon4（结构性）
+c	abcd/ke	com/aide/codemodel/language/xml/XmlToolsAnon3	role:被 XmlTools 唯一实例化；无接口/父类判据 ⇒ XmlToolsAnon3（结构性）
+c	abcd/kn	com/aide/engine/DexEncodedValueClassFileReader	role:被 DexEncodedValue 唯一实例化；实现/继承 ClassFileReader ⇒ DexEncodedValueClassFileReader
+c	abcd/kp	com/aide/engine/ClassDefItemBuilderDexSection	role:被 ClassDefItemBuilder 唯一实例化；实现/继承 DexSection ⇒ ClassDefItemBuilderDexSection
+c	abcd/kq	com/aide/engine/DexFileReader$Anon1Anon6	role:被 DexFileReader$Anon1 唯一实例化；无接口/父类判据 ⇒ DexFileReader$Anon1Anon6（结构性）
+c	abcd/kr	com/aide/engine/DexOverflowCheckerAnon5	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon5（结构性）
+c	abcd/kv$a	com/aide/backbone/CallbackDispatcher$Anon1	role:宿主 CallbackDispatcher 的内部类（按探针名 $a 归属）；无判据 ⇒ 序号 CallbackDispatcher$Anon1（结构性）
+c	abcd/kv$b	com/aide/backbone/CallbackDispatcher$Anon2	role:宿主 CallbackDispatcher 的内部类（按探针名 $b 归属）；无判据 ⇒ 序号 CallbackDispatcher$Anon2（结构性）
+c	abcd/ld	com/aide/codemodel/language/java/JSharpCommentsToolsAnon1	role:被 JSharpCommentsTools 唯一实例化；无接口/父类判据 ⇒ JSharpCommentsToolsAnon1（结构性）
+c	abcd/lr	com/aide/engine/DexOverflowCheckerAnon6	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon6（结构性）
+c	abcd/mA	abcd/aide/SettingsJsonTransformAnon8	role:被 SettingsJsonTransform 唯一实例化；无接口/父类判据 ⇒ SettingsJsonTransformAnon8（结构性）
+c	abcd/mD	org/eclipse/jgit/internal/storage/file/PackFileAnon1	role:被 PackFile 唯一实例化；无接口/父类判据 ⇒ PackFileAnon1（结构性）
+c	abcd/ml	abcd/aide/engine/ModifyFilesActionAnon1	role:被 ModifyFilesAction 唯一实例化；无接口/父类判据 ⇒ ModifyFilesActionAnon1（结构性）
+c	abcd/mn	com/aide/engine/DexEncodedValueClassFileReader2	role:被 DexEncodedValue 唯一实例化；实现/继承 ClassFileReader ⇒ DexEncodedValueClassFileReader2
+c	abcd/mr	com/aide/engine/DexOverflowCheckerAnon37	role:被 DexOverflowChecker 唯一实例化；实现/继承 Anon3 ⇒ DexOverflowCheckerAnon37
+c	abcd/mu	com/aide/engine/CodeWriterImplAnon1	role:被 CodeWriterImpl 唯一实例化；无接口/父类判据 ⇒ CodeWriterImplAnon1（结构性）
+c	abcd/nr	com/aide/engine/DexOverflowCheckerAnon38	role:被 DexOverflowChecker 唯一实例化；实现/继承 Anon3 ⇒ DexOverflowCheckerAnon38
+c	abcd/nw	com/aide/backbone/ProbeLoaderAnon1	role:被 ProbeLoader 唯一实例化；无接口/父类判据 ⇒ ProbeLoaderAnon1（结构性）
+c	abcd/or	com/aide/engine/DexOverflowCheckerAnon9	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon9（结构性）
+c	abcd/ou	com/aide/engine/AttributeConverterAnon1	role:被 AttributeConverter 唯一实例化；无接口/父类判据 ⇒ AttributeConverterAnon1（结构性）
+c	abcd/pA	abcd/aide/DefaultSettingsSpiCallAnon1	role:被 DefaultSettingsSpiCall 唯一实例化；无接口/父类判据 ⇒ DefaultSettingsSpiCallAnon1（结构性）
+c	abcd/pl	abcd/aide/engine/ProjectModelAnon1	role:被 ProjectModel 唯一实例化；无接口/父类判据 ⇒ ProjectModelAnon1（结构性）
+c	abcd/pp	com/aide/engine/FieldIdSectionAnon1	role:被 FieldIdSection 唯一实例化；无接口/父类判据 ⇒ FieldIdSectionAnon1（结构性）
+c	abcd/pr	com/aide/engine/DexOverflowCheckerAnon10	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon10（结构性）
+c	abcd/qm	com/aide/engine/DexAttributeFactoryIndexedAttribute	role:被 DexAttributeFactory 唯一实例化；实现/继承 IndexedAttribute ⇒ DexAttributeFactoryIndexedAttribute
+c	abcd/qr	com/aide/engine/DexOverflowCheckerAnon11	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon11（结构性）
+c	abcd/qy	com/aide/engine/TaskUtilsAnon1	role:被 TaskUtils 唯一实例化；无接口/父类判据 ⇒ TaskUtilsAnon1（结构性）
+c	abcd/rD	org/eclipse/jgit/lib/RepositoryAnon1	role:被 Repository 唯一实例化；无接口/父类判据 ⇒ RepositoryAnon1（结构性）
+c	abcd/rh	com/aide/ui/ExportApkDialogPreprocessor	role:被 ExportApkDialog 唯一实例化；实现/继承 Preprocessor ⇒ ExportApkDialogPreprocessor
+c	abcd/rr	com/aide/engine/DexOverflowCheckerAnon12	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon12（结构性）
+c	abcd/sc	com/aide/codemodel/language/dtd/DtdCodeModelAnon3	role:被 DtdCodeModel 唯一实例化；无接口/父类判据 ⇒ DtdCodeModelAnon3（结构性）
+c	abcd/sm	com/aide/engine/DexAttributeFactoryEnclosingMethodAttribute2	role:被 DexAttributeFactory 唯一实例化；实现/继承 EnclosingMethodAttribute ⇒ DexAttributeFactoryEnclosingMethodAttribute2
+c	abcd/sp	com/aide/engine/DexSectionPlacerAnon1	role:被 DexSectionPlacer 唯一实例化；无接口/父类判据 ⇒ DexSectionPlacerAnon1（结构性）
+c	abcd/sr	com/aide/engine/DexOverflowCheckerAnon13	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon13（结构性）
+c	abcd/tH$a$$ExternalSyntheticBackportWithForwarding0	org/eclipse/jgit/internal/storage/file/UnpackedObjectCache$Anon1	role:宿主 UnpackedObjectCache 的内部类（按探针名 $a$$ExternalSyntheticBackportWithForwarding0 归属）；无判据 ⇒ 序号 UnpackedObjectCache$Anon1（结构性）
+c	abcd/te	abcd/aide/engine/Base64CodecAnon1	role:被 Base64Codec 唯一实例化；无接口/父类判据 ⇒ Base64CodecAnon1（结构性）
+c	abcd/tm	com/aide/engine/DexAttributeFactoryInnerClassesAttribute3	role:被 DexAttributeFactory 唯一实例化；实现/继承 InnerClassesAttribute ⇒ DexAttributeFactoryInnerClassesAttribute3
+c	abcd/tr	com/aide/engine/DexOverflowCheckerAnon14	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon14（结构性）
+c	abcd/tz	abcd/aide/EventsFilesManagerAnon1	role:被 EventsFilesManager 唯一实例化；无接口/父类判据 ⇒ EventsFilesManagerAnon1（结构性）
+c	abcd/ub	com/aide/codemodel/language/js/JavaScriptCodeAnalyzer$Anon1Anon1	role:被 JavaScriptCodeAnalyzer$Anon1 唯一实例化；无接口/父类判据 ⇒ JavaScriptCodeAnalyzer$Anon1Anon1（结构性）
+c	abcd/uf	com/aide/ui/actions/FilesDeleteActionRunnableAnon1	role:被 FilesDeleteActionRunnable 唯一实例化；无接口/父类判据 ⇒ FilesDeleteActionRunnableAnon1（结构性）
+c	abcd/ui	com/aide/ui/actions/ReplaceTextuallyActionPreprocessor	role:被 ReplaceTextuallyAction 唯一实例化；实现/继承 Preprocessor ⇒ ReplaceTextuallyActionPreprocessor
+c	abcd/um	com/aide/engine/DexAttributeFactoryEnclosingMethodAttribute4	role:被 DexAttributeFactory 唯一实例化；实现/继承 EnclosingMethodAttribute ⇒ DexAttributeFactoryEnclosingMethodAttribute4
+c	abcd/ur	com/aide/engine/DexOverflowCheckerAnon15	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon15（结构性）
+c	abcd/vh	com/aide/ui/InputMethodDialogAnon1	role:被 InputMethodDialog 唯一实例化；无接口/父类判据 ⇒ InputMethodDialogAnon1（结构性）
+c	abcd/vm	com/aide/engine/DexAttributeFactoryInnerClassesAttribute5	role:被 DexAttributeFactory 唯一实例化；实现/继承 InnerClassesAttribute ⇒ DexAttributeFactoryInnerClassesAttribute5
+c	abcd/vr	com/aide/engine/DexOverflowCheckerAnon16	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon16（结构性）
+c	abcd/wa	abcd/aide/JarPackagerAnon4	role:被 JarPackager 唯一实例化；实现/继承 Anon4 ⇒ JarPackagerAnon4
+c	abcd/wh	com/aide/ui/InputMethodDialogAnon2	role:被 InputMethodDialog 唯一实例化；无接口/父类判据 ⇒ InputMethodDialogAnon2（结构性）
+c	abcd/wr	com/aide/engine/DexOverflowCheckerAnon17	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon17（结构性）
+c	abcd/xa	abcd/aide/JarPackagerAnon42	role:被 JarPackager 唯一实例化；实现/继承 Anon4 ⇒ JarPackagerAnon42
+c	abcd/ya	abcd/aide/JarPackagerAnon3	role:被 JarPackager 唯一实例化；无接口/父类判据 ⇒ JarPackagerAnon3（结构性）
+c	abcd/yb	com/aide/codemodel/language/java/JavaSignatureAnalyzer$a$aEntity	role:被 JavaSignatureAnalyzer$a$a 唯一实例化；实现/继承 Entity ⇒ JavaSignatureAnalyzer$a$aEntity
+c	abcd/yr	com/aide/engine/DexOverflowCheckerAnon18	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon18（结构性）
+c	abcd/zb	com/aide/codemodel/language/java/JavaCompilerAnon1	role:被 JavaCompiler 唯一实例化；无接口/父类判据 ⇒ JavaCompilerAnon1（结构性）
+c	abcd/zr	com/aide/engine/DexOverflowCheckerAnon19	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon19（结构性）
+c	abcd/zt	com/aide/engine/SsaRenamerAnon2	role:被 SsaRenamer 唯一实例化；实现/继承 Anon2 ⇒ SsaRenamerAnon2
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
