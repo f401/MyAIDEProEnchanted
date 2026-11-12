@@ -19,14 +19,24 @@
 4. 按描述符唯一配对后，方法名能读出语义（`U` 的 `VH()Activity → getCurrentActivity`、
    `j6(I,[Object])String → getString`、`j6(ServiceContainer,String) → init`）。
 
-## 已定名（第一批 16 个）
+## 已定名（74 个）
 
-见 `class_map.tsv`：`U=ServiceContainer`、`aa=AppPreferences`、`ca=AppFileIcons`、
-`Ha=GregorianCalendarUtil`、`Wa=MainSearchBarNoTabs`(+"$SearchLabel")、`V=AppCommands`、
-`Z=QuickActionMenu`、`P=ExtendLibraries`、`Ga=ViewVisibilityManage`(+`$a`)、
-`Q/T=ServiceContainer$a/$b`、`M=GlobalKeyCommand`、`Za=MenuSearchWidget`、`fa=MenuGotoLineWidget`。
+- **`com/aide/ui`（19）**：`U=ServiceContainer`、`aa=AppPreferences`、`ca=AppFileIcons`、
+  `Ha=GregorianCalendarUtil`、`Wa=MainSearchBarNoTabs`(+`$SearchLabel`)、`V=AppCommands`、
+  `Z=QuickActionMenu`、`P=ExtendLibraries`、`Ga=ViewVisibilityManage`(+`$a`)、
+  `Q/T=ServiceContainer$a/$b`、`M=GlobalKeyCommand`、`Za=MenuSearchWidget`、
+  `fa=MenuGotoLineWidget`、`G`/`f`/`u`（AIDEEditor 族，描述符桶唯一）。
+- **`com/aide/common`（55）**：`g=AndroidHelper`（12 串）、`u=KeyStroke`（23 串）、`i=Base64`（7 串）、
+  `j=Base64Coder`、`ma=MessageBox` 及 `MessageBox$a..$k/$b$a..$g/$f$a..$e` 共 12 个、
+  `Wa=SocialDialog` 族 5 个、`t=ColorPickerDialog` 族 3 个、`ua=PropertiesDialog` 族 3 个、
+  `Fa=SizePickerDialog` 族 3 个、`pa/oa=PositionalXMLReader(+$a)`、`ab=ValueRunnable`、
+  `Xa=StreamUtilities`、`Za=TrainerLogo`、`wa=SerializeHelper`、`x=ListAdapterBase`、
+  `n/l=ClickableBorder(+$a)`、`sa=ProgressDialogHandler`、`na=NonOverwritingFileOutputStream`、
+  `k=Base64DecoderException`、`d/e/f=AndroidHelper$a(+$a/$a$a)`。
 
 ## 下一步
 
-- `com/aide/ui/**` 还有 99 个短名类待定（多数是 `MainActivity$*` 等匿名内部类，形状并列 ⇒ 需按引用关系逐个判）；
-- `com/aide/common/**`（108）、`com/aide/engine/**`（63）同理，可用各自包名 + oracle 同包类定。
+- `com/aide/ui` 还剩 96 个短名类（绝大多数是 `MainActivity$*` / `AIDEEditor$*` / `AIDEEditorCompletion$*`
+  这类**多个内部类形状并列**的，必须靠引用关系一个个判，不能靠形状猜）；
+- `com/aide/common` 还剩 53 个（都是 `len(候选)>1` 的并列项，同样只能靠引用关系）；
+- `com/aide/engine` 的 63 个短名类里 54 个已由 `jobs/aide_engine` 覆盖，剩 9 个。
