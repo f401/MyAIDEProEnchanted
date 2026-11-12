@@ -27325,6 +27325,112 @@ c	abcd/ru	abcd/aide/restored/FieldAnnotation	role:注解，唯一成员 field()l
 c	abcd/su	abcd/aide/restored/MethodAnnotation	role:注解，唯一成员 method()long
 c	abcd/_x	abcd/aide/restored/ExecutorHolder	role:两个 Executor 字段 ⇒ 执行器持有者
 c	abcd/Vx	abcd/aide/restored/ExceptionReporter	role:唯一方法收 Exception 返回 void ⇒ 异常上报回调
+c	abcd/Sc	abcd/aide/restored/CssValueParser	role:十六进制颜色表 + 构造 Rc 值树 ⇒ CSS 值解析
+c	abcd/Rc	abcd/aide/restored/CssValue	role:String + 子结构 + 两个标志 ⇒ CSS 值节点
+c	abcd/Rc$a	abcd/aide/restored/CssValue$Keyword	role:自引用链表 + 串 <color>/<gradient>/<url> 等 ⇒ CSS 取值关键字
+c	abcd/Rc$b	abcd/aide/restored/CssValue$Term	role:持 Rc$c 的值项
+c	abcd/Rc$c	abcd/aide/restored/CssValue$Component	role:List 组成的值部件
+c	abcd/Rc$d	abcd/aide/restored/CssValue$Expression	role:List 组成的值表达式
+c	abcd/dw	abcd/aide/restored/EventsSender	role:Runnable + 串 "files ready for transmission" ⇒ 事件上报线程
+c	abcd/cw	abcd/aide/restored/EventsFlusher	role:Runnable + 串 "Collected events for 10000ms" ⇒ 事件刷写线程
+c	abcd/ew	abcd/aide/restored/NetworkAvailabilityListener	role:网络状态回调 + 串 "Network became available" ⇒ 网络恢复监听
+c	abcd/bw	abcd/aide/restored/EventFilesFilter	role:FilenameFilter + 串 ".json" ⇒ 事件文件过滤
+c	abcd/gw	abcd/aide/restored/ProbesDownloader	role:串 "Probes download took" ⇒ 探针文件下载
+c	abcd/yw	abcd/aide/restored/BackboneLogger	role:Method 字段 + 串 "BACKBONE" ⇒ Backbone 日志桥
+c	abcd/sw	abcd/aide/restored/SystemPropertiesAccessor	role:串 "android.os.SystemProperties" ⇒ 系统属性读取
+c	abcd/qx	abcd/aide/restored/ParcelableCreatorCache	role:串 "Could not load creator class" ⇒ Parcelable Creator 缓存
+c	abcd/vw	abcd/aide/restored/ConnectivityMonitor	role:串 CONNECTIVITY_CHANGE/ACCESS_NETWORK_STATE ⇒ 网络连通性监听
+c	abcd/vw$a	abcd/aide/restored/ConnectivityMonitor$Receiver	role:宿主 ConnectivityMonitor 的内部类；BroadcastReceiver + 字段回调 ⇒ 广播接收器
+c	abcd/tw	abcd/aide/restored/FileLocker	role:RandomAccessFile + FileLock + 串 "rw" ⇒ 文件锁
+c	abcd/jQ	abcd/aide/restored/Iso8601DateFormat	role:SimpleDateFormat + 串 ISO 模式/UTC ⇒ ISO-8601 格式
+c	abcd/kz	abcd/aide/restored/QueueThreadPoolExecutor	role:ThreadPoolExecutor 子类 + 串 "Queue" ⇒ 队列线程池
+c	abcd/kz$a	abcd/aide/restored/QueueThreadPoolExecutor$ThreadFactory	role:ThreadFactory + 串 "Queue" ⇒ 线程工厂
+c	abcd/Zi	abcd/aide/restored/ResourceIdLookup	role:串 "res" + 按名查 int id ⇒ 资源 id 查表
+c	abcd/Qj	abcd/aide/restored/DownloadHostNotFoundRunnable	role:Runnable + 串 "Host not found: " ⇒ 下载主机不可达提示
+c	abcd/Pj	abcd/aide/restored/DownloadInterruptedRunnable	role:Runnable + InterruptedException + 串 "Download error" ⇒ 下载中断提示
+c	abcd/Ij	abcd/aide/restored/NdkMissingRunnable	role:Runnable + 串 "com.aide.ndk" ⇒ 缺 NDK 提示
+c	abcd/fj	abcd/aide/restored/MainFlavorValueRunnable	role:ValueRunnable + 串 "main" ⇒ 主 flavor 名回调
+c	abcd/jf	abcd/aide/restored/CreateFolderValueRunnable	role:ValueRunnable + 串 "Create Folder" ⇒ 新建目录
+c	abcd/lf	abcd/aide/restored/CreateFileValueRunnable	role:ValueRunnable + 串 "Create File" ⇒ 新建文件
+c	abcd/ez	io/fabric/sdk/android/services/concurrency/PriorityAsyncTask	body:AsyncTask 子类 + 四个并发接口 + 串 "Must not add Dependency after" ⇒ fabric PriorityAsyncTask
+c	abcd/gz	io/fabric/sdk/android/services/concurrency/PriorityFutureTask	body:FutureTask 子类 + 同四个并发接口 ⇒ fabric PriorityFutureTask
+c	abcd/nu	abcd/aide/restored/HashCombiner	role:两个方法都是 (x,y)→int ⇒ 哈希合成
+c	abcd/pq	abcd/aide/restored/IntPredicate	role:两个 (int)→boolean 方法 ⇒ int 判定
+c	abcd/_z	abcd/aide/restored/UsageSearchRequestFilter	role:方法收 UsageSearchRequest 返回 boolean ⇒ 请求过滤
+c	abcd/rA	abcd/aide/restored/UsageSearchRequestFilter2	role:与 UsageSearchRequestFilter 同形，按探针名顺序编号
+c	abcd/Zl	abcd/aide/restored/NoOpMenuItemCommand	role:MenuItemCommand 的空实现
+c	abcd/Xl	abcd/aide/restored/PlainKeyStrokeCommand	role:KeyStrokeCommand + 唯一方法返回 String ⇒ 按键命令
+c	abcd/Aj	abcd/aide/restored/RunnableTask1	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Bg	abcd/aide/restored/RunnableTask2	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Bj	abcd/aide/restored/RunnableTask3	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Bl	abcd/aide/restored/RunnableTask4	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Ej	abcd/aide/restored/RunnableTask5	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Hg	abcd/aide/restored/RunnableTask6	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Jj	abcd/aide/restored/RunnableTask7	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Lj	abcd/aide/restored/RunnableTask8	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Me	abcd/aide/restored/RunnableTask9	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Oj	abcd/aide/restored/RunnableTask10	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Rj	abcd/aide/restored/RunnableTask11	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/_i	abcd/aide/restored/RunnableTask12	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/cf	abcd/aide/restored/RunnableTask13	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/dQ	abcd/aide/restored/RunnableTask14	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/dj	abcd/aide/restored/RunnableTask15	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/eQ	abcd/aide/restored/RunnableTask16	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/fQ	abcd/aide/restored/RunnableTask17	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/og	abcd/aide/restored/RunnableTask18	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/pg	abcd/aide/restored/RunnableTask19	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/wj	abcd/aide/restored/RunnableTask20	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/xj	abcd/aide/restored/RunnableTask21	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/yj	abcd/aide/restored/RunnableTask22	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/fr	abcd/aide/restored/ComparableImpl1	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/lq	abcd/aide/restored/ComparableImpl2	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/nq	abcd/aide/restored/ComparableImpl3	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/qq	abcd/aide/restored/ComparableImpl4	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/gc	abcd/aide/restored/ExceptionSub1	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/hc	abcd/aide/restored/ExceptionSub2	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/jc	abcd/aide/restored/ExceptionSub3	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/sD	abcd/aide/restored/ExceptionSub4	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/yx	abcd/aide/restored/BinderStub1	role:extends Binder + implements IInterface；无身份判据，按作用+序号命名（同族 1 个，序号按探针名排序）
+c	abcd/rx	abcd/aide/restored/AidlInterface1	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/ux	abcd/aide/restored/AidlInterface2	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/xx	abcd/aide/restored/AidlInterface3	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/_x$a	abcd/aide/restored/ExecutorHolder$Executor	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/ez$a	io/fabric/sdk/android/services/concurrency/PriorityAsyncTask$Executor	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/uy	abcd/aide/restored/ExecutorImpl3	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/B	abcd/aide/restored/Data1	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Li	abcd/aide/restored/Data2	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Oe	abcd/aide/restored/Data3	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Rd	abcd/aide/restored/Data4	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Vs	abcd/aide/restored/Data5	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Zh	abcd/aide/restored/Data6	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ci	abcd/aide/restored/Data7	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ei	abcd/aide/restored/Data8	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ex	abcd/aide/restored/Data9	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/fi	abcd/aide/restored/Data10	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/fu	abcd/aide/restored/Data11	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/gm	abcd/aide/restored/Data12	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/hi	abcd/aide/restored/Data13	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ix	abcd/aide/restored/Data14	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/jx	abcd/aide/restored/Data15	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/kc	abcd/aide/restored/Data16	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ki	abcd/aide/restored/Data17	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ko	abcd/aide/restored/Data18	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/kx	abcd/aide/restored/Data19	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/lc	abcd/aide/restored/Data20	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/li	abcd/aide/restored/Data21	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/lx	abcd/aide/restored/Data22	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/mc	abcd/aide/restored/Data23	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/mi	abcd/aide/restored/Data24	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/nk	abcd/aide/restored/Data25	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/oc	abcd/aide/restored/Data26	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/od	abcd/aide/restored/Data27	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/of	abcd/aide/restored/Data28	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/pc	abcd/aide/restored/Data29	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/pz	abcd/aide/restored/Data30	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/rc	abcd/aide/restored/Data31	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ve	abcd/aide/restored/Data32	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ye	abcd/aide/restored/Data33	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/zj	abcd/aide/restored/Data34	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

@@ -1030,3 +1030,109 @@ ru	abcd/aide/restored/FieldAnnotation	role:implements Annotation，唯一方法 
 su	abcd/aide/restored/MethodAnnotation	role:implements Annotation，唯一方法 method()J ⇒ 单 long 成员的注解
 _x	abcd/aide/restored/ExecutorHolder	role:两个 java/util/concurrent/Executor 字段（DW/j6），只有 <clinit> ⇒ 执行器持有者/注入点
 Vx	abcd/aide/restored/ExceptionReporter	role:唯一方法 j6(Ljava/lang/Exception;)V，无字段无串 ⇒ 异常上报回调
+Sc	abcd/aide/restored/CssValueParser	role:9 个方法在 Rc/Rc$b/Rc$c/Rc$d 之间建树 + 串是十六进制颜色表（000000/000080/00008B/0000CD/0000FF/006400/008000/00FFFF）⇒ CSS 值与颜色解析器
+Rc	abcd/aide/restored/CssValue	role:字段 Z,Z,String,Rc$c,Z（字符串 + 子结构 + 两个标志）⇒ CSS 值节点
+Rc$a	abcd/aide/restored/CssValue$Keyword	role:宿主 Rc（本轮映射为 CssValue）的内部类；11 个自引用字段（链表）+ 串 <color>/<font-family-name>/<gradient>/<length>/<number>/<percentage>/<url> ⇒ CSS 取值关键字
+Rc$b	abcd/aide/restored/CssValue$Term	role:宿主 Rc 的内部类；字段 Z,Z,Rc$c ⇒ 值项（持一个组成部分）
+Rc$c	abcd/aide/restored/CssValue$Component	role:宿主 Rc 的内部类；字段 Z,Z,List ⇒ 值组成（列表）
+Rc$d	abcd/aide/restored/CssValue$Expression	role:宿主 Rc 的内部类；字段 Z,Z,List ⇒ 值表达式（列表）
+dw	abcd/aide/restored/EventsSender	role:implements Runnable，字段 Random/String/fw(=事件文件管理器)，串 "event files"/" files ready for transmission"/" network files."/" seconds." ⇒ 事件批量上报线程
+cw	abcd/aide/restored/EventsFlusher	role:implements Runnable，字段 fw(=事件文件管理器)，串 "events for network I/O:"/"Cache"/"Collected events for 10000ms"/"Could not move file to outgoing"/"Error writing events to disk" ⇒ 事件落盘/刷写线程
+ew	abcd/aide/restored/NetworkAvailabilityListener	role:implements vw$b（网络状态回调），字段 fw(=事件文件管理器)，串 "Network became available - n…"/"Networking" ⇒ 网络恢复时触发上报
+bw	abcd/aide/restored/EventFilesFilter	role:implements java/io/FilenameFilter，字段 fw，串 ".json"，方法 accept 与 accept_ ⇒ 事件文件过滤（只收 .json）
+gw	abcd/aide/restored/ProbesDownloader	role:唯一方法 j6(String,File,J)V + 串 "Probes"/"Probes download error"/"Probes download took "/" ms" ⇒ 下载性能探针文件
+yw	abcd/aide/restored/BackboneLogger	role:两个 java.lang.reflect.Method 字段 + 串 ": "/"BACKBONE"/"[Labcd/io.fabric.sdk.and…"/"com.crashlytics.android.Cras…" ⇒ Backbone 反射式日志桥
+sw	abcd/aide/restored/SystemPropertiesAccessor	role:字段 Object/Boolean + 串 "android.os.SystemProperties"/"debug.backbone"/"backbone developer mode enab…"/"get" ⇒ 通过反射读系统属性
+qx	abcd/aide/restored/ParcelableCreatorCache	role:串 "Could not access creator."/"Could not get remote context"/"Could not instantiate creator"/"Could not load creator class" + 方法收 Parcel/IBinder ⇒ Parcelable.Creator 反射缓存
+vw	abcd/aide/restored/ConnectivityMonitor	role:串 "android.net.conn.CONNECTIVITY_CHANGE"/"android.permission.ACCESS_NETWORK_STATE"/"connectivity"；方法 DW()Z / j6(Context,String)I / j6(vw$b)V ⇒ 网络连通性监听
+vw$a	abcd/aide/restored/ConnectivityMonitor$Receiver	role:宿主 vw（本轮映射为 ConnectivityMonitor）的内部类；extends BroadcastReceiver，字段 vw$b，onReceive 里读 "connectivity" ⇒ 广播接收器
+tw	abcd/aide/restored/FileLocker	role:字段 RandomAccessFile + FileLock，串 "rw"，方法 DW()V 加锁 / j6()V 解锁 ⇒ 文件锁封装
+jQ	abcd/aide/restored/Iso8601DateFormat	role:extends SimpleDateFormat，串 "UTC"/"yyy-MM-dd'T'HH:mm:ss'Z'" ⇒ ISO-8601 日期格式
+kz	abcd/aide/restored/QueueThreadPoolExecutor	role:extends ThreadPoolExecutor，串 "Queue"，方法 j6()/j6(II)/afterExecute/execute ⇒ 带任务队列的线程池
+kz$a	abcd/aide/restored/QueueThreadPoolExecutor$ThreadFactory	role:宿主 kz（本轮映射为 QueueThreadPoolExecutor）的内部类；implements ThreadFactory，int 字段做线程编号，串 "Queue" ⇒ 线程工厂
+Zi	abcd/aide/restored/ResourceIdLookup	role:串 "res"，方法 DW(String)I/FH(String)I 按名查 id、Hw(String)Z 判存在、j6(String,ab)V 遍历 ⇒ 资源 id 查表
+Qj	abcd/aide/restored/DownloadHostNotFoundRunnable	role:implements Runnable，字段 ExecutionException + Kj(=下载任务)，串 "Host not found: "/"Download error"/"下载错误" ⇒ 下载失败（主机不可达）提示
+Pj	abcd/aide/restored/DownloadInterruptedRunnable	role:implements Runnable，字段 InterruptedException + Kj，串 "Download error"/"下载错误" ⇒ 下载被中断提示
+Ij	abcd/aide/restored/NdkMissingRunnable	role:implements Runnable，字段 Activity + Kj，唯一串 "com.aide.ndk" ⇒ 缺 NDK 时的提示/跳转任务
+fj	abcd/aide/restored/MainFlavorValueRunnable	role:implements ab(=com/aide/common/ValueRunnable)，字段 gj，串 "main" ⇒ 输入主 flavor 名的回调
+jf	abcd/aide/restored/CreateFolderValueRunnable	role:implements ab(=ValueRunnable)，串 "Create Folder" ⇒ 新建目录回调
+lf	abcd/aide/restored/CreateFileValueRunnable	role:implements ab(=ValueRunnable)，串 "Create File" ⇒ 新建文件回调
+ez	io/fabric/sdk/android/services/concurrency/PriorityAsyncTask	body:extends abcd/ModernAsyncTask(=fabric AsyncTask)，implements Dependency/PriorityProvider/Task/Prioritized 四个接口，持 jz(=Priority)，串 "Must not add Dependency after…" ⇒ fabric 的 PriorityAsyncTask
+gz	io/fabric/sdk/android/services/concurrency/PriorityFutureTask	body:extends java/util/concurrent/FutureTask，implements 与 ez 相同的四个接口 ⇒ fabric 的 PriorityFutureTask
+nu	abcd/aide/restored/HashCombiner	role:两个静态方法 j6(II)I / j6(SS)I，无字段无串 ⇒ 两个整数合成一个哈希
+pq	abcd/aide/restored/IntPredicate	role:两个方法 DW(I)Z / j6(I)Z，无字段无串 ⇒ int 判定函数
+_z	abcd/aide/restored/UsageSearchRequestFilter	role:extends Sz，唯一方法 j6(Vz)Z 收 Vz(=UsageSearchRequest) 返回 boolean ⇒ 搜索请求过滤
+rA	abcd/aide/restored/UsageSearchRequestFilter2	role:extends Sz，唯一方法 j6(Vz)Z；与 _z(=UsageSearchRequestFilter) 同形，按探针名顺序编号（无法区分先后）
+Zl	abcd/aide/restored/NoOpMenuItemCommand	role:implements Yl(=MenuItemCommand)，无字段、无方法实现（<init>/<clinit> 之外为空）⇒ 空菜单项
+Xl	abcd/aide/restored/PlainKeyStrokeCommand	role:implements Wl(=KeyStrokeCommand)，唯一方法 v5()Ljava/lang/String; ⇒ 只提供名字的按键命令
+Aj	abcd/aide/restored/RunnableTask1	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:android.app.Activity, Hw:abcd.Kj，方法 1 个）⇒ 按接口作用命名并编号 1
+Bg	abcd/aide/restored/RunnableTask2	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:java.lang.String, Hw:abcd.Cg，方法 1 个）⇒ 按接口作用命名并编号 2
+Bj	abcd/aide/restored/RunnableTask3	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:android.app.Activity, Hw:java.lang.String，方法 1 个）⇒ 按接口作用命名并编号 3
+Bl	abcd/aide/restored/RunnableTask4	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.Cl，方法 1 个）⇒ 按接口作用命名并编号 4
+Ej	abcd/aide/restored/RunnableTask5	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:android.app.Activity, Hw:java.util.List，方法 1 个）⇒ 按接口作用命名并编号 5
+Hg	abcd/aide/restored/RunnableTask6	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.Ig，方法 1 个）⇒ 按接口作用命名并编号 6
+Jj	abcd/aide/restored/RunnableTask7	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.Kj$a，方法 1 个）⇒ 按接口作用命名并编号 7
+Lj	abcd/aide/restored/RunnableTask8	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:boolean, Hw:abcd.Kj$b，方法 1 个）⇒ 按接口作用命名并编号 8
+Me	abcd/aide/restored/RunnableTask9	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:java.lang.String, Hw:abcd.Ne，方法 1 个）⇒ 按接口作用命名并编号 9
+Oj	abcd/aide/restored/RunnableTask10	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.Kj$d，方法 1 个）⇒ 按接口作用命名并编号 10
+Rj	abcd/aide/restored/RunnableTask11	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.Kj$d，方法 1 个）⇒ 按接口作用命名并编号 11
+_i	abcd/aide/restored/RunnableTask12	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.gj，方法 1 个）⇒ 按接口作用命名并编号 12
+cf	abcd/aide/restored/RunnableTask13	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.df，方法 1 个）⇒ 按接口作用命名并编号 13
+dQ	abcd/aide/restored/RunnableTask14	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:abcd.gQ, j6:java.lang.Object，方法 1 个）⇒ 按接口作用命名并编号 14
+dj	abcd/aide/restored/RunnableTask15	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:java.lang.String, Hw:java.lang.String，方法 1 个）⇒ 按接口作用命名并编号 15
+eQ	abcd/aide/restored/RunnableTask16	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:java.lang.String, FH:android.os.Bundle, Hw:abcd.gQ, j6:int，方法 1 个）⇒ 按接口作用命名并编号 16
+fQ	abcd/aide/restored/RunnableTask17	role:implements java/lang/Runnable；无串/无调用者可依（字段 j6:abcd.gQ，方法 1 个）⇒ 按接口作用命名并编号 17
+og	abcd/aide/restored/RunnableTask18	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:java.lang.String, Hw:abcd.qg，方法 1 个）⇒ 按接口作用命名并编号 18
+pg	abcd/aide/restored/RunnableTask19	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:java.lang.String, Hw:abcd.qg，方法 1 个）⇒ 按接口作用命名并编号 19
+wj	abcd/aide/restored/RunnableTask20	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:android.app.Activity, Hw:java.io.File，方法 1 个）⇒ 按接口作用命名并编号 20
+xj	abcd/aide/restored/RunnableTask21	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:int, Hw:abcd.Kj，方法 1 个）⇒ 按接口作用命名并编号 21
+yj	abcd/aide/restored/RunnableTask22	role:implements java/lang/Runnable；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:java.lang.String, Hw:int，方法 1 个）⇒ 按接口作用命名并编号 22
+fr	abcd/aide/restored/ComparableImpl1	role:implements java/lang/Comparable；无串/无调用者可依（字段 j6:abcd.fr, DW:abcd.iq, FH:short[]，方法 6 个）⇒ 按接口作用命名并编号 1
+lq	abcd/aide/restored/ComparableImpl2	role:implements java/lang/Comparable；无串/无调用者可依（字段 DW:int, FH:int, Hw:int, j6:abcd.iq，方法 9 个）⇒ 按接口作用命名并编号 2
+nq	abcd/aide/restored/ComparableImpl3	role:implements java/lang/Comparable；无串/无调用者可依（字段 DW:int, FH:int, Hw:int, j6:abcd.iq，方法 9 个）⇒ 按接口作用命名并编号 3
+qq	abcd/aide/restored/ComparableImpl4	role:implements java/lang/Comparable；无串/无调用者可依（字段 DW:int, FH:int, Hw:int, j6:abcd.iq，方法 9 个）⇒ 按接口作用命名并编号 4
+gc	abcd/aide/restored/ExceptionSub1	role:extends Exception；无串/无调用者可依（字段 DW:boolean, j6:boolean，方法 1 个）⇒ 按接口作用命名并编号 1
+hc	abcd/aide/restored/ExceptionSub2	role:extends Exception；无串/无调用者可依（字段 DW:boolean, j6:boolean，方法 1 个）⇒ 按接口作用命名并编号 2
+jc	abcd/aide/restored/ExceptionSub3	role:extends Exception；无串/无调用者可依（字段 DW:boolean, j6:boolean，方法 1 个）⇒ 按接口作用命名并编号 3
+sD	abcd/aide/restored/ExceptionSub4	role:extends Exception；无串/无调用者可依（字段 j6:abcd.sD，方法 0 个）⇒ 按接口作用命名并编号 4
+yx	abcd/aide/restored/BinderStub1	role:extends Binder + implements IInterface；无串/无调用者可依（字段 -，方法 3 个）⇒ 按接口作用命名并编号 1
+rx	abcd/aide/restored/AidlInterface1	role:implements android/os/IInterface；无串/无调用者可依（字段 DW:java.lang.String, j6:android.os.IBinder，方法 3 个）⇒ 按接口作用命名并编号 1
+ux	abcd/aide/restored/AidlInterface2	role:implements android/os/IInterface；无串/无调用者可依（字段 -，方法 3 个）⇒ 按接口作用命名并编号 2
+xx	abcd/aide/restored/AidlInterface3	role:implements android/os/IInterface；无串/无调用者可依（字段 DW:java.lang.String, j6:android.os.IBinder，方法 4 个）⇒ 按接口作用命名并编号 3
+_x$a	abcd/aide/restored/ExecutorHolder$Executor	role:implements Executor/ThreadFactory；无串/无调用者可依（字段 j6:android.os.Handler，方法 1 个）⇒ 按接口作用命名并编号 1
+ez$a	io/fabric/sdk/android/services/concurrency/PriorityAsyncTask$Executor	role:implements Executor/ThreadFactory；无串/无调用者可依（字段 DW:abcd.ez, j6:java.util.concurrent.Executor，方法 2 个）⇒ 按接口作用命名并编号 2
+uy	abcd/aide/restored/ExecutorImpl3	role:implements Executor/ThreadFactory；无串/无调用者可依（字段 j6:java.util.concurrent.Executor，方法 1 个）⇒ 按接口作用命名并编号 3
+B	abcd/aide/restored/Data1	role:纯字段数据类；无串/无调用者可依（字段 j6:abcd.B$a, DW:java.lang.Object，方法 1 个）⇒ 按接口作用命名并编号 1
+Li	abcd/aide/restored/Data2	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, FH:boolean, j6:int[]，方法 0 个）⇒ 按接口作用命名并编号 2
+Oe	abcd/aide/restored/Data3	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:java.lang.String, Hw:abcd.Pe，方法 2 个）⇒ 按接口作用命名并编号 3
+Rd	abcd/aide/restored/Data4	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:int[], Hw:abcd.La，方法 1 个）⇒ 按接口作用命名并编号 4
+Vs	abcd/aide/restored/Data5	role:纯字段数据类；无串/无调用者可依（字段 DW:abcd.bs, FH:abcd.Ws, j6:abcd.bs，方法 2 个）⇒ 按接口作用命名并编号 5
+Zh	abcd/aide/restored/Data6	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.di，方法 1 个）⇒ 按接口作用命名并编号 6
+ci	abcd/aide/restored/Data7	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:android.app.Activity, Hw:abcd.di，方法 1 个）⇒ 按接口作用命名并编号 7
+ei	abcd/aide/restored/Data8	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.ii，方法 1 个）⇒ 按接口作用命名并编号 8
+ex	abcd/aide/restored/Data9	role:纯字段数据类；无串/无调用者可依（字段 s1:int, s2:int, s3:int, s4:int，方法 0 个）⇒ 按接口作用命名并编号 9
+fi	abcd/aide/restored/Data10	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:android.app.Activity, Hw:abcd.ii，方法 1 个）⇒ 按接口作用命名并编号 10
+fu	abcd/aide/restored/Data11	role:纯字段数据类；无串/无调用者可依（字段 DW:abcd.gu, j6:int，方法 2 个）⇒ 按接口作用命名并编号 11
+gm	abcd/aide/restored/Data12	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean，方法 1 个）⇒ 按接口作用命名并编号 12
+hi	abcd/aide/restored/Data13	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.ii，方法 1 个）⇒ 按接口作用命名并编号 13
+ix	abcd/aide/restored/Data14	role:纯字段数据类；无串/无调用者可依（4 类字段）⇒ 按接口作用命名并编号 14
+jx	abcd/aide/restored/Data15	role:纯字段数据类；无串/无调用者可依（4 类字段）⇒ 按接口作用命名并编号 15
+kc	abcd/aide/restored/Data16	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, FH:boolean, j6:boolean，方法 0 个）⇒ 按接口作用命名并编号 16
+ki	abcd/aide/restored/Data17	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.mi，方法 1 个）⇒ 按接口作用命名并编号 17
+ko	abcd/aide/restored/Data18	role:纯字段数据类；无串/无调用者可依（字段 DW:int, FH:int, j6:boolean[]，方法 1 个）⇒ 按接口作用命名并编号 18
+kx	abcd/aide/restored/Data19	role:纯字段数据类；无串/无调用者可依（4 类字段）⇒ 按接口作用命名并编号 19
+lc	abcd/aide/restored/Data20	role:纯字段数据类；无串/无调用者可依（字段 DW:abcd.lc, FH:boolean, Hw:boolean, j6:java.lang.Object，方法 2 个）⇒ 按接口作用命名并编号 20
+li	abcd/aide/restored/Data21	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.mi，方法 1 个）⇒ 按接口作用命名并编号 21
+lx	abcd/aide/restored/Data22	role:纯字段数据类；无串/无调用者可依（字段 LoadingImageView:int[], LoadingImageView_circleCrop:int, LoadingImageView_imageAspectRatio:int, LoadingImageView_imageAspectRatioAdjust:int，方法 0 个）⇒ 按接口作用命名并编号 22
+mc	abcd/aide/restored/Data23	role:纯字段数据类；无串/无调用者可依（字段 DW:abcd.mc, FH:boolean, Hw:boolean, j6:java.lang.Object，方法 2 个）⇒ 按接口作用命名并编号 23
+mi	abcd/aide/restored/Data24	role:纯字段数据类；无串/无调用者可依（字段 VH:boolean, Zo:boolean, gn:android.app.AlertDialog，方法 1 个）⇒ 按接口作用命名并编号 24
+nk	abcd/aide/restored/Data25	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, FH:boolean, j6:int[]，方法 0 个）⇒ 按接口作用命名并编号 25
+oc	abcd/aide/restored/Data26	role:纯字段数据类；无串/无调用者可依（字段 Zo:boolean, v5:boolean，方法 1 个）⇒ 按接口作用命名并编号 26
+od	abcd/aide/restored/Data27	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:int[], Hw:abcd.La，方法 1 个）⇒ 按接口作用命名并编号 27
+of	abcd/aide/restored/Data28	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:abcd.pf，方法 2 个）⇒ 按接口作用命名并编号 28
+pc	abcd/aide/restored/Data29	role:纯字段数据类；无串/无调用者可依（字段 DW:abcd.pc, FH:boolean, Hw:boolean, j6:java.lang.Object，方法 2 个）⇒ 按接口作用命名并编号 29
+pz	abcd/aide/restored/Data30	role:纯字段数据类；无串/无调用者可依（字段 DW:int, j6:long，方法 1 个）⇒ 按接口作用命名并编号 30
+rc	abcd/aide/restored/Data31	role:纯字段数据类；无串/无调用者可依（字段 DW:abcd.rc, FH:boolean, Hw:boolean, j6:java.lang.Object，方法 2 个）⇒ 按接口作用命名并编号 31
+ve	abcd/aide/restored/Data32	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean，方法 1 个）⇒ 按接口作用命名并编号 32
+ye	abcd/aide/restored/Data33	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, j6:boolean, FH:boolean，方法 1 个）⇒ 按接口作用命名并编号 33
+zj	abcd/aide/restored/Data34	role:纯字段数据类；无串/无调用者可依（字段 DW:boolean, FH:boolean, j6:int[]，方法 0 个）⇒ 按接口作用命名并编号 34

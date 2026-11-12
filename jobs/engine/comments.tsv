@@ -2533,3 +2533,109 @@ c	abcd/ru	-	-	role:注解，唯一成员 field()long
 c	abcd/su	-	-	role:注解，唯一成员 method()long
 c	abcd/_x	-	-	role:两个 Executor 字段 ⇒ 执行器持有者
 c	abcd/Vx	-	-	role:唯一方法收 Exception 返回 void ⇒ 异常上报回调
+c	abcd/Sc	-	-	role:十六进制颜色表 + 构造 Rc 值树 ⇒ CSS 值解析
+c	abcd/Rc	-	-	role:String + 子结构 + 两个标志 ⇒ CSS 值节点
+c	abcd/Rc$a	-	-	role:自引用链表 + 串 <color>/<gradient>/<url> 等 ⇒ CSS 取值关键字
+c	abcd/Rc$b	-	-	role:持 Rc$c 的值项
+c	abcd/Rc$c	-	-	role:List 组成的值部件
+c	abcd/Rc$d	-	-	role:List 组成的值表达式
+c	abcd/dw	-	-	role:Runnable + 串 "files ready for transmission" ⇒ 事件上报线程
+c	abcd/cw	-	-	role:Runnable + 串 "Collected events for 10000ms" ⇒ 事件刷写线程
+c	abcd/ew	-	-	role:网络状态回调 + 串 "Network became available" ⇒ 网络恢复监听
+c	abcd/bw	-	-	role:FilenameFilter + 串 ".json" ⇒ 事件文件过滤
+c	abcd/gw	-	-	role:串 "Probes download took" ⇒ 探针文件下载
+c	abcd/yw	-	-	role:Method 字段 + 串 "BACKBONE" ⇒ Backbone 日志桥
+c	abcd/sw	-	-	role:串 "android.os.SystemProperties" ⇒ 系统属性读取
+c	abcd/qx	-	-	role:串 "Could not load creator class" ⇒ Parcelable Creator 缓存
+c	abcd/vw	-	-	role:串 CONNECTIVITY_CHANGE/ACCESS_NETWORK_STATE ⇒ 网络连通性监听
+c	abcd/vw$a	-	-	role:宿主 ConnectivityMonitor 的内部类；BroadcastReceiver + 字段回调 ⇒ 广播接收器
+c	abcd/tw	-	-	role:RandomAccessFile + FileLock + 串 "rw" ⇒ 文件锁
+c	abcd/jQ	-	-	role:SimpleDateFormat + 串 ISO 模式/UTC ⇒ ISO-8601 格式
+c	abcd/kz	-	-	role:ThreadPoolExecutor 子类 + 串 "Queue" ⇒ 队列线程池
+c	abcd/kz$a	-	-	role:ThreadFactory + 串 "Queue" ⇒ 线程工厂
+c	abcd/Zi	-	-	role:串 "res" + 按名查 int id ⇒ 资源 id 查表
+c	abcd/Qj	-	-	role:Runnable + 串 "Host not found: " ⇒ 下载主机不可达提示
+c	abcd/Pj	-	-	role:Runnable + InterruptedException + 串 "Download error" ⇒ 下载中断提示
+c	abcd/Ij	-	-	role:Runnable + 串 "com.aide.ndk" ⇒ 缺 NDK 提示
+c	abcd/fj	-	-	role:ValueRunnable + 串 "main" ⇒ 主 flavor 名回调
+c	abcd/jf	-	-	role:ValueRunnable + 串 "Create Folder" ⇒ 新建目录
+c	abcd/lf	-	-	role:ValueRunnable + 串 "Create File" ⇒ 新建文件
+c	abcd/ez	-	-	body:AsyncTask 子类 + 四个并发接口 + 串 "Must not add Dependency after" ⇒ fabric PriorityAsyncTask
+c	abcd/gz	-	-	body:FutureTask 子类 + 同四个并发接口 ⇒ fabric PriorityFutureTask
+c	abcd/nu	-	-	role:两个方法都是 (x,y)→int ⇒ 哈希合成
+c	abcd/pq	-	-	role:两个 (int)→boolean 方法 ⇒ int 判定
+c	abcd/_z	-	-	role:方法收 UsageSearchRequest 返回 boolean ⇒ 请求过滤
+c	abcd/rA	-	-	role:与 UsageSearchRequestFilter 同形，按探针名顺序编号
+c	abcd/Zl	-	-	role:MenuItemCommand 的空实现
+c	abcd/Xl	-	-	role:KeyStrokeCommand + 唯一方法返回 String ⇒ 按键命令
+c	abcd/Aj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Bg	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Bj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Bl	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Ej	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Hg	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Jj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Lj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Me	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Oj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/Rj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/_i	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/cf	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/dQ	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/dj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/eQ	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/fQ	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/og	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/pg	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/wj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/xj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/yj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
+c	abcd/fr	-	-	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/lq	-	-	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/nq	-	-	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/qq	-	-	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/gc	-	-	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/hc	-	-	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/jc	-	-	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/sD	-	-	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
+c	abcd/yx	-	-	role:extends Binder + implements IInterface；无身份判据，按作用+序号命名（同族 1 个，序号按探针名排序）
+c	abcd/rx	-	-	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/ux	-	-	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/xx	-	-	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/_x$a	-	-	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/ez$a	-	-	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/uy	-	-	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/B	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Li	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Oe	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Rd	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Vs	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Zh	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ci	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ei	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ex	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/fi	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/fu	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/gm	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/hi	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ix	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/jx	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/kc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ki	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ko	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/kx	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/lc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/li	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/lx	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/mc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/mi	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/nk	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/oc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/od	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/of	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/pc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/pz	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/rc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ve	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/ye	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/zj	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
