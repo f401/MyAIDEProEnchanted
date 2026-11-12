@@ -1,5 +1,5 @@
 tiny	2	0	official	named
-c	abcd/vj	abcd/aide/AssetProvider	auto: 提供者：Asset；src: head 历史补丁（process/truth/head/mappings_head.txt）—— 首轮改名、早于 part 体系，改名已写进基线 jar
+c	abcd/vj	com/aide/ui/services/AssetInstallationService	str:与 AIDE+ 2.3.5 的 AssetInstallationService 共有 22 条串（JavaScriptAPI.js/android.jar/annotations.jar/.jet/.aide）且方法描述符逐个对上；首轮占位名 AssetProvider 据此纠正
 c	abcd/AB$a	org/eclipse/jgit/api/RebaseResult$Status	auto: 类：Status（外层 RebaseResult）；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status
 	m	()Z	Hw	isSuccessful	auto: 是否 Successful；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status#isSuccessful
 	m	(Ljava/lang/String;I)V	<init>	<init>	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseResult$Status#<init>
@@ -27413,6 +27413,11 @@ c	abcd/Gt	abcd/aide/restored/SwitchTableLivenessAnalyzerNextFunction	body:static
 c	abcd/Uo	abcd/aide/restored/SwitchTableVisibility	body:static int[] + 读 Visibility.values() ⇒ 该枚举的 switch 表
 c	abcd/Wy	abcd/aide/restored/SwitchTableAsyncTaskStatus	body:static int[] + 读 ModernAsyncTask$Status.values() ⇒ AsyncTask 状态 switch 表
 c	abcd/hQ	abcd/aide/restored/IStringListenerImpl	body:IStringListener$Stub 的子类 + 字段 gQ，把回调转发 ⇒ 该 AIDL 接口的实现
+c	abcd/sz	io/fabric/sdk/android/services/events/EventTransform	body:toBytes(Object)[B（唯一方法）+ 使用者 EventsFilesManager ⇒ fabric EventTransform
+c	abcd/zz	io/fabric/sdk/android/services/events/GZIPQueueFileEventStorage	body:构造器 4 参与 j6(File)OutputStream 与 fabric GZIPQueueFileEventStorage 完全一致 ⇒ 该事件存储实现
+c	abcd/pc	com/aide/ui/util/FilePatternMatcher	body:单例 + (String,String)Z 匹配方法，与 AIDE+ 2.3.5 同名类字段/方法逐个相同
+c	abcd/oc	com/aide/ui/util/FilePatternMatcher$Pattern	body:FilePatternMatcher 的子类，重写匹配方法 ⇒ 其模式实现
+c	abcd/rc	com/aide/ui/tools/ThreadFactory	body:单例 + makeThread(ThreadGroup,Runnable,String,long) 与 AIDE+ 2.3.5 同名类逐个相同
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

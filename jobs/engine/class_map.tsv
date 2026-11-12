@@ -1118,3 +1118,8 @@ Gt	abcd/aide/restored/SwitchTableLivenessAnalyzerNextFunction	body:唯一字段 
 Uo	abcd/aide/restored/SwitchTableVisibility	body:唯一字段 static final int[]，<clinit> 调 com/aide/engine/Visibility.values() ⇒ Visibility 的 switch 表
 Wy	abcd/aide/restored/SwitchTableAsyncTaskStatus	body:唯一字段 static final int[]，<clinit> 调 ModernAsyncTask$Status.values() ⇒ fabric AsyncTask 状态的 switch 表
 hQ	abcd/aide/restored/IStringListenerImpl	body:extends cQ$a(=IStringListener$Stub)，构造器收 tv/ouya/console/api/k，字段 gQ；三个方法 Mr/j6/onCancel 转发到 gQ ⇒ IStringListener 的实现（由 bQ 的 Proxy 使用）
+sz	io/fabric/sdk/android/services/events/EventTransform	body:唯一方法 j6(Object)[B，与 fabric 1.4.8 的 io/fabric/sdk/android/services/events/EventTransform.toBytes(Object)[B 描述符完全一致；唯一使用者是 EventsFilesManager ⇒ EventTransform
+zz	io/fabric/sdk/android/services/events/GZIPQueueFileEventStorage	body:构造器 (Context,File,String,String) + 唯一方法 j6(File)OutputStream，与 fabric 1.4.8 的 GZIPQueueFileEventStorage 逐个相同（其父类 QueueFileEventStorage 的 getMoveOutputStream 形状一致）⇒ 该实现
+pc	com/aide/ui/util/FilePatternMatcher	body:字段 (自身单例,Z,Z,Object) + 方法 j6()pc 与 j6(String,String)Z，与 AIDE+ 2.3.5 的 com/aide/ui/util/FilePatternMatcher（getSingleton + 匹配方法，字段 exceptionEnabled/parametersEnabled ↔ Z,Z）逐个相同 ⇒ FilePatternMatcher
+oc	com/aide/ui/util/FilePatternMatcher$Pattern	body:extends pc(=FilePatternMatcher)，字段 Z,Z，重写 j6(String,String)Z；与 oracle 的 FilePatternMatcher$a（同样 extends FilePatternMatcher、同样两标志一方法）一致 ⇒ 其模式实现（外层同批映射）
+rc	com/aide/ui/tools/ThreadFactory	body:字段 (自身单例,Z,Z,Object) + 方法 j6()rc 与 j6(ThreadGroup,Runnable,String,J)Thread，与 AIDE+ 2.3.5 的 com/aide/ui/tools/ThreadFactory（getSingleton/makeThread）逐个相同 ⇒ ThreadFactory

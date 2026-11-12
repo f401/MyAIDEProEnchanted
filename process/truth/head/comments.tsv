@@ -1,2 +1,2 @@
 # 注释表：kind(c=类/m=方法/f=字段) \t owner(探针全名) \t name \t desc \t 注释
-c	abcd/vj	-	-	auto: 提供者：Asset；src: head 历史补丁（process/truth/head/mappings_head.txt）—— 首轮改名、早于 part 体系，改名已写进基线 jar
+c	abcd/vj	-	-	str:与 AIDE+ 2.3.5 的 AssetInstallationService 共有 22 条串（JavaScriptAPI.js/android.jar/annotations.jar/.jet/.aide）且方法描述符逐个对上；首轮占位名 AssetProvider 据此纠正

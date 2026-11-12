@@ -1,5 +1,5 @@
 tsrg2 obf deobf
-abcd/vj abcd/aide/AssetProvider
+abcd/vj com/aide/ui/services/AssetInstallationService
 abcd/AB$a org/eclipse/jgit/api/RebaseResult$Status
 	Hw ()Z isSuccessful
 	<init> (Ljava/lang/String;I)V <init>
@@ -28854,6 +28854,11 @@ abcd/Gt abcd/aide/restored/SwitchTableLivenessAnalyzerNextFunction
 abcd/Uo abcd/aide/restored/SwitchTableVisibility
 abcd/Wy abcd/aide/restored/SwitchTableAsyncTaskStatus
 abcd/hQ abcd/aide/restored/IStringListenerImpl
+abcd/sz io/fabric/sdk/android/services/events/EventTransform
+abcd/zz io/fabric/sdk/android/services/events/GZIPQueueFileEventStorage
+abcd/pc com/aide/ui/util/FilePatternMatcher
+abcd/oc com/aide/ui/util/FilePatternMatcher$Pattern
+abcd/rc com/aide/ui/tools/ThreadFactory
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

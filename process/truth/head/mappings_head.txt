@@ -1,1 +1,1 @@
-abcd/vj abcd/aide/AssetProvider
+abcd/vj com/aide/ui/services/AssetInstallationService
