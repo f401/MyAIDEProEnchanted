@@ -23,8 +23,19 @@
 | 5 | **接口作用 + 序号**（同族无区分信息） | `MenuItemCommandImpl1..N`、`RunnableTask1..N` |
 | 6 | **字段/方法形状**（无接口、无串） | `IntArrays`、`UuidFormatter`、`ByteArrayWriter` |
 
-编号规则：同一族（同一接口/同一形状）按**探针名字典序**编号，保证可复现；
-证据列里写明"同族 N 个，序号按探针名排序"。
+**先看引用关系，再看形状**（2026-11 修订，用户要求）：
+
+1. **谁用它**（`refs.txt`：哪些类把它当字段类型/参数/返回值/被调方）；
+2. **它调谁**（常量池里的方法/字段引用，能翻译成真名的先翻译）；
+3. 两条都指向**同一个具体角色**时才取名，例如
+   * `Oz` 的唯一使用者是 `FileStoreImpl`、形状恰好是 `interface File getFile()` ⇒ fabric 的 `FileStore`（真名）；
+   * `Dz` 的 `<clinit>` 读 `HttpMethod.values()` ⇒ `SwitchTableHttpMethod`；
+   * `kf` 的使用者是 `CreateFolderValueRunnable` 且调 `FileSystemUtils` ⇒ `CreateFolderCommand`。
+4. **引用关系只给出「某子系统的一个 Runnable/命令」这种程度时，不取名**（回到留白）。
+   这一轮把此前按形状编号的 83 个名字（`RunnableTask1`、`Data14`、`MenuCommandImpl3`…）
+   **全部删掉**——它们只是把 `abcd/X` 换成另一个没有信息量的名字，属于「模棱两可的名字」；
+   同时把 18 个有明确引用关系的改成具体名（`LessonRunnerRunnable`、`DownloadExtractRunnable`、
+   `LicenseCheckerResult`、`DialogFactory`、`IntSetIterator`、`CreateFolderCommand`…）。
 
 ## 3. 明确**不**命名的四类（当前 202 个未映射类的主体）
 
@@ -51,7 +62,7 @@
 ## 5. 当前基线（2026-11）
 
 ```
-类 5075 / 方法 19215 / 字段 9733 / 参数 21825 / 注释 34023（= 5075+19215+9733）
+类 5000 / 方法 19215 / 字段 9733 / 参数 21825 / 注释 33948（= 5000+19215+9733）
 TSRG2 57960 行；memberaudit 可校验 1125 / 无 oracle 268 / 可疑 0
-本轮 +200 类（4875 → 5075），未映射 402 → 202
+4875 → 5075 之后按引用关系复核：删 83 个模棱两可名、改 18 个、新增 8 个 ⇒ 5000 类；未映射 402 → 277
 ```
