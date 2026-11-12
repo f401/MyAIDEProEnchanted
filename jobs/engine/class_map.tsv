@@ -920,3 +920,58 @@ yr	com/aide/engine/DexOverflowCheckerAnon18	role:被 DexOverflowChecker 唯一�
 zb	com/aide/codemodel/language/java/JavaCompilerAnon1	role:被 JavaCompiler 唯一实例化；无接口/父类判据 ⇒ JavaCompilerAnon1（结构性）
 zr	com/aide/engine/DexOverflowCheckerAnon19	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon19（结构性）
 zt	com/aide/engine/SsaRenamerAnon2	role:被 SsaRenamer 唯一实例化；实现/继承 Anon2 ⇒ SsaRenamerAnon2
+An	com/aide/engine/DexEncodedValueClassFileReaderArrayItem	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 ArrayItem
+Dr$a	com/aide/engine/DexOverflowCheckerAnon1$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Fa$a	com/aide/codemodel/api/ModelAnon1$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Fa$b	com/aide/codemodel/api/ModelAnon1$Anon2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Fa$c	com/aide/codemodel/api/ModelAnon1$Anon3	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Fr$a	com/aide/engine/DexOverflowCheckerAnon2$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Jx	com/aide/engine/TryWithResourcesDesugaringAnon1Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+K$a	com/aide/engine/CachedProjectAnon1$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Mx$$ExternalSyntheticBackport0	com/aide/engine/TryWithResourcesDesugaringAnon2$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Nc	com/aide/codemodel/language/xml/XmlToolsAnon2Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+O$a	com/aide/engine/CachedProjectAnon4$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Rt	com/aide/engine/DexFileReader$Anon1Anon5Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Uj	abcd/aide/engine/EngineServiceClientImplicitOutputStreamAnon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Vj	abcd/aide/engine/EngineServiceClientImplicitOutputStreamAnon2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Xx	com/aide/engine/TaskUtilsAnon1Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+Zt	com/aide/engine/CodeWriterImplAnon1Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+_p$a	com/aide/engine/DexFileReader$Anon1Anon4$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+_p$b	com/aide/engine/DexFileReader$Anon1Anon4$Anon2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+by	com/aide/engine/TaskUtilsAnon1Anon2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+ca$a	com/aide/engine/CachedProjectAnon11$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+de	com/aide/codemodel/language/xml/XmlToolsAnon2Anon2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+dy	com/aide/engine/TaskUtilsAnon1Anon3	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+fe$a	com/aide/codemodel/language/html/HtmlCodeModelAnon1$DtdCodeModelAnon3	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 DtdCodeModelAnon3
+fl	abcd/aide/engine/ModifyFilesActionAnon1Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+fy	com/aide/engine/TaskUtilsAnon1Anon4	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+ge	com/aide/codemodel/language/xml/XmlToolsAnon2Anon3	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+gl	abcd/aide/engine/ModifyFilesActionAnon1Anon2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+hy	com/aide/engine/TaskUtilsAnon1Anon5	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+il	abcd/aide/engine/ModifyFilesActionAnon1Anon3	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+ir$a	com/aide/engine/TableOfContentsAnon1$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+jl	abcd/aide/engine/ModifyFilesActionAnon1Anon4	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+jy	com/aide/engine/TaskUtilsAnon1Anon6	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+kl	abcd/aide/engine/ModifyFilesActionAnon1Anon5	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+lh	com/aide/ui/ExportApkDialogPreprocessorAnon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+ll	abcd/aide/engine/ModifyFilesActionAnon1Anon6	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+ly	com/aide/engine/TaskUtilsAnon1Anon7	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+mh	com/aide/ui/ExportApkDialogPreprocessorAnon2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+nh	com/aide/ui/ExportApkDialogPreprocessorAnon3	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+ni	com/aide/ui/actions/ReplaceTextuallyActionPreprocessorAnon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+oh	com/aide/ui/ExportApkDialogPreprocessorAnon4	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+oi	com/aide/ui/actions/ReplaceTextuallyActionPreprocessorAnon2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+oy	com/aide/engine/TaskUtilsAnon1Anon8	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+pi	com/aide/ui/actions/ReplaceTextuallyActionPreprocessorAnon3	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+qh	com/aide/ui/ExportApkDialogPreprocessorAnon5	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+qi	com/aide/ui/actions/ReplaceTextuallyActionPreprocessorAnon4	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+rh$a	com/aide/ui/ExportApkDialogPreprocessor$Anon6	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+ri	com/aide/ui/actions/ReplaceTextuallyActionPreprocessorAnon5	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+sf	com/aide/ui/actions/FilesDeleteActionRunnableAnon1Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+si	com/aide/ui/actions/ReplaceTextuallyActionPreprocessorAnon6	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+tf	com/aide/ui/actions/FilesDeleteActionRunnableAnon1Anon2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+ti	com/aide/ui/actions/ReplaceTextuallyActionPreprocessorAnon7	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+ub$a	com/aide/codemodel/language/js/JavaScriptCodeAnalyzer$Anon1Anon1$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+yb$a	com/aide/codemodel/language/java/JavaSignatureAnalyzer$a$aEntity$Anon1	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+yr$a	com/aide/engine/DexOverflowCheckerAnon18$Anon1Anon6	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 Anon1Anon6
+zn	com/aide/engine/DexEncodedValueClassFileReaderEncodedMember2	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 EncodedMember

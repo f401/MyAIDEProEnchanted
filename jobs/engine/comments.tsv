@@ -2423,3 +2423,58 @@ c	abcd/yr	-	-	role:被 DexOverflowChecker 唯一实例化；无接口/父类判�
 c	abcd/zb	-	-	role:被 JavaCompiler 唯一实例化；无接口/父类判据 ⇒ JavaCompilerAnon1（结构性）
 c	abcd/zr	-	-	role:被 DexOverflowChecker 唯一实例化；无接口/父类判据 ⇒ DexOverflowCheckerAnon19（结构性）
 c	abcd/zt	-	-	role:被 SsaRenamer 唯一实例化；实现/继承 Anon2 ⇒ SsaRenamerAnon2
+c	abcd/An	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 ArrayItem
+c	abcd/Dr$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Fa$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Fa$b	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Fa$c	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Fr$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Jx	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/K$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Mx$$ExternalSyntheticBackport0	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Nc	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/O$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Rt	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Uj	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Vj	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Xx	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/Zt	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/_p$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/_p$b	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/by	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/ca$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/de	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/dy	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/fe$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 DtdCodeModelAnon3
+c	abcd/fl	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/fy	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/ge	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/gl	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/hy	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/il	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/ir$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/jl	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/jy	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/kl	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/lh	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/ll	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/ly	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/mh	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/nh	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/ni	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/oh	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/oi	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/oy	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/pi	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/qh	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/qi	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/rh$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/ri	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/sf	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/si	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/tf	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/ti	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/ub$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/yb$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；无接口/父类判据（结构性序号）
+c	abcd/yr$a	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 Anon1Anon6
+c	abcd/zn	-	-	role:'+('内部类，外层已映射' if r[3] else '被宿主唯一实例化')+f'；实现/继承 EncodedMember
