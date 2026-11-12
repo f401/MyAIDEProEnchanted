@@ -47,6 +47,12 @@ python3 tools/deob/cli.py -p jobs/mylib/deob.json status     # 看路径 + 隔�
 ```
 （探针包前缀 `probe_prefix` 决定 `zz/X` 这类类名怎么拼。）
 
+> ⚠️ **新增 part 要登记两处**：`process/deob.json` 的 `parts`（通用 kit 用），
+> 以及 `tools/jgit/paths.py` 里那份**硬编码的 `PART_DIRS`**（pipeline 的汇总顺序用它）。
+> 只改前者的话，`rebuild_tsrg` 会静默跳过这个 part（日志里 part 数不变），
+> 表现是"写了映射但类数不涨"。第一列写全名（`com/aide/ui/U`）时 `probe_prefix` 只在
+> 裸名兜底时才用得到。
+
 顺手补两个可选键：
 
 | 键 | 作用 |
