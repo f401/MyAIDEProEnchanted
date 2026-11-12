@@ -711,3 +711,5 @@ za$e	abcd/aide/JarPackager$Anon5	role:宿主 JarPackager 的第 5 个内部类�
 zd$a	com/aide/engine/ExtractMethodRefactoring$Anon1	role:宿主 ExtractMethodRefactoring 的第 1 个内部类，无接口/父类/字符串判据 ⇒ 按宿主内序号命名（结构性，不含语义）
 Gk	com/aide/engine/ExternalProcess	body:protected java.lang.Process 字段 + List<ActivityManager$RunningAppProcessInfo> + Runtime.getRuntime()/System.currentTimeMillis 调用 ⇒ 外部命令进程的封装（启动/跟踪）
 De	com/aide/ui/util/Version	body:构造 (String) + compareTo/equals/hashCode + 静态工厂 j6(boolean,String)；内部类 De\$d 含 alpha/beta/milestone 通道常量 ⇒ 可比较的版本号模型
+Ch	com/aide/ui/InputMethodDialog	body:extends com.aide.common.ma（对话框基类）+ AlertDialog.Builder 构建 + 字面量 "input_method" ⇒ 打开/选择输入法的对话框
+El	com/aide/ui/editor/TypingAssist	body:两个静态方法 j6(AIDEEditor,char,int,int)/j6(AIDEEditor,int,int,int) 返回 boolean，内部调 AIDEEditor.EQ/FH/Hw/gn/u7 与 String.endsWith，字面量 "{ }" ⇒ 编辑器的输入辅助（括号/缩进）

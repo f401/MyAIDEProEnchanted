@@ -27006,6 +27006,8 @@ c	abcd/za$e	abcd/aide/JarPackager$Anon5	role:宿主 JarPackager 的第 5 个内�
 c	abcd/zd$a	com/aide/engine/ExtractMethodRefactoring$Anon1	role:宿主 ExtractMethodRefactoring 的第 1 个内部类，无接口/父类/字符串判据 ⇒ 按宿主内序号命名（结构性，不含语义）
 c	abcd/Gk	com/aide/engine/ExternalProcess	body:protected java.lang.Process 字段 + List<ActivityManager$RunningAppProcessInfo> + Runtime.getRuntime()/System.currentTimeMillis 调用 ⇒ 外部命令进程的封装（启动/跟踪）
 c	abcd/De	com/aide/ui/util/Version	body:构造 (String) + compareTo/equals/hashCode + 静态工厂 j6(boolean,String)；内部类 De\\$d 含 alpha/beta/milestone 通道常量 ⇒ 可比较的版本号模型
+c	abcd/Ch	com/aide/ui/InputMethodDialog	body:extends com.aide.common.ma（对话框基类）+ AlertDialog.Builder 构建 + 字面量 "input_method" ⇒ 打开/选择输入法的对话框
+c	abcd/El	com/aide/ui/editor/TypingAssist	body:两个静态方法 j6(AIDEEditor,char,int,int)/j6(AIDEEditor,int,int,int) 返回 boolean，内部调 AIDEEditor.EQ/FH/Hw/gn/u7 与 String.endsWith，字面量 "{ }" ⇒ 编辑器的输入辅助（括号/缩进）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
