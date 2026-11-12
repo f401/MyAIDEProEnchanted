@@ -2568,109 +2568,26 @@ c	abcd/_z	-	-	role:方法收 UsageSearchRequest 返回 boolean ⇒ 请求过滤
 c	abcd/rA	-	-	role:与 UsageSearchRequestFilter 同形，按探针名顺序编号
 c	abcd/Zl	-	-	role:MenuItemCommand 的空实现
 c	abcd/Xl	-	-	role:KeyStrokeCommand + 唯一方法返回 String ⇒ 按键命令
-c	abcd/Aj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Bg	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Bj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Bl	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Ej	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Hg	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Jj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Lj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Me	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Oj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Rj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/_i	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/cf	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/dQ	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/dj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/eQ	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/fQ	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/og	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/pg	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/wj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/xj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/yj	-	-	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/fr	-	-	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/lq	-	-	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/nq	-	-	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/qq	-	-	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/gc	-	-	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/hc	-	-	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/jc	-	-	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/sD	-	-	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/yx	-	-	role:extends Binder + implements IInterface；无身份判据，按作用+序号命名（同族 1 个，序号按探针名排序）
-c	abcd/rx	-	-	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
-c	abcd/ux	-	-	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
-c	abcd/xx	-	-	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/Bl	-	-	role:被引用关系定作用——唯一非样板调用是 com/aide/trainer/LessonRunner.nw，且无其它使用点 ⇒ 课程运行器的 Runnable
+c	abcd/Ej	-	-	role:被引用关系定作用——new DownloadTaskDialog + 调 Preprocessor.j6 ⇒ 预处理后弹下载框的 Runnable
+c	abcd/Jj	-	-	role:被引用关系定作用——唯一使用者是 Kj$a（下载解包任务，串 Downloading/Extracting），run() 调 Kj.j6 回调 ⇒ 下载解包任务的 Runnable
+c	abcd/Lj	-	-	role:被引用关系定作用——唯一使用者是 Kj$b（串 .aar/.jar/.pom 的 maven 任务），run() 调 Kj.j6 ⇒ maven 下载任务的 Runnable
+c	abcd/_i	-	-	role:被引用关系定作用——唯一非样板调用是 MavenDependencyResolver ⇒ 解析 maven 依赖的 Runnable
+c	abcd/dQ	-	-	role:被引用关系定作用——使用者 gQ（OUYA 购买回调）且 run() 调 k.j6 ⇒ 购买结果回调 Runnable
+c	abcd/dj	-	-	role:被引用关系定作用——使用者是 CreateFlavorValueRunnable（创建 flavor 回调）与 BuildFlavorAddedRunnable ⇒ 创建 flavor 的 Runnable
+c	abcd/fQ	-	-	role:被引用关系定作用——使用者 gQ（OUYA 购买回调）且 run() 调 k.onCancel ⇒ 购买取消回调 Runnable
 c	abcd/_x$a	-	-	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
 c	abcd/ez$a	-	-	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
-c	abcd/uy	-	-	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
-c	abcd/B	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Li	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Oe	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Rd	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Vs	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Zh	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ci	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ei	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ex	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/fi	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/fu	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/gm	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/hi	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ix	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/jx	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/kc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ki	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ko	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/kx	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/lc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/li	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/lx	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/mc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/mi	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/nk	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/oc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/od	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/of	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/pc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/pz	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/rc	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ve	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ye	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/zj	-	-	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Bf	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Cg	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Df	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Ff	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Ig	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Lf	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Ne	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Of	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Pe	-	-	role:Jl 实现（无身份判据，序号按探针名排序）
-c	abcd/Pf	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Pg	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Qe	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Qf	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Sf	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Sg	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Uf	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Wg	-	-	role:Jl 实现（无身份判据，序号按探针名排序）
-c	abcd/Yg	-	-	role:Jl 实现（无身份判据，序号按探针名排序）
-c	abcd/Zg	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/ch	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/df	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/dh	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/ef	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/ff	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/fh	-	-	role:Jl 实现（无身份判据，序号按探针名排序）
-c	abcd/gh	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/jg	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/kf	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/mf	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/pf	-	-	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/qg	-	-	role:Jl 实现（无身份判据，序号按探针名排序）
-c	abcd/sg	-	-	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/uy	-	-	role:被引用关系定作用——implements Executor + 直接 Runnable.run，唯一使用者 ty ⇒ 串行执行器
+c	abcd/B	-	-	role:被引用关系定作用——字段 Object + 方法 j6()Object，被 B$a..d 四个内部类使用 ⇒ 对象供给（get）
+c	abcd/Li	-	-	role:被引用关系定作用——唯一使用者 LicenseChecker，字段来自 f$a.values()（枚举序）⇒ 授权校验结果表
+c	abcd/Rd	-	-	role:被引用关系定作用——使用者 HtmlCodeModel/JavaScriptCodeModel，方法调 SyntaxTree.declareNode ⇒ Web 语言语法树构造
+c	abcd/fu	-	-	role:被引用关系定作用——使用者 gu，方法 hasNext/next 调 IntSet.size/get ⇒ IntSet 的迭代器
+c	abcd/mi	-	-	role:被引用关系定作用——字段 AlertDialog，方法 j6(Activity)Dialg + 调 Activity.getResources/Resources ⇒ 对话框工厂
+c	abcd/od	-	-	role:被引用关系定作用——使用者 JavaCodeModel/JavaBinaryCodeModel，方法调 SyntaxTree.declareNode ⇒ Java 语法树构造
+c	abcd/ye	-	-	role:被引用关系定作用——唯一使用者 RunTargetMenu，纯字段无方法 ⇒ 运行目标菜单的配置数据
+c	abcd/kf	-	-	role:被引用关系定作用——使用者 CreateFolderValueRunnable（新建目录回调），且调 FileSystemUtils ⇒ 新建目录命令
+c	abcd/mf	-	-	role:被引用关系定作用——使用者 CreateFileValueRunnable（新建文件回调），且调 FileSystemUtils ⇒ 新建文件命令
 c	abcd/Ry	-	-	role:interface (Context,Sy)→Object ⇒ 取值解析
 c	abcd/Sy	-	-	role:interface (Context)→Object ⇒ 键
 c	abcd/Py	-	-	role:持 ValueResolver + Context 存取 ⇒ 键值存储
@@ -2696,3 +2613,11 @@ c	abcd/II	-	-	role:与 CollectionConsumer 同形 ⇒ 第二个消费者接口
 c	abcd/HI	-	-	role:CollectionConsumer2 的实现
 c	abcd/KI	-	-	role:四个重载的集合消费者接口
 c	abcd/JI	-	-	role:CollectionConsumer3 的实现
+c	abcd/Il	-	-	body:空接口，被四个命令接口继承 ⇒ 命令基接口 Command
+c	abcd/Oz	-	-	body:interface File getFile()，唯一使用者 FileStoreImpl ⇒ fabric 的 FileStore（按引用关系定名）
+c	abcd/Dz	-	-	body:static int[] + <clinit> 读 HttpMethod.values() ⇒ HttpMethod 的 switch 表
+c	abcd/Ep	-	-	body:static int[] + 读 DexFileWriter$Type.values() ⇒ 该枚举的 switch 表
+c	abcd/Gt	-	-	body:static int[] + 读 LivenessAnalyzer$NextFunction.values() ⇒ 该枚举的 switch 表
+c	abcd/Uo	-	-	body:static int[] + 读 Visibility.values() ⇒ 该枚举的 switch 表
+c	abcd/Wy	-	-	body:static int[] + 读 ModernAsyncTask$Status.values() ⇒ AsyncTask 状态 switch 表
+c	abcd/hQ	-	-	body:IStringListener$Stub 的子类 + 字段 gQ，把回调转发 ⇒ 该 AIDL 接口的实现

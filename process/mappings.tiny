@@ -27360,109 +27360,26 @@ c	abcd/_z	abcd/aide/restored/UsageSearchRequestFilter	role:方法收 UsageSearch
 c	abcd/rA	abcd/aide/restored/UsageSearchRequestFilter2	role:与 UsageSearchRequestFilter 同形，按探针名顺序编号
 c	abcd/Zl	abcd/aide/restored/NoOpMenuItemCommand	role:MenuItemCommand 的空实现
 c	abcd/Xl	abcd/aide/restored/PlainKeyStrokeCommand	role:KeyStrokeCommand + 唯一方法返回 String ⇒ 按键命令
-c	abcd/Aj	abcd/aide/restored/RunnableTask1	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Bg	abcd/aide/restored/RunnableTask2	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Bj	abcd/aide/restored/RunnableTask3	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Bl	abcd/aide/restored/RunnableTask4	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Ej	abcd/aide/restored/RunnableTask5	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Hg	abcd/aide/restored/RunnableTask6	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Jj	abcd/aide/restored/RunnableTask7	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Lj	abcd/aide/restored/RunnableTask8	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Me	abcd/aide/restored/RunnableTask9	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Oj	abcd/aide/restored/RunnableTask10	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/Rj	abcd/aide/restored/RunnableTask11	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/_i	abcd/aide/restored/RunnableTask12	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/cf	abcd/aide/restored/RunnableTask13	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/dQ	abcd/aide/restored/RunnableTask14	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/dj	abcd/aide/restored/RunnableTask15	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/eQ	abcd/aide/restored/RunnableTask16	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/fQ	abcd/aide/restored/RunnableTask17	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/og	abcd/aide/restored/RunnableTask18	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/pg	abcd/aide/restored/RunnableTask19	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/wj	abcd/aide/restored/RunnableTask20	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/xj	abcd/aide/restored/RunnableTask21	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/yj	abcd/aide/restored/RunnableTask22	role:implements java/lang/Runnable；无身份判据，按作用+序号命名（同族 22 个，序号按探针名排序）
-c	abcd/fr	abcd/aide/restored/ComparableImpl1	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/lq	abcd/aide/restored/ComparableImpl2	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/nq	abcd/aide/restored/ComparableImpl3	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/qq	abcd/aide/restored/ComparableImpl4	role:implements java/lang/Comparable；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/gc	abcd/aide/restored/ExceptionSub1	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/hc	abcd/aide/restored/ExceptionSub2	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/jc	abcd/aide/restored/ExceptionSub3	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/sD	abcd/aide/restored/ExceptionSub4	role:extends Exception；无身份判据，按作用+序号命名（同族 4 个，序号按探针名排序）
-c	abcd/yx	abcd/aide/restored/BinderStub1	role:extends Binder + implements IInterface；无身份判据，按作用+序号命名（同族 1 个，序号按探针名排序）
-c	abcd/rx	abcd/aide/restored/AidlInterface1	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
-c	abcd/ux	abcd/aide/restored/AidlInterface2	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
-c	abcd/xx	abcd/aide/restored/AidlInterface3	role:implements android/os/IInterface；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
+c	abcd/Bl	abcd/aide/restored/LessonRunnerRunnable	role:被引用关系定作用——唯一非样板调用是 com/aide/trainer/LessonRunner.nw，且无其它使用点 ⇒ 课程运行器的 Runnable
+c	abcd/Ej	abcd/aide/restored/PreprocessDownloadRunnable	role:被引用关系定作用——new DownloadTaskDialog + 调 Preprocessor.j6 ⇒ 预处理后弹下载框的 Runnable
+c	abcd/Jj	abcd/aide/restored/DownloadExtractRunnable	role:被引用关系定作用——唯一使用者是 Kj$a（下载解包任务，串 Downloading/Extracting），run() 调 Kj.j6 回调 ⇒ 下载解包任务的 Runnable
+c	abcd/Lj	abcd/aide/restored/MavenDownloadRunnable	role:被引用关系定作用——唯一使用者是 Kj$b（串 .aar/.jar/.pom 的 maven 任务），run() 调 Kj.j6 ⇒ maven 下载任务的 Runnable
+c	abcd/_i	abcd/aide/restored/MavenDependencyRunnable	role:被引用关系定作用——唯一非样板调用是 MavenDependencyResolver ⇒ 解析 maven 依赖的 Runnable
+c	abcd/dQ	abcd/aide/restored/PurchaseResultRunnable	role:被引用关系定作用——使用者 gQ（OUYA 购买回调）且 run() 调 k.j6 ⇒ 购买结果回调 Runnable
+c	abcd/dj	abcd/aide/restored/CreateFlavorRunnable	role:被引用关系定作用——使用者是 CreateFlavorValueRunnable（创建 flavor 回调）与 BuildFlavorAddedRunnable ⇒ 创建 flavor 的 Runnable
+c	abcd/fQ	abcd/aide/restored/PurchaseCancelRunnable	role:被引用关系定作用——使用者 gQ（OUYA 购买回调）且 run() 调 k.onCancel ⇒ 购买取消回调 Runnable
 c	abcd/_x$a	abcd/aide/restored/ExecutorHolder$Executor	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
 c	abcd/ez$a	io/fabric/sdk/android/services/concurrency/PriorityAsyncTask$Executor	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
-c	abcd/uy	abcd/aide/restored/ExecutorImpl3	role:implements Executor/ThreadFactory；无身份判据，按作用+序号命名（同族 3 个，序号按探针名排序）
-c	abcd/B	abcd/aide/restored/Data1	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Li	abcd/aide/restored/Data2	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Oe	abcd/aide/restored/Data3	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Rd	abcd/aide/restored/Data4	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Vs	abcd/aide/restored/Data5	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Zh	abcd/aide/restored/Data6	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ci	abcd/aide/restored/Data7	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ei	abcd/aide/restored/Data8	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ex	abcd/aide/restored/Data9	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/fi	abcd/aide/restored/Data10	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/fu	abcd/aide/restored/Data11	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/gm	abcd/aide/restored/Data12	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/hi	abcd/aide/restored/Data13	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ix	abcd/aide/restored/Data14	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/jx	abcd/aide/restored/Data15	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/kc	abcd/aide/restored/Data16	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ki	abcd/aide/restored/Data17	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ko	abcd/aide/restored/Data18	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/kx	abcd/aide/restored/Data19	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/lc	abcd/aide/restored/Data20	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/li	abcd/aide/restored/Data21	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/lx	abcd/aide/restored/Data22	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/mc	abcd/aide/restored/Data23	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/mi	abcd/aide/restored/Data24	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/nk	abcd/aide/restored/Data25	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/oc	abcd/aide/restored/Data26	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/od	abcd/aide/restored/Data27	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/of	abcd/aide/restored/Data28	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/pc	abcd/aide/restored/Data29	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/pz	abcd/aide/restored/Data30	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/rc	abcd/aide/restored/Data31	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ve	abcd/aide/restored/Data32	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/ye	abcd/aide/restored/Data33	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/zj	abcd/aide/restored/Data34	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
-c	abcd/Bf	abcd/aide/restored/MenuItemCommandImpl1	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Cg	abcd/aide/restored/MenuCommandImpl1	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Df	abcd/aide/restored/MenuCommandImpl2	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Ff	abcd/aide/restored/MenuItemCommandImpl2	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Ig	abcd/aide/restored/MenuItemCommandImpl3	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Lf	abcd/aide/restored/MenuItemCommandImpl4	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Ne	abcd/aide/restored/MenuCommandImpl3	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Of	abcd/aide/restored/MenuItemCommandImpl5	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Pe	abcd/aide/restored/FileBrowserCommandImpl1	role:Jl 实现（无身份判据，序号按探针名排序）
-c	abcd/Pf	abcd/aide/restored/MenuCommandImpl4	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Pg	abcd/aide/restored/MenuItemCommandImpl6	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Qe	abcd/aide/restored/MenuCommandImpl5	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Qf	abcd/aide/restored/MenuItemCommandImpl7	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Sf	abcd/aide/restored/MenuItemCommandImpl8	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Sg	abcd/aide/restored/MenuCommandImpl6	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/Uf	abcd/aide/restored/MenuItemCommandImpl9	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/Wg	abcd/aide/restored/FileBrowserCommandImpl2	role:Jl 实现（无身份判据，序号按探针名排序）
-c	abcd/Yg	abcd/aide/restored/FileBrowserCommandImpl3	role:Jl 实现（无身份判据，序号按探针名排序）
-c	abcd/Zg	abcd/aide/restored/MenuItemCommandImpl10	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/ch	abcd/aide/restored/MenuCommandImpl7	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/df	abcd/aide/restored/MenuItemCommandImpl11	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/dh	abcd/aide/restored/MenuCommandImpl8	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/ef	abcd/aide/restored/MenuItemCommandImpl12	role:Yl 实现（无身份判据，序号按探针名排序）
-c	abcd/ff	abcd/aide/restored/MenuCommandImpl9	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/fh	abcd/aide/restored/FileBrowserCommandImpl4	role:Jl 实现（无身份判据，序号按探针名排序）
-c	abcd/gh	abcd/aide/restored/MenuCommandImpl10	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/jg	abcd/aide/restored/MenuCommandImpl11	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/kf	abcd/aide/restored/MenuCommandImpl12	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/mf	abcd/aide/restored/MenuCommandImpl13	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/pf	abcd/aide/restored/MenuCommandImpl14	role:_l 实现（无身份判据，序号按探针名排序）
-c	abcd/qg	abcd/aide/restored/FileBrowserCommandImpl5	role:Jl 实现（无身份判据，序号按探针名排序）
-c	abcd/sg	abcd/aide/restored/MenuItemCommandImpl13	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/uy	abcd/aide/restored/SerialExecutor	role:被引用关系定作用——implements Executor + 直接 Runnable.run，唯一使用者 ty ⇒ 串行执行器
+c	abcd/B	abcd/aide/restored/ObjectSupplier	role:被引用关系定作用——字段 Object + 方法 j6()Object，被 B$a..d 四个内部类使用 ⇒ 对象供给（get）
+c	abcd/Li	abcd/aide/restored/LicenseCheckerResult	role:被引用关系定作用——唯一使用者 LicenseChecker，字段来自 f$a.values()（枚举序）⇒ 授权校验结果表
+c	abcd/Rd	abcd/aide/restored/WebSyntaxTreeBuilder	role:被引用关系定作用——使用者 HtmlCodeModel/JavaScriptCodeModel，方法调 SyntaxTree.declareNode ⇒ Web 语言语法树构造
+c	abcd/fu	abcd/aide/restored/IntSetIterator	role:被引用关系定作用——使用者 gu，方法 hasNext/next 调 IntSet.size/get ⇒ IntSet 的迭代器
+c	abcd/mi	abcd/aide/restored/DialogFactory	role:被引用关系定作用——字段 AlertDialog，方法 j6(Activity)Dialg + 调 Activity.getResources/Resources ⇒ 对话框工厂
+c	abcd/od	abcd/aide/restored/JavaSyntaxTreeBuilder	role:被引用关系定作用——使用者 JavaCodeModel/JavaBinaryCodeModel，方法调 SyntaxTree.declareNode ⇒ Java 语法树构造
+c	abcd/ye	abcd/aide/restored/RunTargetConfig	role:被引用关系定作用——唯一使用者 RunTargetMenu，纯字段无方法 ⇒ 运行目标菜单的配置数据
+c	abcd/kf	abcd/aide/restored/CreateFolderCommand	role:被引用关系定作用——使用者 CreateFolderValueRunnable（新建目录回调），且调 FileSystemUtils ⇒ 新建目录命令
+c	abcd/mf	abcd/aide/restored/CreateFileCommand	role:被引用关系定作用——使用者 CreateFileValueRunnable（新建文件回调），且调 FileSystemUtils ⇒ 新建文件命令
 c	abcd/Ry	abcd/aide/restored/ValueResolver	role:interface (Context,Sy)→Object ⇒ 取值解析
 c	abcd/Sy	abcd/aide/restored/ValueKey	role:interface (Context)→Object ⇒ 键
 c	abcd/Py	abcd/aide/restored/ValueStore	role:持 ValueResolver + Context 存取 ⇒ 键值存储
@@ -27488,6 +27405,14 @@ c	abcd/II	abcd/aide/restored/CollectionConsumer2	role:与 CollectionConsumer 同
 c	abcd/HI	abcd/aide/restored/CollectionConsumer2Impl	role:CollectionConsumer2 的实现
 c	abcd/KI	abcd/aide/restored/CollectionConsumer3	role:四个重载的集合消费者接口
 c	abcd/JI	abcd/aide/restored/CollectionConsumer3Impl	role:CollectionConsumer3 的实现
+c	abcd/Il	com/aide/ui/command/Command	body:空接口，被四个命令接口继承 ⇒ 命令基接口 Command
+c	abcd/Oz	io/fabric/sdk/android/services/persistence/FileStore	body:interface File getFile()，唯一使用者 FileStoreImpl ⇒ fabric 的 FileStore（按引用关系定名）
+c	abcd/Dz	abcd/aide/restored/SwitchTableHttpMethod	body:static int[] + <clinit> 读 HttpMethod.values() ⇒ HttpMethod 的 switch 表
+c	abcd/Ep	abcd/aide/restored/SwitchTableDexFileWriterType	body:static int[] + 读 DexFileWriter$Type.values() ⇒ 该枚举的 switch 表
+c	abcd/Gt	abcd/aide/restored/SwitchTableLivenessAnalyzerNextFunction	body:static int[] + 读 LivenessAnalyzer$NextFunction.values() ⇒ 该枚举的 switch 表
+c	abcd/Uo	abcd/aide/restored/SwitchTableVisibility	body:static int[] + 读 Visibility.values() ⇒ 该枚举的 switch 表
+c	abcd/Wy	abcd/aide/restored/SwitchTableAsyncTaskStatus	body:static int[] + 读 ModernAsyncTask$Status.values() ⇒ AsyncTask 状态 switch 表
+c	abcd/hQ	abcd/aide/restored/IStringListenerImpl	body:IStringListener$Stub 的子类 + 字段 gQ，把回调转发 ⇒ 该 AIDL 接口的实现
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
