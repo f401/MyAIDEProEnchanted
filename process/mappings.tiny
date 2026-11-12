@@ -27431,6 +27431,38 @@ c	abcd/rc	abcd/aide/restored/Data31	role:纯字段数据类；无身份判据，
 c	abcd/ve	abcd/aide/restored/Data32	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
 c	abcd/ye	abcd/aide/restored/Data33	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
 c	abcd/zj	abcd/aide/restored/Data34	role:纯字段数据类；无身份判据，按作用+序号命名（同族 34 个，序号按探针名排序）
+c	abcd/Bf	abcd/aide/restored/MenuItemCommandImpl1	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Cg	abcd/aide/restored/MenuCommandImpl1	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/Df	abcd/aide/restored/MenuCommandImpl2	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/Ff	abcd/aide/restored/MenuItemCommandImpl2	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Ig	abcd/aide/restored/MenuItemCommandImpl3	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Lf	abcd/aide/restored/MenuItemCommandImpl4	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Ne	abcd/aide/restored/MenuCommandImpl3	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/Of	abcd/aide/restored/MenuItemCommandImpl5	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Pe	abcd/aide/restored/FileBrowserCommandImpl1	role:Jl 实现（无身份判据，序号按探针名排序）
+c	abcd/Pf	abcd/aide/restored/MenuCommandImpl4	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/Pg	abcd/aide/restored/MenuItemCommandImpl6	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Qe	abcd/aide/restored/MenuCommandImpl5	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/Qf	abcd/aide/restored/MenuItemCommandImpl7	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Sf	abcd/aide/restored/MenuItemCommandImpl8	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Sg	abcd/aide/restored/MenuCommandImpl6	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/Uf	abcd/aide/restored/MenuItemCommandImpl9	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/Wg	abcd/aide/restored/FileBrowserCommandImpl2	role:Jl 实现（无身份判据，序号按探针名排序）
+c	abcd/Yg	abcd/aide/restored/FileBrowserCommandImpl3	role:Jl 实现（无身份判据，序号按探针名排序）
+c	abcd/Zg	abcd/aide/restored/MenuItemCommandImpl10	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/ch	abcd/aide/restored/MenuCommandImpl7	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/df	abcd/aide/restored/MenuItemCommandImpl11	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/dh	abcd/aide/restored/MenuCommandImpl8	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/ef	abcd/aide/restored/MenuItemCommandImpl12	role:Yl 实现（无身份判据，序号按探针名排序）
+c	abcd/ff	abcd/aide/restored/MenuCommandImpl9	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/fh	abcd/aide/restored/FileBrowserCommandImpl4	role:Jl 实现（无身份判据，序号按探针名排序）
+c	abcd/gh	abcd/aide/restored/MenuCommandImpl10	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/jg	abcd/aide/restored/MenuCommandImpl11	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/kf	abcd/aide/restored/MenuCommandImpl12	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/mf	abcd/aide/restored/MenuCommandImpl13	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/pf	abcd/aide/restored/MenuCommandImpl14	role:_l 实现（无身份判据，序号按探针名排序）
+c	abcd/qg	abcd/aide/restored/FileBrowserCommandImpl5	role:Jl 实现（无身份判据，序号按探针名排序）
+c	abcd/sg	abcd/aide/restored/MenuItemCommandImpl13	role:Yl 实现（无身份判据，序号按探针名排序）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
