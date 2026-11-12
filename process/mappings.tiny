@@ -27288,6 +27288,43 @@ c	abcd/dx$a$a	com/google/android/finsky/externalreferrer/IGetInstallReferrerServ
 c	abcd/bQ	tv/ouya/console/internal/IIapServiceDefinition	body:interface extends IInterface；AIDL 描述符 "tv.ouya.console.internal.IIapServiceDefinition" ⇒ 该 AIDL 接口
 c	abcd/bQ$a	tv/ouya/console/internal/IIapServiceDefinition$Stub	body:abstract extends Binder implements bQ + 同一描述符 ⇒ Stub（外层 bQ 已映射）
 c	abcd/bQ$a$a	tv/ouya/console/internal/IIapServiceDefinition$Stub$Proxy	body:implements bQ + 同一描述符 ⇒ Stub.Proxy
+c	abcd/cQ	tv/ouya/console/internal/IStringListener	body:interface extends IInterface；AIDL 描述符 "tv.ouya.console.internal.IStringListener"（写在 cQ$a 的 attachInterface/onTransact）⇒ 该 AIDL 接口
+c	abcd/cQ$a	tv/ouya/console/internal/IStringListener$Stub	body:abstract extends Binder implements cQ + 同一描述符 ⇒ AIDL 的 Stub
+c	abcd/Cz	io/fabric/sdk/android/services/network/CertificateChainCleaner	str:串 "Didn't find a trust anchor in chain cleaner" + X509 链清理方法 ⇒ Fabric 的证书链清理器
+c	abcd/kA	io/fabric/sdk/android/services/settings/SettingsCacheBehavior	body:枚举常量 IGNORE_CACHE_EXPIRATION/SKIP_CACHE_LOOKUP/USE_CACHE 与 fabric 1.4.8 同名枚举逐字相同
+c	abcd/sd	com/aide/codemodel/language/java/DebugRepair	str:String[][] 表里全是 DebuggerRT*/LogCatBroadcaster 类名 ⇒ AIDE 的 DebugRepair（调试器补丁表）
+c	abcd/Je	com/aide/ui/util/BuildGradleExt	body:extends Configuration + 14 个 AST 方法 + 串 projectDir/file ⇒ BuildGradle 的扩展版
+c	abcd/Aw	abcd/aide/restored/UuidFormatter	role:字段 UUID、方法 j6(UUID)String ⇒ UUID 格式化
+c	abcd/FK	abcd/aide/restored/ByteArrayWriter	role:静态 byte[] 定长读写（4/8 字节），按方法形参定名
+c	abcd/HK	abcd/aide/restored/Utf8Decoder	role:boolean[] 标记 + 按首字节分支解码 ⇒ UTF-8 解码器
+c	abcd/Ot	abcd/aide/restored/IntArrays	role:全是静态 int[] 操作 ⇒ int 数组工具类
+c	abcd/Qz	abcd/aide/restored/PreferencesAccessor	role:get/edit/j6(Editor)Z 都在 SharedPreferences 上 ⇒ 偏好访问封装
+c	abcd/Nz	abcd/aide/restored/TrustStoreHelper	role:BKS KeyStore + X509 链校验 ⇒ 信任库助手
+c	abcd/Kz	abcd/aide/restored/TlsSocketFactoryProvider	role:唯一方法返回 SSLSocketFactory、串 "TLS" ⇒ TLS 工厂提供者
+c	abcd/Us	abcd/aide/restored/HashCodeComparator	role:Comparator + HashMap 缓存，按预计算值排序
+c	abcd/Ti	abcd/aide/restored/MapMerger	role:方法全在合并 Map/List 配置 ⇒ 配置合并器
+c	abcd/Wt	abcd/aide/restored/ArchiveFileFilter	role:串 ".apk/.jar/.zip"，唯一方法收 String 返回 boolean ⇒ 归档文件判断
+c	abcd/Wv	abcd/aide/restored/PropertyStore	role:串 properties/.ser + 存取方法 ⇒ 属性文件存储
+c	abcd/Wv$a	abcd/aide/restored/PropertyStore$Entry	role:宿主 PropertyStore 的内部类（探针名 $a 归属）；字段 String/Xv/J/String ⇒ 属性记录
+c	abcd/Zz	abcd/aide/restored/JsonEventSerializer	role:JSONObject 与 long 时间戳读写 ⇒ 事件 JSON 序列化
+c	abcd/Vz	abcd/aide/restored/UsageSearchRequest	role:纯字段数据类（String×8/int/fA/Collection），只有构造器 ⇒ 搜索请求
+c	abcd/Wb	abcd/aide/restored/UsageIndexTable	role:4 个并行 int[] + 游标内部类 ⇒ 索引表
+c	abcd/Wb$a	abcd/aide/restored/UsageIndexTable$Cursor	role:宿主 UsageIndexTable 的内部类；回指 + int 位置 ⇒ 游标
+c	abcd/Vv	abcd/aide/restored/PropertyEntryComparator	role:Comparator，比较 Wv$a(=PropertyStore$Entry) ⇒ 属性记录排序
+c	abcd/Ke	abcd/aide/restored/WearableAppDescriptorParser	role:串 wearable_app_desc/<wearableApp package=> ⇒ wearable 应用描述解析
+c	abcd/FBBB	abcd/aide/restored/LogHelper	role:log(Context,…)/log(View,…) 两个重载 + 格式化串 ⇒ 日志助手
+c	abcd/ej	com/aide/ui/project/CreateFlavorValueRunnable	role:ValueRunnable + 串 "Creating Flavor ..." ⇒ 创建 flavor 的回调
+c	abcd/cj	com/aide/ui/project/BuildFlavorAddedRunnable	role:Runnable + 串 "Build flavor has been added" ⇒ 提示 build flavor 已添加
+c	abcd/Yi	com/aide/common/AddXmlFileValueRunnable	role:ValueRunnable + 串 "Add Xml" 与 XML 样板 ⇒ 添加 XML 资源
+c	abcd/jj	com/aide/common/AddJavaFileValueRunnable	role:ValueRunnable + 串 "Add class"/"public class " ⇒ 添加 Java 类
+c	abcd/gf	abcd/aide/restored/ClipboardCommand	role:MenuCommand + 串 "clipboard" ⇒ 剪贴板命令
+c	abcd/hf	abcd/aide/restored/WebPreviewCommand	role:MenuItemCommand + 串 "com.aide.web" ⇒ Web 预览命令
+c	abcd/bx	abcd/aide/restored/GenderEnum	role:枚举常量 FEMALE/MALE/UNKNOWN ⇒ 性别枚举
+c	abcd/bz	abcd/aide/restored/ValueAnnotation	role:注解，唯一成员 value()Class[]
+c	abcd/ru	abcd/aide/restored/FieldAnnotation	role:注解，唯一成员 field()long
+c	abcd/su	abcd/aide/restored/MethodAnnotation	role:注解，唯一成员 method()long
+c	abcd/_x	abcd/aide/restored/ExecutorHolder	role:两个 Executor 字段 ⇒ 执行器持有者
+c	abcd/Vx	abcd/aide/restored/ExceptionReporter	role:唯一方法收 Exception 返回 void ⇒ 异常上报回调
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

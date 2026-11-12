@@ -993,3 +993,40 @@ dx$a$a	com/google/android/finsky/externalreferrer/IGetInstallReferrerService$Stu
 bQ	tv/ouya/console/internal/IIapServiceDefinition	body:interface extends IInterface；AIDL 描述符 "tv.ouya.console.internal.IIapServiceDefinition" ⇒ 该 AIDL 接口
 bQ$a	tv/ouya/console/internal/IIapServiceDefinition$Stub	body:abstract extends Binder implements bQ + 同一描述符 ⇒ Stub（外层 bQ 已映射）
 bQ$a$a	tv/ouya/console/internal/IIapServiceDefinition$Stub$Proxy	body:implements bQ + 同一描述符 ⇒ Stub.Proxy
+cQ	tv/ouya/console/internal/IStringListener	body:interface extends android/os/IInterface，方法 onCancel()/Mr(String)/j6(int,String,Bundle)；Stub cQ$a 的 attachInterface 描述符字面量 = "tv.ouya.console.internal.IStringListener" ⇒ 该 AIDL 接口
+cQ$a	tv/ouya/console/internal/IStringListener$Stub	body:abstract extends Binder implements cQ，onTransact 按 transaction id 分支回调 cQ 的三个方法，attachInterface 用同一描述符 ⇒ AIDL 的 Stub（外层 cQ 本轮同时映射）
+Cz	io/fabric/sdk/android/services/network/CertificateChainCleaner	str:串 "Didn't find a trust anchor in chain cleaner" 在 fabric 1.4.8 里唯一属于 CertificateChainCleaner；方法收 X509Certificate 数组与 Nz(=TrustStoreHelper) 返回清理后的链
+kA	io/fabric/sdk/android/services/settings/SettingsCacheBehavior	body:enum，<clinit> 三个常量 IGNORE_CACHE_EXPIRATION / SKIP_CACHE_LOOKUP / USE_CACHE 与 fabric 1.4.8 的同名枚举逐字相同
+sd	com/aide/codemodel/language/java/DebugRepair	str:4 个 String[][] 的填充串全是 AIDE 调试器类名（DebuggerRT、DebuggerRT$ProxyThread、LogCatBroadcaster…）；AIDE+ 2.3.5 的 DebugRepair 与之串重合 12 条（次优 JavaCompiler 仅 9 条且对不上表内容）
+Je	com/aide/ui/util/BuildGradleExt	body:extends abcd/BaseProjectConfig（已证 = Configuration），14 个方法全以 groovyjarjarantlr/collections/AST 为参数，串 projectDir/project/file ⇒ AIDE+ 2.3.5 的 BuildGradleExt
+Aw	abcd/aide/restored/UuidFormatter	role:唯一字段 java/util/UUID、唯一方法 j6(UUID)Ljava/lang/String;，无串可依 ⇒ 按类型定作用（UUID→字符串）
+FK	abcd/aide/restored/ByteArrayWriter	role:8 个静态 byte[] 方法：j6([BIJ)V 写 8 字节、FH([BI)J 读 8 字节、DW([BI)I 读 4 字节、j6(II)I、Hw([BI)J ⇒ 字节数组定长读写
+HK	abcd/aide/restored/Utf8Decoder	role:字段 boolean[]，方法 j6(B)Z 判首字节、DW([BII)I 与 j6([BII)I 解码一段 ⇒ 带标记位的 UTF-8 解码
+Ot	abcd/aide/restored/IntArrays	role:12 个静态 int[] 方法：j6([II)I 找下标、j6([IIZ)V 增/删、j6([I[I)V 拷贝、FH([II)Z 判存在 ⇒ int 数组工具
+Qz	abcd/aide/restored/PreferencesAccessor	role:方法 get()Landroid/content/SharedPreferences; / edit()Landroid/content/SharedPreferences$Editor; / j6(Editor)Z ⇒ SharedPreferences 访问封装
+Nz	abcd/aide/restored/TrustStoreHelper	role:字段 KeyStore + HashMap，串 "BKS"；方法 j6(InputStream,String)KeyStore 载入、DW(X509Certificate)Z 校验、j6(X509Certificate)X509Certificate 取签发者 ⇒ 信任库/证书链助手
+Kz	abcd/aide/restored/TlsSocketFactoryProvider	role:唯一方法 j6(Labcd/Lz;)Ljavax/net/ssl/SSLSocketFactory; + 串 "TLS" ⇒ 用给定 TrustManager 造 SSL 工厂
+Us	abcd/aide/restored/HashCodeComparator	role:implements Comparator，字段 HashMap + Ws；j6(ms,ms)I 先查缓存表再回退 ⇒ 用预计算值排序的比较器
+Ti	abcd/aide/restored/MapMerger	role:4 个方法都在合并 Map/List（j6(String,Map)List、j6(String,Map)Map、j6(String,Map,Map)V、j6(String,Map,Set,List)V）⇒ 配置 Map 合并器
+Wt	abcd/aide/restored/ArchiveFileFilter	role:唯一方法 j6(String)Z + 串 ".apk"/".jar"/".zip" ⇒ 归档文件名判断
+Wv	abcd/aide/restored/PropertyStore	role:串 "properties"/"Property error"/".ser"；方法 DW()File、j6()List、j6(String,String,Xv,J)V 存、j6(String)Xv 读 ⇒ 属性文件存储
+Wv$a	abcd/aide/restored/PropertyStore$Entry	role:宿主 Wv（本轮映射为 PropertyStore）的内部类，探针名 $a 归属；字段 String/Xv/J/String ⇒ 一条属性记录
+Zz	abcd/aide/restored/JsonEventSerializer	role:两个方法 j6()Lorg/json/JSONObject; 与 j6(J,JSONObject)V ⇒ 事件对象与 JSON 互转
+Vz	abcd/aide/restored/UsageSearchRequest	role:11 个字段（String×8、int、fA、Collection）+ 只有构造器，无方法 ⇒ 搜索请求数据类（内含 UsageSearch/fA）
+Wb	abcd/aide/restored/UsageIndexTable	role:字段 4 个 int[] + 游标 Wb$a + 两个标志，方法 DW(I)I/j6(II)V/j6(I)Z/Hw()V/v5()V/DW()V/FH()V/j6()V ⇒ 并行 int 数组实现的索引表
+Wb$a	abcd/aide/restored/UsageIndexTable$Cursor	role:宿主 Wb（本轮映射为 UsageIndexTable）的内部类；字段 Z/Z/int/回指 Wb + 两个构造器（Wb)、(Wb,Vb) ⇒ 索引表游标
+Vv	abcd/aide/restored/PropertyEntryComparator	role:implements Comparator，比较方法 j6(Labcd/Wv$a;Labcd/Wv$a;)I ⇒ 属性记录（Wv$a）比较器
+Ke	abcd/aide/restored/WearableAppDescriptorParser	role:串 " <rawPathResId>wearable_app"、"<wearableApp package=""、"wearable_app_desc"、"</versionName>" + 方法 j6(String)String / j6(String,String,String,String)Z ⇒ 解析 wearable 应用描述
+FBBB	abcd/aide/restored/LogHelper	role:两个 log 重载（log(Context,CharSequence)V、log(View,FileBrowser$b)V）+ 串 "FH:%s\nv5:%s\nHw:%s\nVH:%d" ⇒ 日志/调试输出助手
+ej	com/aide/ui/project/CreateFlavorValueRunnable	role:implements ab(=com/aide/common/ValueRunnable)，5 字段（Z,Z,String,Sk$a,gj）+ 串 "Creating Flavor ..."/"main"；与 AIDE+ 2.3.5 的 AndroidProjectSupport$d 同形同串 ⇒ 创建 flavor 的回调（外层类不在 2.8.7，用扁平名）
+cj	com/aide/ui/project/BuildFlavorAddedRunnable	role:implements Runnable，4 字段（Z,Z,List,dj）+ 串 "Build flavor has been added"；与 AIDE+ 2.3.5 的 AndroidProjectSupport$d$a$a 同形同串 ⇒ 提示 build flavor 已添加的 Runnable（扁平名）
+Yi	com/aide/common/AddXmlFileValueRunnable	role:implements ab(=ValueRunnable)，字段 Z,Z,String,ab + 串 ".xml"/"<?xml version=\"1.0\""/"<LinearLayout xmlns:android="/"Add Xml"/"layout"；与 AIDE+ 2.3.5 的 AddAndroidFiles$b 同形同串 ⇒ 添加 XML 资源的回调（扁平名）
+jj	com/aide/common/AddJavaFileValueRunnable	role:implements ab(=ValueRunnable)，字段 Z,Z,String,ab + 串 "Add class"/"public class "/"package "/".java"；与 AIDE+ 2.3.5 的 AddAndroidFiles$a 同形同串 ⇒ 添加 Java 类的回调（扁平名）
+gf	abcd/aide/restored/ClipboardCommand	role:implements _l(=com/aide/ui/command/MenuCommand)，唯一串 "clipboard"，方法 isEnabled()Z/j6()I/j6(Z)Z/run()Z ⇒ 剪贴板相关菜单命令
+hf	abcd/aide/restored/WebPreviewCommand	role:implements Yl(=MenuItemCommand)，串 "com.aide.web"；run 里比较项目类型字符串 ⇒ 打开 Web 预览的菜单项
+bx	abcd/aide/restored/GenderEnum	role:enum，<clinit> 常量 FEMALE/MALE/UNKNOWN ⇒ 性别枚举（无更多判据，按常量字面量定名）
+bz	abcd/aide/restored/ValueAnnotation	role:implements java/lang/annotation/Annotation，唯一方法 value()[Ljava/lang/Class; ⇒ 单 Class[] 成员的注解类型
+ru	abcd/aide/restored/FieldAnnotation	role:implements Annotation，唯一方法 field()J ⇒ 单 long 成员的注解
+su	abcd/aide/restored/MethodAnnotation	role:implements Annotation，唯一方法 method()J ⇒ 单 long 成员的注解
+_x	abcd/aide/restored/ExecutorHolder	role:两个 java/util/concurrent/Executor 字段（DW/j6），只有 <clinit> ⇒ 执行器持有者/注入点
+Vx	abcd/aide/restored/ExceptionReporter	role:唯一方法 j6(Ljava/lang/Exception;)V，无字段无串 ⇒ 异常上报回调
