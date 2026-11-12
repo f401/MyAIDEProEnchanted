@@ -28859,6 +28859,8 @@ abcd/zz io/fabric/sdk/android/services/events/GZIPQueueFileEventStorage
 abcd/pc com/aide/ui/util/FilePatternMatcher
 abcd/oc com/aide/ui/util/FilePatternMatcher$Pattern
 abcd/rc com/aide/ui/tools/ThreadFactory
+abcd/Hl com/aide/ui/actions/EditorAction
+abcd/gQ abcd/aide/restored/PurchaseCallbackDispatcher
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

@@ -2626,3 +2626,5 @@ c	abcd/zz	-	-	body:构造器 4 参与 j6(File)OutputStream 与 fabric GZIPQueueF
 c	abcd/pc	-	-	body:单例 + (String,String)Z 匹配方法，与 AIDE+ 2.3.5 同名类字段/方法逐个相同
 c	abcd/oc	-	-	body:FilePatternMatcher 的子类，重写匹配方法 ⇒ 其模式实现
 c	abcd/rc	-	-	body:单例 + makeThread(ThreadGroup,Runnable,String,long) 与 AIDE+ 2.3.5 同名类逐个相同
+c	abcd/Hl	-	-	body:被 RunAction/UndoAction/RedoAction/EditModeAction/DesignAction 继承，方法集 getName/isEnabled/isVisible/run ⇒ 动作基类
+c	abcd/gQ	-	-	body:持购买监听 k + 主线程 Handler 派发三个回调 ⇒ 购买回调派发器

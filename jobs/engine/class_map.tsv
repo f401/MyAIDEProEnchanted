@@ -1123,3 +1123,5 @@ zz	io/fabric/sdk/android/services/events/GZIPQueueFileEventStorage	body:构造�
 pc	com/aide/ui/util/FilePatternMatcher	body:字段 (自身单例,Z,Z,Object) + 方法 j6()pc 与 j6(String,String)Z，与 AIDE+ 2.3.5 的 com/aide/ui/util/FilePatternMatcher（getSingleton + 匹配方法，字段 exceptionEnabled/parametersEnabled ↔ Z,Z）逐个相同 ⇒ FilePatternMatcher
 oc	com/aide/ui/util/FilePatternMatcher$Pattern	body:extends pc(=FilePatternMatcher)，字段 Z,Z，重写 j6(String,String)Z；与 oracle 的 FilePatternMatcher$a（同样 extends FilePatternMatcher、同样两标志一方法）一致 ⇒ 其模式实现（外层同批映射）
 rc	com/aide/ui/tools/ThreadFactory	body:字段 (自身单例,Z,Z,Object) + 方法 j6()rc 与 j6(ThreadGroup,Runnable,String,J)Thread，与 AIDE+ 2.3.5 的 com/aide/ui/tools/ThreadFactory（getSingleton/makeThread）逐个相同 ⇒ ThreadFactory
+Hl	com/aide/ui/actions/EditorAction	body:implements Il(=Command)，方法 getName/getIcon/isEnabled/isVisible/run；被 com/aide/ui/actions/ 的 RunAction/UndoAction/RedoAction/EditModeAction/DesignAction 继承 ⇒ 编辑器动作基类
+gQ	abcd/aide/restored/PurchaseCallbackDispatcher	body:构造器收 tv/ouya/console/api/k（购买监听），方法 j6(int,String,Bundle)/onCancel 经 Handler(Looper.getMainLooper()) 派发；使用者 PurchaseResult/PurchaseCancel/IStringListenerImpl ⇒ 购买回调派发器
