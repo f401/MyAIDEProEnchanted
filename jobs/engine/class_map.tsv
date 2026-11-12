@@ -984,3 +984,12 @@ iy	com/aide/engine/TaskUtilsAnon1Anon5Anon1	role:被 TaskUtilsAnon1Anon5 唯一�
 ky	com/aide/engine/TaskUtilsAnon1Anon6Anon1	role:被 TaskUtilsAnon1Anon6 唯一实例化；无接口/父类判据（结构性序号）
 my	com/aide/engine/TaskUtilsAnon1Anon7Anon1	role:被 TaskUtilsAnon1Anon7 唯一实例化；无接口/父类判据（结构性序号）
 ph	com/aide/ui/ExportApkDialogPreprocessorAnon5Anon1	role:被 ExportApkDialogPreprocessorAnon5 唯一实例化；无接口/父类判据（结构性序号）
+ox	com/google/android/gms/dynamic/IObjectWrapper	body:interface extends IInterface；AIDL 描述符字面量 "com.google.android.gms.dynamic.IObjectWrapper"（写在 Stub.attachInterface/Proxy.transact 里）⇒ 该 AIDL 接口
+ox$a	com/google/android/gms/dynamic/IObjectWrapper$Stub	body:extends abcd.Dx(=AidlStubBase) implements ox；同一 AIDL 描述符字面量 ⇒ IObjectWrapper.Stub（外层 ox 已映射）
+ox$a$a	com/google/android/gms/dynamic/IObjectWrapper$Stub$Proxy	body:extends abcd.Cx(=AidlProxyBase) implements ox；同一 AIDL 描述符字面量 ⇒ IObjectWrapper.Stub.Proxy
+dx	com/google/android/finsky/externalreferrer/IGetInstallReferrerService	body:interface extends IInterface；AIDL 描述符字面量 "com.google.android.finsky.externalreferrer.IGetInstallReferrerService" ⇒ 该 AIDL 接口
+dx$a	com/google/android/finsky/externalreferrer/IGetInstallReferrerService$Stub	body:abstract extends Binder implements dx + 同一描述符 ⇒ Stub（外层 dx 已映射）
+dx$a$a	com/google/android/finsky/externalreferrer/IGetInstallReferrerService$Stub$Proxy	body:implements dx + transact 里同一描述符 ⇒ Stub.Proxy
+bQ	tv/ouya/console/internal/IIapServiceDefinition	body:interface extends IInterface；AIDL 描述符 "tv.ouya.console.internal.IIapServiceDefinition" ⇒ 该 AIDL 接口
+bQ$a	tv/ouya/console/internal/IIapServiceDefinition$Stub	body:abstract extends Binder implements bQ + 同一描述符 ⇒ Stub（外层 bQ 已映射）
+bQ$a$a	tv/ouya/console/internal/IIapServiceDefinition$Stub$Proxy	body:implements bQ + 同一描述符 ⇒ Stub.Proxy

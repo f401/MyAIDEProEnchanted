@@ -27279,6 +27279,15 @@ c	abcd/iy	com/aide/engine/TaskUtilsAnon1Anon5Anon1	role:被 TaskUtilsAnon1Anon5 
 c	abcd/ky	com/aide/engine/TaskUtilsAnon1Anon6Anon1	role:被 TaskUtilsAnon1Anon6 唯一实例化；无接口/父类判据（结构性序号）
 c	abcd/my	com/aide/engine/TaskUtilsAnon1Anon7Anon1	role:被 TaskUtilsAnon1Anon7 唯一实例化；无接口/父类判据（结构性序号）
 c	abcd/ph	com/aide/ui/ExportApkDialogPreprocessorAnon5Anon1	role:被 ExportApkDialogPreprocessorAnon5 唯一实例化；无接口/父类判据（结构性序号）
+c	abcd/ox	com/google/android/gms/dynamic/IObjectWrapper	body:interface extends IInterface；AIDL 描述符字面量 "com.google.android.gms.dynamic.IObjectWrapper"（写在 Stub.attachInterface/Proxy.transact 里）⇒ 该 AIDL 接口
+c	abcd/ox$a	com/google/android/gms/dynamic/IObjectWrapper$Stub	body:extends abcd.Dx(=AidlStubBase) implements ox；同一 AIDL 描述符字面量 ⇒ IObjectWrapper.Stub（外层 ox 已映射）
+c	abcd/ox$a$a	com/google/android/gms/dynamic/IObjectWrapper$Stub$Proxy	body:extends abcd.Cx(=AidlProxyBase) implements ox；同一 AIDL 描述符字面量 ⇒ IObjectWrapper.Stub.Proxy
+c	abcd/dx	com/google/android/finsky/externalreferrer/IGetInstallReferrerService	body:interface extends IInterface；AIDL 描述符字面量 "com.google.android.finsky.externalreferrer.IGetInstallReferrerService" ⇒ 该 AIDL 接口
+c	abcd/dx$a	com/google/android/finsky/externalreferrer/IGetInstallReferrerService$Stub	body:abstract extends Binder implements dx + 同一描述符 ⇒ Stub（外层 dx 已映射）
+c	abcd/dx$a$a	com/google/android/finsky/externalreferrer/IGetInstallReferrerService$Stub$Proxy	body:implements dx + transact 里同一描述符 ⇒ Stub.Proxy
+c	abcd/bQ	tv/ouya/console/internal/IIapServiceDefinition	body:interface extends IInterface；AIDL 描述符 "tv.ouya.console.internal.IIapServiceDefinition" ⇒ 该 AIDL 接口
+c	abcd/bQ$a	tv/ouya/console/internal/IIapServiceDefinition$Stub	body:abstract extends Binder implements bQ + 同一描述符 ⇒ Stub（外层 bQ 已映射）
+c	abcd/bQ$a$a	tv/ouya/console/internal/IIapServiceDefinition$Stub$Proxy	body:implements bQ + 同一描述符 ⇒ Stub.Proxy
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

@@ -2487,3 +2487,12 @@ c	abcd/iy	-	-	role:被 TaskUtilsAnon1Anon5 唯一实例化；无接口/父类判
 c	abcd/ky	-	-	role:被 TaskUtilsAnon1Anon6 唯一实例化；无接口/父类判据（结构性序号）
 c	abcd/my	-	-	role:被 TaskUtilsAnon1Anon7 唯一实例化；无接口/父类判据（结构性序号）
 c	abcd/ph	-	-	role:被 ExportApkDialogPreprocessorAnon5 唯一实例化；无接口/父类判据（结构性序号）
+c	abcd/ox	-	-	body:interface extends IInterface；AIDL 描述符字面量 "com.google.android.gms.dynamic.IObjectWrapper"（写在 Stub.attachInterface/Proxy.transact 里）⇒ 该 AIDL 接口
+c	abcd/ox$a	-	-	body:extends abcd.Dx(=AidlStubBase) implements ox；同一 AIDL 描述符字面量 ⇒ IObjectWrapper.Stub（外层 ox 已映射）
+c	abcd/ox$a$a	-	-	body:extends abcd.Cx(=AidlProxyBase) implements ox；同一 AIDL 描述符字面量 ⇒ IObjectWrapper.Stub.Proxy
+c	abcd/dx	-	-	body:interface extends IInterface；AIDL 描述符字面量 "com.google.android.finsky.externalreferrer.IGetInstallReferrerService" ⇒ 该 AIDL 接口
+c	abcd/dx$a	-	-	body:abstract extends Binder implements dx + 同一描述符 ⇒ Stub（外层 dx 已映射）
+c	abcd/dx$a$a	-	-	body:implements dx + transact 里同一描述符 ⇒ Stub.Proxy
+c	abcd/bQ	-	-	body:interface extends IInterface；AIDL 描述符 "tv.ouya.console.internal.IIapServiceDefinition" ⇒ 该 AIDL 接口
+c	abcd/bQ$a	-	-	body:abstract extends Binder implements bQ + 同一描述符 ⇒ Stub（外层 bQ 已映射）
+c	abcd/bQ$a$a	-	-	body:implements bQ + 同一描述符 ⇒ Stub.Proxy

@@ -2480,3 +2480,12 @@ abcd/iy com/aide/engine/TaskUtilsAnon1Anon5Anon1
 abcd/ky com/aide/engine/TaskUtilsAnon1Anon6Anon1
 abcd/my com/aide/engine/TaskUtilsAnon1Anon7Anon1
 abcd/ph com/aide/ui/ExportApkDialogPreprocessorAnon5Anon1
+abcd/ox com/google/android/gms/dynamic/IObjectWrapper
+abcd/ox$a com/google/android/gms/dynamic/IObjectWrapper$Stub
+abcd/ox$a$a com/google/android/gms/dynamic/IObjectWrapper$Stub$Proxy
+abcd/dx com/google/android/finsky/externalreferrer/IGetInstallReferrerService
+abcd/dx$a com/google/android/finsky/externalreferrer/IGetInstallReferrerService$Stub
+abcd/dx$a$a com/google/android/finsky/externalreferrer/IGetInstallReferrerService$Stub$Proxy
+abcd/bQ tv/ouya/console/internal/IIapServiceDefinition
+abcd/bQ$a tv/ouya/console/internal/IIapServiceDefinition$Stub
+abcd/bQ$a$a tv/ouya/console/internal/IIapServiceDefinition$Stub$Proxy
