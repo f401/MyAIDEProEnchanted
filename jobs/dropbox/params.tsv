@@ -40,8 +40,6 @@ abcd/Dw	j6	(Ljava/util/Map;Ljava/lang/String;)Z	1	name	dropbox-android-sdk-1.6.2
 abcd/Dw$c	j6	(Lorg/apache/http/HttpResponse;)Labcd/Dw$e;	0	response	dropbox-android-sdk-1.6.2
 abcd/Dw$c	j6	(Lorg/apache/http/HttpResponse;Labcd/Dw$e;)J	0	response	dropbox-android-sdk-1.6.2
 abcd/Dw$c	j6	(Lorg/apache/http/HttpResponse;Labcd/Dw$e;)J	1	metadata	dropbox-android-sdk-1.6.2
-abcd/Fw	j6	(JJ)V	0	bytes	dropbox-android-sdk-1.6.2+src
-abcd/Fw	j6	(JJ)V	1	total	dropbox-android-sdk-1.6.2+src
 abcd/Gw	DW	(Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Labcd/Dw$f;	0	method	dropbox-android-sdk-1.6.2
 abcd/Gw	DW	(Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Labcd/Dw$f;	1	host	dropbox-android-sdk-1.6.2
 abcd/Gw	DW	(Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Labcd/Dw$f;	2	path	dropbox-android-sdk-1.6.2
@@ -84,8 +82,6 @@ abcd/Ww	j6	(Lorg/apache/http/client/methods/HttpUriRequest;)V	0	request	dropbox-
 abcd/Ww$e	j6	(Labcd/Ww$a;II)V	0	manager	dropbox-android-sdk-1.6.2
 abcd/Ww$e	j6	(Labcd/Ww$a;II)V	1	idleTimeoutSeconds	dropbox-android-sdk-1.6.2
 abcd/Ww$e	j6	(Labcd/Ww$a;II)V	2	checkIntervalSeconds	dropbox-android-sdk-1.6.2
-abcd/Zw	j6	(Lorg/apache/http/HttpRequest;)V	0	request	dropbox-android-sdk-1.6.2+src
-abcd/Zw	j6	(Lorg/apache/http/client/methods/HttpUriRequest;)V	0	request	dropbox-android-sdk-1.6.2+src
 abcd/_w	j6	(Labcd/_w;)Z	0	o	dropbox-android-sdk-1.6.2
 abcd/dL	j6	(Ljava/util/List;)Ljava/lang/String;	0	list	json_simple-1.1+src
 abcd/fL	j6	(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/StringBuffer;)Ljava/lang/String;	0	key	json_simple-1.1+src
