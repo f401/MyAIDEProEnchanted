@@ -1,0 +1,17 @@
+# 探针(全名)	目标	证据
+com/aide/ui/U	com/aide/ui/ServiceContainer	body:55 个方法（私有类型归一为 L*）与 AIDE+2.3.5 的 com/aide/ui/ServiceContainer 完全相同、19 条共有串；描述符唯一配对得 getCurrentActivity/getContext/getString/init/setContext ⇒ ServiceContainer
+com/aide/ui/aa	com/aide/ui/AppPreferences	str:与 com/aide/ui/AppPreferences 共有 46 条常量串（首选项键名），57 个方法描述符（归一）相同、3 个字段 ⇒ AppPreferences
+com/aide/ui/ca	com/aide/ui/AppFileIcons	body:唯一方法 j6(String)I + 13 条共有串，与 com/aide/ui/AppFileIcons 完全一致（3 方法 2 字段）⇒ 文件图标表
+com/aide/ui/Ha	com/aide/ui/GregorianCalendarUtil	body:14 个方法描述符与 com/aide/ui/GregorianCalendarUtil 完全相同（DW()GregorianCalendar…）+ 4 条共有串 ⇒ 日历工具
+com/aide/ui/Wa	com/aide/ui/MainSearchBarNoTabs	body:16 个方法描述符相同、构造器收 MainActivity；与 com/aide/ui/MainSearchBarNoTabs 唯一配对（getMainSearchBox/getMainSearchBarNoTabs）⇒ 主搜索栏
+com/aide/ui/Wa$a	com/aide/ui/MainSearchBarNoTabs$SearchLabel	body:枚举（valueOf/values + (String,int) 构造）与 MainSearchBarNoTabs$SearchLabel 的 4 个方法逐个相同；外层 Wa 同批映射 ⇒ 搜索范围枚举
+com/aide/ui/V	com/aide/ui/AppCommands	body:16 字段 / 12 方法，DW(I)Command 与 DW()List 与 com/aide/ui/AppCommands 完全相同（16/16 字段）⇒ 命令表
+com/aide/ui/Z	com/aide/ui/QuickActionMenu	body:7 字段 18 方法，构造器 (MainActivity,int)、DW(QuickActionMenu)、EQ(MenuItem)Z 与 com/aide/ui/QuickActionMenu 逐个相同 ⇒ 快捷动作菜单
+com/aide/ui/P	com/aide/ui/ExtendLibraries	body:3 方法（j6()List）+ 2 字段，与 com/aide/ui/ExtendLibraries 完全相同 ⇒ 扩展库清单
+com/aide/ui/Ga	com/aide/ui/ViewVisibilityManage	body:5 方法 5 字段，构造器 (Activity,int)、getView()、FH(Z)V 与 com/aide/ui/ViewVisibilityManage 相同 ⇒ 视图显隐管理
+com/aide/ui/Fa	com/aide/ui/ViewVisibilityManage$a	body:动画监听器（onAnimationEnd/onAnimationRepeat 同名同描述符）+ 构造器收 Ga，与 ViewVisibilityManage$a 相同；外层同批映射 ⇒ 其动画监听
+com/aide/ui/Q	com/aide/ui/ServiceContainer$a	body:implements Runnable，构造器 (Runnable)、run() 与 ServiceContainer$a 的 3 个方法逐个相同 ⇒ ServiceContainer 的 Runnable 包装
+com/aide/ui/T	com/aide/ui/ServiceContainer$b	body:implements Runnable，构造器 (Runnable,Handler) 与 run() 与 ServiceContainer$b 的 3 个方法逐个相同 ⇒ 第二种 Runnable 包装
+com/aide/ui/M	com/aide/ui/GlobalKeyCommand	body:4 方法（构造器收 List、DW(KeyStroke)、j6(KeyStroke)Z）与 com/aide/ui/GlobalKeyCommand 逐个相同 ⇒ 全局快捷键命令
+com/aide/ui/Za	com/aide/ui/MenuSearchWidget	body:构造器 (Menu) + 5 方法（含 expandActionView）与 com/aide/ui/MenuSearchWidget 完全相同 ⇒ 菜单搜索控件
+com/aide/ui/fa	com/aide/ui/MenuGotoLineWidget	body:构造器 (Menu) + 6 方法，与 com/aide/ui/MenuGotoLineWidget 完全相同 ⇒ 跳转行控件

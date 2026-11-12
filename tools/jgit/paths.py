@@ -68,6 +68,7 @@ PART_DIRS = [
     ('aide_bb', os.path.join(REPO, 'jobs', 'aide_bb')),
     ('aide_ui', os.path.join(REPO, 'jobs', 'aide_ui')),
     ('aide_engine', os.path.join(REPO, 'jobs', 'aide_engine')),
+    ('realpkg', os.path.join(REPO, 'jobs', 'realpkg')),
 ]
 PARTS = [n for n, _ in PART_DIRS]
 

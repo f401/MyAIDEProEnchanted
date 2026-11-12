@@ -95,6 +95,10 @@
   {
    "dir": "../jobs/aide_engine",
    "probe_prefix": "com/aide/engine"
+  },
+  {
+   "dir": "../jobs/realpkg",
+   "probe_prefix": "com/aide/ui"
   }
  ],
  "src_root": [

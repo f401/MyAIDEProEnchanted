@@ -55779,3 +55779,19 @@ c	com/aide/engine/c$b$n	com/aide/engine/Engine$DaemonTask$n	shape: AIDE+ 2.3.5 �
 c	com/aide/engine/c$b$o	com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback——模板求值适配
 c	com/aide/engine/c$b$p	com/aide/engine/Engine$DaemonTask$UsageSearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$UsageSearcherCallback——用法搜索适配
 c	com/aide/engine/service/x	com/aide/engine/service/CodeModelFactory	shape: AIDE+ 2.3.5 的 com/aide/engine/service/CodeModelFactory——CodeModelFactory
+c	com/aide/ui/U	com/aide/ui/ServiceContainer	body:55/55 方法描述符与 AIDE+2.3.5 的 ServiceContainer 相同 + 19 条串；getter 配对出 getMainActivity/getAppController/getString/init ⇒ 服务定位器
+c	com/aide/ui/aa	com/aide/ui/AppPreferences	str:46 条共有常量串（首选项键名）+ 57/57 方法描述符相同 ⇒ AppPreferences
+c	com/aide/ui/ca	com/aide/ui/AppFileIcons	body:j6(String)I + 13 条共有串，与 AppFileIcons 完全一致 ⇒ 文件图标表
+c	com/aide/ui/Ha	com/aide/ui/GregorianCalendarUtil	body:14/14 方法描述符相同 + 4 条共有串 ⇒ 日历工具
+c	com/aide/ui/Wa	com/aide/ui/MainSearchBarNoTabs	body:16/16 方法描述符 + 构造器 (MainActivity) 与 MainSearchBarNoTabs 相同 ⇒ 主搜索栏
+c	com/aide/ui/Wa$a	com/aide/ui/MainSearchBarNoTabs$SearchLabel	body:枚举，4 个方法与 SearchLabel 逐个相同（外层 Wa 同批映射）⇒ 搜索范围
+c	com/aide/ui/V	com/aide/ui/AppCommands	body:16/16 字段 + 12/12 方法（DW(I)Command/DW()List）⇒ 命令表 AppCommands
+c	com/aide/ui/Z	com/aide/ui/QuickActionMenu	body:7 字段 18 方法，构造器 (MainActivity,int) 与 QuickActionMenu 相同 ⇒ 快捷动作菜单
+c	com/aide/ui/P	com/aide/ui/ExtendLibraries	body:3/3 方法（j6()List）+ 2 字段与 ExtendLibraries 相同 ⇒ 扩展库清单
+c	com/aide/ui/Ga	com/aide/ui/ViewVisibilityManage	body:5/5 方法 + 构造器 (Activity,int) 与 ViewVisibilityManage 相同 ⇒ 视图显隐管理
+c	com/aide/ui/Fa	com/aide/ui/ViewVisibilityManage$a	body:onAnimationEnd/Repeat + 构造器收 ViewVisibilityManage ⇒ 其动画监听器
+c	com/aide/ui/Q	com/aide/ui/ServiceContainer$a	body:构造器 (Runnable)+run() 与 ServiceContainer$a 相同 ⇒ Runnable 包装
+c	com/aide/ui/T	com/aide/ui/ServiceContainer$b	body:构造器 (Runnable,Handler)+run() 与 ServiceContainer$b 相同 ⇒ Runnable 包装2
+c	com/aide/ui/M	com/aide/ui/GlobalKeyCommand	body:构造器 (List) + 3 方法与 GlobalKeyCommand 相同 ⇒ 全局快捷键命令
+c	com/aide/ui/Za	com/aide/ui/MenuSearchWidget	body:构造器 (Menu) + 5 方法（expandActionView）与 MenuSearchWidget 相同 ⇒ 菜单搜索控件
+c	com/aide/ui/fa	com/aide/ui/MenuGotoLineWidget	body:构造器 (Menu) + 6 方法，与 MenuGotoLineWidget 相同 ⇒ 跳转行控件
