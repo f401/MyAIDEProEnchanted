@@ -27008,6 +27008,8 @@ c	abcd/Gk	com/aide/engine/ExternalProcess	body:protected java.lang.Process 字�
 c	abcd/De	com/aide/ui/util/Version	body:构造 (String) + compareTo/equals/hashCode + 静态工厂 j6(boolean,String)；内部类 De\\$d 含 alpha/beta/milestone 通道常量 ⇒ 可比较的版本号模型
 c	abcd/Ch	com/aide/ui/InputMethodDialog	body:extends com.aide.common.ma（对话框基类）+ AlertDialog.Builder 构建 + 字面量 "input_method" ⇒ 打开/选择输入法的对话框
 c	abcd/El	com/aide/ui/editor/TypingAssist	body:两个静态方法 j6(AIDEEditor,char,int,int)/j6(AIDEEditor,int,int,int) 返回 boolean，内部调 AIDEEditor.EQ/FH/Hw/gn/u7 与 String.endsWith，字面量 "{ }" ⇒ 编辑器的输入辅助（括号/缩进）
+c	abcd/Dx	com/aide/engine/service/AidlStubBase	body:extends android.os.Binder implements IInterface；构造 (String descriptor) 调 attachInterface；protected j6(int,Parcel,Parcel,int) 默认返回 false；onTransact 特判 0xFFFFFF ⇒ AIDL Stub 基类（具体桩 ox$a 继承它）
+c	abcd/Cx	com/aide/engine/service/AidlProxyBase	body:字段 IBinder + String descriptor；构造 (IBinder,String)；iW():Parcel 与 j6(int,Parcel):Parcel 包装 transact ⇒ AIDL Proxy 基类（具体代理 ox$a$a 继承它）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

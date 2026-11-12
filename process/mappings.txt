@@ -28449,6 +28449,8 @@ abcd/Gk com/aide/engine/ExternalProcess
 abcd/De com/aide/ui/util/Version
 abcd/Ch com/aide/ui/InputMethodDialog
 abcd/El com/aide/ui/editor/TypingAssist
+abcd/Dx com/aide/engine/service/AidlStubBase
+abcd/Cx com/aide/engine/service/AidlProxyBase
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
